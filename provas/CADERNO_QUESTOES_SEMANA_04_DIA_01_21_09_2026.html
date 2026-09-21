@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>CADERNO OFICIAL DE QUESTÕES — SEMANA 4 / DIA 1 (21/09/2026) | INBRASP</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @page { size: A4; margin: 15mm 18mm; }
+    :root { --primary: #1e3a8a; --primary-dark: #0f172a; --accent: #dc2626; --border: #cbd5e1; --bg: #ffffff; --text: #0f172a; --text-muted: #475569; }
+    body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif; color: var(--text); background: #f8fafc; margin: 0; padding: 24px; font-size: 10.5pt; line-height: 1.45; }
+    .container { max-width: 960px; margin: 0 auto; background: white; padding: 36px 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
+    .header-box { border: 2px solid var(--primary); border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; background: #f8fafc; }
+    .header-titles h1 { margin: 0 0 4px 0; font-size: 1.35rem; color: var(--primary); font-weight: 800; text-transform: uppercase; }
+    .header-titles h2 { margin: 0 0 4px 0; font-size: 1rem; color: var(--text); font-weight: 700; }
+    .header-titles p { margin: 0; font-size: 0.85rem; color: var(--text-muted); }
+    .badge-banca { background: #fee2e2; color: #991b1b; font-weight: 800; padding: 6px 14px; border-radius: 6px; font-size: 0.85rem; text-transform: uppercase; border: 1px solid #fecaca; }
+    .no-print { display: flex; gap: 12px; margin-bottom: 24px; }
+    .btn-action { background: var(--primary); color: white; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+    .btn-action:hover { background: #1d4ed8; }
+    .section-title { background: #1e3a8a; color: white; padding: 8px 14px; border-radius: 6px; font-size: 1.05rem; font-weight: 800; margin: 28px 0 16px 0; display: flex; justify-content: space-between; align-items: center; }
+    .section-title.portugues { background: #0284c7; }
+    .question-block { border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; margin-bottom: 16px; background: #ffffff; page-break-inside: avoid; }
+    .question-meta { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.8rem; }
+    .q-badge { font-weight: 800; color: var(--primary); }
+    .q-topic { color: var(--text-muted); font-weight: 600; }
+    .question-text { font-weight: 700; color: var(--primary-dark); margin-bottom: 12px; line-height: 1.45; white-space: pre-line; }
+    .options-list { list-style: none; padding: 0; margin: 0; }
+    .option-item { display: flex; align-items: flex-start; gap: 10px; padding: 6px 8px; margin-bottom: 4px; border-radius: 4px; font-size: 0.92rem; }
+    .option-letter { width: 24px; height: 24px; border: 1.5px solid #94a3b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; color: #334155; flex-shrink: 0; }
+    .folha-respostas-box { border: 2px dashed var(--primary); border-radius: 8px; padding: 20px; margin: 30px 0; background: #f8fafc; page-break-before: always; }
+    .folha-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; font-size: 0.82rem; margin-top: 14px; }
+    .folha-row { display: flex; align-items: center; gap: 6px; padding: 4px 6px; background: white; border: 1px solid var(--border); border-radius: 4px; }
+    .folha-num { width: 28px; font-weight: 800; color: var(--primary); }
+    .folha-circle { width: 16px; height: 16px; border: 1px solid #64748b; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; color: #475569; }
+    .gabarito-section { page-break-before: always; margin-top: 30px; }
+    .gabarito-item { background: #f1f5f9; border-left: 4px solid var(--primary); padding: 10px 14px; margin-bottom: 10px; border-radius: 0 6px 6px 0; font-size: 0.88rem; }
+    .gabarito-letra { background: #16a34a; color: white; padding: 2px 8px; border-radius: 4px; font-weight: 800; margin-right: 6px; }
+    @media print { body { background: white; padding: 0; } .container { padding: 0; box-shadow: none; max-width: 100%; } .no-print { display: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="no-print">
+      <button class="btn-action" onclick="window.print()"><i class="fas fa-print"></i> Imprimir Caderno (PDF)</button>
+      <a href="../index.html" class="btn-action" style="background: #e2e8f0; color: #334155;"><i class="fas fa-arrow-left"></i> Voltar ao Gerenciador de Estudos</a>
+    </div>
+    <div class="header-box">
+      <div class="header-titles">
+        <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #dc2626;">Caderno de Treino Diário Oficial • Semana 4 • Formato enxuto</span>
+        <h1>Câmara Municipal de Meruoca / CE</h1>
+        <h2>Concurso Público nº 001/2026 — Cargo: Técnico Legislativo</h2>
+        <p><strong>Semana 4 • Dia 1 (21/09/2026):</strong> Regimento Interno (12Q, só ângulos novos) • Português Regência Verbal & Nominal (6Q)</p>
+      </div>
+      <div style="text-align: right;">
+        <div class="badge-banca">Banca INBRASP</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 6px;">18 Questões (A, B, C, D)</div>
+      </div>
+    </div>
+    <div class="section-title">
+      <span><i class="fas fa-gavel"></i> PARTE 1: REGIMENTO INTERNO (QUESTÕES 569 A 585)</span>
+      <span style="font-size: 0.8rem; font-weight: normal;">Mesa, Presidente, Sessões e Comissões</span>
+    </div>
+
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 569</span>
+        <span class="q-topic">Regimento Interno • Mesa Diretora: Mandato</span>
+      </div>
+      <div class="question-text">Quanto ao mandato dos membros da Mesa Diretora da Câmara Municipal, a regra regimental mais comum estabelece que:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>O mandato é vitalício, só se encerrando com a renúncia expressa do ocupante.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>O mandato é de dois anos, permitida a recondução para o mesmo cargo na eleição imediatamente subsequente, observada a Lei Orgânica.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>O mandato coincide com o do Prefeito e não admite qualquer recondução.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Os membros da Mesa são escolhidos por sorteio a cada sessão ordinária.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 570</span>
+        <span class="q-topic">Regimento Interno • Destituição de Membro da Mesa</span>
+      </div>
+      <div class="question-text">A destituição de membro da Mesa Diretora que se omita ou exorbite de suas atribuições regimentais depende, em regra, de:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Decisão judicial de primeira instância, sem participação da Câmara.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Decreto do Prefeito determinando o afastamento imediato.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Deliberação do Plenário pelo voto de dois terços dos vereadores, assegurada ampla defesa.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Simples requerimento verbal de qualquer cidadão presente à sessão.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 571</span>
+        <span class="q-topic">Regimento Interno • Presidente: Representação da Câmara</span>
+      </div>
+      <div class="question-text">Entre as atribuições do Presidente da Câmara Municipal inclui-se:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Nomear os Secretários Municipais do Poder Executivo.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Julgar crimes comuns praticados por qualquer cidadão do Município.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Representar a Câmara em juízo e fora dele, bem como dar posse a Prefeito, Vice e Vereadores.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Arrecadar diretamente os tributos municipais e executar o orçamento.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 572</span>
+        <span class="q-topic">Regimento Interno • Presidente: Direção dos Trabalhos</span>
+      </div>
+      <div class="question-text">Na direção dos trabalhos plenários, compete ao Presidente da Câmara, entre outras atribuições:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Votar em todas as matérias com peso dobrado em relação aos demais vereadores.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Proibir qualquer vereador de apresentar requerimentos durante a legislatura.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Alterar sozinho o texto de leis já aprovadas antes da promulgação.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Abrir, presidir e encerrar as sessões, manter a ordem e suspender a sessão quando necessário.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 574</span>
+        <span class="q-topic">Regimento Interno • Sessões Ordinárias e Períodos Legislativos</span>
+      </div>
+      <div class="question-text">As sessões legislativas ordinárias da Câmara Municipal realizam-se, por simetria com o modelo constitucional, em dois períodos anuais, compreendidos, em regra, entre:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>2 de fevereiro a 17 de julho e 1º de agosto a 22 de dezembro, com recessos em janeiro e parte de julho e dezembro.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>1º de janeiro a 31 de dezembro, sem qualquer recesso parlamentar.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Apenas no mês de fevereiro de cada ano, em sessão única anual.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Os dias de carnaval e as festas juninas, por tradição municipal.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 575</span>
+        <span class="q-topic">Regimento Interno • Sessões Extraordinárias</span>
+      </div>
+      <div class="question-text">Sobre as sessões extraordinárias da Câmara Municipal, é CORRETO afirmar que:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Ocorrem todos os dias úteis do ano, independentemente de convocação.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Destinam-se a homenagens e comemorações, sem qualquer deliberação.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Convocadas no recesso para matéria urgente e determinada, sem extra remuneratório.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Podem tratar de qualquer assunto, ainda que estranho ao ato de convocação.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 576</span>
+        <span class="q-topic">Regimento Interno • Sessões Solenes e Secretas</span>
+      </div>
+      <div class="question-text">As sessões solenes e as sessões secretas distinguem-se porque:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Ambas servem apenas para a votação do orçamento anual.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>As solenes são sempre secretas e as secretas são sempre solenes.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Nenhuma delas admite a presença de vereadores, sendo realizadas só por servidores.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>As solenes destinam-se a atos cívicos e homenagens, sem deliberação; secretas: sigilo regimental decidido pelo Plenário.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 577</span>
+        <span class="q-topic">Regimento Interno • Abertura da Sessão e Quórum</span>
+      </div>
+      <div class="question-text">Para a abertura das sessões plenárias e para as deliberações da Câmara, os quóruns regimentais típicos exigem, respectivamente:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Unanimidade para abrir e maioria simples para deliberar.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Um terço para abrir; maioria absoluta presente para deliberar.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Apenas o Presidente presente para abrir e deliberar sozinho.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Dois terços para abrir e unanimidade para qualquer deliberação.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 579</span>
+        <span class="q-topic">Regimento Interno • Poder Conclusivo das Comissões</span>
+      </div>
+      <div class="question-text">Em regra regimental, as comissões permanentes da Câmara podem deliberar de forma conclusiva, dispensando a votação em Plenário, quando:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Se o Regimento autorizar, com recurso de um décimo para o Plenário.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Em todas as matérias, esvaziando por completo as funções do Plenário.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Apenas quando o Prefeito autorizar previamente cada deliberação.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Jamais, pois toda matéria exige votação em Plenário sem exceção.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 580</span>
+        <span class="q-topic">Regimento Interno • CPI: Poderes e Destino</span>
+      </div>
+      <div class="question-text">As Comissões Parlamentares de Inquérito da Câmara Municipal possuem poderes de investigação próprios das autoridades judiciais e, ao final dos trabalhos, deverão:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Condenar criminalmente os investigados, fixando penas de prisão.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Arquivar sigilosamente o relatório, vedada qualquer divulgação.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Encaminhar suas conclusões ao Ministério Público para as providências cabíveis, quando for o caso.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Substituir o Tribunal de Contas no julgamento das contas do Prefeito.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 583</span>
+        <span class="q-topic">Regimento Interno • Processos de Votação</span>
+      </div>
+      <div class="question-text">Quanto aos processos de votação no Plenário da Câmara, a regra regimental típica estabelece que:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Toda votação é secreta, sem exceção, inclusive nas eleições da Mesa.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>A votação simbólica é a regra geral e a nominal realiza-se mediante requerimento aprovado pelo Plenário.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>A votação simbólica é proibida e todas as matérias exigem chamada nominal.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>O voto é sempre aberto por aclamação, vedado qualquer registro individual.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 585</span>
+        <span class="q-topic">Regimento Interno • Legislatura e Sessão Legislativa</span>
+      </div>
+      <div class="question-text">No Poder Legislativo municipal, distinguem-se legislatura e sessão legislativa porque:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Ambas têm duração de trinta dias e se confundem integralmente.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>A legislatura dura um ano e a sessão legislativa dura quatro anos.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Legislatura = mandato de 4 anos; sessão legislativa = cada ano de trabalhos.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>A sessão legislativa só existe em ano eleitoral.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="section-title portugues">
+      <span><i class="fas fa-spell-check"></i> PARTE 2: REGÊNCIA VERBAL & NOMINAL (QUESTÕES 588 A 594)</span>
+      <span style="font-size: 0.8rem; font-weight: normal;">Assistir, Visar, Aspirar, Obedecer, Pagar e Nomes</span>
+    </div>
+
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 588</span>
+        <span class="q-topic">Língua Portuguesa • Regência: Assistir (Presenciar)</span>
+      </div>
+      <div class="question-text">Assinale a frase em que o verbo ASSISTIR foi empregado com a regência correta no sentido de presenciar:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Os vereadores assistiram à sessão solene de abertura dos trabalhos.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Os vereadores assistiram a sessão solene de abertura dos trabalhos.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Os vereadores assistiram na sessão solene de abertura dos trabalhos.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Os vereadores assistiram para a sessão solene de abertura dos trabalhos.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 590</span>
+        <span class="q-topic">Língua Portuguesa • Regência: Visar (Almejar vs Mirar)</span>
+      </div>
+      <div class="question-text">Assinale a frase em que o verbo VISAR está corretamente empregado:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>O projeto visa o fortalecimento da agricultura familiar.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>O projeto visa ao fortalecimento da agricultura familiar.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>O atirador visou a o alvo antes de disparar.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>O servidor visou de assinar o documento oficial.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 591</span>
+        <span class="q-topic">Língua Portuguesa • Regência: Aspirar (Almejar vs Sorver)</span>
+      </div>
+      <div class="question-text">Assinale a alternativa em que o verbo ASPIRAR está correto:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>O vereador aspira o cargo de presidente da Mesa.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>O paciente aspira a o oxigênio pelo cateter.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>A indústria aspira em novos mercados consumidores.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>O vereador aspira ao cargo de presidente da Mesa.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 592</span>
+        <span class="q-topic">Língua Portuguesa • Regência: Obedecer e Desobedecer</span>
+      </div>
+      <div class="question-text">Os verbos OBEDECER e DESOBEDECER são transitivos indiretos. Assinale a frase correta:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Os servidores obedeceram o regimento interno da Câmara.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Os servidores obedeceram com o regimento interno da Câmara.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Os servidores desobedeceram de todas as normas regimentais.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Os servidores obedeceram ao regimento interno da Câmara.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 593</span>
+        <span class="q-topic">Língua Portuguesa • Regência: Pagar e Perdoar (VTDI)</span>
+      </div>
+      <div class="question-text">PAGAR e PERDOAR são bitransitivos: coisa sem preposição, pessoa com preposição. Assinale a frase correta:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>A Prefeitura pagou aos fornecedores as faturas em atraso.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>A Prefeitura pagou os fornecedores as faturas em atraso.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>O presidente perdoou a ofensa ao colega arrependido.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>O presidente perdoou o colega a ofensa sofrida.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 594</span>
+        <span class="q-topic">Língua Portuguesa • Regência Nominal</span>
+      </div>
+      <div class="question-text">A regência nominal estuda a preposição exigida pelos nomes. Assinale a alternativa em que a regência nominal está correta:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>O técnico mostrou-se obediente o regulamento da Câmara.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>A comissão está favorável com a aprovação do projeto.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>O técnico mostrou-se obediente ao regulamento da Câmara.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Os vereadores são aptos em legislar sobre a matéria.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="folha-respostas-box">
+      <div style="text-align: center; border-bottom: 1px solid #cbd5e1; padding-bottom: 8px; margin-bottom: 10px;">
+        <strong style="font-size: 1.1rem; text-transform: uppercase; color: var(--primary);">Folha de Respostas Óptica — Simulação Real (18 Questões)</strong>
+        <p style="margin: 4px 0 0 0; font-size: 0.8rem; color: #64748b;">Preencha a bolha correspondente à alternativa escolhida para treino de agilidade.</p>
+      </div>
+      <div class="folha-grid">
+
+        <div class="folha-row">
+          <span class="folha-num">569</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">570</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">571</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">572</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">574</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">575</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">576</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">577</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">579</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">580</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">583</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">585</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">588</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">590</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">591</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">592</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">593</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">594</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+      </div>
+    </div>
+    <div class="gabarito-section">
+      <div style="background: var(--primary); color: white; padding: 10px 16px; border-radius: 6px; font-weight: 800; font-size: 1.1rem; margin-bottom: 16px;">
+        <i class="fas fa-check-double"></i> GABARITO OFICIAL FUNDAMENTADO
+      </div>
+
+      <div class="gabarito-item">
+        <span class="gabarito-letra">B</span>
+        <strong>Questão 569 (Regimento Interno - Mesa Diretora: Mandato):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: B. Padrão regimental: mandato de 2 anos (metade da legislatura), com possibilidade de recondução nos termos da Lei Orgânica. Vitaliciedade e sorteio inexistem; coincidir com o prefeito não é regra.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">C</span>
+        <strong>Questão 570 (Regimento Interno - Destituição de Membro da Mesa):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: C. A Mesa é eleita pela Câmara e só por ela pode ser destituída: quórum qualificado de 2/3 com contraditório e ampla defesa. Prefeito e Judiciário não destituem mesa diretora.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">C</span>
+        <strong>Questão 571 (Regimento Interno - Presidente: Representação da Câmara):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: C. O Presidente é a face institucional do Legislativo: representa-o judicial e extrajudicialmente e preside a posse dos eleitos. Nomear secretários, julgar crimes e arrecadar são funções alheias ao cargo.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">D</span>
+        <strong>Questão 572 (Regimento Interno - Presidente: Direção dos Trabalhos):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: D. Poderes de polícia dos trabalhos: abrir/presidir/encerrar, manter a ordem, suspender. Voto sem peso dobrado, vedação de requerimentos e alteração unilateral de lei aprovada são incompatíveis com o cargo.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">A</span>
+        <strong>Questão 574 (Regimento Interno - Sessões Ordinárias e Períodos Legislativos):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: A. Simetria com CF, Art. 57: 02/02–17/07 e 01/08–22/12. Recesso não significa paralisação total: comissões e convocações extraordinárias subsistem.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">C</span>
+        <strong>Questão 575 (Regimento Interno - Sessões Extraordinárias):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: C. Extraordinária = recesso + matéria certa e urgente + sem extra remuneratório (CF, Art. 57, § 7º, por simetria). Homenagens são das solenes; a pauta vincula-se à convocação.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">D</span>
+        <strong>Questão 576 (Regimento Interno - Sessões Solenes e Secretas):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: D. Solene = celebração (posse, títulos, homenagens), sem voto. Secreta = sigilo regimental, decidida pelo Plenário. Confundi-las é a pegadinha clássica.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">B</span>
+        <strong>Questão 577 (Regimento Interno - Abertura da Sessão e Quórum):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: B. Abertura com 1/3; deliberação com maioria absoluta presente decidindo por maioria de votos (CF, Art. 47, por simetria). Unanimidade e decisão solitária inexistem como regra.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">A</span>
+        <strong>Questão 579 (Regimento Interno - Poder Conclusivo das Comissões):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: A. Simetria com CF, Art. 58, § 2º, I: poder conclusivo previsto no Regimento, com recurso de 1/10 para o Plenário. Não é geral nem depende do Prefeito; tampouco é vedado em absoluto.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">C</span>
+        <strong>Questão 580 (Regimento Interno - CPI: Poderes e Destino):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: C. CPI investiga com poderes judiciais (quebra de sigilo mediante decisão, oitivas), mas não julga nem condena: remete ao MP. Arquivamento sigiloso obrigatório e substituição do TCE inexistem.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">B</span>
+        <strong>Questão 583 (Regimento Interno - Processos de Votação):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: B. Simbólica (permanecem sentados/aprovado) como regra; nominal (chamada com registro) por requerimento. Votação sempre secreta ou sempre por aclamação contrariam o padrão.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">C</span>
+        <strong>Questão 585 (Regimento Interno - Legislatura e Sessão Legislativa):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: C. Legislatura = 4 anos (mandato); sessão legislativa = cada ano civil de trabalhos (com os dois períodos e recessos). Inverter ou igualar os conceitos é o erro cobrado.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">A</span>
+        <strong>Questão 588 (Língua Portuguesa - Regência: Assistir (Presenciar)):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: A. Assistir = presenciar é VTI com preposição A. Como 'sessão' é palavra feminina determinada, soma-se o artigo: a + a = À (crase obrigatória). Sem crase, com EM ou PARA, a regência está errada.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">B</span>
+        <strong>Questão 590 (Língua Portuguesa - Regência: Visar (Almejar vs Mirar)):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: B. Almejar = VTI com A ('visa AO fortalecimento'); como 'fortalecimento' é masculino, não há crase. Mirar = VTD ('visou o alvo'); pôr visto = VTD ('visou o documento'). As demais violam cada regência.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">D</span>
+        <strong>Questão 591 (Língua Portuguesa - Regência: Aspirar (Almejar vs Sorver)):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: D. Almejar = VTI com A ('aspira AO cargo', sem crase por ser masculino); sorver/respirar = VTD ('aspira o oxigênio'). EM não rege nenhum dos sentidos.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">D</span>
+        <strong>Questão 592 (Língua Portuguesa - Regência: Obedecer e Desobedecer):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: D. Obedecer/desobedecer exigem preposição A (VTI): 'obedecer AO regimento'. Sem preposição ou com COM/DE, a regência está errada. Sem crase aqui porque 'regimento' é masculino.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">A</span>
+        <strong>Questão 593 (Língua Portuguesa - Regência: Pagar e Perdoar (VTDI)):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: A. Coisa = OD ('as faturas', sem preposição); pessoa = OI ('AOS fornecedores'). Em C/D os papéis se invertem: o correto seria 'perdoou AO colega A ofensa' (pessoa com A, coisa sem).</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">C</span>
+        <strong>Questão 594 (Língua Portuguesa - Regência Nominal):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: C. Obediente/favorável pedem A ('obediente AO', 'favorável À aprovação'); apto pede A ou PARA ('aptos A legislar'). COM e EM violam a regência desses nomes.</p>
+      </div>
+    
+    </div>
+  </div>
+</body>
+</html>
