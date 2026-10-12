@@ -140,7 +140,7 @@
       background: white;
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 12px;
+      padding: 14px;
       margin-bottom: 14px;
       box-shadow: var(--shadow);
     }
@@ -161,7 +161,7 @@
       display: flex;
       gap: 8px;
       overflow-x: auto;
-      padding-bottom: 4px;
+      padding-bottom: 6px;
       scrollbar-width: none;
     }
     .pills-scroll::-webkit-scrollbar { display: none; }
@@ -187,6 +187,59 @@
       color: white;
       border-color: var(--primary);
       box-shadow: 0 2px 8px rgba(30, 58, 138, 0.25);
+    }
+
+    /* Opcoes extras de Marcacao da Opcao Certa */
+    .options-toolbar {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .study-mode-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #166534;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+    .study-mode-toggle:hover { background: #dcfce7; }
+    .study-mode-toggle input {
+      cursor: pointer;
+      width: 17px;
+      height: 17px;
+      accent-color: #16a34a;
+    }
+
+    .btn-reveal-all {
+      background: #f8fafc;
+      color: #1e3a8a;
+      border: 1px solid #cbd5e1;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-reveal-all:hover {
+      background: #e2e8f0;
     }
 
     /* Placar de Resultado (Exibido após finalizar) */
@@ -281,13 +334,13 @@
     }
 
     .question-card.status-correct {
-      border: 2px solid var(--success);
-      background: #f0fdf4;
+      border: 2px solid var(--success) !important;
+      background: #f0fdf4 !important;
     }
 
     .question-card.status-wrong {
-      border: 2px solid var(--danger);
-      background: #fff1f2;
+      border: 2px solid var(--danger) !important;
+      background: #fff1f2 !important;
     }
 
     .card-meta-row {
@@ -402,35 +455,71 @@
       color: white;
     }
 
-    /* Estado Após Finalizar */
+    /* Destaque da Opcao Certa e Errada (Funciona individualmente ou ao finalizar) */
     .finished .option-btn { cursor: default; }
 
-    .finished .option-btn.correct-answer {
+    .option-btn.correct-answer {
       background: #dcfce7 !important;
       border-color: #16a34a !important;
-      box-shadow: 0 0 0 1px #16a34a !important;
+      box-shadow: 0 0 0 1.5px #16a34a !important;
       color: #14532d !important;
     }
-    .finished .option-btn.correct-answer .option-letter {
+    .option-btn.correct-answer .option-letter {
       background: #16a34a !important;
       color: white !important;
     }
 
-    .finished .option-btn.selected.wrong-answer {
+    .option-btn.selected.wrong-answer {
       background: #fee2e2 !important;
       border-color: #dc2626 !important;
-      box-shadow: 0 0 0 1px #dc2626 !important;
+      box-shadow: 0 0 0 1.5px #dc2626 !important;
       color: #7f1d1d !important;
     }
-    .finished .option-btn.selected.wrong-answer .option-letter {
+    .option-btn.selected.wrong-answer .option-letter {
       background: #dc2626 !important;
       color: white !important;
+    }
+
+    /* Barra de Ação Individual da Questão */
+    .q-action-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn-reveal-one {
+      background: #f1f5f9;
+      color: #1e3a8a;
+      border: 1px solid #cbd5e1;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.18s;
+    }
+    .btn-reveal-one:hover {
+      background: #e2e8f0;
+      border-color: #94a3b8;
+    }
+    .btn-reveal-one.revealed {
+      background: #dcfce7;
+      color: #166534;
+      border-color: #86efac;
     }
 
     /* Box de Comentário e Gabarito */
     .commentary-box {
       display: none;
-      margin-top: 14px;
+      margin-top: 12px;
       padding: 12px 14px;
       border-radius: 8px;
       background: #f8fafc;
@@ -546,6 +635,18 @@
           🚀 Mega Provão (Todas 339Q)
         </button>
       </div>
+
+      <!-- Barra de Opcoes de Marcacao e Estudo -->
+      <div class="options-toolbar">
+        <label class="study-mode-toggle" title="Ao ativar, tocar em qualquer opção já marca e destaca a resposta certa imediatamente!">
+          <input type="checkbox" id="chkInstantMode" onchange="toggleInstantMode(this.checked)">
+          <span><i class="fas fa-bolt" style="color: #16a34a;"></i> Modo Estudo: Marcar Certa ao Tocar</span>
+        </label>
+        
+        <button type="button" class="btn-reveal-all" onclick="revealAllQuestionsInBlock()">
+          <i class="fas fa-check-double" style="color: #16a34a;"></i> Marcar Todas as Certas (Apostila)
+        </button>
+      </div>
     </div>
 
     <!-- Card de Resultado Final (Aparece após confirmar) -->
@@ -595,7 +696,9 @@
     let currentFilter = 'foco50';
     let activeQuestions = [];
     let userAnswers = {}; // { qId: selectedOptionIndex }
+    let revealedQuestions = {}; // { qId: true }
     let isFinished = false;
+    let instantMode = false;
     let timerSeconds = 0;
     let timerInterval = null;
 
@@ -616,6 +719,10 @@
       }, 1000);
     }
 
+    function toggleInstantMode(enabled) {
+      instantMode = enabled;
+    }
+
     function switchFilter(filterKey, btnElement) {
       document.querySelectorAll('.pill-btn').forEach(btn => btn.classList.remove('active'));
       if (btnElement) btnElement.classList.add('active');
@@ -625,6 +732,7 @@
     function loadFilter(filterKey) {
       currentFilter = filterKey;
       userAnswers = {};
+      revealedQuestions = {};
       isFinished = false;
       document.body.classList.remove('finished');
       document.getElementById('resultCard').style.display = 'none';
@@ -696,6 +804,13 @@
             ${optionsHtml}
           </div>
 
+          <div class="q-action-bar">
+            <button type="button" class="btn-reveal-one" id="btnRev_${q.id}" onclick="revealSingleQuestion(${q.id})">
+              <i class="fas fa-lightbulb" style="color: #eab308;"></i> Ver / Marcar Opção Certa
+            </button>
+            <span class="q-status-hint" id="hint_${q.id}" style="font-size: 0.78rem; font-weight: 700;"></span>
+          </div>
+
           <div class="commentary-box" id="comBox_${q.id}">
             <strong>Gabarito Oficial & Justificativa:</strong><br>
             ${q.commentary || 'Comentário fundamentado da banca.'}
@@ -727,6 +842,71 @@
       if (card) card.classList.add('answered');
 
       updateProgress();
+
+      // Se o Modo Estudo Instantâneo estiver ativo, marca e revela a certa imediatamente!
+      if (instantMode) {
+        revealSingleQuestion(qId);
+      }
+    }
+
+    function revealSingleQuestion(qId) {
+      const q = activeQuestions.find(item => item.id === qId);
+      if (!q) return;
+
+      revealedQuestions[qId] = true;
+      const card = document.getElementById(`qCard_${qId}`);
+      const correctChoice = q.correctAnswer;
+      const userChoice = userAnswers[qId];
+      const letters = ['A', 'B', 'C', 'D'];
+
+      // Destacar a opção correta em verde
+      const correctBtn = document.getElementById(`optBtn_${qId}_${correctChoice}`);
+      if (correctBtn) correctBtn.classList.add('correct-answer');
+
+      const hintSpan = document.getElementById(`hint_${qId}`);
+
+      if (userChoice !== undefined) {
+        if (userChoice === correctChoice) {
+          if (card) {
+            card.classList.add('status-correct');
+            card.classList.remove('status-wrong');
+          }
+          if (hintSpan) {
+            hintSpan.innerHTML = '<span style="color: #16a34a;"><i class="fas fa-check-circle"></i> Você acertou! (' + letters[correctChoice] + ')</span>';
+          }
+        } else {
+          if (card) {
+            card.classList.add('status-wrong');
+            card.classList.remove('status-correct');
+          }
+          const wrongBtn = document.getElementById(`optBtn_${qId}_${userChoice}`);
+          if (wrongBtn) wrongBtn.classList.add('wrong-answer');
+          if (hintSpan) {
+            hintSpan.innerHTML = '<span style="color: #dc2626;"><i class="fas fa-times-circle"></i> Certa: Letra ' + letters[correctChoice] + '</span>';
+          }
+        }
+      } else {
+        if (hintSpan) {
+          hintSpan.innerHTML = '<span style="color: #16a34a;"><i class="fas fa-info-circle"></i> Gabarito: Letra ' + letters[correctChoice] + '</span>';
+        }
+      }
+
+      // Exibir o comentário da questão
+      const comBox = document.getElementById(`comBox_${qId}`);
+      if (comBox) comBox.style.display = 'block';
+
+      // Atualizar o botão
+      const btnRev = document.getElementById(`btnRev_${qId}`);
+      if (btnRev) {
+        btnRev.classList.add('revealed');
+        btnRev.innerHTML = '<i class="fas fa-check-double" style="color: #16a34a;"></i> Certa: ' + letters[correctChoice];
+      }
+    }
+
+    function revealAllQuestionsInBlock() {
+      activeQuestions.forEach(q => {
+        revealSingleQuestion(q.id);
+      });
     }
 
     function updateProgress() {
@@ -788,6 +968,16 @@
           const wrongBtn = document.getElementById(`optBtn_${q.id}_${userChoice}`);
           if (wrongBtn) wrongBtn.classList.add('wrong-answer');
         }
+
+        // Abrir comentarios
+        const comBox = document.getElementById(`comBox_${q.id}`);
+        if (comBox) comBox.style.display = 'block';
+
+        const btnRev = document.getElementById(`btnRev_${q.id}`);
+        if (btnRev) {
+          btnRev.classList.add('revealed');
+          btnRev.innerHTML = '<i class="fas fa-check-double" style="color: #16a34a;"></i> Certa: ' + ['A','B','C','D'][correctChoice];
+        }
       });
 
       const total = activeQuestions.length;
@@ -830,6 +1020,7 @@
 
       activeQuestions = wrongList;
       userAnswers = {};
+      revealedQuestions = {};
       isFinished = false;
       document.body.classList.remove('finished');
       document.getElementById('resultCard').style.display = 'none';
