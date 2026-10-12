@@ -42,7 +42,7 @@
         <button class="nav-btn" data-tab="tab-questoes">
           <i class="fas fa-tasks"></i>
           <span>Questões & Simulado</span>
-          <span class="nav-badge highlight" id="sidebarQuizBadge">585</span>
+          <span class="nav-badge highlight" id="sidebarQuizBadge">657</span>
         </button>
         <button class="nav-btn" data-tab="tab-macetes">
           <i class="fas fa-magic" style="color: #f59e0b;"></i>
@@ -65,6 +65,11 @@
         </button>
 
         <div class="nav-section-title">Material & Apoio</div>
+        <a href="PROVAO_MOBILE_ESPECIFICAS.html" target="_blank" class="nav-btn" style="text-decoration: none; color: inherit; background: rgba(37, 99, 235, 0.08); border-left: 3px solid #2563eb;">
+          <i class="fas fa-mobile-alt" style="color: #2563eb;"></i>
+          <span>Provão Mobile (339Q)</span>
+          <span class="nav-badge highlight" style="background: #2563eb; color: #fff;">INTERATIVO</span>
+        </a>
         <a href="provas/CENTRAL_DE_PROVAS.html" target="_blank" class="nav-btn" style="text-decoration: none; color: inherit;">
           <i class="fas fa-folder-open" style="color: #ef4444;"></i>
           <span>Central de Provas (PDF)</span>
@@ -214,11 +219,69 @@
             </div>
           </div>
 
+          <!-- Card de Orientação: Reta Final Provas Reais -->
+          <div style="background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); border: 1.5px solid #f87171; border-radius: 10px; padding: 14px 18px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 40px; height: 40px; border-radius: 8px; background: #dc2626; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                <i class="fas fa-file-pdf"></i>
+              </div>
+              <div>
+                <strong style="color: #991b1b; font-size: 0.95rem;">🎯 Missão Oficial de Hoje (05/10): Prova Real INBRASP 2026</strong>
+                <p style="margin: 2px 0 0 0; font-size: 0.84rem; color: #7f1d1d;">
+                  Resolva a <strong>Prova Real Oficial da Câmara de Ipaporanga/CE (29Q)</strong> aplicada pela banca INBRASP em 2026.
+                </p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <a href="provas/PROVA_REAL_INBRASP_2026_IPAPORANGA.pdf" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; background: #dc2626; color: white; padding: 8px 14px; border-radius: 6px; font-weight: 700; font-size: 0.82rem; text-decoration: none; white-space: nowrap;">
+                <i class="fas fa-file-pdf"></i> Abrir Prova Real de Hoje (PDF)
+              </a>
+              <a href="provas/CENTRAL_DE_PROVAS.html" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; background: #1e3a8a; color: white; padding: 8px 14px; border-radius: 6px; font-weight: 700; font-size: 0.82rem; text-decoration: none; white-space: nowrap;">
+                <i class="fas fa-calendar-alt"></i> Cronograma Completo de Provas
+              </a>
+            </div>
+          </div>
+
+          <!-- Card Provão Mobile Específicas -->
+          <div style="background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); color: white; border-radius: 10px; padding: 14px 18px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; box-shadow: 0 4px 14px rgba(30, 58, 138, 0.25);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 42px; height: 42px; border-radius: 8px; background: rgba(255,255,255,0.18); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <div>
+                <span style="background: #eab308; color: #713f12; font-weight: 800; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; text-transform: uppercase;">Modo Celular Interativo</span>
+                <strong style="display: block; font-size: 0.98rem; margin-top: 2px;">📱 Provão Mobile — Específicas & Legislação (339Q)</strong>
+                <p style="margin: 2px 0 0 0; font-size: 0.83rem; color: #cbd5e1;">
+                  Marque pelo celular sem ver a resposta de imediato. No final, clique em <strong>Confirmar Todas</strong> para ver seu gabarito comentado!
+                </p>
+              </div>
+            </div>
+            <a href="PROVAO_MOBILE_ESPECIFICAS.html" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #16a34a; color: white; padding: 10px 18px; border-radius: 8px; font-weight: 800; font-size: 0.88rem; text-decoration: none; white-space: nowrap; box-shadow: 0 3px 10px rgba(22, 163, 74, 0.35);">
+              <i class="fas fa-play-circle"></i> ABRIR PROVÃO NO CELULAR
+            </a>
+          </div>
+
           <!-- Seletor de Dias do Quiz -->
           <div class="day-tabs-nav">
-            <button class="day-tab-btn active" id="btnDayTabS4D1" onclick="selectQuizDay('w4_d1')">
+            <button class="day-tab-btn active" id="btnDayTabS5D1" onclick="selectQuizDay('w5_d1')">
               <i class="fas fa-star" style="color: var(--accent);"></i>
-              <span>Semana 4 • Dia 1 (21/09 - Hoje): 18Q</span>
+              <span>⭐ Semana 5 • Dia 1 (28/09 - HOJE): 18Q</span>
+            </button>
+            <button class="day-tab-btn" id="btnDayTabS4D4" onclick="selectQuizDay('w4_d4')">
+              <i class="fas fa-calendar-check"></i>
+              <span>Semana 4 • Dia 4 (24/09): 18Q</span>
+            </button>
+            <button class="day-tab-btn" id="btnDayTabS4D3" onclick="selectQuizDay('w4_d3')">
+              <i class="fas fa-calendar-check"></i>
+              <span>Semana 4 • Dia 3 (23/09): 18Q</span>
+            </button>
+            <button class="day-tab-btn" id="btnDayTabS4D2" onclick="selectQuizDay('w4_d2')">
+              <i class="fas fa-calendar-check"></i>
+              <span>Semana 4 • Dia 2 (22/09): 18Q</span>
+            </button>
+            <button class="day-tab-btn" id="btnDayTabS4D1" onclick="selectQuizDay('w4_d1')">
+              <i class="fas fa-calendar-check"></i>
+              <span>Semana 4 • Dia 1 (21/09): 18Q</span>
             </button>
             <button class="day-tab-btn" id="btnDayTabS3D5" onclick="selectQuizDay('w3_d5')">
               <i class="fas fa-calendar-check"></i>
@@ -278,19 +341,19 @@
             </button>
             <button class="day-tab-btn" id="btnDayTabAll" onclick="selectQuizDay('all')">
               <i class="fas fa-layer-group"></i>
-              <span>Todas as Questões (585)</span>
+              <span>Todas as Questões (657)</span>
             </button>
           </div>
 
           <!-- Banner Informativo do Dia Selecionado -->
           <div class="day-info-banner" id="quizDayBanner">
             <div>
-              <h3 id="quizDayTitle">⭐ Semana 4 • Dia 1 — Segunda-feira (21/09/2026 - HOJE): Regimento & Regência (18 Questões)</h3>
-              <p id="quizDayDesc">12 questões de Regimento Interno (Mesa, Presidente, sessões e comissões) + 6 questões de Língua Portuguesa (Regência Verbal & Nominal). Formato enxuto, padrão réplica fiel Banca INBRASP.</p>
+              <h3 id="quizDayTitle">⭐ Semana 5 • Dia 1 — Segunda-feira (28/09/2026 - HOJE): Controle da Administração Pública & Semântica (18 Questões)</h3>
+              <p id="quizDayDesc">10 questões de Controle da Administração (CF/88 Art. 31, parecer prévio do TCE 2/3, STF Temas 157/835, controle interno e autotutela) + 8 questões de Língua Portuguesa (Semântica: sinonímia, antonímia, parônimos ratificar/retificar, deferir/diferir, sessão/seção/cessão e denotação). Padrão fiel Banca INBRASP.</p>
             </div>
             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
               <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 6px 12px;" onclick="filterQuizCategory('all')">Ver Todas as 18Q</button>
-              <a href="provas/CADERNO_QUESTOES_SEMANA_04_DIA_01_21_09_2026.html" target="_blank" class="btn btn-primary" id="btnOpenDayBooklet" style="font-size: 0.8rem; padding: 6px 12px;">
+              <a href="provas/CADERNO_QUESTOES_SEMANA_05_DIA_01_28_09_2026.html" target="_blank" class="btn btn-primary" id="btnOpenDayBooklet" style="font-size: 0.8rem; padding: 6px 12px;">
                 <i class="fas fa-print"></i> Abrir Caderno Hoje Impresso (PDF)
               </a>
               <a href="provas/CENTRAL_DE_PROVAS.html" target="_blank" class="btn btn-secondary" style="font-size: 0.8rem; padding: 6px 12px;">
@@ -1335,7 +1398,7 @@
     <button class="mobile-nav-btn" data-tab="tab-questoes">
       <i class="fas fa-tasks"></i>
       <span>Questões</span>
-      <span class="mobile-badge" id="mobileQuizBadge">585</span>
+      <span class="mobile-badge" id="mobileQuizBadge">657</span>
     </button>
     <button class="mobile-nav-btn" data-tab="tab-flashcards">
       <i class="fas fa-clone"></i>

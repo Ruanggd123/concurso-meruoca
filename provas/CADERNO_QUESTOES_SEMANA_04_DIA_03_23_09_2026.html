@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>CADERNO OFICIAL DE QUESTÕES — SEMANA 4 / DIA 3 (23/09/2026) | INBRASP</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @page { size: A4; margin: 15mm 18mm; }
+    :root { --primary: #1e3a8a; --primary-dark: #0f172a; --accent: #dc2626; --border: #cbd5e1; --bg: #ffffff; --text: #0f172a; --text-muted: #475569; }
+    body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif; color: var(--text); background: #f8fafc; margin: 0; padding: 24px; font-size: 10.5pt; line-height: 1.45; }
+    .container { max-width: 960px; margin: 0 auto; background: white; padding: 36px 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
+    .header-box { border: 2px solid var(--primary); border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; background: #f8fafc; }
+    .header-titles h1 { margin: 0 0 4px 0; font-size: 1.35rem; color: var(--primary); font-weight: 800; text-transform: uppercase; }
+    .header-titles h2 { margin: 0 0 4px 0; font-size: 1rem; color: var(--text); font-weight: 700; }
+    .header-titles p { margin: 0; font-size: 0.85rem; color: var(--text-muted); }
+    .badge-banca { background: #fee2e2; color: #991b1b; font-weight: 800; padding: 6px 14px; border-radius: 6px; font-size: 0.85rem; text-transform: uppercase; border: 1px solid #fecaca; }
+    .no-print { display: flex; gap: 12px; margin-bottom: 24px; }
+    .btn-action { background: var(--primary); color: white; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+    .btn-action:hover { background: var(--primary-dark); }
+    .section-title { background: #e0e7ff; color: #1e3a8a; padding: 10px 16px; border-left: 5px solid #2563eb; font-weight: 800; font-size: 1rem; margin: 26px 0 16px 0; border-radius: 0 6px 6px 0; display: flex; justify-content: space-between; align-items: center; }
+    .section-title.secundario { background: #fef3c7; color: #92400e; border-left-color: #f59e0b; }
+    .question-block { border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; margin-bottom: 16px; background: #ffffff; page-break-inside: avoid; }
+    .question-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.78rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px; }
+    .q-badge { background: #1e3a8a; color: white; padding: 2px 8px; border-radius: 4px; font-weight: 800; }
+    .q-topic { color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+    .question-text { font-size: 0.96rem; font-weight: 600; margin-bottom: 12px; line-height: 1.5; }
+    .options-list { list-style: none; padding: 0; margin: 0; }
+    .option-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 10px; border-radius: 6px; margin-bottom: 6px; border: 1px solid transparent; font-size: 0.92rem; }
+    .option-item:hover { background: #f8fafc; border-color: #e2e8f0; }
+    .option-letter { width: 22px; height: 22px; border-radius: 50%; background: #e2e8f0; color: #334155; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.78rem; flex-shrink: 0; }
+    .folha-respostas-box { background: #f8fafc; border: 2px dashed #94a3b8; border-radius: 8px; padding: 16px 20px; margin: 30px 0; page-break-before: always; }
+    .folha-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-top: 12px; }
+    .folha-row { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 700; }
+    .folha-num { width: 24px; text-align: right; color: #475569; }
+    .folha-circle { width: 20px; height: 20px; border: 1.5px solid #64748b; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #475569; }
+    .gabarito-section { margin-top: 36px; border-top: 2px solid #cbd5e1; padding-top: 24px; page-break-before: always; }
+    .gabarito-item { border-left: 3px solid #10b981; background: #f0fdf4; padding: 10px 14px; border-radius: 0 6px 6px 0; margin-bottom: 10px; font-size: 0.9rem; }
+    .gabarito-letra { font-weight: 800; color: #047857; margin-right: 6px; font-size: 1rem; }
+    @media print {
+      body { background: white; padding: 0; }
+      .container { box-shadow: none; padding: 0; }
+      .no-print { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="no-print">
+      <a href="../index.html" class="btn-action" style="background: #475569;"><i class="fas fa-arrow-left"></i> Voltar ao Gerenciador</a>
+      <button onclick="window.print()" class="btn-action"><i class="fas fa-print"></i> Imprimir Caderno A4</button>
+    </div>
+
+    <div class="header-box">
+      <div class="header-titles">
+        <h1>Câmara Municipal de Meruoca — Concurso 2026</h1>
+        <h2>Técnico Legislativo • Caderno de Questões — Semana 4 / Dia 3 (23/09/2026)</h2>
+        <p>18 Questões Inéditas em Estilo Banca: 10 Orçamento Público + 8 Informática (Comunicação & E-mail)</p>
+      </div>
+      <div style="text-align: right;">
+        <span class="badge-banca">Banca INBRASP</span>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">4 Alternativas (A, B, C, D)</div>
+      </div>
+    </div>
+
+    <div class="section-title">
+      <span><i class="fas fa-book"></i> PARTE 1: ORÇAMENTO PÚBLICO — PPA, LDO E LOA (QUESTÕES 613 A 622)</span>
+      <span style="font-size: 0.8rem; font-weight: normal;">CF/88 Art. 165 a 167 • Lei 4.320/64 • Princípios Orçamentários</span>
+    </div>
+
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 613</span>
+        <span class="q-topic">Orçamento Público • Princípio da Exclusividade (CF/88, Art. 165, § 8º)</span>
+      </div>
+      <div class="question-text">O princípio orçamentário da exclusividade veda que a Lei Orçamentária Anual contenha matéria estranha à previsão da receita e à fixação da despesa. Contudo, a Constituição Federal ressalva expressamente da proibição:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>A criação de cargos públicos e a concessão de reajustes salariais para os servidores da administração.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>A autorização para abertura de créditos suplementares e contratação de operações de crédito da receita.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>A fixação dos subsídios dos vereadores e dos secretários municipais para a legislatura subsequente.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>A majoração das alíquotas de tributos municipais para cobrir despesas imprevistas de calamidade.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 614</span>
+        <span class="q-topic">Orçamento Público • Princípio da Universalidade e Orçamento Bruto (Lei 4.320/64)</span>
+      </div>
+      <div class="question-text">A regra que determina que a Lei de Orçamento deve consignar todas as receitas e despesas pelos seus totais globais, vedadas quaisquer deduções parciais no cálculo, consagra diretamente o princípio orçamentário do:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Orçamento Bruto, complementar ao princípio clássico da universalidade.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Equilíbrio Financeiro, vedando abertura de créditos sem recurso prévio.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Exclusividade Material, proibindo normas estranhas na lei orçamentária.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Não Afetação de Receitas, proibindo vinculação prévia de impostos gerais.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 615</span>
+        <span class="q-topic">Orçamento Público • Princípio da Anualidade / Periodicidade (Lei 4.320/64, Art. 34)</span>
+      </div>
+      <div class="question-text">No regime financeiro e orçamentário da administração pública brasileira, o princípio da anualidade ou periodicidade determina de forma peremptória que:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>O orçamento deve ser aprovado até o encerramento do primeiro trimestre do ano.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>O exercício financeiro coincidirá estritamente com o ano civil, de 1º de janeiro a 31 de dezembro.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>A vigência da lei orçamentária anual coincide com o mandato eletivo de quatro anos.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>As receitas e despesas devem ser revisadas a cada dois anos pelo Poder Legislativo.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 616</span>
+        <span class="q-topic">Orçamento Público • Plano Plurianual (PPA - CF/88, Art. 165, § 1º)</span>
+      </div>
+      <div class="question-text">Conforme preceitua o Art. 165, § 1º da Constituição Federal de 1988, a lei que instituir o Plano Plurianual (PPA) estabelecerá, de forma regionalizada:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>A fixação detalhada dos tributos e alíquotas municipais aplicáveis durante os quatro anos.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>As diretrizes, objetivos e metas da administração pública para as despesas de capital e contínuas.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>A estimativa das receitas de capital e a tabela de remuneração de todos os servidores da Casa.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Os limites prudenciais de gastos com pessoal e os índices de endividamento da gestão municipal.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 617</span>
+        <span class="q-topic">Orçamento Público • Vigência e Tramitação do Plano Plurianual (PPA)</span>
+      </div>
+      <div class="question-text">A respeito da vigência temporal e do período de aplicação do Plano Plurianual (PPA) na administração pública brasileira, é correto afirmar que:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Sua vigência coincide rigidamente com o mandato do chefe do Poder Executivo (início no 1º ano).</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Sua vigência é de quatro anos, com início no 2º ano do mandato e término no 1º ano do subsequente.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Sua vigência é bienal, exigindo que o Poder Executivo envie um novo projeto a cada dois anos.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Sua vigência é de cinco anos ininterruptos, vinculando obrigatoriamente duas gestões inteiras.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 618</span>
+        <span class="q-topic">Orçamento Público • Lei de Diretrizes Orçamentárias (LDO - CF/88, Art. 165, § 2º)</span>
+      </div>
+      <div class="question-text">A Lei de Diretrizes Orçamentárias (LDO) desempenha papel de elo entre o planejamento estratégico (PPA) e o operacional (LOA). É atribuição precípua da LDO:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Compreender as metas e prioridades da gestão, orientar a feitura da LOA e dispor sobre tributos.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Autorizar a contratação de servidores públicos efetivos e definir os programas sociais plurianuais.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Fixar os valores nominais de todas as despesas e prever a arrecadação de tributos para o ano.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Homologar os balanços gerais do exercício anterior e fiscalizar o limite da dívida consolidada.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 619</span>
+        <span class="q-topic">Orçamento Público • Composição da Lei Orçamentária Anual (CF/88, Art. 165, § 5º)</span>
+      </div>
+      <div class="question-text">De acordo com o Art. 165, § 5º da CF/88, a Lei Orçamentária Anual (LOA) compreende obrigatoriamente três orçamentos integrados, que são:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Orçamento de Investimentos, Orçamento Plurianual e Orçamento de Despesas Extraordinárias.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Orçamento Fiscal, Orçamento de Investimento das Estatais e Orçamento da Seguridade Social.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Orçamento Operacional, Orçamento de Pessoal e Encargos e Orçamento de Manutenção da Câmara.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Orçamento Corrente, Orçamento de Capital e Orçamento da Dívida Fundada Consolidada Municipal.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 620</span>
+        <span class="q-topic">Orçamento Público • Espécies de Créditos Adicionais (Lei 4.320/64, Art. 41)</span>
+      </div>
+      <div class="question-text">Quando durante a execução orçamentária surge a necessidade de realizar uma despesa para a qual já existe dotação orçamentária própria, porém insuficiente, deve-se abrir crédito:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Extraordinário, mediante edição de decreto municipal fundamentado em situação de comoção pública.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Especial, destinado a criar programa governamental novo não contemplado na lei orçamentária original.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Suplementar, destinado especificamente a reforçar dotação orçamentária pré-existente e insuficiente.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Ordinário, condicionado à prévia aprovação de lei complementar de responsabilidade fiscal da Casa.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 621</span>
+        <span class="q-topic">Orçamento Público • Fontes de Recursos para Créditos Adicionais (Lei 4.320/64, Art. 43)</span>
+      </div>
+      <div class="question-text">A abertura dos créditos suplementares e especiais depende da existência de recursos disponíveis. A Lei nº 4.320/64 considera fonte de recurso legal para esse fim:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>O superávit financeiro apurado em balanço patrimonial do exercício imediatamente anterior.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>A expectativa de crescimento econômico e projeção de inflação para o semestre seguinte.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>O aumento discricionário da base de cálculo do imposto predial sem respaldo legal expresso.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>A retenção preventiva de parcelas salariais devidas aos servidores do Poder Legislativo.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 622</span>
+        <span class="q-topic">Orçamento Público • Créditos Extraordinários (CF/88, Art. 167, § 3º)</span>
+      </div>
+      <div class="question-text">No que tange aos créditos extraordinários no ordenamento constitucional brasileiro, é correto afirmar que são abertos exclusivamente para atender a despesas:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>De capital decorrentes de atrasos de fornecedores em obras públicas de execução regular.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Correntes fixadas a menor na Lei Orçamentária Anual por equívoco da comissão mista da Casa.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Imprevisíveis e urgentes, como as decorrentes de guerra, comoção interna ou calamidade pública.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Institucionais da Câmara Municipal para aquisição de novos sistemas de votação eletrônica.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+
+    <div class="section-title secundario">
+      <span><i class="fas fa-pencil-alt"></i> PARTE 2: INFORMÁTICA — CORREIO ELETRÔNICO & MENSAGERIA (QUESTÕES 623 A 630)</span>
+      <span style="font-size: 0.8rem; font-weight: normal;">SMTP, POP3, IMAP, Thunderbird, WhatsApp, Telegram e Discord</span>
+    </div>
+
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 623</span>
+        <span class="q-topic">Informática • Campos de E-mail: Para, Cc e Cco</span>
+      </div>
+      <div class="question-text">Um servidor público envia uma mensagem oficial preenchendo: Para: chefe@orgao.gov.br, Cc: colega@orgao.gov.br e Cco: fiscal@orgao.gov.br. Nessa situação comunicativa:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>O destinatário em 'Cc' não saberá que o destinatário em 'Para' recebeu a referida mensagem.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>O destinatário em 'Cco' verá os outros endereços, mas nenhum deles saberá que 'Cco' a recebeu.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Os três servidores saberão com exatidão quem são todos os participantes que receberam o e-mail.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>O e-mail será bloqueado pelo servidor de correio por misturar campos abertos com campos ocultos.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 624</span>
+        <span class="q-topic">Informática • Protocolos de Correio Eletrônico: SMTP vs. POP3 vs. IMAP</span>
+      </div>
+      <div class="question-text">Em relação aos protocolos da arquitetura TCP/IP utilizados no serviço de correio eletrônico, o protocolo responsável especificamente pelo envio (saída) de mensagens é o:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>IMAP (Internet Message Access Protocol), que faz o envio criptografado e seguro da mensagem.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>POP3 (Post Office Protocol), que realiza o despacho e distribuição do e-mail no servidor.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>SMTP (Simple Mail Transfer Protocol), responsável direto pelo envio e trânsito da mensagem.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>SNMP (Simple Network Management Protocol), encarregado de enviar dados de correio na rede.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 625</span>
+        <span class="q-topic">Informática • Diferença Operacional entre POP3 e IMAP</span>
+      </div>
+      <div class="question-text">Ao configurar uma conta de correio eletrônico corporativo em um aplicativo cliente, a principal diferença operacional entre os protocolos POP3 e IMAP reside no fato de que:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>O POP3 exige autenticação por certificado digital, enquanto o IMAP opera sem necessidade de senha.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>O IMAP sincroniza as pastas em nuvem no servidor, enquanto o POP3 baixa os e-mails para o computador.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>O POP3 funciona exclusivamente em redes locais internas, enquanto o IMAP opera na internet pública.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>O IMAP apaga os arquivos do servidor após a leitura, enquanto o POP3 cria cópias espelhadas na web.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 626</span>
+        <span class="q-topic">Informática • Portas Padrão de E-mail: SMTP Seguro (STARTTLS)</span>
+      </div>
+      <div class="question-text">No Brasil, para coibir a proliferação de spams e modernizar a segurança da infraestrutura, a antiga porta 25 do protocolo SMTP foi oficialmente substituída pela porta padrão:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>587 (Porta de Submission com autenticação STARTTLS recomendada pelo CGI.br/CERT.br).</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>110 (Porta padrão tradicional reservada para o recebimento de mensagens do protocolo POP3).</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>993 (Porta segura criptografada utilizada para o acesso remoto de caixas postais via IMAP).</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>443 (Porta de navegação web segura utilizada pelos navegadores para comunicação HTTPS).</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 627</span>
+        <span class="q-topic">Informática • Cliente de E-mail: Mozilla Thunderbird</span>
+      </div>
+      <div class="question-text">O Mozilla Thunderbird é um aplicativo de correio eletrônico amplamente empregado na administração pública. Constitui uma característica técnica verdadeira desse software:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Exigir licença paga por posto de trabalho para instalação em órgãos do Poder Legislativo.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Ser um programa gratuito de código aberto (open source) que suporta contas IMAP e POP3.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Funcionar apenas no sistema Windows, sendo incompatível com distribuições Linux e macOS.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Impedir a anexação de arquivos PDF ou compactados para evitar transmissão de malwares.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 628</span>
+        <span class="q-topic">Informática • Ferramentas de Mensageria: WhatsApp Web</span>
+      </div>
+      <div class="question-text">A respeito do uso do WhatsApp Web no ambiente de trabalho administrativo para atendimento institucional ao cidadão, é correto afirmar que:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Permite o envio de mensagens, documentos e áudios diretamente pela interface do navegador.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Exige a digitação manual de login e senha alfanumérica criada previamente pelo suporte de TI.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Impede a transmissão de arquivos no formato PDF ou imagens para computadores corporativos.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Funciona de forma autônoma sem necessidade de vínculo com a conta do aplicativo móvel.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 629</span>
+        <span class="q-topic">Informática • Ferramentas de Mensageria: Telegram</span>
+      </div>
+      <div class="question-text">Diferentemente de outros aplicativos de mensagens instantâneas, o Telegram destaca-se no uso institucional por apresentar como diferencial técnico relevante:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Arquitetura em nuvem que permite uso independente em múltiplos aparelhos e canais públicos.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Limite rígido de apenas 256 participantes em qualquer grupo institucional de trabalho da Casa.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Armazenamento de conversas restrito à memória física local do celular do servidor público.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Obrigatoriedade de instalação de certificado digital A3 para acesso às salas de conversa.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 630</span>
+        <span class="q-topic">Informática • Ferramentas de Colaboração: Discord</span>
+      </div>
+      <div class="question-text">O Discord, ferramenta de comunicação e colaboração em tempo real, organiza suas comunidades e grupos de trabalho administrativo principalmente por meio de:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Servidores estruturados em canais distintos de texto e voz com atribuição de cargos e papéis.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Linhas de transmissão individuais baseadas exclusivamente em envio sequencial de mensagens SMS.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Pastas compactadas em formato ZIP enviadas como anexos por intermédio de servidores FTP.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Planilhas eletrônicas compartilhadas que limitam o acesso a apenas dois membros simultâneos.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+
+    <div class="folha-respostas-box">
+      <div style="font-weight: 800; font-size: 1rem; color: var(--primary); text-transform: uppercase;">
+        <i class="fas fa-edit"></i> Folha Óptica de Respostas (Simulado Pré-Prova)
+      </div>
+      <p style="font-size: 0.82rem; color: var(--text-muted); margin: 4px 0 12px 0;">Preencha os círculos correspondentes às suas respostas antes de conferir o gabarito comentado.</p>
+      <div class="folha-grid">
+        
+        <div class="folha-row">
+          <span class="folha-num">613</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">614</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">615</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">616</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">617</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">618</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">619</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">620</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">621</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">622</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">623</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">624</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">625</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">626</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">627</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">628</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">629</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">630</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="gabarito-section">
+      <div style="font-weight: 800; font-size: 1.15rem; color: #047857; margin-bottom: 16px;">
+        <i class="fas fa-check-double"></i> Gabarito Oficial Fundamentado (Banca INBRASP)
+      </div>
+      
+        <div class="gabarito-item">
+          <strong>Questão 613:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. CF/88, Art. 165, § 8º: 'A lei orçamentária anual não conterá dispositivo estranho à previsão da receita e à fixação da despesa, não se incluindo na proibição a autorização para abertura de créditos suplementares e contratação de operações de crédito, ainda que por antecipação de receita, nos termos da lei.' Essa é a clássica ressalva constitucional cobrada pela INBRASP.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 614:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. Art. 6º da Lei nº 4.320/1964: 'Todas as receitas e despesas constarão da Lei de Orçamento pelos seus totais, vedadas quaisquer deduções.' Trata-se do Princípio do Orçamento Bruto, que complementa a Universalidade (Art. 2º da mesma lei).
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 615:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. Art. 34 da Lei nº 4.320/1964: 'O exercício financeiro coincidirá com o ano civil.' Portanto, tem início em 1º de janeiro e término em 31 de dezembro de cada ano civil.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 616:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. CF/88, Art. 165, § 1º: 'A lei que instituir o plano plurianual estabelecerá, de forma regionalizada, as diretrizes, objetivos e metas da administração pública federal para as despesas de capital e outras delas decorrentes e para as relativas aos programas de duração continuada.' Mnemônico DOM (Diretrizes, Objetivos e Metas).
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 617:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. O PPA vigora por 4 anos, iniciando-se no segundo ano do mandato do chefe do Executivo e encerrando-se no final do primeiro ano do mandato seguinte (art. 35, § 2º, I do ADCT), garantindo a continuidade das políticas públicas.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 618:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. Art. 165, § 2º da CF/88: 'A lei de diretrizes orçamentárias compreenderá as metas e prioridades da administração pública federal, estabelecerá as diretrizes de política fiscal e respectivas metas [...] orientará a elaboração da lei orçamentária anual, disporá sobre as alterações na legislação tributária e estabelecerá a política de aplicação das agências financeiras oficiais de fomento.'
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 619:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. CF/88, Art. 165, § 5º: O orçamento fiscal (I), o orçamento de investimento das empresas estatais (II) e o orçamento da seguridade social (III). Mnemônico clássico: FIS (Fiscal, Investimento, Seguridade).
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 620:</strong> <span class="gabarito-letra">(C)</span> Gabarito: C. Lei nº 4.320/64, Art. 41, I: 'créditos suplementares, os destinados a refôrço de dotação orçamentária'. Já os créditos especiais (inciso II) destinam-se a despesas para as quais não haja dotação orçamentária específica.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 621:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. Art. 43, § 1º da Lei 4.320/64 elenca 4 fontes: I - superávit financeiro do exercício anterior; II - excesso de arrecadação; III - anulação parcial ou total de dotações; IV - operações de crédito. Também há a reserva de contingência (LRF).
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 622:</strong> <span class="gabarito-letra">(C)</span> Gabarito: C. Art. 167, § 3º da CF/88: 'A abertura de crédito extraordinário somente será admitida para atender a despesas imprevisíveis e urgentes, como as decorrentes de guerra, comoção interna ou calamidade pública, observado o disposto no art. 62.'
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 623:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. O campo Cco (Cópia Carbono Oculta / BCC) oculta o endereço de quem está nele. Quem está em Cco enxerga os campos Para e Cc, mas ninguém em Para ou Cc sabe da existência do Cco.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 624:</strong> <span class="gabarito-letra">(C)</span> Gabarito: C. O SMTP (Simple Mail Transfer Protocol) é o protocolo padrão para ENVIO (saída) de e-mails. Mnemônico clássico de concurso: SMTP = 'Sua Mensagem Tá Partindo'. POP3 e IMAP são para recebimento/leitura.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 625:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. O IMAP mantém as mensagens e pastas no servidor, sincronizando o status de leitura em múltiplos dispositivos. O POP3 baixa as mensagens para a máquina local do usuário e, por padrão, as exclui do servidor.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 626:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. A porta 587 (Submission / SMTP autenticado) substituiu a porta 25 no Brasil para envio de e-mails por usuários finais. A porta 110 é do POP3 simples, a 993 é do IMAP SSL e a 443 é do HTTPS.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 627:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. O Mozilla Thunderbird é um software livre, gratuito e de código aberto (open-source), multiplataforma (roda em Windows, Linux, macOS), que suporta contas POP3, IMAP e SMTP com gerenciamento de múltiplos perfis.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 628:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. O WhatsApp Web permite enviar mensagens, imagens, áudios e documentos (PDF, planilhas, textos) pelo navegador. A sincronização inicial é realizada por leitura de QR Code vinculado à conta do celular.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 629:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. O Telegram é baseado em nuvem (cloud-based), permitindo acesso simultâneo e independente no desktop, web e celular, além de oferecer canais de transmissão para audiências ilimitadas e grupos de até 200.000 membros.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 630:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. O Discord organiza suas equipes em 'Servidores' (guilds), que são subdivididos em canais de texto e canais de voz/vídeo, permitindo definir permissões granulares por meio de cargos e funções (roles).
+        </div>
+        
+    </div>
+
+  </div>
+</body>
+</html>

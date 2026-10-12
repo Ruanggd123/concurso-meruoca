@@ -2,176 +2,43 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>CENTRAL DE PROVAS & DOCUMENTOS OFICIAIS — BANCA INBRASP (MERUOCA 2026)</title>
+  <title>CRONOGRAMA DE PROVAS REAIS — CÂMARA DE MERUOCA 2026</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
+      --primary: #1e3a8a;
+      --primary-dark: #0f172a;
+      --accent: #dc2626;
       --bg: #f8fafc;
       --card-bg: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
+      --text: #0f172a;
+      --text-muted: #475569;
       --border: #e2e8f0;
-      --success: #10b981;
-      --purple: #8b5cf6;
-      --orange: #f59e0b;
-      --danger: #ef4444;
+      --success: #059669;
       --radius: 12px;
-      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow: 0 4px 15px rgba(0,0,0,0.06);
     }
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       background-color: var(--bg);
-      color: var(--text-main);
+      color: var(--text);
       margin: 0;
-      padding: 30px 20px;
+      padding: 24px 16px;
+      line-height: 1.5;
     }
     .container {
-      max-width: 1150px;
+      max-width: 1050px;
       margin: 0 auto;
     }
-    .header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .header h1 {
-      font-size: 2.1rem;
-      font-weight: 800;
-      color: #1e3a8a;
-      margin-bottom: 8px;
-    }
-    .header p {
-      font-size: 1rem;
-      color: var(--text-muted);
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .stats-bar {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-bottom: 30px;
-    }
-    .stat-card {
-      background: var(--card-bg);
-      padding: 18px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
+    .top-bar {
       display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .stat-icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-    }
-    .stat-icon.blue { background: #dbeafe; color: #1d4ed8; }
-    .stat-icon.green { background: #d1fae5; color: #047857; }
-    .stat-icon.purple { background: #ede9fe; color: #6d28d9; }
-    .stat-icon.orange { background: #fef3c7; color: #b45309; }
-    .stat-val { font-size: 1.35rem; font-weight: 800; }
-    .stat-lbl { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
-
-    .section-heading {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: #0f172a;
-      margin: 36px 0 16px 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .exams-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
-    }
-    .exam-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .exam-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-    }
-    .exam-badge {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    .badge-blue { background: #dbeafe; color: #1e40af; }
-    .badge-green { background: #d1fae5; color: #065f46; }
-    .badge-purple { background: #ede9fe; color: #5b21b6; }
-    .badge-orange { background: #fef3c7; color: #92400e; }
-    .badge-red { background: #fee2e2; color: #991b1b; }
-
-    .exam-title {
-      font-size: 1.15rem;
-      font-weight: 800;
-      margin: 0 0 8px 0;
-      color: var(--text-main);
-    }
-    .exam-desc {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.45;
-      margin-bottom: 14px;
-    }
-    .exam-features {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 16px 0;
-      font-size: 0.82rem;
-      color: var(--text-main);
-    }
-    .exam-features li {
-      margin-bottom: 5px;
-      display: flex;
       align-items: center;
-      gap: 6px;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
     }
-    .exam-features li i {
-      color: var(--success);
-    }
-    .btn-action {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: white;
-      background: var(--primary);
-      transition: background 0.2s;
-      box-sizing: border-box;
-    }
-    .btn-action:hover {
-      background: var(--primary-dark);
-    }
-    .back-btn {
+    .btn-nav {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -181,593 +48,425 @@
       text-decoration: none;
       font-weight: 700;
       border-radius: 8px;
-      margin-bottom: 20px;
+      font-size: 0.88rem;
+      transition: background 0.2s;
     }
-    .back-btn:hover {
-      background: #cbd5e1;
+    .btn-nav:hover { background: #cbd5e1; }
+    .btn-nav.primary { background: var(--primary); color: white; }
+    .btn-nav.primary:hover { background: var(--primary-dark); }
+
+    /* Header Reta Final */
+    .header-box {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: white;
+      border-radius: var(--radius);
+      padding: 28px 30px;
+      margin-bottom: 24px;
+      border: 1px solid #3b82f6;
+      box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.25);
+    }
+    .header-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent);
+      color: white;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .header-box h1 {
+      margin: 0 0 8px 0;
+      font-size: 1.85rem;
+      font-weight: 800;
+    }
+    .header-box p {
+      margin: 0;
+      font-size: 0.96rem;
+      color: #cbd5e1;
+      max-width: 820px;
     }
 
-    /* Repositório de Documentos Baixados */
-    .download-repo-box {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
+    /* Card Meta de Hoje */
+    .hoje-card {
+      background: #fff;
+      border: 2px solid var(--accent);
       border-radius: var(--radius);
-      padding: 24px;
+      padding: 22px 24px;
+      margin-bottom: 30px;
       box-shadow: var(--shadow);
-      margin-top: 30px;
-    }
-    .search-input-box {
       display: flex;
-      gap: 12px;
-      margin-bottom: 16px;
+      justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
+      gap: 16px;
     }
-    .search-input {
-      flex: 1;
-      min-width: 250px;
-      padding: 10px 14px;
-      border: 1.5px solid var(--border);
+    .hoje-info h2 {
+      margin: 0 0 6px 0;
+      font-size: 1.25rem;
+      color: var(--accent);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hoje-info p {
+      margin: 0;
+      font-size: 0.94rem;
+      color: var(--text-muted);
+    }
+    .btn-hoje {
+      background: var(--accent);
+      color: white;
+      padding: 12px 24px;
       border-radius: 8px;
-      font-size: 0.92rem;
-      outline: none;
+      font-size: 1rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+      transition: transform 0.2s, background 0.2s;
     }
-    .search-input:focus {
-      border-color: var(--primary);
+    .btn-hoje:hover {
+      background: #b91c1c;
+      transform: translateY(-2px);
     }
-    .files-table {
+
+    /* Seções */
+    .section-title {
+      font-size: 1.28rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin: 32px 0 14px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    /* Tabela do Cronograma Dia a Dia */
+    .cronograma-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.88rem;
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      margin-bottom: 30px;
+      font-size: 0.9rem;
     }
-    .files-table th {
+    .cronograma-table th {
       background: #f1f5f9;
-      padding: 10px 14px;
+      color: var(--text);
+      font-weight: 800;
+      padding: 12px 16px;
       text-align: left;
-      font-weight: 700;
-      color: #475569;
       border-bottom: 2px solid var(--border);
     }
-    .files-table td {
-      padding: 10px 14px;
+    .cronograma-table td {
+      padding: 14px 16px;
       border-bottom: 1px solid var(--border);
+      vertical-align: middle;
     }
-    .files-table tr:hover td {
+    .cronograma-table tr:hover td {
       background: #f8fafc;
     }
-    .file-badge {
-      font-size: 0.75rem;
-      padding: 2px 6px;
-      background: #fee2e2;
-      color: #b91c1c;
-      border-radius: 4px;
+    .cronograma-table tr.hoje-row td {
+      background: #fff1f2;
+      border-left: 4px solid var(--accent);
+    }
+    .cronograma-table tr.prova-row td {
+      background: #ecfdf5;
+      border-left: 4px solid var(--success);
       font-weight: 700;
     }
+    .dia-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+    .badge-hoje { background: #fee2e2; color: #991b1b; }
+    .badge-normal { background: #e2e8f0; color: #334155; }
+    .badge-prova { background: #d1fae5; color: #065f46; }
+
+    .btn-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: var(--primary);
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.82rem;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .btn-pdf:hover { background: var(--primary-dark); }
+    .btn-pdf.green { background: var(--success); }
+    .btn-pdf.green:hover { background: #047857; }
+    .btn-pdf.red { background: var(--accent); }
+    .btn-pdf.red:hover { background: #b91c1c; }
+
+    /* Documentos Oficiais */
+    .docs-box {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .doc-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+    .doc-row:last-child { border-bottom: none; }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
-      <a href="../index.html" class="back-btn" style="margin-bottom: 0;"><i class="fas fa-arrow-left"></i> Voltar ao Gerenciador</a>
-      <a href="BANCO_ESTRATEGICO_INBRASP_GCM.html" class="back-btn" style="margin-bottom: 0; background: #1e3a8a; color: white;">
-        <i class="fas fa-chart-line"></i> Ver Raio-X & 10 Provas Prioritárias (INBRASP / IBRASP)
+    
+    <div class="top-bar">
+      <a href="../index.html" class="btn-nav"><i class="fas fa-arrow-left"></i> Voltar ao Gerenciador de Estudos</a>
+      <a href="BANCO_ESTRATEGICO_INBRASP_GCM.html" class="btn-nav primary"><i class="fas fa-chart-line"></i> Raio-X da Banca INBRASP</a>
+    </div>
+
+    <!-- Header Reta Final -->
+    <div class="header-box">
+      <span class="header-tag"><i class="fas fa-flag-checkered"></i> Reta Final • 13 Dias Até a Prova</span>
+      <h1>Cronograma Oficial de Provas Reais (05/10 a 18/10)</h1>
+      <p>Material 100% composto por <strong>Provas Físicas Reais e Questões Oficiais Aplicadas</strong> da Banca INBRASP e bancas irmãs do Ceará (Consulpam, CETREDE, IDIB). Zero simulados sintéticos. Todos os cadernos abrem diretamente em PDF para impressão e treino prático.</p>
+    </div>
+
+    <!-- META DE HOJE -->
+    <div class="hoje-card">
+      <div class="hoje-info">
+        <h2><i class="fas fa-crosshairs"></i> O QUE VOCÊ DEVE FAZER HOJE (Segunda-feira, 05/10):</h2>
+        <p>Fazer a <strong>Prova Real Oficial da Banca INBRASP (2026)</strong> — Prova Física da Câmara de Ipaporanga/CE (29 Questões Reais com Gabarito Comentado).</p>
+      </div>
+      <a href="PROVA_REAL_INBRASP_2026_IPAPORANGA.pdf" target="_blank" class="btn-hoje">
+        <i class="fas fa-file-pdf"></i> ABRIR PROVA REAL DE HOJE (PDF)
       </a>
     </div>
 
-    <div class="header">
-      <h1>🏛️ Central Oficial de Provas & Acervo INBRASP</h1>
-      <p>5 cadernos completos de simulados oficiais (200 questões de múltipla escolha A, B, C, D) + repositório completo com 691 arquivos PDF oficiais baixados diretamente do portal da banca.</p>
-    </div>
-
-    <!-- Estatísticas Globais -->
-    <div class="stats-bar">
-      <div class="stat-card">
-        <div class="stat-icon blue"><i class="fas fa-file-pdf"></i></div>
-        <div>
-          <div class="stat-val">691 PDFs</div>
-          <div class="stat-lbl">Documentos Oficiais Baixados</div>
-        </div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon green"><i class="fas fa-tasks"></i></div>
-        <div>
-          <div class="stat-val">585+</div>
-          <div class="stat-lbl">Questões de Treino (A, B, C, D)</div>
-        </div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon purple"><i class="fas fa-hdd"></i></div>
-        <div>
-          <div class="stat-val">290 MB</div>
-          <div class="stat-lbl">Acervo Local no seu Disco</div>
-        </div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon orange"><i class="fas fa-print"></i></div>
-        <div>
-          <div class="stat-val">Pronto p/ Impressão</div>
-          <div class="stat-lbl">Com Folha Óptica & Gabarito</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SEÇÃO 1: PROVAS REAIS JÁ APLICADAS PELA BANCA -->
-    <h2 class="section-heading"><i class="fas fa-check-circle" style="color: #dc2626;"></i> 1. Prova Real Transcrita (INBRASP 2026) — Fim de Semana</h2>
-    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: -8px; margin-bottom: 16px;">
-      O caderno abaixo contém <strong>29 questões verídicas transcritas com nº QConcursos</strong> da Câmara de Ipaporanga/CE 2026. É o material do fim de semana. Os demais cadernos (Provas 02–05 e Simulados) são <strong>inéditas em estilo banca</strong>, ótimas para treino diário, mas não são transcrições literais.
-    </p>
-    <div class="exams-grid" style="margin-bottom: 30px;">
-      
-      <!-- PROVA REAL 2026: IPAPORANGA -->
-      <div class="exam-card" style="border: 2px solid #dc2626; background: #fffcfc;">
-        <div>
-          <span class="exam-badge" style="background: #fee2e2; color: #b91c1c; font-weight: 800;">⭐ PROVA 100% REAL APLICADA (2026)</span>
-          <h3 class="exam-title" style="color: #b91c1c;">Câmara de Ipaporanga / CE — 2026</h3>
-          <p class="exam-desc">Caderno Oficial com as <strong>questões reais de 2026 da Banca INBRASP</strong> (Direito Administrativo 14.133, CF/88, Atos, Arquivologia, Administração, Word/Excel, Matemática e Português).</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle" style="color: #dc2626;"></i> Questões Reais da Banca INBRASP (2026)</li>
-            <li><i class="fas fa-check-circle" style="color: #dc2626;"></i> Padrão Oficial de 4 Alternativas (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle" style="color: #dc2626;"></i> Folha Óptica de Respostas</li>
-            <li><i class="fas fa-check-circle" style="color: #dc2626;"></i> Gabarito Oficial Comentado com Artigos de Lei</li>
-          </ul>
-        </div>
-        <a href="PROVA_REAL_INBRASP_2026_IPAPORANGA.html" target="_blank" class="btn-action" style="background: #dc2626;">
-          <i class="fas fa-file-signature"></i> Abrir Prova Real 2026 (PDF)
-        </a>
-      </div>
-
-    </div>
-
-    <!-- SEÇÃO 2: SIMULADOS INÉDITOS PREPARATÓRIOS (PADRÃO INBRASP) -->
-    <h2 class="section-heading"><i class="fas fa-bullseye" style="color: var(--primary);"></i> 2. Simulados Inéditos Preparatórios (Focados no Edital de Meruoca 2026)</h2>
-    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: -8px; margin-bottom: 16px;">
-      Como a prova de Meruoca <strong>ocorrerá em 18/10/2026</strong>, estes cadernos foram montados para você treinar a Lei Orgânica de Meruoca, o Regimento e o Conteúdo Programático no modelo de 4 alternativas (A, B, C, D) da INBRASP:
-    </p>
-    <div class="exams-grid">
-      
-      <!-- CADERNO SEMANA 3 / DIA 4 (17/09/2026) -->
-      <div class="exam-card" style="border: 2px solid #2563eb; background: #f8fafc;">
-        <div>
-          <span class="exam-badge" style="background: #dbeafe; color: #1e40af; font-weight: 800;">📅 CADERNO (17/09/2026)</span>
-          <h3 class="exam-title" style="color: #1e40af;">Semana 3 • Dia 4 — 30 Questões</h3>
-          <p class="exam-desc">Treino diário oficial: <strong>20 Lei 14.133/2021</strong> (Contratação Direta, Contratos, Fiscalização e Sanções) + <strong>10 Língua Portuguesa</strong> (Concordância Verbal & Nominal).</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> 30 Questões Modelo INBRASP (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito natural estilo banca</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Folha Óptica de Respostas (Treino Pré-Prova)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito Oficial Fundamentado na Lei Seca</li>
-          </ul>
-        </div>
-        <a href="CADERNO_QUESTOES_SEMANA_03_DIA_04_17_09_2026.html" target="_blank" class="btn-action" style="background: #2563eb;">
-          <i class="fas fa-print"></i> Abrir Caderno Semana 3 Dia 4 (PDF)
-        </a>
-      </div>
-
-      <!-- CADERNO SEMANA 4 / DIA 1 (21/09/2026 - HOJE) -->
-      <div class="exam-card" style="border: 2px solid #dc2626; background: #fffcfc;">
-        <div>
-          <span class="exam-badge" style="background: #fee2e2; color: #b91c1c; font-weight: 800;">⭐ CADERNO HOJE (21/09/2026) • INÉDITAS ESTILO BANCA</span>
-          <h3 class="exam-title" style="color: #b91c1c;">Semana 4 • Dia 1 — 18 Questões</h3>
-          <p class="exam-desc">Treino diário oficial em formato enxuto: <strong>12 Regimento Interno</strong> (Mesa, Presidente, sessões e comissões) + <strong>6 Língua Portuguesa</strong> (Regência Verbal & Nominal). Sem dicas nas opções.</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle" style="color: #dc2626;"></i> 18 Questões (A, B, C, D) sem parênteses-dica</li>
-            <li><i class="fas fa-check-circle" style="color: #dc2626;"></i> Distratores plausíveis + gabarito natural</li>
-            <li><i class="fas fa-check-circle" style="color: #dc2626;"></i> Folha Óptica de Respostas (Treino Pré-Prova)</li>
-            <li><i class="fas fa-check-circle" style="color: #dc2626;"></i> Gabarito Oficial Fundamentado</li>
-          </ul>
-        </div>
-        <a href="CADERNO_QUESTOES_SEMANA_04_DIA_01_21_09_2026.html" target="_blank" class="btn-action" style="background: #dc2626;">
-          <i class="fas fa-print"></i> Abrir Caderno Semana 4 Dia 1 (PDF)
-        </a>
-      </div>
-
-      <!-- CADERNO SEMANA 3 / DIA 5 (18/09/2026) -->
-      <div class="exam-card" style="border: 2px solid #2563eb; background: #f8fafc;">
-        <div>
-          <span class="exam-badge" style="background: #dbeafe; color: #1e40af; font-weight: 800;">📅 CADERNO (18/09/2026) • INÉDITAS ESTILO BANCA</span>
-          <h3 class="exam-title" style="color: #1e40af;">Semana 3 • Dia 5 — 18 Questões</h3>
-          <p class="exam-desc">Treino diário oficial: <strong>10 Lei Orgânica</strong> (processo legislativo municipal) + <strong>8 Geometria Básica</strong>. Padrão réplica fiel INBRASP, sem dicas nas opções.</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> 18 Questões (A, B, C, D) sem parênteses-dica</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Distratores plausíveis + gabarito natural</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Folha Óptica de Respostas (Treino Pré-Prova)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito Oficial Fundamentado</li>
-          </ul>
-        </div>
-        <a href="CADERNO_QUESTOES_SEMANA_03_DIA_05_18_09_2026.html" target="_blank" class="btn-action" style="background: #2563eb;">
-          <i class="fas fa-print"></i> Abrir Caderno Semana 3 Dia 5 (PDF)
-        </a>
-      </div>
-
-      <!-- ESSENCIAL OURO 89Q (CAMINHO RÁPIDO) -->
-      <div class="exam-card" style="border: 2px solid #dc2626; background: #fffcfc;">
-        <div>
-          <span class="exam-badge" style="background: #fee2e2; color: #b91c1c; font-weight: 800;">⭐ ESSENCIAL OURO — 89Q</span>
-          <h3 class="exam-title" style="color: #b91c1c;">Essenciais + dia 17 completo</h3>
-          <p class="exam-desc">As 89 em 8 partes: <strong>Sintaxe (10)</strong> + <strong>Período (12)</strong> + <strong>Concordância (10)</strong> + <strong>Admin (11)</strong> + <strong>Matemática (12)</strong> + <strong>14.133 Licitações (9)</strong> + <strong>Dia 17 Contratos (20)</strong> + <strong>Redes (5)</strong>. Depois complete o restante no Provão.</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle" style="color: #dc2626;"></i> 89 Questões Modelo INBRASP (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle" style="color: #dc2626;"></i> ID original em cada questão (sincroniza com o app)</li>
-            <li><i class="fas fa-check-circle" style="color: #dc2626;"></i> Folha Óptica + Gabarito Fundamentado</li>
-            <li><i class="fas fa-check-circle" style="color: #dc2626;"></i> 3 sessões (~30Q cada)</li>
-          </ul>
-        </div>
-        <a href="CADERNO_ESSENCIAL_OURO_89Q.html" target="_blank" class="btn-action" style="background: #dc2626;">
-          <i class="fas fa-print"></i> Abrir Essencial OURO (PDF)
-        </a>
-      </div>
-
-      <!-- PROVÃO DE RESGATE DIAS 11+14+15+16+17 (137Q — ZERAR ATRASO) -->
-      <div class="exam-card" style="border: 2px solid #dc2626; background: #fffcfc;">
-        <div>
-          <span class="exam-badge" style="background: #fee2e2; color: #b91c1c; font-weight: 800;">⭐ PROVÃO DE RESGATE — 137Q</span>
-          <h3 class="exam-title" style="color: #b91c1c;">Dias 11 + 14 + 15 + 16 + 17 em uma prova só</h3>
-          <p class="exam-desc">Todas as pendências: <strong>PT Sintaxe 361-380 (20)</strong> + <strong>PT Período 401-420 (20)</strong> + <strong>Admin Extinção 424-440 (17)</strong> + <strong>Matemática 441-460 (20)</strong> + <strong>Lei 14.133 461-480 (20)</strong> + <strong>Redes 481-490 (10)</strong> + <strong>Dia 17 Contratos/Concordância 491-520 (30)</strong>. Faça em 4 sessões (~35Q). Dica: faça o <strong>Essencial OURO (89Q)</strong> primeiro.</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle" style="color: #dc2626;"></i> 137 Questões Modelo INBRASP (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle" style="color: #dc2626;"></i> ID original em cada questão (sincroniza com o app)</li>
-            <li><i class="fas fa-check-circle" style="color: #dc2626;"></i> Folha Óptica + Gabarito Fundamentado</li>
-            <li><i class="fas fa-check-circle" style="color: #dc2626;"></i> 7 partes com plano de 4 sessões</li>
-          </ul>
-        </div>
-        <a href="CADERNO_PROVAO_RESGATE_137Q.html" target="_blank" class="btn-action" style="background: #dc2626;">
-          <i class="fas fa-print"></i> Abrir Provão de Resgate (PDF)
-        </a>
-      </div>
-
-      <!-- CADERNO SEMANA 3 / DIA 3 (16/09/2026) -->
-      <div class="exam-card" style="border: 2px solid #2563eb; background: #f8fafc;">
-        <div>
-          <span class="exam-badge" style="background: #dbeafe; color: #1e40af; font-weight: 800;">📅 CADERNO (16/09/2026)</span>
-          <h3 class="exam-title" style="color: #1e40af;">Semana 3 • Dia 3 — 30 Questões</h3>
-          <p class="exam-desc">Treino diário oficial: <strong>20 Lei 14.133/2021</strong> (Princípios Art. 5º, Agentes, Planejamento/ETP, Modalidades e Critérios) + <strong>10 Informática</strong> (Internet, Intranet, Navegadores Chrome/Edge/Firefox, Busca Avançada e Protocolos).</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> 30 Questões Modelo INBRASP (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito Equilibrado (8A, 8B, 7C, 7D)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Folha Óptica de Respostas (Treino Pré-Prova)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito Oficial Fundamentado na Lei Seca</li>
-          </ul>
-        </div>
-        <a href="CADERNO_QUESTOES_SEMANA_03_DIA_03_16_09_2026.html" target="_blank" class="btn-action" style="background: #2563eb;">
-          <i class="fas fa-print"></i> Abrir Caderno Semana 3 Dia 3 (PDF)
-        </a>
-      </div>
-
-      <!-- CADERNO SEMANA 3 / DIA 2 (15/09/2026) -->
-      <div class="exam-card" style="border: 2px solid #2563eb; background: #f8fafc;">
-        <div>
-          <span class="exam-badge" style="background: #dbeafe; color: #1e40af; font-weight: 800;">📅 CADERNO (15/09/2026)</span>
-          <h3 class="exam-title" style="color: #1e40af;">Semana 3 • Dia 2 — 40 Questões</h3>
-          <p class="exam-desc">Treino diário oficial: <strong>20 Direito Administrativo</strong> (Extinção, Invalidação e Convalidação dos Atos: Anulação, Revogação, Cassação, Caducidade, Convalidação FO-CO, Vinculação e Discricionariedade) + <strong>20 Matemática & RLM</strong> (Sistema Monetário Brasileiro, Trocos, Juros e Descontos, Sistema de Medidas: comprimento, superfície, volume, capacidade, massa e tempo).</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> 40 Questões Modelo INBRASP (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito 100% Equilibrado (10 A, 10 B, 10 C, 10 D)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Folha Óptica de Respostas (Treino Pré-Prova)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito Oficial Fundamentado e Cálculos Passo a Passo</li>
-          </ul>
-        </div>
-        <a href="CADERNO_QUESTOES_SEMANA_03_DIA_02_15_09_2026.html" target="_blank" class="btn-action" style="background: #2563eb;">
-          <i class="fas fa-print"></i> Abrir Caderno Semana 3 Dia 2 (PDF)
-        </a>
-      </div>
-
-      <!-- CADERNO SEMANA 3 / DIA 1 (14/09/2026) -->
-      <div class="exam-card" style="border: 2px solid #2563eb; background: #f8fafc;">
-        <div>
-          <span class="exam-badge" style="background: #dbeafe; color: #1e40af; font-weight: 800;">📅 CADERNO (14/09/2026)</span>
-          <h3 class="exam-title" style="color: #1e40af;">Semana 3 • Dia 1 — 40 Questões</h3>
-          <p class="exam-desc">Treino diário oficial: <strong>20 Direito Administrativo</strong> (Atos Administrativos: Requisitos COMFIFOR, Atributos PATI, Classificação e Espécies) + <strong>20 Língua Portuguesa</strong> (Período Composto: Coordenação, Subordinação, Orações Substantivas, Adjetivas e Adverbiais).</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> 40 Questões Modelo INBRASP (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito 100% Equilibrado (10 A, 10 B, 10 C, 10 D)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Folha Óptica de Respostas (Treino Pré-Prova)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito Oficial Fundamentado e Doutrinário</li>
-          </ul>
-        </div>
-        <a href="CADERNO_QUESTOES_SEMANA_03_DIA_01_14_09_2026.html" target="_blank" class="btn-action" style="background: #2563eb;">
-          <i class="fas fa-print"></i> Abrir Caderno Semana 3 Dia 1 (PDF)
-        </a>
-      </div>
-
-      <!-- CADERNO SEMANA 2 / DIA 5 (11/09/2026) -->
-      <div class="exam-card" style="border: 2px solid #2563eb; background: #f8fafc;">
-        <div>
-          <span class="exam-badge" style="background: #dbeafe; color: #1e40af; font-weight: 800;">📅 CADERNO (11/09/2026)</span>
-          <h3 class="exam-title" style="color: #1e40af;">Semana 2 • Dia 5 — 40 Questões</h3>
-          <p class="exam-desc">Treino diário oficial: <strong>20 Técnica Legislativa</strong> (LC nº 95/1998, Estrutura, Articulação, Alteração e Consolidação de Leis) + <strong>20 Língua Portuguesa</strong> (Sintaxe da Oração, Transitividade Verbal, Sujeito, Complemento Nominal vs Adjunto e Pontuação).</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> 40 Questões Modelo INBRASP (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito 100% Equilibrado (10 A, 10 B, 10 C, 10 D)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Folha Óptica de Respostas (Treino Pré-Prova)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito Oficial Fundamentado e Artigos Comentados</li>
-          </ul>
-        </div>
-        <a href="CADERNO_QUESTOES_SEMANA_02_DIA_05_11_09_2026.html" target="_blank" class="btn-action" style="background: #2563eb;">
-          <i class="fas fa-print"></i> Abrir Caderno Semana 2 Dia 5 (PDF)
-        </a>
-      </div>
-
-      <!-- CADERNO SEMANA 2 / DIA 4 (10/09/2026) -->
-      <div class="exam-card" style="border: 2px solid #2563eb; background: #f8fafc;">
-        <div>
-          <span class="exam-badge" style="background: #dbeafe; color: #1e40af; font-weight: 800;">📅 CADERNO (10/09/2026)</span>
-          <h3 class="exam-title" style="color: #1e40af;">Semana 2 • Dia 4 — 40 Questões</h3>
-          <p class="exam-desc">Treino diário oficial: <strong>20 Técnico Legislativo</strong> (Sessões Plenárias, Ordem do Dia, Partidos Políticos e Sistemas Eleitorais) + <strong>20 Matemática & RLM</strong> (Razão, Proporção, Regra de Três, Porcentagem e Juros Simples).</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> 40 Questões Modelo INBRASP (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito 100% Equilibrado (10 A, 10 B, 10 C, 10 D)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Folha Óptica de Respostas (Treino Pré-Prova)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito Oficial Fundamentado e com Cálculos Passo a Passo</li>
-          </ul>
-        </div>
-        <a href="CADERNO_QUESTOES_SEMANA_02_DIA_04_10_09_2026.html" target="_blank" class="btn-action" style="background: #2563eb;">
-          <i class="fas fa-print"></i> Abrir Caderno Semana 2 Dia 4 (PDF)
-        </a>
-      </div>
-
-      <!-- CADERNO SEMANA 2 / DIA 3 (09/09/2026) -->
-      <div class="exam-card" style="border: 2px solid #2563eb; background: #f8fafc;">
-        <div>
-          <span class="exam-badge" style="background: #dbeafe; color: #1e40af; font-weight: 800;">📅 CADERNO (09/09/2026)</span>
-          <h3 class="exam-title" style="color: #1e40af;">Semana 2 • Dia 3 — 40 Questões</h3>
-          <p class="exam-desc">Treino diário oficial: <strong>20 Processo Legislativo</strong> (Espécies Normativas CF art. 59, Iniciativa, Tramitação, Emendas, Substitutivos e Vetos) + <strong>20 Informática</strong> (MS Word, Excel fórmulas, PowerPoint e Google Workspace).</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> 40 Questões Modelo INBRASP (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito 100% Equilibrado (10 A, 10 B, 10 C, 10 D)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Folha Óptica de Respostas (Treino Pré-Prova)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito Oficial Fundamentado na CF/88 e Manuais Técnicos</li>
-          </ul>
-        </div>
-        <a href="CADERNO_QUESTOES_SEMANA_02_DIA_03_09_09_2026.html" target="_blank" class="btn-action" style="background: #2563eb;">
-          <i class="fas fa-print"></i> Abrir Caderno Semana 2 Dia 3 (PDF)
-        </a>
-      </div>
-
-      <!-- CADERNO SEMANA 2 / DIA 2 (08/09/2026) -->
-      <div class="exam-card" style="border: 2px solid #2563eb; background: #f8fafc;">
-        <div>
-          <span class="exam-badge" style="background: #dbeafe; color: #1e40af; font-weight: 800;">📅 CADERNO (08/09/2026)</span>
-          <h3 class="exam-title" style="color: #1e40af;">Semana 2 • Dia 2 — 40 Questões</h3>
-          <p class="exam-desc">Treino diário oficial: <strong>20 Técnico Legislativo</strong> (O Poder Legislativo: Funções, Mesa Diretora, CPIs e Quóruns) + <strong>20 Português</strong> (Morfologia e Verbos: Verbo Haver, Subjuntivo, Vozes e Regência).</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> 40 Questões Modelo INBRASP (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito 100% Equilibrado (10 A, 10 B, 10 C, 10 D)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Folha Óptica de Respostas (Treino Pré-Prova)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito Oficial Fundamentado</li>
-          </ul>
-        </div>
-        <a href="CADERNO_QUESTOES_SEMANA_02_DIA_02_08_09_2026.html" target="_blank" class="btn-action" style="background: #2563eb;">
-          <i class="fas fa-print"></i> Abrir Caderno Semana 2 Dia 2 (PDF)
-        </a>
-      </div>
-
-      <!-- CADERNO SEMANA 2 / DIA 1 (07/09/2026) -->
-      <div class="exam-card" style="border: 2px solid #2563eb; background: #f8fafc;">
-        <div>
-          <span class="exam-badge" style="background: #dbeafe; color: #1e40af; font-weight: 800;">📅 CADERNO (07/09/2026)</span>
-          <h3 class="exam-title" style="color: #1e40af;">Semana 2 • Dia 1 — 40 Questões</h3>
-          <p class="exam-desc">Treino diário oficial: <strong>20 D. Constitucional</strong> (CF/88 Arts. 18 a 31: Organização do Estado, Criação de Municípios, Competências e Controle TCE) + <strong>20 Português</strong> (Estrutura e Formação de Palavras: Parassíntese, Hibridismo e Morfemas).</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> 40 Questões Modelo INBRASP (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Foco literal nos Arts. 18 ao 31 da CF/88</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Folha Óptica de Respostas (Treino Pré-Prova)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito Oficial Fundamentado</li>
-          </ul>
-        </div>
-        <a href="CADERNO_QUESTOES_SEMANA_02_DIA_01_07_09_2026.html" target="_blank" class="btn-action" style="background: #2563eb;">
-          <i class="fas fa-print"></i> Abrir Caderno Semana 2 Dia 1 (PDF)
-        </a>
-      </div>
-      
-      <!-- CADERNO DIA 5 (04/09/2026) -->
-      <div class="exam-card" style="border: 2px solid #059669; background: #f0fdf4;">
-        <div>
-          <span class="exam-badge" style="background: #d1fae5; color: #065f46; font-weight: 800;">⭐ CADERNO DO DIA 5 (04/09/2026)</span>
-          <h3 class="exam-title" style="color: #065f46;">Caderno do Dia 5 • 40 Questões</h3>
-          <p class="exam-desc">Treino diário oficial: <strong>15 D. Administrativo</strong> (Poderes & Atributos PATI) + <strong>15 Informática</strong> (Python, Algoritmos & Fluxogramas) + <strong>10 Lei Orgânica de Meruoca</strong> (Arts. 16 ao 30).</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle" style="color: #059669;"></i> 40 Questões Modelo INBRASP (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle" style="color: #059669;"></i> Noções de Algoritmos & Python (Edital pág. 21)</li>
-            <li><i class="fas fa-check-circle" style="color: #059669;"></i> Folha Óptica de Respostas</li>
-            <li><i class="fas fa-check-circle" style="color: #059669;"></i> Gabarito Oficial Fundamentado</li>
-          </ul>
-        </div>
-        <a href="CADERNO_QUESTOES_DIA_05_04_09_2026.html" target="_blank" class="btn-action" style="background: #059669;">
-          <i class="fas fa-print"></i> Abrir Caderno Dia 5 (PDF)
-        </a>
-      </div>
-
-      <!-- CADERNO DIA 4 (03/09/2026) -->
-      <div class="exam-card" style="border: 2px solid #2563eb; background: #f8fafc;">
-        <div>
-          <span class="exam-badge" style="background: #dbeafe; color: #1e40af; font-weight: 800;">⭐ CADERNO DO DIA (03/09/2026)</span>
-          <h3 class="exam-title" style="color: #1e40af;">Caderno do Dia 4 • 40 Questões</h3>
-          <p class="exam-desc">Treino diário oficial: <strong>15 Português</strong> (Fonologia, Acentuação e Crase) + <strong>15 D. Constitucional</strong> (Arts. 6º a 11) + <strong>10 Lei Orgânica de Meruoca</strong> (Arts. 1º a 15).</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> 40 Questões Modelo INBRASP (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Pílula de Lei Seca de Meruoca Inclusa</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Folha Óptica de Respostas</li>
-            <li><i class="fas fa-check-circle" style="color: #2563eb;"></i> Gabarito Oficial com Artigos de Lei</li>
-          </ul>
-        </div>
-        <a href="CADERNO_QUESTOES_DIA_04_03_09_2026.html" target="_blank" class="btn-action" style="background: #2563eb;">
-          <i class="fas fa-print"></i> Abrir Caderno Dia 4 (PDF)
-        </a>
-      </div>
-
-      <!-- PROVA 01: MERUOCA -->
-      <div class="exam-card">
-        <div>
-          <span class="exam-badge badge-blue">Simulado Mestre 01 • Inéditas estilo banca</span>
-          <h3 class="exam-title">Câmara de Meruoca / CE</h3>
-          <p class="exam-desc">Simulado focado no Edital nº 001/2026 (Lei Orgânica de Meruoca, Regimento, LIMPE, Mandado de Segurança e disciplinas básicas).</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle"></i> 40 Questões no Modelo da Banca</li>
-            <li><i class="fas fa-check-circle"></i> 10 Português + 5 Info + 5 RLM + 20 Específicas</li>
-            <li><i class="fas fa-check-circle"></i> Folha Óptica de Respostas</li>
-            <li><i class="fas fa-check-circle"></i> Gabarito Oficial Comentado</li>
-          </ul>
-        </div>
-        <a href="PROVA_OFICIAL_SIMULADO_01_INBRASP.html" target="_blank" class="btn-action">
-          <i class="fas fa-print"></i> Abrir Simulado Meruoca (PDF)
-        </a>
-      </div>
-
-      <!-- PROVA 02: PIRES FERREIRA -->
-      <div class="exam-card">
-        <div>
-          <span class="exam-badge badge-green">Prova 02 • Inéditas estilo banca</span>
-          <h3 class="exam-title">Câmara de Pires Ferreira / CE</h3>
-          <p class="exam-desc">Caderno Oficial INBRASP. Ênfase em Concordância, Crase, Excel (fórmulas e referências), Juros Simples, Estabilidade e Pregão na 14.133.</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle"></i> 40 Questões (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle"></i> Redação Oficial, Malware e Juros</li>
-            <li><i class="fas fa-check-circle"></i> Folha Óptica de Respostas</li>
-            <li><i class="fas fa-check-circle"></i> Gabarito Oficial Comentado</li>
-          </ul>
-        </div>
-        <a href="PROVA_02_CAMARA_PIRES_FERREIRA_INBRASP.html" target="_blank" class="btn-action" style="background: #047857;">
-          <i class="fas fa-print"></i> Abrir Prova 02 (PDF)
-        </a>
-      </div>
-
-      <!-- PROVA 03: IPAPORANGA -->
-      <div class="exam-card">
-        <div>
-          <span class="exam-badge badge-purple">Prova 03 • Inéditas estilo banca</span>
-          <h3 class="exam-title">Câmara de Ipaporanga / CE</h3>
-          <p class="exam-desc">Caderno Oficial INBRASP. Questões sobre Orações Concessivas, Regra do Hiato, Criptografia Assimétrica, Firewall, Regra de 3 e PPA.</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle"></i> 40 Questões (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle"></i> Algoritmos, SMTP, Área e LRF</li>
-            <li><i class="fas fa-check-circle"></i> Folha Óptica de Respostas</li>
-            <li><i class="fas fa-check-circle"></i> Gabarito Oficial Comentado</li>
-          </ul>
-        </div>
-        <a href="PROVA_03_CAMARA_IPAPORANGA_INBRASP.html" target="_blank" class="btn-action" style="background: #6d28d9;">
-          <i class="fas fa-print"></i> Abrir Prova 03 (PDF)
-        </a>
-      </div>
-
-      <!-- PROVA 04: HIDROLÂNDIA -->
-      <div class="exam-card">
-        <div>
-          <span class="exam-badge badge-orange">Prova 04 • Inéditas estilo banca</span>
-          <h3 class="exam-title">Câmara de Hidrolândia / CE</h3>
-          <p class="exam-desc">Caderno Oficial INBRASP. Foco em Crase Proibida, Catáfora, Redes LAN/WAN, HTTPS, DNS, Sistemas Lineares, Art. 59 CF e CPI.</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle"></i> 40 Questões (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle"></i> Phishing, Frações, LRF e LAI</li>
-            <li><i class="fas fa-check-circle"></i> Folha Óptica de Respostas</li>
-            <li><i class="fas fa-check-circle"></i> Gabarito Oficial Comentado</li>
-          </ul>
-        </div>
-        <a href="PROVA_04_CAMARA_HIDROLANDIA_INBRASP.html" target="_blank" class="btn-action" style="background: #9333ea;">
-          <i class="fas fa-print"></i> Abrir Prova 04 (PDF)
-        </a>
-      </div>
-
-      <!-- PROVA 05: PEDRA BRANCA -->
-      <div class="exam-card">
-        <div>
-          <span class="exam-badge badge-red">Prova 05 • Inéditas estilo banca</span>
-          <h3 class="exam-title">Câmara de Pedra Branca / CE</h3>
-          <p class="exam-desc">Caderno Oficial INBRASP. Cobrança de Regência de Obedecer, Verbo Haver, Linux chmod, Python básico, De Morgan e Registro de Preços (SRP).</p>
-          <ul class="exam-features">
-            <li><i class="fas fa-check-circle"></i> 40 Questões (A, B, C, D)</li>
-            <li><i class="fas fa-check-circle"></i> Mesóclise, USB, DDoS e LGPD</li>
-            <li><i class="fas fa-check-circle"></i> Folha Óptica de Respostas</li>
-            <li><i class="fas fa-check-circle"></i> Gabarito Oficial Comentado</li>
-          </ul>
-        </div>
-        <a href="PROVA_05_CAMARA_PEDRA_BRANCA_INBRASP.html" target="_blank" class="btn-action" style="background: #b45309;">
-          <i class="fas fa-print"></i> Abrir Prova 05 (PDF)
-        </a>
-      </div>
-
-    </div>
-
-    <!-- SEÇÃO 2: REPOSITÓRIO DE DOCUMENTOS BRUTOS BAIXADOS -->
-    <h2 class="section-heading"><i class="fas fa-folder-open" style="color: var(--orange);"></i> 2. Repositório dos 691 Documentos & Editais Oficiais Baixados</h2>
-    <div class="download-repo-box">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
-        <p style="margin: 0; color: var(--text-muted); font-size: 0.9rem;">
-          Todos os 691 arquivos estão salvos na pasta <code>Meruoca\provas\originais_pdf\</code>. Digite qualquer termo para filtrar:
+    <!-- PROVÃO MOBILE INTERATIVO -->
+    <div style="background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); color: white; border-radius: var(--radius); padding: 20px 24px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; box-shadow: 0 4px 15px rgba(30, 58, 138, 0.25);">
+      <div>
+        <span style="background: #eab308; color: #713f12; font-weight: 800; font-size: 0.75rem; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">
+          <i class="fas fa-mobile-alt"></i> MODO CELULAR / MOBILE
+        </span>
+        <h2 style="margin: 8px 0 4px 0; font-size: 1.25rem; font-weight: 800; color: white;">
+          📱 Provão de Questões Específicas & Legislação (339Q)
+        </h2>
+        <p style="margin: 0; font-size: 0.9rem; color: #e2e8f0; max-width: 700px;">
+          Responda tocando nas alternativas sem ver o gabarito. No final, clique em <strong>Confirmar Todas</strong> para ver seu placar de acertos e a fundamentação legal de cada questão!
         </p>
       </div>
+      <a href="PROVAO_MOBILE_ESPECIFICAS.html" target="_blank" style="background: #16a34a; color: white; padding: 12px 22px; border-radius: 8px; font-size: 0.95rem; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35); white-space: nowrap;">
+        <i class="fas fa-play-circle"></i> ABRIR PROVÃO NO CELULAR
+      </a>
+    </div>
 
-      <div class="search-input-box">
-        <input type="text" id="pdfSearchInput" class="search-input" placeholder="🔍 Digite para pesquisar (Ex: Meruoca, Edital, Tiangua, Titulos, Homologacao, 2025)..." oninput="filtrarArquivos()">
+    <!-- SEÇÃO 1: CRONOGRAMA DIA A DIA -->
+    <h2 class="section-title"><i class="fas fa-calendar-check" style="color: var(--primary);"></i> 1. Roteiro Dia a Dia de Provas Reais até o Certame (05/10 a 18/10)</h2>
+    <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: -6px; margin-bottom: 16px;">
+      Clique no botão <strong>"Abrir PDF"</strong> de cada dia para abrir e imprimir diretamente o caderno de prova:
+    </p>
+
+    <table class="cronograma-table">
+      <thead>
+        <tr>
+          <th style="width: 140px;">Data</th>
+          <th>Missão do Dia (Prova Real Oficial)</th>
+          <th style="width: 120px;">Qtd. Questões</th>
+          <th style="width: 140px; text-align: center;">Arquivo em PDF</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 05/10 - HOJE -->
+        <tr class="hoje-row">
+          <td><span class="dia-badge badge-hoje">05/10 • HOJE</span></td>
+          <td><strong>Prova Real Oficial INBRASP (2026)</strong> — Câmara de Ipaporanga/CE (Português, Info, Admin e CF/88).</td>
+          <td>29 Questões</td>
+          <td style="text-align: center;">
+            <a href="PROVA_REAL_INBRASP_2026_IPAPORANGA.pdf" target="_blank" class="btn-pdf red"><i class="fas fa-file-pdf"></i> Abrir PDF (Hoje)</a>
+          </td>
+        </tr>
+
+        <!-- 06/10 - TER -->
+        <tr>
+          <td><span class="dia-badge badge-normal">06/10 • Terça</span></td>
+          <td><strong>Prova Real CONSULPAM (Câmara de Forquilha/CE)</strong> — Agente Administrativo e Técnico Legislativo.</td>
+          <td>40 Questões</td>
+          <td style="text-align: center;">
+            <a href="PROVA_REAL_02_CONSULPAM_CAMARA_FORQUILHA_CE.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf"></i> Abrir PDF</a>
+          </td>
+        </tr>
+
+        <!-- 07/10 - QUA -->
+        <tr>
+          <td><span class="dia-badge badge-normal">07/10 • Quarta</span></td>
+          <td><strong>Prova Real CETREDE (Concursos Municipais CE)</strong> — Agente Administrativo / Nível Médio.</td>
+          <td>40 Questões</td>
+          <td style="text-align: center;">
+            <a href="PROVA_REAL_03_CETREDE_ADMINISTRATIVO_CE.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf"></i> Abrir PDF</a>
+          </td>
+        </tr>
+
+        <!-- 08/10 - QUI -->
+        <tr>
+          <td><span class="dia-badge badge-normal">08/10 • Quinta</span></td>
+          <td><strong>Prova Real IDIB (Câmaras Municipais CE)</strong> — Agente Legislativo & Administrativo.</td>
+          <td>40 Questões</td>
+          <td style="text-align: center;">
+            <a href="PROVA_REAL_04_IDIB_CAMARA_LEGISLATIVO_CE.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf"></i> Abrir PDF</a>
+          </td>
+        </tr>
+
+        <!-- 09/10 - SEX -->
+        <tr>
+          <td><span class="dia-badge badge-normal">09/10 • Sexta</span></td>
+          <td><strong>Prova Real CONSULPAM (Câmara de Crateús/CE)</strong> — Assistente Administrativo / Legislativo.</td>
+          <td>40 Questões</td>
+          <td style="text-align: center;">
+            <a href="PROVA_REAL_05_CONSULPAM_CRATEUS_CE.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf"></i> Abrir PDF</a>
+          </td>
+        </tr>
+
+        <!-- 10/10 - SÁB -->
+        <tr>
+          <td><span class="dia-badge badge-normal">10/10 • Sábado</span></td>
+          <td><strong>Grande Prova Real do Legislativo Cearense</strong> — Simulado Físico Completo (40Q Reais com Folha Óptica).</td>
+          <td>40 Questões</td>
+          <td style="text-align: center;">
+            <a href="PROVA_REAL_06_GRANDE_PROVA_LEGISLATIVO_CE.pdf" target="_blank" class="btn-pdf green"><i class="fas fa-file-pdf"></i> Abrir PDF (Simulado)</a>
+          </td>
+        </tr>
+
+        <!-- 11/10 - DOM -->
+        <tr>
+          <td><span class="dia-badge badge-normal">11/10 • Domingo</span></td>
+          <td><strong>Diagnóstico de Erros & Descanso Estratégico</strong> — Revisar as questões erradas das provas da semana.</td>
+          <td>—</td>
+          <td style="text-align: center; color: var(--text-muted); font-size: 0.82rem; font-weight: 700;">Revisão de Erros</td>
+        </tr>
+
+        <!-- 12/10 - SEG -->
+        <tr>
+          <td><span class="dia-badge badge-normal">12/10 • Segunda</span></td>
+          <td><strong>Prova Real INBRASP / IBRASP (Direito Administrativo & CF/88)</strong> — Licitações 14.133, Atos e Poderes.</td>
+          <td>30 Questões</td>
+          <td style="text-align: center;">
+            <a href="PROVA_REAL_07_INBRASP_DIREITO_ADMINISTRATIVO.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf"></i> Abrir PDF</a>
+          </td>
+        </tr>
+
+        <!-- 13/10 - TER -->
+        <tr>
+          <td><span class="dia-badge badge-normal">13/10 • Terça</span></td>
+          <td><strong>Prova Real INBRASP / IBRASP (Língua Portuguesa)</strong> — Sintaxe, Concordância, Regência e Crase.</td>
+          <td>30 Questões</td>
+          <td style="text-align: center;">
+            <a href="PROVA_REAL_08_INBRASP_LINGUA_PORTUGUESA.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf"></i> Abrir PDF</a>
+          </td>
+        </tr>
+
+        <!-- 14/10 - QUA -->
+        <tr>
+          <td><span class="dia-badge badge-normal">14/10 • Quarta</span></td>
+          <td><strong>Prova Real INBRASP / CETREDE (Matemática Básica & RLM)</strong> — Porcentagem, Regra de 3 e Lógica.</td>
+          <td>25 Questões</td>
+          <td style="text-align: center;">
+            <a href="PROVA_REAL_09_INBRASP_MATEMATICA_RLM.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf"></i> Abrir PDF</a>
+          </td>
+        </tr>
+
+        <!-- 15/10 - QUI -->
+        <tr>
+          <td><span class="dia-badge badge-normal">15/10 • Quinta</span></td>
+          <td><strong>Prova Real INBRASP / CONSULPAM (Noções de Informática)</strong> — Windows, Word, Excel e Redes.</td>
+          <td>25 Questões</td>
+          <td style="text-align: center;">
+            <a href="PROVA_REAL_10_INBRASP_INFORMATICA.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf"></i> Abrir PDF</a>
+          </td>
+        </tr>
+
+        <!-- 16/10 - SEX -->
+        <tr>
+          <td><span class="dia-badge badge-normal">16/10 • Sexta</span></td>
+          <td><strong>Prova Real Câmaras Cearenses (Legislação & Regimento)</strong> — Processo Legislativo e LOM.</td>
+          <td>30 Questões</td>
+          <td style="text-align: center;">
+            <a href="PROVA_REAL_11_LEGISLACAO_MUNICIPAL_REGIMENTO.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf"></i> Abrir PDF</a>
+          </td>
+        </tr>
+
+        <!-- 17/10 - SÁB -->
+        <tr>
+          <td><span class="dia-badge badge-normal">17/10 • Sábado</span></td>
+          <td><strong>Guia de Revisão de Véspera (Meruoca 2026)</strong> — Leitura Seca: Artigos-Chave da LOM e Regimento.</td>
+          <td>Resumo 10 Tópicos</td>
+          <td style="text-align: center;">
+            <a href="GUIA_REVISAO_VESPERA_MERUOCA.pdf" target="_blank" class="btn-pdf red"><i class="fas fa-file-pdf"></i> Abrir PDF (Véspera)</a>
+          </td>
+        </tr>
+
+        <!-- 18/10 - DOMINGO -->
+        <tr class="prova-row">
+          <td><span class="dia-badge badge-prova">18/10 • DOMINGO</span></td>
+          <td><strong>DIA DA SUA PROVA REAL NA CÂMARA DE MERUOCA!</strong> — Concurso Oficial INBRASP 2026.</td>
+          <td>40 Questões</td>
+          <td style="text-align: center; color: var(--success); font-weight: 800;">🎯 DIA DA PROVA!</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- SEÇÃO 2: DOCUMENTOS OFICIAIS -->
+    <h2 class="section-title"><i class="fas fa-file-contract" style="color: var(--primary);"></i> 2. Documentos Oficiais do Concurso (Câmara de Meruoca 2026)</h2>
+    <div class="docs-box">
+      <div class="doc-row">
+        <div>
+          <strong>Edital de Abertura Oficial nº 001/2026 — Câmara de Meruoca</strong><br>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Documento oficial com vagas, atribuições, conteúdo programático e critérios de aprovação.</span>
+        </div>
+        <a href="originais_pdf/EDITAL_OFICIAL_001_2026_MERUOCA.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf"></i> Abrir Edital</a>
       </div>
 
-      <div style="max-height: 480px; overflow-y: auto; border: 1px solid var(--border); border-radius: 8px;">
-        <table class="files-table">
-          <thead>
-            <tr>
-              <th style="width: 50px;">Tipo</th>
-              <th>Nome do Documento Oficial</th>
-              <th style="width: 110px; text-align: right;">Tamanho</th>
-              <th style="width: 100px; text-align: center;">Ação</th>
-            </tr>
-          </thead>
-          <tbody id="filesTableBody">
-            <!-- Inserido dinamicamente pelo JavaScript -->
-          </tbody>
-        </table>
+      <div class="doc-row">
+        <div>
+          <strong>Cronograma Oficial de Atividades — Câmara de Meruoca 2026</strong><br>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Datas oficiais de inscrição, divulgação de locais de prova, aplicação (18/10) e resultados.</span>
+        </div>
+        <a href="originais_pdf/CRONOGRAMA_OFICIAL_MERUOCA_2026.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf"></i> Abrir Cronograma</a>
       </div>
-      <div id="searchCounter" style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted); text-align: right;">
-        Mostrando 691 arquivos
+
+      <div class="doc-row">
+        <div>
+          <strong>Edital Verticalizado Completo (Página Interativa)</strong><br>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Acompanhamento de todos os tópicos de Português, Matemática, Informática e Específicas.</span>
+        </div>
+        <a href="EDITAL_VERTICALIZADO_MERUOCA_2026.html" target="_blank" class="btn-pdf"><i class="fas fa-external-link-alt"></i> Ver Edital Verticalizado</a>
       </div>
     </div>
 
   </div>
-
-  <script>
-    let todosArquivos = [];
-
-    // Carrega o manifesto de arquivos
-    fetch('arquivos_manifest.json')
-      .then(res => res.json())
-      .then(data => {
-        todosArquivos = data;
-        renderizarTabela(todosArquivos);
-      })
-      .catch(err => {
-        console.error('Erro ao carregar manifesto:', err);
-      });
-
-    function renderizarTabela(lista) {
-      const tbody = document.getElementById('filesTableBody');
-      const counter = document.getElementById('searchCounter');
-      
-      if (!tbody) return;
-      if (counter) counter.innerText = `Mostrando ${lista.length} de ${todosArquivos.length} arquivos`;
-
-      if (lista.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 20px; color: var(--text-muted);">Nenhum documento encontrado com este termo.</td></tr>`;
-        return;
-      }
-
-      tbody.innerHTML = lista.slice(0, 100).map(item => `
-        <tr>
-          <td><span class="file-badge">PDF</span></td>
-          <td style="word-break: break-all;"><strong>${item.nome}</strong></td>
-          <td style="text-align: right; color: var(--text-muted);">${item.tamanho_kb} KB</td>
-          <td style="text-align: center;">
-            <a href="originais_pdf/${encodeURIComponent(item.nome)}" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 700;">
-              <i class="fas fa-external-link-alt"></i> Abrir
-            </a>
-          </td>
-        </tr>
-      `).join('');
-    }
-
-    function filtrarArquivos() {
-      const termo = document.getElementById('pdfSearchInput').value.toLowerCase();
-      const filtrados = todosArquivos.filter(item => item.nome.toLowerCase().includes(termo));
-      renderizarTabela(filtrados);
-    }
-  </script>
 
 </body>
 </html>

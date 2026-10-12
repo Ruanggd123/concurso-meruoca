@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>CADERNO OFICIAL DE QUESTÕES — SEMANA 4 / DIA 2 (22/09/2026) | INBRASP</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @page { size: A4; margin: 15mm 18mm; }
+    :root { --primary: #1e3a8a; --primary-dark: #0f172a; --accent: #dc2626; --border: #cbd5e1; --bg: #ffffff; --text: #0f172a; --text-muted: #475569; }
+    body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif; color: var(--text); background: #f8fafc; margin: 0; padding: 24px; font-size: 10.5pt; line-height: 1.45; }
+    .container { max-width: 960px; margin: 0 auto; background: white; padding: 36px 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
+    .header-box { border: 2px solid var(--primary); border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; background: #f8fafc; }
+    .header-titles h1 { margin: 0 0 4px 0; font-size: 1.35rem; color: var(--primary); font-weight: 800; text-transform: uppercase; }
+    .header-titles h2 { margin: 0 0 4px 0; font-size: 1rem; color: var(--text); font-weight: 700; }
+    .header-titles p { margin: 0; font-size: 0.85rem; color: var(--text-muted); }
+    .badge-banca { background: #fee2e2; color: #991b1b; font-weight: 800; padding: 6px 14px; border-radius: 6px; font-size: 0.85rem; text-transform: uppercase; border: 1px solid #fecaca; }
+    .no-print { display: flex; gap: 12px; margin-bottom: 24px; }
+    .btn-action { background: var(--primary); color: white; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+    .btn-action:hover { background: #1d4ed8; }
+    .section-title { background: #1e3a8a; color: white; padding: 8px 14px; border-radius: 6px; font-size: 1.05rem; font-weight: 800; margin: 28px 0 16px 0; display: flex; justify-content: space-between; align-items: center; }
+    .section-title.matematica { background: #0284c7; }
+    .question-block { border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; margin-bottom: 16px; background: #ffffff; page-break-inside: avoid; }
+    .question-meta { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.8rem; }
+    .q-badge { font-weight: 800; color: var(--primary); }
+    .q-topic { color: var(--text-muted); font-weight: 600; }
+    .question-text { font-weight: 700; color: var(--primary-dark); margin-bottom: 12px; line-height: 1.45; white-space: pre-line; }
+    .options-list { list-style: none; padding: 0; margin: 0; }
+    .option-item { display: flex; align-items: flex-start; gap: 10px; padding: 6px 8px; margin-bottom: 4px; border-radius: 4px; font-size: 0.92rem; }
+    .option-letter { width: 24px; height: 24px; border: 1.5px solid #94a3b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; color: #334155; flex-shrink: 0; }
+    .folha-respostas-box { border: 2px dashed var(--primary); border-radius: 8px; padding: 20px; margin: 30px 0; background: #f8fafc; page-break-before: always; }
+    .folha-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; font-size: 0.82rem; margin-top: 14px; }
+    .folha-row { display: flex; align-items: center; gap: 6px; padding: 4px 6px; background: white; border: 1px solid var(--border); border-radius: 4px; }
+    .folha-num { width: 28px; font-weight: 800; color: var(--primary); }
+    .folha-circle { width: 16px; height: 16px; border: 1px solid #64748b; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; color: #475569; }
+    .gabarito-section { page-break-before: always; margin-top: 30px; }
+    .gabarito-item { background: #f1f5f9; border-left: 4px solid var(--primary); padding: 10px 14px; margin-bottom: 10px; border-radius: 0 6px 6px 0; font-size: 0.88rem; }
+    .gabarito-letra { background: #16a34a; color: white; padding: 2px 8px; border-radius: 4px; font-weight: 800; margin-right: 6px; }
+    @media print { body { background: white; padding: 0; } .container { padding: 0; box-shadow: none; max-width: 100%; } .no-print { display: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="no-print">
+      <button class="btn-action" onclick="window.print()"><i class="fas fa-print"></i> Imprimir Caderno (PDF)</button>
+      <a href="../index.html" class="btn-action" style="background: #e2e8f0; color: #334155;"><i class="fas fa-arrow-left"></i> Voltar ao Gerenciador de Estudos</a>
+    </div>
+    <div class="header-box">
+      <div class="header-titles">
+        <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #dc2626;">Caderno de Treino Diário Oficial • Semana 4 • Formato enxuto</span>
+        <h1>Câmara Municipal de Meruoca / CE</h1>
+        <h2>Concurso Público nº 001/2026 — Cargo: Técnico Legislativo</h2>
+        <p><strong>Semana 4 • Dia 2 (22/09/2026):</strong> Regimento Interno (10Q, só ângulos novos) • RLM Argumentação e Negação (8Q)</p>
+      </div>
+      <div style="text-align: right;">
+        <div class="badge-banca">Banca INBRASP</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 6px;">18 Questões (A, B, C, D)</div>
+      </div>
+    </div>
+    <div class="section-title">
+      <span><i class="fas fa-gavel"></i> PARTE 1: REGIMENTO INTERNO (QUESTÕES 595 A 604)</span>
+      <span style="font-size: 0.8rem; font-weight: normal;">Moções, Espécies, Plenário e Comissões</span>
+    </div>
+
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 595</span>
+        <span class="q-topic">Regimento Interno • Moções Parlamentares</span>
+      </div>
+      <div class="question-text">As moções são proposições por meio das quais a Câmara se manifesta sobre fatos ou pessoas. É CORRETO afirmar que as moções podem expressar:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Congratulação, apelo, repúdio ou pesar, conforme o sentimento do Plenário sobre o fato.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Aprovação de leis ordinárias sem necessidade de sanção do Prefeito.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Nomeação de servidores para cargos em comissão da Câmara.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Julgamento definitivo de crimes praticados por autoridades municipais.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 596</span>
+        <span class="q-topic">Regimento Interno • Espécies: Lei, Resolução e Decreto Legislativo</span>
+      </div>
+      <div class="question-text">No âmbito municipal, distinguem-se projeto de lei, projeto de resolução e projeto de decreto legislativo porque:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Os três têm o mesmo objeto e diferem apenas no nome da capa.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>O projeto de lei vai à sanção; a resolução regula a Câmara; o decreto trata de matéria exclusiva do Plenário.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>A resolução depende de sanção do Prefeito e o decreto legislativo depende do Governador.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>O projeto de lei é votado em turno único secreto e os demais em aclamação.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 597</span>
+        <span class="q-topic">Regimento Interno • Parecer Contrário e Arquivamento</span>
+      </div>
+      <div class="question-text">Quando a Comissão de Constituição e Justiça emite parecer pela inconstitucionalidade de um projeto, a consequência regimental típica é que:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>O projeto é automaticamente promulgado como lei.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>O parecer é ignorado e a tramitação segue inalterada em qualquer caso.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>O projeto pode ser arquivado, salvo recurso de parte dos vereadores para o Plenário decidir.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>O Prefeito fica obrigado a sancionar o projeto imediatamente.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 598</span>
+        <span class="q-topic">Regimento Interno • Votação por Destaque</span>
+      </div>
+      <div class="question-text">A votação por destaque, admitida nos regimentos, consiste em:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Votar separadamente parte da proposição ou emenda, a requerimento aprovado, sem prejuízo do restante do texto.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Votar todas as matérias do ano em uma única sessão de dezembro.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Impedir qualquer vereador de votar nas matérias orçamentárias.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Substituir a votação pela decisão individual do Presidente.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 599</span>
+        <span class="q-topic">Regimento Interno • Questão de Ordem</span>
+      </div>
+      <div class="question-text">A questão de ordem é o instrumento pelo qual o vereador suscita dúvida sobre a aplicação do Regimento durante os trabalhos. Sobre ela, é CORRETO afirmar que:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>É decidida de imediato pelo Presidente, cabendo recurso ao Plenário contra a decisão.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Só pode ser formulada pelo Prefeito, nunca por vereadores.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Suspende todos os mandatos até julgamento pelo Tribunal de Contas.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Serve para discutir o mérito de projetos ainda não apresentados.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 600</span>
+        <span class="q-topic">Regimento Interno • Audiências Públicas das Comissões</span>
+      </div>
+      <div class="question-text">As comissões da Câmara podem realizar audiências públicas com entidades da sociedade civil. Essa atribuição tem por finalidade:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Julgar processos criminais contra cidadãos do Município.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Instruir matéria em tramitação, colhendo subsídios e opiniões sobre o tema.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Arrecadar tributos municipais diretamente dos contribuintes.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Nomear os membros da Mesa Diretora para a legislatura seguinte.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 601</span>
+        <span class="q-topic">Regimento Interno • Líderes e Blocos Parlamentares</span>
+      </div>
+      <div class="question-text">Os líderes partidários e de blocos parlamentares exercem, entre outras funções regimentais:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Executar o orçamento da Câmara sem prestar contas.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Vetar projetos de lei aprovados pelo Plenário.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Indicar os membros das comissões pelas respectivas bancadas e orientar a votação.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Presidir todas as sessões no lugar do Presidente eleito.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 602</span>
+        <span class="q-topic">Regimento Interno • Discussão Global e Parcelada</span>
+      </div>
+      <div class="question-text">A discussão das proposições em Plenário pode ser global ou parcelada. Assinale a alternativa CORRETA:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>A discussão parcelada divide o texto em partes a requerimento, votando-se cada uma separadamente.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>A discussão global é proibida em qualquer hipótese nos regimentos.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>A discussão parcelada dispensa a votação posterior de cada parte.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Toda discussão exige quórum de dois terços para ser iniciada.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 603</span>
+        <span class="q-topic">Regimento Interno • Comissões de Representação</span>
+      </div>
+      <div class="question-text">As comissões de representação da Câmara Municipal destinam-se a:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Representar a Câmara em atos externos e solenidades, sendo temporárias e designadas pelo Presidente.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Julgar as contas anuais do Prefeito em substituição ao Plenário.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Legislar sobre matéria tributária sem passar pelas comissões permanentes.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Substituir a Mesa Diretora durante todo o mandato.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 604</span>
+        <span class="q-topic">Regimento Interno • Urgência na Tramitação</span>
+      </div>
+      <div class="question-text">O regime de urgência na tramitação de proposições caracteriza-se por:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Acelerar os prazos regimentais das comissões e do Plenário, sem suprimir o direito ao debate e às emendas.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Eliminar todas as formalidades, inclusive a votação em Plenário.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Permitir a aprovação por decisão individual de qualquer vereador.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Dispensar a sanção do Prefeito nas leis aprovadas sob urgência.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="section-title matematica">
+      <span><i class="fas fa-brain"></i> PARTE 2: RLM — ARGUMENTAÇÃO E NEGAÇÃO (QUESTÕES 605 A 612)</span>
+      <span style="font-size: 0.8rem; font-weight: normal;">Silogismos, Categóricas, De Morgan e Venn</span>
+    </div>
+
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 605</span>
+        <span class="q-topic">Matemática / RLM • Silogismo Válido (Modus Ponens)</span>
+      </div>
+      <div class="question-text">Considere as premissas: 'Se chove, a sessão é adiada' e 'Choveu'. A conclusão logicamente válida é:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>A sessão foi adiada.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>A sessão não foi adiada.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Não choveu na cidade vizinha.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>A sessão será adiada amanhã.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 606</span>
+        <span class="q-topic">Matemática / RLM • Falácia da Afirmação do Consequente</span>
+      </div>
+      <div class="question-text">Premissas: 'Se o projeto é aprovado, o Prefeito o sanciona' e 'O Prefeito sancionou o projeto'. Sobre a conclusão 'logo, o projeto foi aprovado', é CORRETO afirmar que:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>É válida, pois toda sanção pressupõe aprovação anterior.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>É inválida: afirmar o consequente não garante o antecedente (falácia formal).</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>É válida, pois sanção e aprovação são proposições equivalentes.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>É inválida, pois o Prefeito jamais sanciona projetos.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 607</span>
+        <span class="q-topic">Matemática / RLM • Proposições Categóricas: Todo e Nenhum</span>
+      </div>
+      <div class="question-text">Premissas: 'Todo vereador é eleitor' e 'Nenhum eleitor é estrangeiro'. A conclusão válida é:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Algum vereador é estrangeiro.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Todo estrangeiro é vereador.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Nenhum vereador é estrangeiro.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Algum eleitor não é vereador.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 608</span>
+        <span class="q-topic">Matemática / RLM • Proposições Categóricas: Algum</span>
+      </div>
+      <div class="question-text">Premissas: 'Alguns vereadores são advogados' e 'Todos os advogados possuem OAB'. Conclui-se validamente que:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Todos os vereadores são advogados.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Nenhum vereador possui OAB.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Todos os advogados são vereadores.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Alguns vereadores possuem OAB.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 609</span>
+        <span class="q-topic">Matemática / RLM • Equivalência: Contrapositiva</span>
+      </div>
+      <div class="question-text">A proposição 'Se o projeto é aprovado, o Prefeito o sanciona' é logicamente equivalente a:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Se o projeto é aprovado, o Prefeito não o sanciona.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Se o Prefeito não sanciona o projeto, então ele não foi aprovado.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Se o Prefeito sanciona o projeto, então ele foi aprovado.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>O projeto é aprovado se e somente se o Prefeito o sanciona.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 610</span>
+        <span class="q-topic">Matemática / RLM • De Morgan: Negação da Conjunção</span>
+      </div>
+      <div class="question-text">A negação lógica de 'O edital foi publicado e o prazo foi aberto' é:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>O edital foi publicado ou o prazo foi aberto.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>O edital não foi publicado ou o prazo não foi aberto.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>O edital não foi publicado e o prazo não foi aberto.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Se o edital foi publicado, então o prazo foi aberto.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 611</span>
+        <span class="q-topic">Matemática / RLM • De Morgan: Negação da Disjunção</span>
+      </div>
+      <div class="question-text">É falso que 'choveu ou fez frio'. Logo, é verdade que:</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Choveu e fez frio.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Não choveu ou não fez frio.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Não choveu e não fez frio.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Se choveu, então fez frio.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 612</span>
+        <span class="q-topic">Matemática / RLM • Diagrama de Venn com Três Conjuntos</span>
+      </div>
+      <div class="question-text">Dos 120 servidores da Câmara, 70 fizeram curso X, 60 fizeram Y e 50 fizeram Z. Fizeram X e Y 30; X e Z 25; Y e Z 20; os três cursos 10. Quantos não fizeram nenhum curso?</div>
+      <ul class="options-list">
+    
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>15 servidores.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>10 servidores.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>5 servidores.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Nenhum servidor.</span>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="folha-respostas-box">
+      <div style="text-align: center; border-bottom: 1px solid #cbd5e1; padding-bottom: 8px; margin-bottom: 10px;">
+        <strong style="font-size: 1.1rem; text-transform: uppercase; color: var(--primary);">Folha de Respostas Óptica — Simulação Real (18 Questões)</strong>
+        <p style="margin: 4px 0 0 0; font-size: 0.8rem; color: #64748b;">Preencha a bolha correspondente à alternativa escolhida para treino de agilidade.</p>
+      </div>
+      <div class="folha-grid">
+
+        <div class="folha-row">
+          <span class="folha-num">595</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">596</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">597</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">598</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">599</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">600</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">601</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">602</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">603</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">604</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">605</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">606</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">607</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">608</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">609</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">610</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">611</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+        <div class="folha-row">
+          <span class="folha-num">612</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+    
+      </div>
+    </div>
+    <div class="gabarito-section">
+      <div style="background: var(--primary); color: white; padding: 10px 16px; border-radius: 6px; font-weight: 800; font-size: 1.1rem; margin-bottom: 16px;">
+        <i class="fas fa-check-double"></i> GABARITO OFICIAL FUNDAMENTADO
+      </div>
+
+      <div class="gabarito-item">
+        <span class="gabarito-letra">A</span>
+        <strong>Questão 595 (Regimento Interno - Moções Parlamentares):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: A. Moção = manifestação (congratula, apela, repudia, lamenta). Não aprova lei, não nomeia servidor, não julga crimes.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">B</span>
+        <strong>Questão 596 (Regimento Interno - Espécies: Lei, Resolução e Decreto Legislativo):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: B. Lei = norma geral (vai à sanção); resolução = matéria interna/administrativa da Câmara (promulgada pelo Presidente); decreto legislativo = competência exclusiva do Plenário com efeito externo (contas, títulos, sustação).</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">C</span>
+        <strong>Questão 597 (Regimento Interno - Parecer Contrário e Arquivamento):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: C. Parecer terminativo pela inconstitucionalidade leva ao arquivamento, com recurso ao Plenário (em regra, 1/10 dos membros). CCJ não promulga nem obriga sanção.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">D</span>
+        <strong>Questão 598 (Regimento Interno - Votação por Destaque):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: D. Destaque = fatiar a votação (trecho/emenda) mediante requerimento. Não concentra o ano, não exclui votantes, não transfere ao Presidente.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">A</span>
+        <strong>Questão 599 (Regimento Interno - Questão de Ordem):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: A. Questão de ordem = dúvida regimental decidida na hora pelo Presidente, com recurso ao Plenário. É prerrogativa de vereador, não suspende mandatos nem discute mérito futuro.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">B</span>
+        <strong>Questão 600 (Regimento Interno - Audiências Públicas das Comissões):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: B. Audiência pública = instrução democrática da matéria (CF, Art. 58, § 2º, II, por simetria). Comissões não julgam crimes, não arrecadam, não elegem Mesa.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">C</span>
+        <strong>Questão 601 (Regimento Interno - Líderes e Blocos Parlamentares):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: C. Líder indica comissão, orienta bancada, fala pela liderança e pede verificações. Executar orçamento, vetar e presidir no lugar do eleito extrapolam a função.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">D</span>
+        <strong>Questão 602 (Regimento Interno - Discussão Global e Parcelada):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: D. Parcelada = fatiar discussão/votação por requerimento; global = texto inteiro de uma vez (regra). Quórum de 2/3 para iniciar discussão inexiste como regra.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">A</span>
+        <strong>Questão 603 (Regimento Interno - Comissões de Representação):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: A. Representação = temporária, externa, designada (ex.: representar a Câmara em evento). Não julga contas, não legisla, não substitui a Mesa.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">B</span>
+        <strong>Questão 604 (Regimento Interno - Urgência na Tramitação):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: B. Urgência encurta prazos, não elimina debate, emendas, votação nem sanção. Decisão individual e dispensa de sanção violam o processo legislativo.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">A</span>
+        <strong>Questão 605 (Matemática / RLM - Silogismo Válido (Modus Ponens)):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: A. Modus ponens: P → Q; P; logo Q. Afirmada a condição (choveu), segue-se o consequente (adiada). Negar ou projetar no tempo extrapola as premissas.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">B</span>
+        <strong>Questão 606 (Matemática / RLM - Falácia da Afirmação do Consequente):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: B. Afirmar Q em P → Q nada conclui sobre P (o Prefeito poderia sancionar por outro fundamento na hipótese lógica). Validade formal independe do conteúdo ser plausível — aí está a pegadinha.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">C</span>
+        <strong>Questão 607 (Matemática / RLM - Proposições Categóricas: Todo e Nenhum):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: C. Se todo V está em E, e nada de E está em S, então nada de V está em S. As demais invertem os termos ou criam relação inexistente entre eles.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">D</span>
+        <strong>Questão 608 (Matemática / RLM - Proposições Categóricas: Algum):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: D. A parte dos vereadores que é advogada herda a propriedade do grupo (OAB). 'Alguns' não autoriza 'todos' em nenhum dos sentidos; inversões de sujeito e predicado são falácias.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">B</span>
+        <strong>Questão 609 (Matemática / RLM - Equivalência: Contrapositiva):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: B. Contrapositiva: P → Q ≡ ~Q → ~P. Nega as duas partes e inverte a ordem. A recíproca (C) e a bicondicional (D) não são equivalentes; A nega só o consequente.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">B</span>
+        <strong>Questão 610 (Matemática / RLM - De Morgan: Negação da Conjunção):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: B. De Morgan: ~(P ∧ Q) ≡ ~P ∨ ~Q — nega as duas partes e troca E por OU. Manter o E (C) ou trocar só uma parte são os erros clássicos.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">C</span>
+        <strong>Questão 611 (Matemática / RLM - De Morgan: Negação da Disjunção):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: C. De Morgan: ~(P ∨ Q) ≡ ~P ∧ ~Q. Negar o OU gera E com as duas partes negadas. 'É falso que' = negação da proposição inteira.</p>
+      </div>
+    
+      <div class="gabarito-item">
+        <span class="gabarito-letra">D</span>
+        <strong>Questão 612 (Matemática / RLM - Diagrama de Venn com Três Conjuntos):</strong>
+        <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.85rem;">Gabarito: D. Inclusão-exclusão: 70+60+50−30−25−20+10 = 115 fizeram ao menos um; 120−115 = 5. Some tudo, subtraia as duplas, some a tripla e tire do total.</p>
+      </div>
+    
+    </div>
+  </div>
+</body>
+</html>

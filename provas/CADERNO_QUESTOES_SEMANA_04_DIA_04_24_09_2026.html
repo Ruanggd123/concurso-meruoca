@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>CADERNO OFICIAL DE QUESTÕES — SEMANA 4 / DIA 4 (24/09/2026) | INBRASP</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @page { size: A4; margin: 15mm 18mm; }
+    :root { --primary: #1e3a8a; --primary-dark: #0f172a; --accent: #dc2626; --border: #cbd5e1; --bg: #ffffff; --text: #0f172a; --text-muted: #475569; }
+    body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif; color: var(--text); background: #f8fafc; margin: 0; padding: 24px; font-size: 10.5pt; line-height: 1.45; }
+    .container { max-width: 960px; margin: 0 auto; background: white; padding: 36px 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
+    .header-box { border: 2px solid var(--primary); border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; background: #f8fafc; }
+    .header-titles h1 { margin: 0 0 4px 0; font-size: 1.35rem; color: var(--primary); font-weight: 800; text-transform: uppercase; }
+    .header-titles h2 { margin: 0 0 4px 0; font-size: 1rem; color: var(--text); font-weight: 700; }
+    .header-titles p { margin: 0; font-size: 0.85rem; color: var(--text-muted); }
+    .badge-banca { background: #fee2e2; color: #991b1b; font-weight: 800; padding: 6px 14px; border-radius: 6px; font-size: 0.85rem; text-transform: uppercase; border: 1px solid #fecaca; }
+    .no-print { display: flex; gap: 12px; margin-bottom: 24px; }
+    .btn-action { background: var(--primary); color: white; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+    .btn-action:hover { background: var(--primary-dark); }
+    .section-title { background: #e0e7ff; color: #1e3a8a; padding: 10px 16px; border-left: 5px solid #2563eb; font-weight: 800; font-size: 1rem; margin: 26px 0 16px 0; border-radius: 0 6px 6px 0; display: flex; justify-content: space-between; align-items: center; }
+    .section-title.secundario { background: #fef3c7; color: #92400e; border-left-color: #f59e0b; }
+    .question-block { border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; margin-bottom: 16px; background: #ffffff; page-break-inside: avoid; }
+    .question-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.78rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px; }
+    .q-badge { background: #1e3a8a; color: white; padding: 2px 8px; border-radius: 4px; font-weight: 800; }
+    .q-topic { color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+    .question-text { font-size: 0.96rem; font-weight: 600; margin-bottom: 12px; line-height: 1.5; }
+    .options-list { list-style: none; padding: 0; margin: 0; }
+    .option-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 10px; border-radius: 6px; margin-bottom: 6px; border: 1px solid transparent; font-size: 0.92rem; }
+    .option-item:hover { background: #f8fafc; border-color: #e2e8f0; }
+    .option-letter { width: 22px; height: 22px; border-radius: 50%; background: #e2e8f0; color: #334155; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.78rem; flex-shrink: 0; }
+    .folha-respostas-box { background: #f8fafc; border: 2px dashed #94a3b8; border-radius: 8px; padding: 16px 20px; margin: 30px 0; page-break-before: always; }
+    .folha-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-top: 12px; }
+    .folha-row { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 700; }
+    .folha-num { width: 24px; text-align: right; color: #475569; }
+    .folha-circle { width: 20px; height: 20px; border: 1.5px solid #64748b; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #475569; }
+    .gabarito-section { margin-top: 36px; border-top: 2px solid #cbd5e1; padding-top: 24px; page-break-before: always; }
+    .gabarito-item { border-left: 3px solid #10b981; background: #f0fdf4; padding: 10px 14px; border-radius: 0 6px 6px 0; margin-bottom: 10px; font-size: 0.9rem; }
+    .gabarito-letra { font-weight: 800; color: #047857; margin-right: 6px; font-size: 1rem; }
+    @media print {
+      body { background: white; padding: 0; }
+      .container { box-shadow: none; padding: 0; }
+      .no-print { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="no-print">
+      <a href="../index.html" class="btn-action" style="background: #475569;"><i class="fas fa-arrow-left"></i> Voltar ao Gerenciador</a>
+      <button onclick="window.print()" class="btn-action"><i class="fas fa-print"></i> Imprimir Caderno A4</button>
+    </div>
+
+    <div class="header-box">
+      <div class="header-titles">
+        <h1>Câmara Municipal de Meruoca — Concurso 2026</h1>
+        <h2>Técnico Legislativo • Caderno de Questões — Semana 4 / Dia 4 (24/09/2026)</h2>
+        <p>18 Questões Inéditas em Estilo Banca: 10 LRF (LC 101/2000) + 8 Português (Colocação Pronominal)</p>
+      </div>
+      <div style="text-align: right;">
+        <span class="badge-banca">Banca INBRASP</span>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">4 Alternativas (A, B, C, D)</div>
+      </div>
+    </div>
+
+    <div class="section-title">
+      <span><i class="fas fa-book"></i> PARTE 1: LEI DE RESPONSABILIDADE FISCAL — LRF (QUESTÕES 631 A 640)</span>
+      <span style="font-size: 0.8rem; font-weight: normal;">LC nº 101/2000 • Despesa com Pessoal no Legislativo • Limites e Vedações</span>
+    </div>
+
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 631</span>
+        <span class="q-topic">LRF — Lei Complementar nº 101/2000 • Conceito e Apuração da Receita Corrente Líquida (RCL)</span>
+      </div>
+      <div class="question-text">Para fins de aplicação dos limites fiscais estabelecidos pela LRF, a Receita Corrente Líquida (RCL) municipal é apurada computando-se:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>As receitas auferidas no mês de referência somadas às dos onze meses imediatamente anteriores.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>As receitas totais de capital arrecadadas no exercício financeiro encerrado no ano anterior.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>O somatório das receitas correntes previstas pelo Executivo para os próximos dois exercícios.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>A arrecadação líquida obtida exclusivamente no último trimestre do ano civil de apuração.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 632</span>
+        <span class="q-topic">LRF — Lei Complementar nº 101/2000 • Limite Global de Despesa com Pessoal nos Municípios (Art. 19, III)</span>
+      </div>
+      <div class="question-text">A despesa total com pessoal, em cada período de apuração e em cada ente da Federação, não poderá exceder os percentuais da RCL. No Município, o limite global é de:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>50% (cinquenta por cento) da Receita Corrente Líquida para todos os poderes somados.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>60% (sessenta por cento) da Receita Corrente Líquida para o conjunto do município.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>70% (setenta por cento) da Receita Corrente Líquida incluídas as despesas de capital.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>40% (quarenta por cento) da Receita Corrente Líquida apurada nos últimos seis meses.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 633</span>
+        <span class="q-topic">LRF — Lei Complementar nº 101/2000 • Repartição dos Limites de Pessoal na Esfera Municipal (Art. 20, III)</span>
+      </div>
+      <div class="question-text">Na repartição dos limites globais de despesa com pessoal no âmbito municipal, a LRF estabelece de maneira expressa que caberá, respectivamente, ao Legislativo e ao Executivo:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>10% para o Poder Legislativo municipal e 50% para a administração do Poder Executivo.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>6% para o Poder Legislativo (Câmara) e 54% para o Poder Executivo (Prefeitura local).</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>8% para a Câmara de Vereadores do município e 52% para os órgãos da Prefeitura.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>5% para o Poder Legislativo da cidade e 55% para os quadros gerais do Poder Executivo.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 634</span>
+        <span class="q-topic">LRF — Lei Complementar nº 101/2000 • Limite Prudencial de Despesa com Pessoal (Art. 22, parágrafo único)</span>
+      </div>
+      <div class="question-text">Se a despesa total com pessoal do Poder Legislativo municipal ultrapassar 95% do seu limite legal máximo (limite prudencial), é vedado à Câmara Municipal:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Conceder qualquer vantagem, aumento, reajuste ou adequação de remuneração a servidores.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Pagar os proventos regulares de aposentadorias e pensões concedidas em períodos anteriores.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Contratar fornecedores de bens essenciais para os serviços de limpeza e conservação predial.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Promover a realização de sessões plenárias ordinárias convocadas pelo presidente da Casa.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 635</span>
+        <span class="q-topic">LRF — Lei Complementar nº 101/2000 • Limite de Alerta do Tribunal de Contas (Art. 59, § 1º, II)</span>
+      </div>
+      <div class="question-text">O Tribunal de Contas competente alertará os poderes municipais quando o montante da despesa total com pessoal ultrapassar determinado percentual do limite máximo, que corresponde a:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>80% (oitenta por cento) do limite legal estabelecido para a despesa total com pessoal.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>85% (oitenta e cinco por cento) do teto máximo admitido para o encargo remuneratório.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>90% (noventa por cento) do limite estabelecido na LRF para o respectivo poder público.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>95% (noventa e cinco por cento) do teto máximo de comprometimento orçamentário anual.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 636</span>
+        <span class="q-topic">LRF — Lei Complementar nº 101/2000 • Vedação de Aumento de Despesa com Pessoal no Fim do Mandato (Art. 21)</span>
+      </div>
+      <div class="question-text">Conforme a Lei de Responsabilidade Fiscal, é nulo de pleno direito o ato que resulte em aumento da despesa com pessoal expedido nos:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Trinta dias que antecederem o término do mandato do titular do respectivo Poder.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Sessenta dias finais do exercício orçamentário e financeiro do ente federativo.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Cento e oitenta dias anteriores ao final do mandato do titular de Poder ou órgão.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Noventa dias antecedentes à data da eleição municipal ordinária da respectiva comarca.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 637</span>
+        <span class="q-topic">LRF — Lei Complementar nº 101/2000 • Restos a Pagar e Disponibilidade de Caixa no Final do Mandato (Art. 42)</span>
+      </div>
+      <div class="question-text">O Art. 42 da LRF proíbe o titular de Poder contrair obrigação de despesa que não possa ser cumprida integralmente dentro dele, ou que tenha parcelas para o ano seguinte sem caixa, nos últimos:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Dois quadrimestres do seu mandato eletivo à frente da administração pública.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Três meses do encerramento oficial do primeiro semestre de seu governo municipal.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Cento e vinte dias antecedentes à homologação final das contas pelo plenário.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Dois meses que antecedem a posse regular dos vereadores eleitos no certame.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 638</span>
+        <span class="q-topic">LRF — Lei Complementar nº 101/2000 • Relatório de Gestão Fiscal (RGF - Arts. 54 e 55)</span>
+      </div>
+      <div class="question-text">A respeito do Relatório de Gestão Fiscal (RGF) exigido pela Lei Complementar nº 101/2000, é correto afirmar que:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>É emitido exclusivamente pelo Poder Executivo, sendo a Câmara dispensada de produzi-lo.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Deve ser emitido ao final de cada quadrimestre pelos chefes dos Poderes, inclusive da Câmara.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Tem publicação exigida apenas anualmente após o parecer técnico do Tribunal de Contas.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Contém unicamente o demonstrativo das despesas com obras e compras de equipamentos.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 639</span>
+        <span class="q-topic">LRF — Lei Complementar nº 101/2000 • Relatório Resumido da Execução Orçamentária (RREO - Arts. 52 e 53)</span>
+      </div>
+      <div class="question-text">O Relatório Resumido da Execução Orçamentária (RREO), instrumento essencial de transparência da gestão fiscal, é elaborado pelo Poder Executivo com periodicidade:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Mensal, devendo ser publicado até o quinto dia útil de cada mês subsequente.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Bimestral, devendo ser publicado em até trinta dias após o encerramento do bimestre.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Semestral, devendo ser enviado à Câmara de Vereadores até o final de dezembro.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Trimestral, devendo coincidir com as reuniões da comissão de orçamento da Casa.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 640</span>
+        <span class="q-topic">LRF — Lei Complementar nº 101/2000 • Instrumentos de Transparência da Gestão Fiscal (Art. 48)</span>
+      </div>
+      <div class="question-text">A transparência da gestão fiscal, nos termos do Art. 48 da LRF, é assegurada mediante incentivo à participação popular e realização de audiências públicas, bem como pela liberação ao pleno conhecimento público:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Apenas mediante requerimento formal fundamentado por escrito protocolado na ouvidoria.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Em tempo real, de informações pormenorizadas sobre a execução orçamentária e financeira.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Somente após decorridos cinco anos do término regular da legislatura correspondente.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Exclusivamente por meio de afixação em mural físico restrito ao saguão da prefeitura.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+
+    <div class="section-title secundario">
+      <span><i class="fas fa-pencil-alt"></i> PARTE 2: LÍNGUA PORTUGUESA — COLOCAÇÃO PRONOMINAL (QUESTÕES 641 A 648)</span>
+      <span style="font-size: 0.8rem; font-weight: normal;">Próclise (Termos Atrativos), Ênclise, Mesóclise e Locuções Verbais</span>
+    </div>
+
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 641</span>
+        <span class="q-topic">Língua Portuguesa • Colocação Pronominal: Próclise com Palavras Negativas</span>
+      </div>
+      <div class="question-text">Na frase 'Os servidores não se manifestaram sobre a decisão da mesa diretora', a posição proclítica do pronome oblíquo átono 'se' justifica-se gramaticalmente pela presença de:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Palavra de sentido negativo atuando como fator gramatical atrativo obrigatório.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Conjunção coordenativa explicativa posicionada no início do período oracional.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Pronome demonstrativo neutro exercendo função sintática de sujeito do predicado.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Advérbio de modo intercalado entre o núcleo do sujeito e o verbo principal.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 642</span>
+        <span class="q-topic">Língua Portuguesa • Colocação Pronominal: Próclise com Pronomes Relativos</span>
+      </div>
+      <div class="question-text">Assinale a alternativa em que a colocação pronominal proclítica decorre obrigatoriamente da presença de um pronome relativo na oração:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Aqui se discutem com frequência os projetos prioritários da Câmara de Meruoca.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>O relatório que me entregaram continha apontamentos sobre a gestão de pessoal.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Talvez se encontrem novas alternativas para equilibrar as contas deste ano.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Alguém lhe informou sobre o prazo final de apresentação das emendas na Casa.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 643</span>
+        <span class="q-topic">Língua Portuguesa • Colocação Pronominal: Próclise com Conjunções Subordinativas</span>
+      </div>
+      <div class="question-text">A próclise é obrigatória em orações iniciadas por conjunções subordinativas. Assinale a frase que exemplifica corretamente essa regra gramatical:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Os vereadores reuniram-se logo cedo para apreciar o veto parcial do prefeito.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Embora se esforçassem muito, os técnicos não concluíram o parecer a tempo.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Entreguem-me todos os comprovantes de despesas até o fim do expediente hoje.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Dir-se-ia que a sessão legislativa transcorreria sem debates acalorados hoje.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 644</span>
+        <span class="q-topic">Língua Portuguesa • Colocação Pronominal: Próclise com Pronomes Indefinidos</span>
+      </div>
+      <div class="question-text">Assinale a frase em que o pronome oblíquo átono foi posicionado em próclise por força da atração exercida por um pronome indefinido:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Ninguém nos avisou acerca do adiamento da votação do projeto de resolução.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Quando me consultaram formalmente, emiti parecer favorável à tramitação da lei.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Fizeram-se presentes todos os membros da comissão permanente de finanças.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Far-se-á a divulgação dos resultados em diário oficial na data aprazada.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 645</span>
+        <span class="q-topic">Língua Portuguesa • Colocação Pronominal: Vedação de Próclise no Início de Período</span>
+      </div>
+      <div class="question-text">De acordo com a norma-padrão da Língua Portuguesa, é vedado iniciar período oracional com pronome oblíquo átono. A frase redigida em estrita conformidade com essa regra é:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Me informaram ontem sobre a reabertura do prazo para impugnação do edital.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Te ajudarei na consolidação dos demonstrativos do relatório quadrimestral.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Apresentaram-se pontualmente todos os candidatos convocados para o certame.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Se espera que o plenário vote as matérias regimentais na sessão ordinária.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 646</span>
+        <span class="q-topic">Língua Portuguesa • Colocação Pronominal: Mesóclise com Verbos no Futuro</span>
+      </div>
+      <div class="question-text">A mesóclise é o emprego do pronome intercalado no meio do verbo. Seu uso ocorre legitimamente quando o verbo está conjugado no futuro e não há fator atrativo, como em:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Convidar-me-ão para a solenidade oficial de posse dos novos servidores.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Não calar-me-ei diante das supostas irregularidades apontadas na pasta.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Que Deus ajude-nos na condução harmoniosa dos trabalhos da comissão local.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Todos calaram-se no instante exato em que o presidente iniciou os votos.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 647</span>
+        <span class="q-topic">Língua Portuguesa • Colocação Pronominal em Locução Verbal com Particípio</span>
+      </div>
+      <div class="question-text">Nas locuções verbais cujo verbo principal encontra-se flexionado no particípio, o pronome oblíquo átono nunca poderá vir colocado:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Após o verbo auxiliar, ainda que sem hífen e sem palavra atrativa antecedente.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Antes do verbo auxiliar, quando houver palavra de sentido negativo no início.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Depois do verbo principal no particípio, sendo essa posição terminantemente proibida.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Ligado por hífen ao verbo auxiliar que estiver conjugado no tempo presente.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 648</span>
+        <span class="q-topic">Língua Portuguesa • Colocação Pronominal em Locução Verbal com Infinitivo</span>
+      </div>
+      <div class="question-text">Em locuções verbais formadas por verbo auxiliar seguido de verbo principal no infinitivo, quando NÃO houver palavra atrativa na oração, é gramaticalmente correto:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Posicionar o pronome oblíquo ligado por hífen ao infinitivo ou ao verbo auxiliar.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Empregar o pronome exclusivamente no início da oração antes do sujeito simples.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Omitir obrigatoriamente o pronome oblíquo para evitar vício de redundância.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Intercalar o pronome átono com hífen no interior da raiz do verbo infinitivo.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+
+    <div class="folha-respostas-box">
+      <div style="font-weight: 800; font-size: 1rem; color: var(--primary); text-transform: uppercase;">
+        <i class="fas fa-edit"></i> Folha Óptica de Respostas (Simulado Pré-Prova)
+      </div>
+      <p style="font-size: 0.82rem; color: var(--text-muted); margin: 4px 0 12px 0;">Preencha os círculos correspondentes às suas respostas antes de conferir o gabarito comentado.</p>
+      <div class="folha-grid">
+        
+        <div class="folha-row">
+          <span class="folha-num">631</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">632</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">633</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">634</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">635</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">636</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">637</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">638</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">639</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">640</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">641</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">642</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">643</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">644</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">645</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">646</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">647</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">648</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="gabarito-section">
+      <div style="font-weight: 800; font-size: 1.15rem; color: #047857; margin-bottom: 16px;">
+        <i class="fas fa-check-double"></i> Gabarito Oficial Fundamentado (Banca INBRASP)
+      </div>
+      
+        <div class="gabarito-item">
+          <strong>Questão 631:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. Art. 2º, IV, 'a' da LRF: a Receita Corrente Líquida é apurada 'somando-se as [receitas] recebidas no mês em referência e nos onze anteriores, excluídas as duplicidades'.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 632:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. Art. 19, III da LRF: nos Municípios, a despesa total com pessoal não poderá exceder a 60% (sessenta por cento) da Receita Corrente Líquida.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 633:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. Art. 20, III da LRF: no âmbito municipal, o limite de 60% reparte-se em: a) 6% para o Legislativo (incluído o Tribunal de Contas do Município, se houver); b) 54% para o Executivo.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 634:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. Art. 22, parágrafo único, I da LRF: ao atingir 95% do limite (limite prudencial), é vedada a concessão de vantagem, aumento, reajuste ou adequação de remuneração a qualquer título.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 635:</strong> <span class="gabarito-letra">(C)</span> Gabarito: C. Art. 59, § 1º, II da LRF: os Tribunais de Contas alertarão os Poderes quando constatarem que o montante da despesa total com pessoal ultrapassou 90% (noventa por cento) do limite.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 636:</strong> <span class="gabarito-letra">(C)</span> Gabarito: C. Art. 21, parágrafo único da LRF: 'Também é nulo de pleno direito o ato de que resulte aumento da despesa com pessoal [...] expedido nos 180 (cento e oitenta) dias anteriores ao final do mandato do titular do respectivo Poder ou órgão'.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 637:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. Art. 42 da LRF: 'É vedado ao titular de Poder ou órgão [...] nos últimos dois quadrimestres do seu mandato, contrair obrigação de despesa que não possa ser cumprida integralmente dentro dele, ou que tenha parcelas a serem pagas no exercício seguinte sem que haja suficiente disponibilidade de caixa'.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 638:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. Arts. 54 e 55 da LRF: ao final de cada quadrimestre será emitido pelos titulares dos Poderes e órgãos (inclusive Presidente da Câmara) o Relatório de Gestão Fiscal (RGF).
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 639:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. Art. 52 da LRF: o Relatório Resumido da Execução Orçamentária (RREO) abrange todos os Poderes e é publicado pelo Poder Executivo até trinta dias após o encerramento de cada bimestre.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 640:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. Art. 48, II da LRF: liberação ao pleno conhecimento e acompanhamento da sociedade, em tempo real, de informações pormenorizadas sobre a execução orçamentária e financeira, em meios eletrônicos de acesso público.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 641:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. Palavras de sentido negativo (não, nunca, jamais, nada, ninguém) são fatores de atração obrigatória da próclise na norma-padrão ('não se manifestaram').
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 642:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. O pronome relativo 'que' ('O relatório que me entregaram') atrai obrigatoriamente o pronome oblíquo 'me' para a posição proclítica (antes do verbo).
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 643:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. A conjunção subordinativa concessiva 'Embora' atrai obrigatoriamente o pronome oblíquo para a posição proclítica: 'Embora se esforçassem'.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 644:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. O pronome indefinido 'Ninguém' (que também tem sentido negativo) atrai obrigatoriamente a próclise: 'Ninguém nos avisou'.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 645:</strong> <span class="gabarito-letra">(C)</span> Gabarito: C. Na norma-padrão culta (muito cobrada pela INBRASP), não se inicia frase com pronome oblíquo átono. Logo, 'Apresentaram-se' é a forma correta; frases como 'Me informaram' ou 'Se espera' são condenadas gramaticalmente.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 646:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. 'Convidar-me-ão' (futuro do presente do indicativo sem palavra atrativa) exige mesóclise. Na alternativa B, o 'Não' atrai próclise ('Não me calarei').
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 647:</strong> <span class="gabarito-letra">(C)</span> Gabarito: C. Regra fundamental da gramática normativa: NUNCA se coloca pronome oblíquo após particípio (ex: 'tinham avisado-me' é erro crasso; o correto é 'tinham-me avisado' ou 'tinham me avisado').
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 648:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. Com infinitivo sem palavra atrativa, o pronome pode ficar em ênclise ao auxiliar ou em ênclise ao infinitivo (ex: 'Quero-lhe dizer' ou 'Quero dizer-lhe'). Ambas as formas são plenamente corretas.
+        </div>
+        
+    </div>
+
+  </div>
+</body>
+</html>

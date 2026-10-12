@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>CADERNO OFICIAL DE QUESTÕES — SEMANA 5 / DIA 1 (28/09/2026) | INBRASP</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @page { size: A4; margin: 15mm 18mm; }
+    :root { --primary: #1e3a8a; --primary-dark: #0f172a; --accent: #dc2626; --border: #cbd5e1; --bg: #ffffff; --text: #0f172a; --text-muted: #475569; }
+    body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif; color: var(--text); background: #f8fafc; margin: 0; padding: 24px; font-size: 10.5pt; line-height: 1.45; }
+    .container { max-width: 960px; margin: 0 auto; background: white; padding: 36px 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
+    .header-box { border: 2px solid var(--primary); border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; background: #f8fafc; }
+    .header-titles h1 { margin: 0 0 4px 0; font-size: 1.35rem; color: var(--primary); font-weight: 800; text-transform: uppercase; }
+    .header-titles h2 { margin: 0 0 4px 0; font-size: 1rem; color: var(--text); font-weight: 700; }
+    .header-titles p { margin: 0; font-size: 0.85rem; color: var(--text-muted); }
+    .badge-banca { background: #fee2e2; color: #991b1b; font-weight: 800; padding: 6px 14px; border-radius: 6px; font-size: 0.85rem; text-transform: uppercase; border: 1px solid #fecaca; }
+    .no-print { display: flex; gap: 12px; margin-bottom: 24px; }
+    .btn-action { background: var(--primary); color: white; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+    .btn-action:hover { background: var(--primary-dark); }
+    .section-title { background: #e0e7ff; color: #1e3a8a; padding: 10px 16px; border-left: 5px solid #2563eb; font-weight: 800; font-size: 1rem; margin: 26px 0 16px 0; border-radius: 0 6px 6px 0; display: flex; justify-content: space-between; align-items: center; }
+    .section-title.secundario { background: #fef3c7; color: #92400e; border-left-color: #f59e0b; }
+    .question-block { border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; margin-bottom: 16px; background: #ffffff; page-break-inside: avoid; }
+    .question-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.78rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px; }
+    .q-badge { background: #1e3a8a; color: white; padding: 2px 8px; border-radius: 4px; font-weight: 800; }
+    .q-topic { color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+    .question-text { font-size: 0.96rem; font-weight: 600; margin-bottom: 12px; line-height: 1.5; }
+    .options-list { list-style: none; padding: 0; margin: 0; }
+    .option-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 10px; border-radius: 6px; margin-bottom: 6px; border: 1px solid transparent; font-size: 0.92rem; }
+    .option-item:hover { background: #f8fafc; border-color: #e2e8f0; }
+    .option-letter { width: 22px; height: 22px; border-radius: 50%; background: #e2e8f0; color: #334155; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.78rem; flex-shrink: 0; }
+    .folha-respostas-box { background: #f8fafc; border: 2px dashed #94a3b8; border-radius: 8px; padding: 16px 20px; margin: 30px 0; page-break-before: always; }
+    .folha-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-top: 12px; }
+    .folha-row { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 700; }
+    .folha-num { width: 24px; text-align: right; color: #475569; }
+    .folha-circle { width: 20px; height: 20px; border: 1.5px solid #64748b; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #475569; }
+    .gabarito-section { margin-top: 36px; border-top: 2px solid #cbd5e1; padding-top: 24px; page-break-before: always; }
+    .gabarito-item { border-left: 3px solid #10b981; background: #f0fdf4; padding: 10px 14px; border-radius: 0 6px 6px 0; margin-bottom: 10px; font-size: 0.9rem; }
+    .gabarito-letra { font-weight: 800; color: #047857; margin-right: 6px; font-size: 1rem; }
+    @media print {
+      body { background: white; padding: 0; }
+      .container { box-shadow: none; padding: 0; }
+      .no-print { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="no-print">
+      <a href="../index.html" class="btn-action" style="background: #475569;"><i class="fas fa-arrow-left"></i> Voltar ao Gerenciador</a>
+      <button onclick="window.print()" class="btn-action"><i class="fas fa-print"></i> Imprimir Caderno A4</button>
+    </div>
+
+    <div class="header-box">
+      <div class="header-titles">
+        <h1>Câmara Municipal de Meruoca — Concurso 2026</h1>
+        <h2>Técnico Legislativo • Caderno de Questões — Semana 5 / Dia 1 (28/09/2026)</h2>
+        <p>18 Questões Inéditas em Estilo Banca: 10 Controle da Administração Pública + 8 Língua Portuguesa (Semântica & Vocábulos)</p>
+      </div>
+      <div style="text-align: right;">
+        <span class="badge-banca">Banca INBRASP</span>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">4 Alternativas (A, B, C, D)</div>
+      </div>
+    </div>
+
+    <div class="section-title">
+      <span><i class="fas fa-balance-scale"></i> PARTE 1: CONTROLE DA ADMINISTRAÇÃO PÚBLICA (QUESTÕES 649 A 658)</span>
+      <span style="font-size: 0.8rem; font-weight: normal;">CF/88 Art. 31 e 74 • Controle Externo Municipal (TCE/Câmara) • Parecer Prévio (2/3) • Autotutela e Remédios</span>
+    </div>
+
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 649</span>
+        <span class="q-topic">Controle da Administração Pública • Conceito e Momentos do Controle Administrativo</span>
+      </div>
+      <div class="question-text">Quanto ao momento de sua efetivação no âmbito da gestão pública, o controle exercido pelos órgãos competentes classifica-se em:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Prévio (a priori), concomitante (pari passu) e posterior (a posteriori ou corretivo).</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Hierárquico (interno), funcional (externo) e sancionatório (de natureza penal pública).</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Originário (constitucional), derivado (infraconstitucional) e residual (supletivo).</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Vinculado (obrigatório), discricionário (facultativo) e sumário (sem formalidades).</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 650</span>
+        <span class="q-topic">Controle da Administração Pública • Controle Externo Municipal e Auxílio do Tribunal de Contas (Art. 31 CF/88)</span>
+      </div>
+      <div class="question-text">Nos termos expressos do Art. 31 da Constituição Federal de 1988, a fiscalização do Município será exercida pelo Poder Legislativo municipal, mediante controle:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Judicial autônomo e pelos sistemas de auditoria contábil contratados por licitação.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Externo, e pelos sistemas de controle interno do Poder Executivo municipal local.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Hierárquico direto, com subordinação das secretarias municipais à Mesa da Câmara.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Ministerial difuso, auxiliado privativamente pelos conselhos comunitários do bairro.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 651</span>
+        <span class="q-topic">Controle da Administração Pública • Parecer Prévio do Tribunal de Contas (CF/88, Art. 31, § 2º)</span>
+      </div>
+      <div class="question-text">O parecer prévio emitido pelo órgão competente sobre as contas que o Prefeito deve anualmente prestar só deixará de prevalecer por decisão de:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Maioria simples dos vereadores presentes na respectiva sessão plenária da Câmara.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Maioria absoluta de todos os membros que compõem oficialmente o Poder Legislativo.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Dois terços dos membros da Câmara Municipal, conforme quórum estrito da CF/88.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Três quintos dos parlamentares municipais em votação realizada em dois turnos.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 652</span>
+        <span class="q-topic">Controle da Administração Pública • Competência para Julgamento das Contas do Prefeito (STF Temas 157 e 835)</span>
+      </div>
+      <div class="question-text">Consoante a jurisprudência vinculante do Supremo Tribunal Federal sobre o julgamento das contas de governo e de gestão prestadas pelo Prefeito Municipal:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Compete ao Tribunal de Contas julgar em definitivo as contas de gestão com eficácia eleitoral.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Compete ao Ministério Público Estadual deliberar soberanamente sobre a rejeição das contas anuais.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Compete exclusivamente à Câmara Municipal julgar ambas as contas para fins de inelegibilidade.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Compete à Justiça Eleitoral analisar de forma originária o mérito contábil da execução municipal.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 653</span>
+        <span class="q-topic">Controle da Administração Pública • Julgamento de Contas dos Demais Administradores (CF/88, Art. 71, II)</span>
+      </div>
+      <div class="question-text">Diferentemente das contas do chefe do Executivo, as contas dos demais administradores e responsáveis por dinheiros, bens e valores públicos são:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Submetidas a referendo popular obrigatório mediante convocação expedida pelo parlamento.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Homologadas pelo presidente da Câmara após parecer favorável da comissão permanente mista.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Apreciadas unicamente pela Controladoria-Geral do Município sem qualquer recurso ao Judiciário.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Julgadas diretamente pelo Tribunal de Contas, com eficácia de título executivo na condenação.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 654</span>
+        <span class="q-topic">Controle da Administração Pública • Finalidades do Sistema de Controle Interno (CF/88, Art. 74)</span>
+      </div>
+      <div class="question-text">De acordo com o Art. 74 da CF/88, os Poderes Legislativo, Executivo e Judiciário manterão sistema integrado de controle interno com a finalidade de:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Avaliar o cumprimento das metas do PPA e apoiar o controle externo no exercício de sua missão.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Substituir integralmente a fiscalização exercida pelos membros do Poder Legislativo municipal.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Promover a instauração de inquéritos policiais contra servidores públicos em estágio probatório.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Autorizar a concessão de empréstimos bancários internacionais para obras de infraestrutura local.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 655</span>
+        <span class="q-topic">Controle da Administração Pública • Dever Constitucional de Prestar Contas (CF/88, Art. 70, parágrafo único)</span>
+      </div>
+      <div class="question-text">O princípio republicano impõe o dever de prestar contas. No ordenamento brasileiro, prestará contas qualquer pessoa física ou jurídica, pública ou privada, que:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Utilize, arrecade, guarde, gerencie ou administre dinheiros, bens e valores públicos municipais.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Exerça mandato representativo eletivo no Poder Legislativo por período superior a três legislaturas.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Possua vínculo empregatício sob a CLT em empresas concessionárias privadas de serviços de água.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Participe de certames licitatórios presenciais na modalidade leilão sem recolher caução inicial.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 656</span>
+        <span class="q-topic">Controle da Administração Pública • Princípio da Autotutela Administrativa (Súmulas 346 e 473 do STF)</span>
+      </div>
+      <div class="question-text">Em decorrência do princípio da autotutela consagrado na doutrina e na jurisprudência sumulada do STF, a administração pública possui a prerrogativa de:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Executar penalidades corporais restritivas de liberdade a cidadãos inadimplentes com o fisco.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Intervir militarmente nos poderes constituídos caso ocorra paralisação grevista dos servidores.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Anular seus próprios atos quando eivados de vícios de legalidade, e revogá-los por conveniência.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Alterar unilateralmente o valor dos subsídios dos vereadores fixados na legislatura antecedente.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 657</span>
+        <span class="q-topic">Controle da Administração Pública • Limites do Controle Judicial dos Atos Administrativos</span>
+      </div>
+      <div class="question-text">No tocante à extensão do controle exercido pelo Poder Judiciário sobre os atos expedidos pela administração pública, é correto afirmar que o juiz:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Pode avaliar a conveniência e oportunidade do ato discricionário praticado pelo gestor.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Não pode intervir mesmo quando houver manifesta violação aos princípios do Art. 37 da CF.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Tem o poder privativo de revogar atos administrativos com base em juízo de pura utilidade.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Deve restringir sua atuação ao exame da legalidade e legitimidade, vedado o mérito do ato.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 658</span>
+        <span class="q-topic">Controle da Administração Pública • Instrumentos de Controle Social: Ação Popular (CF/88, Art. 5º, LXXIII)</span>
+      </div>
+      <div class="question-text">A Ação Popular, relevante mecanismo de controle social da administração previsto no Art. 5º, LXXIII da CF/88, tem como legitimado ativo exclusivo para sua propositura:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Qualquer pessoa jurídica regularmente constituída com mais de um ano de atividade no país.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Qualquer cidadão que comprove sua condição de eleitor no gozo de seus direitos políticos.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>O Ministério Público Estadual representado privativamente pelo procurador-geral de justiça.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>A comissão permanente de fiscalização e controle do Poder Legislativo municipal da comarca.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+
+    <div class="section-title secundario">
+      <span><i class="fas fa-book-reader"></i> PARTE 2: LÍNGUA PORTUGUESA — SEMÂNTICA & SIGNIFICADOS (QUESTÕES 659 A 666)</span>
+      <span style="font-size: 0.8rem; font-weight: normal;">Sinonímia, Antonímia, Polissemia, Homonímia, Parônimos e Significação dos Vocábulos</span>
+    </div>
+
+    
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 659</span>
+        <span class="q-topic">Língua Portuguesa • Semântica: Sinonímia e Sentido Contextual</span>
+      </div>
+      <div class="question-text">No trecho 'O plenário da Câmara anuiu integralmente à proposta do projeto de resolução', o vocábulo grifado 'anuiu' possui como sinônimo perfeito no contexto:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Recusou expressamente os termos consignados na proposição apresentada pelos parlamentares.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Adiou temporariamente o início da contagem dos prazos regimentais estipulados na Casa.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Concordou com a matéria, expressando assentimento favorável à deliberação em julgamento.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Questionou a validade material das regras orçamentárias estabelecidas pela mesa diretora.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 660</span>
+        <span class="q-topic">Língua Portuguesa • Semântica: Antonímia e Relações de Oposição</span>
+      </div>
+      <div class="question-text">A antonímia manifesta-se quando duas palavras estabelecem entre si uma relação de oposição semântica. O par de vocábulos que exemplifica essa relação é:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Inócuo e inofensivo, ambos caracterizando fatos que não produzem qualquer dano à sociedade.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Hediondo e repulsivo, qualificando condutas reprováveis que geram intensa aversão social.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Insipiente e ignorante, referindo-se ambos à pessoa desprovida de conhecimentos formais.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Efêmero e perene, expressando respectivamente o que é passageiro e o que é permanente.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 661</span>
+        <span class="q-topic">Língua Portuguesa • Parônimos: Ratificar vs. Retificar</span>
+      </div>
+      <div class="question-text">Assinale a alternativa que preenche correta e respectivamente as lacunas: 'O prefeito precisou _____ o decreto publicado com erro na data e, em seguida, a Câmara resolveu _____ o convênio firmado':</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Retificar (no sentido de corrigir) e ratificar (no sentido de confirmar e validar o ato).</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Ratificar (no sentido de anular) e retificar (no sentido de emendar as cláusulas do texto).</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Ratificar (no sentido de corrigir) e retificar (no sentido de validar as parcelas do fundo).</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Retificar (no sentido de suspender) e ratificar (no sentido de prorrogar o prazo do edital).</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 662</span>
+        <span class="q-topic">Língua Portuguesa • Parônimos: Deferir vs. Diferir</span>
+      </div>
+      <div class="question-text">A respeito do par de parônimos 'deferir' e 'diferir' na redação de despachos e correspondências administrativas, é correto afirmar que:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Deferir expressa discordância jurídica, enquanto diferir significa aprovar pedido protocolado.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Diferir é exclusivo da linguagem poética, não possuindo qualquer acepção na esfera pública.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Ambos os vocábulos são sinônimos perfeitos aplicados indiferentemente no encerramento de parecer.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Deferir significa conceder ou atender a um pedido, enquanto diferir expressa adiar ou divergir.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 663</span>
+        <span class="q-topic">Língua Portuguesa • Parônimos: Eminente vs. Iminente</span>
+      </div>
+      <div class="question-text">Na oração 'O _____ jurista alertou para o perigo _____ de desabamento do teto do plenário', as lacunas devem ser preenchidas, na norma culta, por:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Iminente (no sentido de notável e ilustre) e eminente (no sentido de algo que vai ocorrer).</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Eminente (no sentido de ilustre e célebre) e iminente (no sentido de prestes a acontecer).</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Eminente (no sentido de imediato e próximo) e eminente (expressando gravidade técnica).</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Iminente (no sentido de autoridade pública) e iminente (indicando perigo de ampla monta).</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 664</span>
+        <span class="q-topic">Língua Portuguesa • Homônimos Homófonos: Sessão vs. Seção vs. Cessão</span>
+      </div>
+      <div class="question-text">Em um texto normativo da Câmara Municipal, os termos 'sessão', 'seção' e 'cessão' devem ser empregados respectivamente para indicar:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Reunião de colegiado deliberativo, divisão ou setor administrativo e ato de ceder direitos.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Ato de ceder patrimônio da Casa, reunião do plenário parlamentar e corte de dotação anual.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Divisão interna do organograma, reunião solene de vereadores e renúncia tácita de mandato.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Interrupção de expediente público, departamento da prefeitura e doação pura de imóvel local.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 665</span>
+        <span class="q-topic">Língua Portuguesa • Semântica: Relações de Hiperonímia e Hiponímia</span>
+      </div>
+      <div class="question-text">As noções de hiperonímia e hiponímia estabelecem relações semânticas de inclusão entre termos gerais e específicos. O par que expressa a relação de hiperônimo para hipônimo é:</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>Viatura e meio de locomoção, indicando o caso particular antecedendo o conceito genérico.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>Veículo e viatura, em que o primeiro expressa a classe ampla e o segundo a espécie concreta.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>Portaria e ato normativo, sendo o primeiro o termo abrangente que engloba as demais leis.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>Requerimento e petição, representando duas palavras sinônimas sem qualquer vínculo de grau.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+    <div class="question-block">
+      <div class="question-meta">
+        <span class="q-badge">QUESTÃO 666</span>
+        <span class="q-topic">Língua Portuguesa • Semântica: Denotação vs. Conotação</span>
+      </div>
+      <div class="question-text">Assinale a alternativa em que a palavra destacada foi empregada em sentido conotativo (figurado), distanciando-se de sua acepção denotativa (literal):</div>
+      <ul class="options-list">
+        
+        <li class="option-item">
+          <span class="option-letter">A</span>
+          <span>O servidor arquivou todas as pastas de documentos fiscais nas prateleiras de aço.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">B</span>
+          <span>O debate político na comissão esquentou o clima entre os parlamentares da bancada.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">C</span>
+          <span>O motorista conduziu o veículo oficial da câmara até a sede do tribunal regional.</span>
+        </li>
+        
+        <li class="option-item">
+          <span class="option-letter">D</span>
+          <span>O técnico administrativo protocolou o ofício no sistema eletrônico de informações.</span>
+        </li>
+        
+      </ul>
+    </div>
+        
+
+    <div class="folha-respostas-box">
+      <div style="font-weight: 800; font-size: 1rem; color: var(--primary); text-transform: uppercase;">
+        <i class="fas fa-edit"></i> Folha Óptica de Respostas (Simulado Pré-Prova)
+      </div>
+      <p style="font-size: 0.82rem; color: var(--text-muted); margin: 4px 0 12px 0;">Preencha os círculos correspondentes às suas respostas antes de conferir o gabarito comentado.</p>
+      <div class="folha-grid">
+        
+        <div class="folha-row">
+          <span class="folha-num">649</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">650</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">651</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">652</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">653</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">654</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">655</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">656</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">657</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">658</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">659</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">660</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">661</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">662</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">663</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">664</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">665</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+        <div class="folha-row">
+          <span class="folha-num">666</span>
+          <span class="folha-circle">A</span>
+          <span class="folha-circle">B</span>
+          <span class="folha-circle">C</span>
+          <span class="folha-circle">D</span>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="gabarito-section">
+      <div style="font-weight: 800; font-size: 1.15rem; color: #047857; margin-bottom: 16px;">
+        <i class="fas fa-check-double"></i> Gabarito Oficial Fundamentado (Banca INBRASP)
+      </div>
+      
+        <div class="gabarito-item">
+          <strong>Questão 649:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. Quanto ao momento em que se realiza, o controle classifica-se em: 1) Prévio (preventivo/a priori), que antecede a conclusão do ato (ex: autorização legislativa); 2) Concomitante, realizado durante a execução (ex: fiscalização de contratos); 3) Posterior (corretivo/a posteriori), que incide sobre atos já consumados (ex: julgamento de contas).
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 650:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. CF/88, Art. 31: 'A fiscalização do Município será exercida pelo Poder Legislativo municipal, mediante controle externo, e pelos sistemas de controle interno do Poder Executivo municipal, na forma da lei.' O § 1º complementa que o controle externo da Câmara será exercido com o auxílio do Tribunal de Contas competente.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 651:</strong> <span class="gabarito-letra">(C)</span> Gabarito: C. CF/88, Art. 31, § 2º: 'O parecer prévio, emitido pelo órgão competente sobre as contas que o Prefeito deve anualmente prestar, só deixará de prevalecer por decisão de dois terços dos membros da Câmara Municipal.' Esse quórum qualificado de 2/3 é uma das regras mais cobradas pela INBRASP.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 652:</strong> <span class="gabarito-letra">(C)</span> Gabarito: C. O STF pacificou nos Temas 157 e 835 de Repercussão Geral que compete EXCLUSIVAMENTE à Câmara Municipal o julgamento das contas do Prefeito, tanto as contas de governo quanto as contas de gestão (atuando como ordenador de despesas), sendo o parecer do Tribunal de Contas meramente opinativo, para fins de inelegibilidade da Lei da Ficha Limpa.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 653:</strong> <span class="gabarito-letra">(D)</span> Gabarito: D. CF/88, Art. 71, II: compete ao Tribunal de Contas 'julgar as contas dos administradores e demais responsáveis por dinheiros, bens e valores públicos'. E o § 3º do Art. 71 estabelece que as decisões do Tribunal de que resulte imputação de débito ou multa terão eficácia de título executivo.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 654:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. Art. 74 da CF/88: os sistemas de controle interno têm por finalidade: I - avaliar o cumprimento das metas previstas no PPA, a execução dos programas de governo e dos orçamentos; II - comprovar a legalidade e eficácia da gestão; IV - apoiar o controle externo no exercício de sua missão institucional.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 655:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. CF/88, Art. 70, parágrafo único: 'Prestará contas qualquer pessoa física ou jurídica, pública ou privada, que utilize, arrecade, guarde, gerencie ou administre dinheiros, bens e valores públicos ou pelos quais a União [ou o Município] responda, ou que, em nome desta, assuma obrigações de natureza pecuniária.'
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 656:</strong> <span class="gabarito-letra">(C)</span> Gabarito: C. Súmula 473 do STF: 'A administração pode anular seus próprios atos, quando eivados de vícios que os tornam ilegais, porque deles não se originam direitos; ou revogá-los, por motivo de conveniência ou oportunidade, respeitados os direitos adquiridos, e ressalvada, em todos os casos, a apreciação judicial.'
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 657:</strong> <span class="gabarito-letra">(D)</span> Gabarito: D. O controle judicial restringe-se aos aspectos de legalidade, legitimidade e moralidade do ato administrativo, sendo-lhe expressamente vedado ingressar no exame do mérito administrativo (conveniência e oportunidade da escolha discricionária do administrador), sob pena de violar a separação de Poderes (Art. 2º da CF/88).
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 658:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. CF/88, Art. 5º, LXXIII: 'qualquer CIDADÃO é parte legítima para propor ação popular que vise a anular ato lesivo ao patrimônio público ou de entidade de que o Estado participe, à moralidade administrativa, ao meio ambiente e ao patrimônio histórico e cultural'. Cidadão = brasileiro no gozo de direitos políticos (com título de eleitor).
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 659:</strong> <span class="gabarito-letra">(C)</span> Gabarito: C. 'Anuir' significa concordar, assentir, consentir, aquiescer. No contexto, o plenário concordou (anuiu) com a proposta. Questão clássica de vocabulário da banca INBRASP.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 660:</strong> <span class="gabarito-letra">(D)</span> Gabarito: D. 'Efêmero' (que dura pouco, passageiro) e 'perene' (duradouro, eterno, permanente) são antônimos perfeitos. Os demais pares representam casos de sinonímia (inócuo = inofensivo; insipiente = ignorante; hediondo = repulsivo).
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 661:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. Mnemônico clássico da INBRASP: Retificar = rEtificar (consErtar, corrigir); Ratificar = rAtificar (confirmAr, validar). Logo, o prefeito precisou retificar (corrigir o erro) e a Câmara resolveu ratificar (confirmar o convênio).
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 662:</strong> <span class="gabarito-letra">(D)</span> Gabarito: D. 'Deferir' = conceder, aprovar, atender favoravelmente a um requerimento (ex: 'O presidente deferiu o pedido de licença'). 'Diferir' = adiar, prorrogar para momento futuro, ou ser diferente/divergir.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 663:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. Eminente (com E) = excelente, elevado, ilustre, notável. Iminente (com I) = que está prestes a acontecer, imediato (perigo iminente). Logo: 'O eminente jurista alertou para o perigo iminente de desabamento'.
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 664:</strong> <span class="gabarito-letra">(A)</span> Gabarito: A. Mnemônico clássico da INBRASP: 1) Sessão (com 3 's') = reunião, assembleia (ex: sessão plenária da Câmara); 2) Seção ou Secção (com ç) = parte, repartição, departamento, corte (ex: seção de protocolo); 3) Cessão (inicia com C) = ato de ceder, transferência de posse ou direito (ex: cessão de servidores).
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 665:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. Hiperônimo é a palavra com sentido genérico, abrangente (ex: 'veículo'). Hipônimo é a palavra de sentido específico, particular, contida no hiperônimo (ex: 'viatura'). Logo, a relação de hiperônimo para hipônimo é Veículo (geral) -> Viatura (específico).
+        </div>
+        
+        <div class="gabarito-item">
+          <strong>Questão 666:</strong> <span class="gabarito-letra">(B)</span> Gabarito: B. Sentido denotativo é o sentido literal, real, dicionarizado da palavra. Sentido conotativo é o sentido figurado, metafórico. Na frase 'esquentou o clima', a palavra expressa que os ânimos ficaram exaltados (conotação), e não uma elevação física de temperatura térmica.
+        </div>
+        
+    </div>
+
+  </div>
+</body>
+</html>
