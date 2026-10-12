@@ -11482,6 +11482,12 @@ function interleaveQuestionsByDiscipline(questions) {
 
 // Retorna as questões base do filtro ativo
 function getFilteredBaseQuestions(filterKey) {
+  if (filterKey === 'dia_12_10') return QUIZ_QUESTIONS_DATA.filter(q => q.category === 'administrativo' || (q.discipline && q.discipline.includes('14.133'))).slice(0, 30);
+  if (filterKey === 'dia_13_10') return QUIZ_QUESTIONS_DATA.filter(q => q.category === 'portugues').slice(0, 30);
+  if (filterKey === 'dia_14_10') return QUIZ_QUESTIONS_DATA.filter(q => q.category === 'matematica' || q.category === 'rlm').slice(0, 25);
+  if (filterKey === 'dia_15_10') return QUIZ_QUESTIONS_DATA.filter(q => q.category === 'informatica').slice(0, 25);
+  if (filterKey === 'dia_16_10') return QUIZ_QUESTIONS_DATA.filter(q => q.discipline && (q.discipline.includes('Meruoca') || q.discipline.includes('Regimento') || q.discipline.includes('Legislativo'))).slice(0, 30);
+  if (filterKey === 'dia_17_10') return getFilteredBaseQuestions('ouro');
   if (filterKey === 'all') return QUIZ_QUESTIONS_DATA;
   if (filterKey === 'reforco_port') return QUIZ_QUESTIONS_DATA.filter(q => (q.id >= 361 && q.id <= 380) || (q.id >= 401 && q.id <= 420));
   if (filterKey === 'resgatao') return QUIZ_QUESTIONS_DATA.filter(q => (q.id >= 361 && q.id <= 380) || (q.id >= 401 && q.id <= 420) || (q.id >= 424 && q.id <= 520));
@@ -11916,6 +11922,42 @@ function filterQuizCategory(cat) {
 }
 
 const QUIZ_DAYS_CONFIG = {
+  dia_12_10: {
+    title: "⭐ Segunda-feira (12/10 • HOJE): Direito Administrativo & Licitações 14.133 (30 Questões)",
+    desc: "Princípios LIMPE, poderes administrativos, atos, responsabilidade civil, dispensa e inexigibilidade na Lei 14.133/21. Padrão Banca INBRASP.",
+    bookletUrl: "provas/PROVA_REAL_07_INBRASP_DIREITO_ADMINISTRATIVO.pdf",
+    bookletLabel: "Abrir Prova Real de Hoje (PDF)"
+  },
+  dia_13_10: {
+    title: "📅 Terça-feira (13/10): Língua Portuguesa Completa (30 Questões)",
+    desc: "Sintaxe da oração e do período, regência verbal/nominal, crase, concordância com verbo haver e colocação pronominal.",
+    bookletUrl: "provas/PROVA_REAL_08_INBRASP_LINGUA_PORTUGUESA.pdf",
+    bookletLabel: "Abrir Prova 08 de Português (PDF)"
+  },
+  dia_14_10: {
+    title: "📅 Quarta-feira (14/10): Matemática Básica & RLM (25 Questões)",
+    desc: "Porcentagem, regra de 3, frações, equações, silogismos lógicos e negação de proposições.",
+    bookletUrl: "provas/PROVA_REAL_09_INBRASP_MATEMATICA_RLM.pdf",
+    bookletLabel: "Abrir Prova 09 de Matemática (PDF)"
+  },
+  dia_15_10: {
+    title: "📅 Quinta-feira (15/10): Noções de Informática (25 Questões)",
+    desc: "Windows 10/11, Word, Excel (fórmulas e referências), correio eletrônico, navegadores e segurança.",
+    bookletUrl: "provas/PROVA_REAL_10_INBRASP_INFORMATICA.pdf",
+    bookletLabel: "Abrir Prova 10 de Informática (PDF)"
+  },
+  dia_16_10: {
+    title: "📅 Sexta-feira (16/10): Legislação Municipal & Regimento Interno (30 Questões)",
+    desc: "Processo legislativo municipal, quóruns de votação, competências da Mesa Diretora e Lei Orgânica de Meruoca.",
+    bookletUrl: "provas/PROVA_REAL_11_LEGISLACAO_MUNICIPAL_REGIMENTO.pdf",
+    bookletLabel: "Abrir Prova 11 de Regimento (PDF)"
+  },
+  dia_17_10: {
+    title: "📅 Sábado (17/10 • Véspera): Provão Ouro & Revisão de Véspera (89 Questões)",
+    desc: "O compilado com os 89 itens de maior incidência da banca para memorização rápida antes da prova.",
+    bookletUrl: "provas/GUIA_REVISAO_VESPERA_MERUOCA.pdf",
+    bookletLabel: "Abrir Guia de Véspera (PDF)"
+  },
   w5_d1: {
     title: "⭐ Semana 5 • Dia 1 — Segunda-feira (28/09/2026 - HOJE): Controle da Administração Pública & Semântica (18 Questões)",
     desc: "10 questões de Controle da Administração (CF/88 Art. 31, parecer prévio do TCE 2/3, STF Temas 157/835, controle interno e autotutela) + 8 questões de Língua Portuguesa (Semântica: sinonímia, antonímia, parônimos ratificar/retificar, deferir/diferir, sessão/seção/cessão e denotação). Padrão fiel Banca INBRASP.",

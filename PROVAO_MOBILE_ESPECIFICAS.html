@@ -616,23 +616,26 @@
         <i class="fas fa-sliders-h"></i> Escolha o Bloco para Responder:
       </div>
       <div class="pills-scroll">
-        <button class="pill-btn active" onclick="switchFilter('foco50', this)">
+        <button class="pill-btn active" onclick="switchFilter('dia_12_10', this)">
+          ⭐ 12/10 (HOJE): Admin & Licitações
+        </button>
+        <button class="pill-btn" onclick="switchFilter('dia_13_10', this)">
+          📅 13/10 (Ter): Redação & Técnica
+        </button>
+        <button class="pill-btn" onclick="switchFilter('dia_14_10', this)">
+          📅 14/10 (Qua): Constitucional & TCE
+        </button>
+        <button class="pill-btn" onclick="switchFilter('dia_15_10', this)">
+          📅 15/10 (Qui): Lei Orgânica Meruoca
+        </button>
+        <button class="pill-btn" onclick="switchFilter('dia_16_10', this)">
+          📅 16/10 (Sex): Regimento Interno
+        </button>
+        <button class="pill-btn" onclick="switchFilter('foco50', this)">
           ⭐ Provão Ouro (50Q Foco Máximo)
         </button>
-        <button class="pill-btn" onclick="switchFilter('meruoca', this)">
-          🏛️ Lei Orgânica & Regimento (52Q)
-        </button>
-        <button class="pill-btn" onclick="switchFilter('licitacao', this)">
-          📜 Licitações 14.133 (40Q)
-        </button>
-        <button class="pill-btn" onclick="switchFilter('administrativo', this)">
-          ⚖️ D. Administrativo & Atos (70Q)
-        </button>
-        <button class="pill-btn" onclick="switchFilter('constitucional', this)">
-          🏛️ D. Constitucional & TCE (60Q)
-        </button>
         <button class="pill-btn" onclick="switchFilter('todas', this)">
-          🚀 Mega Provão (Todas 339Q)
+          🚀 Todas (339Q)
         </button>
       </div>
 
@@ -705,7 +708,7 @@
     // Inicialização
     document.addEventListener('DOMContentLoaded', () => {
       startTimer();
-      loadFilter('foco50');
+      loadFilter('dia_12_10');
     });
 
     function startTimer() {
@@ -738,25 +741,31 @@
       document.getElementById('resultCard').style.display = 'none';
       document.getElementById('footerBar').style.display = 'flex';
 
-      if (filterKey === 'foco50') {
-        // 50 questões mais representativas e balanceadas de cada disciplina
+      if (filterKey === 'dia_12_10') {
+        // Segunda (12/10): D. Administrativo + Licitações
+        activeQuestions = ALL_ESPECIFICAS.filter(q => q.category === 'administrativo' || (q.discipline && q.discipline.includes('14.133')));
+      } else if (filterKey === 'dia_13_10') {
+        // Terça (13/10): Redação Oficial & Técnica Legislativa
+        activeQuestions = ALL_ESPECIFICAS.filter(q => q.discipline && (q.discipline.includes('Técnica') || q.discipline.includes('Redação') || q.discipline.includes('Administrativo')));
+        if (activeQuestions.length === 0) activeQuestions = ALL_ESPECIFICAS.slice(0, 40);
+      } else if (filterKey === 'dia_14_10') {
+        // Quarta (14/10): D. Constitucional & Controle TCE
+        activeQuestions = ALL_ESPECIFICAS.filter(q => q.category === 'constitucional');
+      } else if (filterKey === 'dia_15_10') {
+        // Quinta (15/10): Lei Orgânica de Meruoca
+        activeQuestions = ALL_ESPECIFICAS.filter(q => q.discipline && q.discipline.includes('Meruoca'));
+      } else if (filterKey === 'dia_16_10') {
+        // Sexta (16/10): Regimento Interno & Processo Legislativo
+        activeQuestions = ALL_ESPECIFICAS.filter(q => q.discipline && (q.discipline.includes('Regimento') || q.discipline.includes('Processo Legislativo')));
+      } else if (filterKey === 'foco50') {
+        // Provão Ouro (50Q Balanceadas)
         const mer = ALL_ESPECIFICAS.filter(q => q.discipline && q.discipline.includes('Meruoca')).slice(0, 15);
         const lic = ALL_ESPECIFICAS.filter(q => q.discipline && q.discipline.includes('14.133')).slice(0, 15);
         const adm = ALL_ESPECIFICAS.filter(q => q.category === 'administrativo').slice(0, 10);
         const con = ALL_ESPECIFICAS.filter(q => q.category === 'constitucional').slice(0, 10);
         activeQuestions = [...mer, ...lic, ...adm, ...con];
-      } else if (filterKey === 'meruoca') {
-        activeQuestions = ALL_ESPECIFICAS.filter(q => 
-          (q.discipline && (q.discipline.includes('Meruoca') || q.discipline.includes('Regimento') || q.discipline.includes('Legislativo')))
-        );
-      } else if (filterKey === 'licitacao') {
-        activeQuestions = ALL_ESPECIFICAS.filter(q => q.discipline && q.discipline.includes('14.133'));
-      } else if (filterKey === 'administrativo') {
-        activeQuestions = ALL_ESPECIFICAS.filter(q => q.category === 'administrativo');
-      } else if (filterKey === 'constitucional') {
-        activeQuestions = ALL_ESPECIFICAS.filter(q => q.category === 'constitucional');
       } else {
-        // Todas
+        // Todas 339Q
         activeQuestions = ALL_ESPECIFICAS;
       }
 
