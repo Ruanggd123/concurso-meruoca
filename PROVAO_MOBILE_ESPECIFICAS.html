@@ -158,36 +158,259 @@
     }
 
     .pills-scroll {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 6px;
-      scrollbar-width: none;
+      padding-bottom: 4px;
     }
-    .pills-scroll::-webkit-scrollbar { display: none; }
+
+    @media (min-width: 640px) {
+      .pills-scroll {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
 
     .pill-btn {
-      white-space: nowrap;
       background: #f1f5f9;
       color: #334155;
-      border: 1px solid #cbd5e1;
-      padding: 7px 12px;
-      border-radius: 8px;
-      font-size: 0.82rem;
-      font-weight: 700;
+      border: 1.5px solid #cbd5e1;
+      padding: 9px 8px;
+      border-radius: 10px;
       cursor: pointer;
-      display: inline-flex;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      gap: 3px;
+      text-align: center;
+      line-height: 1.25;
       transition: all 0.2s;
     }
 
-    .pill-btn.active {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-      box-shadow: 0 2px 8px rgba(30, 58, 138, 0.25);
+    .pill-btn:hover {
+      background: #e2e8f0;
+      border-color: #94a3b8;
     }
+
+    .pill-btn.active {
+      background: var(--primary) !important;
+      color: white !important;
+      border-color: var(--primary) !important;
+      box-shadow: 0 3px 10px rgba(30, 58, 138, 0.3);
+    }
+
+    .pill-btn.today-highlight {
+      border: 2px solid #2563eb;
+      background: #eff6ff;
+      color: #1e40af;
+    }
+
+    .pill-day-tag {
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      display: block;
+    }
+
+    .pill-sub-tag {
+      font-size: 0.78rem;
+      font-weight: 600;
+      display: block;
+    }
+
+    .pill-btn.active .pill-day-tag,
+    .pill-btn.active .pill-sub-tag {
+      color: #ffffff !important;
+    }
+
+    /* Estilos da Seção de Provas Reais da Banca em PDF */
+    .provas-pdf-box {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: var(--radius);
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .provas-pdf-header {
+      padding: 12px 14px;
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+    .provas-pdf-header:hover { background: #f1f5f9; }
+
+    .provas-pdf-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #1e3a8a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .provas-pdf-toggle {
+      font-size: 0.85rem;
+      color: #64748b;
+      transition: transform 0.25s ease;
+    }
+    .provas-pdf-box.collapsed .provas-pdf-toggle {
+      transform: rotate(180deg);
+    }
+    .provas-pdf-box.collapsed .provas-pdf-content {
+      display: none;
+    }
+
+    .provas-pdf-content {
+      padding: 14px;
+    }
+
+    .provas-pdf-desc {
+      font-size: 0.84rem;
+      color: #475569;
+      margin: 0 0 12px 0;
+      line-height: 1.45;
+    }
+
+    .provas-pdf-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 640px) {
+      .provas-pdf-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .pdf-card {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+    .pdf-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .pdf-card.highlight-today {
+      background: #f0fdf4;
+      border: 2px solid #22c55e;
+    }
+
+    .pdf-card.central {
+      background: #fef2f2;
+      border: 1.5px solid #fca5a5;
+    }
+
+    .pdf-card.hub {
+      background: #eff6ff;
+      border: 1.5px solid #93c5fd;
+    }
+
+    .pdf-card-top h4 {
+      margin: 6px 0 4px 0;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pdf-card-top p {
+      margin: 0;
+      font-size: 0.78rem;
+      color: #64748b;
+      line-height: 1.35;
+    }
+
+    .pdf-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      background: #e2e8f0;
+      color: #334155;
+    }
+    .pdf-badge.today {
+      background: #16a34a;
+      color: white;
+    }
+    .pdf-badge.red {
+      background: #ef4444;
+      color: white;
+    }
+    .pdf-badge.blue {
+      background: #2563eb;
+      color: white;
+    }
+
+    .pdf-card-buttons {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .btn-pdf-action {
+      flex: 1;
+      padding: 7px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      text-align: center;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+
+    .btn-pdf-action.online {
+      background: #2563eb;
+      color: white;
+    }
+    .btn-pdf-action.online:hover { background: #1d4ed8; }
+
+    .btn-pdf-action.pdf {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+    .btn-pdf-action.pdf:hover { background: #fecaca; }
+
+    .btn-pdf-action.central {
+      background: #dc2626;
+      color: white;
+      width: 100%;
+    }
+    .btn-pdf-action.central:hover { background: #b91c1c; }
+
+    .btn-pdf-action.hub {
+      background: #1e3a8a;
+      color: white;
+      width: 100%;
+    }
+    .btn-pdf-action.hub:hover { background: #0f172a; }
 
     /* Opcoes extras de Marcacao da Opcao Certa */
     .options-toolbar {
@@ -616,26 +839,37 @@
         <i class="fas fa-sliders-h"></i> Escolha o Bloco para Responder:
       </div>
       <div class="pills-scroll">
-        <button class="pill-btn active" onclick="switchFilter('dia_12_10', this)">
-          ⭐ 12/10 (HOJE): Admin & Licitações
+        <button class="pill-btn" onclick="switchFilter('dia_12_10', this)">
+          <span class="pill-day-tag">📅 12/10 (Seg)</span>
+          <span class="pill-sub-tag">Admin & Licitações</span>
         </button>
         <button class="pill-btn" onclick="switchFilter('dia_13_10', this)">
-          📅 13/10 (Ter): Redação & Técnica
+          <span class="pill-day-tag">📅 13/10 (Ter)</span>
+          <span class="pill-sub-tag">Redação & Técnica</span>
         </button>
-        <button class="pill-btn" onclick="switchFilter('dia_14_10', this)">
-          📅 14/10 (Qua): Constitucional & TCE
+        <button class="pill-btn active today-highlight" onclick="switchFilter('dia_14_10', this)">
+          <span class="pill-day-tag">⭐ 14/10 (HOJE - Qua)</span>
+          <span class="pill-sub-tag">Constitucional & TCE</span>
         </button>
         <button class="pill-btn" onclick="switchFilter('dia_15_10', this)">
-          📅 15/10 (Qui): Lei Orgânica Meruoca
+          <span class="pill-day-tag">📅 15/10 (Qui)</span>
+          <span class="pill-sub-tag">Lei Orgânica Meruoca</span>
         </button>
         <button class="pill-btn" onclick="switchFilter('dia_16_10', this)">
-          📅 16/10 (Sex): Regimento Interno
+          <span class="pill-day-tag">📅 16/10 (Sex)</span>
+          <span class="pill-sub-tag">Regimento Interno</span>
+        </button>
+        <button class="pill-btn" onclick="switchFilter('dia_17_10', this)">
+          <span class="pill-day-tag">📅 17/10 (Sáb)</span>
+          <span class="pill-sub-tag">Simulado Véspera</span>
         </button>
         <button class="pill-btn" onclick="switchFilter('foco50', this)">
-          ⭐ Provão Ouro (50Q Foco Máximo)
+          <span class="pill-day-tag">🎯 Provão Ouro</span>
+          <span class="pill-sub-tag">50Q Foco Máximo</span>
         </button>
         <button class="pill-btn" onclick="switchFilter('todas', this)">
-          🚀 Todas (339Q)
+          <span class="pill-day-tag">🚀 Todas</span>
+          <span class="pill-sub-tag">339Q Específicas</span>
         </button>
       </div>
 
@@ -649,6 +883,120 @@
         <button type="button" class="btn-reveal-all" onclick="revealAllQuestionsInBlock()">
           <i class="fas fa-check-double" style="color: #16a34a;"></i> Marcar Todas as Certas (Apostila)
         </button>
+      </div>
+    </div>
+
+    <!-- Acesso Rápido às Outras Matérias e Provas Reais em PDF -->
+    <div class="provas-pdf-box" id="provasPdfBox">
+      <div class="provas-pdf-header" onclick="togglePdfDrawer()">
+        <div class="provas-pdf-title">
+          <i class="fas fa-folder-open" style="color: #ef4444; font-size: 1.1rem;"></i>
+          <span>📚 Outras Provas Reais da Banca (Português, Matemática, Informática)</span>
+        </div>
+        <span class="provas-pdf-toggle" id="pdfToggleIcon"><i class="fas fa-chevron-up"></i></span>
+      </div>
+      <div class="provas-pdf-content" id="provasPdfDrawer">
+        <p class="provas-pdf-desc">
+          Além deste Provão Mobile de Específicas, a banca cobra <strong>Português, Matemática/RLM e Informática</strong>. Acesse as provas reais aplicadas pela INBRASP:
+        </p>
+        
+        <div class="provas-pdf-grid">
+          <!-- Prova 09 - Meta de Hoje -->
+          <div class="pdf-card highlight-today">
+            <div class="pdf-card-top">
+              <span class="pdf-badge today"><i class="fas fa-star"></i> META DE HOJE (QUA 14/10)</span>
+              <h4><i class="fas fa-calculator" style="color: #10b981;"></i> Prova Real 09 — Matemática & RLM</h4>
+              <p>25 Questões Reais INBRASP/CETREDE: Regra de três, porcentagem, frações e lógica proposicional.</p>
+            </div>
+            <div class="pdf-card-buttons">
+              <a data-rel-prova="PROVA_REAL_09_INBRASP_MATEMATICA_RLM.html" target="_blank" class="btn-pdf-action online">
+                <i class="fas fa-play"></i> Resolver Online
+              </a>
+              <a data-rel-prova="PROVA_REAL_09_INBRASP_MATEMATICA_RLM.pdf" target="_blank" class="btn-pdf-action pdf">
+                <i class="fas fa-file-pdf"></i> Baixar PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- Prova 08 - Português -->
+          <div class="pdf-card">
+            <div class="pdf-card-top">
+              <span class="pdf-badge"><i class="fas fa-book"></i> LÍNGUA PORTUGUESA</span>
+              <h4><i class="fas fa-file-alt" style="color: #3b82f6;"></i> Prova Real 08 — Língua Portuguesa</h4>
+              <p>30 Questões Reais da banca: Crase, regência verbal, pontuação, conjunções e sintaxe.</p>
+            </div>
+            <div class="pdf-card-buttons">
+              <a data-rel-prova="PROVA_REAL_08_INBRASP_LINGUA_PORTUGUESA.html" target="_blank" class="btn-pdf-action online">
+                <i class="fas fa-play"></i> Resolver Online
+              </a>
+              <a data-rel-prova="PROVA_REAL_08_INBRASP_LINGUA_PORTUGUESA.pdf" target="_blank" class="btn-pdf-action pdf">
+                <i class="fas fa-file-pdf"></i> Baixar PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- Prova 10 - Informática -->
+          <div class="pdf-card">
+            <div class="pdf-card-top">
+              <span class="pdf-badge"><i class="fas fa-laptop-code"></i> INFORMÁTICA</span>
+              <h4><i class="fas fa-desktop" style="color: #8b5cf6;"></i> Prova Real 10 — Noções de Informática</h4>
+              <p>25 Questões Reais da banca: Windows, Word, Excel, atalhos de teclado e segurança na internet.</p>
+            </div>
+            <div class="pdf-card-buttons">
+              <a data-rel-prova="PROVA_REAL_10_INBRASP_INFORMATICA.html" target="_blank" class="btn-pdf-action online">
+                <i class="fas fa-play"></i> Resolver Online
+              </a>
+              <a data-rel-prova="PROVA_REAL_10_INBRASP_INFORMATICA.pdf" target="_blank" class="btn-pdf-action pdf">
+                <i class="fas fa-file-pdf"></i> Baixar PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- Prova Ipaporanga 2026 -->
+          <div class="pdf-card">
+            <div class="pdf-card-top">
+              <span class="pdf-badge"><i class="fas fa-award"></i> PROVA OFICIAL 2026</span>
+              <h4><i class="fas fa-certificate" style="color: #f59e0b;"></i> Prova Real INBRASP 2026 (Ipaporanga)</h4>
+              <p>29 Questões Reais do último concurso realizado pela INBRASP neste ano de 2026.</p>
+            </div>
+            <div class="pdf-card-buttons">
+              <a data-rel-prova="PROVA_REAL_INBRASP_2026_IPAPORANGA.html" target="_blank" class="btn-pdf-action online">
+                <i class="fas fa-play"></i> Resolver Online
+              </a>
+              <a data-rel-prova="PROVA_REAL_INBRASP_2026_IPAPORANGA.pdf" target="_blank" class="btn-pdf-action pdf">
+                <i class="fas fa-file-pdf"></i> Baixar PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- Central de Provas Completa -->
+          <div class="pdf-card central">
+            <div class="pdf-card-top">
+              <span class="pdf-badge red"><i class="fas fa-archive"></i> CENTRAL COMPLETA</span>
+              <h4><i class="fas fa-folder" style="color: #ef4444;"></i> Central de Provas Reais (11 Cadernos)</h4>
+              <p>Acesse todas as 11 provas oficiais, simulados em PDF de Câmaras Cearenses e gabaritos.</p>
+            </div>
+            <div class="pdf-card-buttons">
+              <a data-rel-prova="CENTRAL_DE_PROVAS.html" target="_blank" class="btn-pdf-action central">
+                <i class="fas fa-external-link-alt"></i> Acessar Central de Provas
+              </a>
+            </div>
+          </div>
+
+          <!-- Painel Principal -->
+          <div class="pdf-card hub">
+            <div class="pdf-card-top">
+              <span class="pdf-badge blue"><i class="fas fa-home"></i> PAINEL DO CONCURSO</span>
+              <h4><i class="fas fa-th-large" style="color: #1e3a8a;"></i> Painel Geral & Macetes de Português</h4>
+              <p>Cronograma 7 semanas, fichas de estudo da Lei Orgânica e macetes matadores de Português.</p>
+            </div>
+            <div class="pdf-card-buttons">
+              <a id="hubLink" href="index.html" class="btn-pdf-action hub">
+                <i class="fas fa-arrow-left"></i> Voltar ao Painel Geral
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -708,8 +1056,29 @@
     // Inicialização
     document.addEventListener('DOMContentLoaded', () => {
       startTimer();
-      loadFilter('dia_12_10');
+      fixLinksForCurrentDirectory();
+      loadFilter('dia_14_10');
     });
+
+    function togglePdfDrawer() {
+      const box = document.getElementById('provasPdfBox');
+      if (box) box.classList.toggle('collapsed');
+    }
+
+    function fixLinksForCurrentDirectory() {
+      const path = (window.location.pathname || '').toLowerCase();
+      const isInProvas = path.includes('/provas/') || path.endsWith('/provas/provao_mobile_especificas.html');
+      
+      document.querySelectorAll('a[data-rel-prova]').forEach(a => {
+        const file = a.getAttribute('data-rel-prova');
+        a.href = isInProvas ? file : ('provas/' + file);
+      });
+
+      const hubLink = document.getElementById('hubLink');
+      if (hubLink) {
+        hubLink.href = isInProvas ? '../index.html' : 'index.html';
+      }
+    }
 
     function startTimer() {
       if (timerInterval) clearInterval(timerInterval);
@@ -757,6 +1126,13 @@
       } else if (filterKey === 'dia_16_10') {
         // Sexta (16/10): Regimento Interno & Processo Legislativo
         activeQuestions = ALL_ESPECIFICAS.filter(q => q.discipline && (q.discipline.includes('Regimento') || q.discipline.includes('Processo Legislativo')));
+      } else if (filterKey === 'dia_17_10') {
+        // Sábado (17/10): Simulado Final de Véspera (40Q Balanceadas)
+        const mer = ALL_ESPECIFICAS.filter(q => q.discipline && q.discipline.includes('Meruoca')).slice(0, 12);
+        const lic = ALL_ESPECIFICAS.filter(q => q.discipline && q.discipline.includes('14.133')).slice(0, 10);
+        const reg = ALL_ESPECIFICAS.filter(q => q.discipline && (q.discipline.includes('Regimento') || q.discipline.includes('Processo Legislativo'))).slice(0, 10);
+        const admCon = ALL_ESPECIFICAS.filter(q => q.category === 'administrativo' || q.category === 'constitucional').slice(0, 8);
+        activeQuestions = [...mer, ...lic, ...reg, ...admCon];
       } else if (filterKey === 'foco50') {
         // Provão Ouro (50Q Balanceadas)
         const mer = ALL_ESPECIFICAS.filter(q => q.discipline && q.discipline.includes('Meruoca')).slice(0, 15);
