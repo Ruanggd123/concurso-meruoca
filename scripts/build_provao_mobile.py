@@ -887,8 +887,8 @@ html_content = """<!DOCTYPE html>
       <!-- Barra de Opcoes de Marcacao e Estudo -->
       <div class="options-toolbar">
         <label class="study-mode-toggle" title="Ao ativar, tocar em qualquer opção já marca e destaca a resposta certa imediatamente!">
-          <input type="checkbox" id="chkInstantMode" onchange="toggleInstantMode(this.checked)">
-          <span><i class="fas fa-bolt" style="color: #16a34a;"></i> Modo Estudo: Marcar Certa ao Tocar</span>
+          <input type="checkbox" id="chkInstantMode" checked onchange="toggleInstantMode(this.checked)">
+          <span><i class="fas fa-bolt" style="color: #16a34a;"></i> Resposta ao Tocar (Certo/Errado)</span>
         </label>
         
         <button type="button" class="btn-reveal-all" onclick="revealAllQuestionsInBlock()">
@@ -1060,7 +1060,7 @@ html_content = """<!DOCTYPE html>
     let userAnswers = {}; // { qId: selectedOptionIndex }
     let revealedQuestions = {}; // { qId: true }
     let isFinished = false;
-    let instantMode = false;
+    let instantMode = true; // Ativo por padrão para dar feedback imediato
     let timerSeconds = 0;
     let timerInterval = null;
 

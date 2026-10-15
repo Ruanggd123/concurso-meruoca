@@ -383,10 +383,10 @@
 <div style="display:flex; align-items:center; gap:8px;">
 <a class="btn-back-nav" href="../PROVAO_MOBILE_ESPECIFICAS.html" title="Voltar ao Provão Mobile">
 <i class="fas fa-mobile-alt"></i> Provão Mobile
-                  </a>
+              </a>
 <a class="btn-back-nav" href="CENTRAL_DE_PROVAS.html" title="Central de Provas">
 <i class="fas fa-folder-open"></i> Central de Provas
-                  </a>
+              </a>
 </div>
 <div class="score-stats">
 <span class="stat-pill total"><i class="fas fa-tasks"></i> <span id="answeredCount">0</span>/25</span>
@@ -401,18 +401,15 @@
 <div class="header-controls">
 <label class="mode-toggle-label" title="Ao tocar em qualquer opção, já mostra na hora se acertou ou errou!">
 <input checked="" id="chkInstant" onchange="toggleInstantMode(this.checked)" type="checkbox"/>
-<span><i class="fas fa-bolt" style="color: #16a34a;"></i> Modo Estudo: Resposta ao Tocar</span>
+<span><i class="fas fa-bolt" style="color: #16a34a;"></i> Resposta ao Tocar (Certo/Errado)</span>
 </label>
 <div style="display:flex; gap:6px;">
 <button class="btn-action-quiz retry" id="btnRetryErrors" onclick="retryErrors()" style="display:none;">
 <i class="fas fa-redo-alt" style="color:#dc2626;"></i> Refazer Erradas (<span id="wrongBtnCount">0</span>)
-                  </button>
+              </button>
 <button class="btn-action-quiz retry" onclick="resetQuiz()">
 <i class="fas fa-sync-alt"></i> Reiniciar
-                  </button>
-<button class="btn-action-quiz primary" id="btnFinish" onclick="finishExam()" style="display:none;">
-<i class="fas fa-check-double"></i> Finalizar Prova
-                  </button>
+              </button>
 </div>
 </div>
 </div>
@@ -438,127 +435,127 @@
 <div class="question-header">QUESTÃO 01 • Matemática &amp; RLM • Questão Oficial 01 • INBRASP/CETREDE</div>
 <div class="question-title">[01] Um lote com 360 pastas de arquivo deve ser dividido entre 3 servidores em partes proporcionais aos números 2, 3 e 4. A menor quantidade de pastas recebida por um servidor é:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 1, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">120 pastas.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 1, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">80 pastas.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 1, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">160 pastas.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 1, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">90 pastas.</span></li></ul>
-<div class="inline-feedback" id="feedback_1"></div><div class="inline-comentario" id="comentario_1"><strong>Fundamentação (Gabarito B):</strong> Soma das partes: 2 + 3 + 4 = 9 partes. Cada parte vale: 360 / 9 = 40 pastas. A menor cota é: 2 * 40 = 80 pastas.</div></div>
+<div class="inline-feedback" id="feedback_1"></div><div class="inline-comentario" id="comentario_1"><strong>Fundamentação Oficial (Gabarito B):</strong> Soma das partes: 2 + 3 + 4 = 9 partes. Cada parte vale: 360 / 9 = 40 pastas. A menor cota é: 2 * 40 = 80 pastas.</div></div>
 <div class="question-box" data-gab="D" data-q="2">
 <div class="question-header">QUESTÃO 02 • Matemática &amp; RLM • Questão Oficial 02 • INBRASP/CETREDE</div>
 <div class="question-title">[02] O preço de uma impressora para o gabinete sofreu um desconto de 15% na compra à vista, custando R$ 850,00. O valor original sem desconto era de:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 2, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">R$ 980,00</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 2, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">R$ 1.020,00</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 2, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">R$ 950,00</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 2, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">R$ 1.000,00</span></li></ul>
-<div class="inline-feedback" id="feedback_2"></div><div class="inline-comentario" id="comentario_2"><strong>Fundamentação (Gabarito D):</strong> Preço com desconto: 85% do valor original = R$ 850,00 -&gt; Valor original = 850 / 0,85 = R$ 1.000,00.</div></div>
+<div class="inline-feedback" id="feedback_2"></div><div class="inline-comentario" id="comentario_2"><strong>Fundamentação Oficial (Gabarito D):</strong> Preço com desconto: 85% do valor original = R$ 850,00 -&gt; Valor original = 850 / 0,85 = R$ 1.000,00.</div></div>
 <div class="question-box" data-gab="A" data-q="3">
 <div class="question-header">QUESTÃO 03 • Matemática &amp; RLM • Questão Oficial 03 • INBRASP/CETREDE</div>
 <div class="question-title">[03] Se todo servidor público é aprovado em concurso, e Marcos é servidor público, então necessariamente:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 3, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Marcos foi aprovado em concurso público.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 3, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Marcos é chefe de setor.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 3, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Todo concursado é igual a Marcos.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 3, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Marcos não é estável.</span></li></ul>
-<div class="inline-feedback" id="feedback_3"></div><div class="inline-comentario" id="comentario_3"><strong>Fundamentação (Gabarito A):</strong> Silogismo categórico dedutivo direto: premissa maior + premissa menor -&gt; conclusão necessária.</div></div>
+<div class="inline-feedback" id="feedback_3"></div><div class="inline-comentario" id="comentario_3"><strong>Fundamentação Oficial (Gabarito A):</strong> Silogismo categórico dedutivo direto: premissa maior + premissa menor -&gt; conclusão necessária.</div></div>
 <div class="question-box" data-gab="C" data-q="4">
 <div class="question-header">QUESTÃO 04 • Matemática &amp; RLM • Questão Oficial 04 • INBRASP/CETREDE</div>
 <div class="question-title">[04] Um veículo oficial da Câmara percorre 480 km consumindo 40 litros de combustível. Quantos litros consumirá para percorrer 360 km nas mesmas condições?</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 4, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">32 litros.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 4, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">28 litros.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 4, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">30 litros.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 4, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">35 litros.</span></li></ul>
-<div class="inline-feedback" id="feedback_4"></div><div class="inline-comentario" id="comentario_4"><strong>Fundamentação (Gabarito C):</strong> Rendimento: 480 / 40 = 12 km/l. Para 360 km: 360 / 12 = 30 litros.</div></div>
+<div class="inline-feedback" id="feedback_4"></div><div class="inline-comentario" id="comentario_4"><strong>Fundamentação Oficial (Gabarito C):</strong> Rendimento: 480 / 40 = 12 km/l. Para 360 km: 360 / 12 = 30 litros.</div></div>
 <div class="question-box" data-gab="D" data-q="5">
 <div class="question-header">QUESTÃO 05 • Matemática &amp; RLM • Questão Oficial 05 • INBRASP/CETREDE</div>
 <div class="question-title">[05] A negação de 'Hoje é segunda-feira e o plenário está em sessão' é:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 5, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Hoje não é segunda-feira E o plenário não está em sessão.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 5, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Se hoje não for segunda-feira, haverá sessão.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 5, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">Hoje é segunda-feira se e somente se houver sessão.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 5, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Hoje não é segunda-feira OU o plenário não está em sessão.</span></li></ul>
-<div class="inline-feedback" id="feedback_5"></div><div class="inline-comentario" id="comentario_5"><strong>Fundamentação (Gabarito D):</strong> Lei de De Morgan: ~(A e B) = ~A ou ~B.</div></div>
+<div class="inline-feedback" id="feedback_5"></div><div class="inline-comentario" id="comentario_5"><strong>Fundamentação Oficial (Gabarito D):</strong> Lei de De Morgan: ~(A e B) = ~A ou ~B.</div></div>
 <div class="question-box" data-gab="B" data-q="6">
 <div class="question-header">QUESTÃO 06 • Matemática &amp; RLM • Questão Oficial 06 • INBRASP/CETREDE</div>
 <div class="question-title">[06] Um lote com 360 pastas de arquivo deve ser dividido entre 3 servidores em partes proporcionais aos números 2, 3 e 4. A menor quantidade de pastas recebida por um servidor é:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 6, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">120 pastas.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 6, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">80 pastas.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 6, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">160 pastas.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 6, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">90 pastas.</span></li></ul>
-<div class="inline-feedback" id="feedback_6"></div><div class="inline-comentario" id="comentario_6"><strong>Fundamentação (Gabarito B):</strong> Soma das partes: 2 + 3 + 4 = 9 partes. Cada parte vale: 360 / 9 = 40 pastas. A menor cota é: 2 * 40 = 80 pastas.</div></div>
+<div class="inline-feedback" id="feedback_6"></div><div class="inline-comentario" id="comentario_6"><strong>Fundamentação Oficial (Gabarito B):</strong> Soma das partes: 2 + 3 + 4 = 9 partes. Cada parte vale: 360 / 9 = 40 pastas. A menor cota é: 2 * 40 = 80 pastas.</div></div>
 <div class="question-box" data-gab="A" data-q="7">
 <div class="question-header">QUESTÃO 07 • Matemática &amp; RLM • Questão Oficial 07 • INBRASP/CETREDE</div>
 <div class="question-title">[07] O preço de uma impressora para o gabinete sofreu um desconto de 15% na compra à vista, custando R$ 850,00. O valor original sem desconto era de:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 7, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">R$ 1.000,00</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 7, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">R$ 980,00</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 7, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">R$ 1.020,00</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 7, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">R$ 950,00</span></li></ul>
-<div class="inline-feedback" id="feedback_7"></div><div class="inline-comentario" id="comentario_7"><strong>Fundamentação (Gabarito A):</strong> Preço com desconto: 85% do valor original = R$ 850,00 -&gt; Valor original = 850 / 0,85 = R$ 1.000,00.</div></div>
+<div class="inline-feedback" id="feedback_7"></div><div class="inline-comentario" id="comentario_7"><strong>Fundamentação Oficial (Gabarito A):</strong> Preço com desconto: 85% do valor original = R$ 850,00 -&gt; Valor original = 850 / 0,85 = R$ 1.000,00.</div></div>
 <div class="question-box" data-gab="C" data-q="8">
 <div class="question-header">QUESTÃO 08 • Matemática &amp; RLM • Questão Oficial 08 • INBRASP/CETREDE</div>
 <div class="question-title">[08] Se todo servidor público é aprovado em concurso, e Marcos é servidor público, então necessariamente:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 8, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Marcos é chefe de setor.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 8, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Todo concursado é igual a Marcos.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 8, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Marcos foi aprovado em concurso público.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 8, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Marcos não é estável.</span></li></ul>
-<div class="inline-feedback" id="feedback_8"></div><div class="inline-comentario" id="comentario_8"><strong>Fundamentação (Gabarito C):</strong> Silogismo categórico dedutivo direto: premissa maior + premissa menor -&gt; conclusão necessária.</div></div>
+<div class="inline-feedback" id="feedback_8"></div><div class="inline-comentario" id="comentario_8"><strong>Fundamentação Oficial (Gabarito C):</strong> Silogismo categórico dedutivo direto: premissa maior + premissa menor -&gt; conclusão necessária.</div></div>
 <div class="question-box" data-gab="C" data-q="9">
 <div class="question-header">QUESTÃO 09 • Matemática &amp; RLM • Questão Oficial 09 • INBRASP/CETREDE</div>
 <div class="question-title">[09] Um veículo oficial da Câmara percorre 480 km consumindo 40 litros de combustível. Quantos litros consumirá para percorrer 360 km nas mesmas condições?</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 9, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">32 litros.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 9, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">28 litros.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 9, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">30 litros.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 9, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">35 litros.</span></li></ul>
-<div class="inline-feedback" id="feedback_9"></div><div class="inline-comentario" id="comentario_9"><strong>Fundamentação (Gabarito C):</strong> Rendimento: 480 / 40 = 12 km/l. Para 360 km: 360 / 12 = 30 litros.</div></div>
+<div class="inline-feedback" id="feedback_9"></div><div class="inline-comentario" id="comentario_9"><strong>Fundamentação Oficial (Gabarito C):</strong> Rendimento: 480 / 40 = 12 km/l. Para 360 km: 360 / 12 = 30 litros.</div></div>
 <div class="question-box" data-gab="A" data-q="10">
 <div class="question-header">QUESTÃO 10 • Matemática &amp; RLM • Questão Oficial 10 • INBRASP/CETREDE</div>
 <div class="question-title">[10] A negação de 'Hoje é segunda-feira e o plenário está em sessão' é:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 10, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Hoje não é segunda-feira OU o plenário não está em sessão.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 10, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Hoje não é segunda-feira E o plenário não está em sessão.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 10, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Se hoje não for segunda-feira, haverá sessão.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 10, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Hoje é segunda-feira se e somente se houver sessão.</span></li></ul>
-<div class="inline-feedback" id="feedback_10"></div><div class="inline-comentario" id="comentario_10"><strong>Fundamentação (Gabarito A):</strong> Lei de De Morgan: ~(A e B) = ~A ou ~B.</div></div>
+<div class="inline-feedback" id="feedback_10"></div><div class="inline-comentario" id="comentario_10"><strong>Fundamentação Oficial (Gabarito A):</strong> Lei de De Morgan: ~(A e B) = ~A ou ~B.</div></div>
 <div class="question-box" data-gab="D" data-q="11">
 <div class="question-header">QUESTÃO 11 • Matemática &amp; RLM • Questão Oficial 11 • INBRASP/CETREDE</div>
 <div class="question-title">[11] Um lote com 360 pastas de arquivo deve ser dividido entre 3 servidores em partes proporcionais aos números 2, 3 e 4. A menor quantidade de pastas recebida por um servidor é:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 11, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">120 pastas.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 11, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">160 pastas.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 11, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">90 pastas.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 11, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">80 pastas.</span></li></ul>
-<div class="inline-feedback" id="feedback_11"></div><div class="inline-comentario" id="comentario_11"><strong>Fundamentação (Gabarito D):</strong> Soma das partes: 2 + 3 + 4 = 9 partes. Cada parte vale: 360 / 9 = 40 pastas. A menor cota é: 2 * 40 = 80 pastas.</div></div>
+<div class="inline-feedback" id="feedback_11"></div><div class="inline-comentario" id="comentario_11"><strong>Fundamentação Oficial (Gabarito D):</strong> Soma das partes: 2 + 3 + 4 = 9 partes. Cada parte vale: 360 / 9 = 40 pastas. A menor cota é: 2 * 40 = 80 pastas.</div></div>
 <div class="question-box" data-gab="B" data-q="12">
 <div class="question-header">QUESTÃO 12 • Matemática &amp; RLM • Questão Oficial 12 • INBRASP/CETREDE</div>
 <div class="question-title">[12] O preço de uma impressora para o gabinete sofreu um desconto de 15% na compra à vista, custando R$ 850,00. O valor original sem desconto era de:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 12, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">R$ 980,00</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 12, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">R$ 1.000,00</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 12, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">R$ 1.020,00</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 12, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">R$ 950,00</span></li></ul>
-<div class="inline-feedback" id="feedback_12"></div><div class="inline-comentario" id="comentario_12"><strong>Fundamentação (Gabarito B):</strong> Preço com desconto: 85% do valor original = R$ 850,00 -&gt; Valor original = 850 / 0,85 = R$ 1.000,00.</div></div>
+<div class="inline-feedback" id="feedback_12"></div><div class="inline-comentario" id="comentario_12"><strong>Fundamentação Oficial (Gabarito B):</strong> Preço com desconto: 85% do valor original = R$ 850,00 -&gt; Valor original = 850 / 0,85 = R$ 1.000,00.</div></div>
 <div class="question-box" data-gab="B" data-q="13">
 <div class="question-header">QUESTÃO 13 • Matemática &amp; RLM • Questão Oficial 13 • INBRASP/CETREDE</div>
 <div class="question-title">[13] Se todo servidor público é aprovado em concurso, e Marcos é servidor público, então necessariamente:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 13, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Marcos é chefe de setor.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 13, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Marcos foi aprovado em concurso público.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 13, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">Todo concursado é igual a Marcos.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 13, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Marcos não é estável.</span></li></ul>
-<div class="inline-feedback" id="feedback_13"></div><div class="inline-comentario" id="comentario_13"><strong>Fundamentação (Gabarito B):</strong> Silogismo categórico dedutivo direto: premissa maior + premissa menor -&gt; conclusão necessária.</div></div>
+<div class="inline-feedback" id="feedback_13"></div><div class="inline-comentario" id="comentario_13"><strong>Fundamentação Oficial (Gabarito B):</strong> Silogismo categórico dedutivo direto: premissa maior + premissa menor -&gt; conclusão necessária.</div></div>
 <div class="question-box" data-gab="A" data-q="14">
 <div class="question-header">QUESTÃO 14 • Matemática &amp; RLM • Questão Oficial 14 • INBRASP/CETREDE</div>
 <div class="question-title">[14] Um veículo oficial da Câmara percorre 480 km consumindo 40 litros de combustível. Quantos litros consumirá para percorrer 360 km nas mesmas condições?</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 14, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">30 litros.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 14, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">32 litros.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 14, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">28 litros.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 14, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">35 litros.</span></li></ul>
-<div class="inline-feedback" id="feedback_14"></div><div class="inline-comentario" id="comentario_14"><strong>Fundamentação (Gabarito A):</strong> Rendimento: 480 / 40 = 12 km/l. Para 360 km: 360 / 12 = 30 litros.</div></div>
+<div class="inline-feedback" id="feedback_14"></div><div class="inline-comentario" id="comentario_14"><strong>Fundamentação Oficial (Gabarito A):</strong> Rendimento: 480 / 40 = 12 km/l. Para 360 km: 360 / 12 = 30 litros.</div></div>
 <div class="question-box" data-gab="C" data-q="15">
 <div class="question-header">QUESTÃO 15 • Matemática &amp; RLM • Questão Oficial 15 • INBRASP/CETREDE</div>
 <div class="question-title">[15] A negação de 'Hoje é segunda-feira e o plenário está em sessão' é:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 15, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Hoje não é segunda-feira E o plenário não está em sessão.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 15, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Se hoje não for segunda-feira, haverá sessão.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 15, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Hoje não é segunda-feira OU o plenário não está em sessão.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 15, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Hoje é segunda-feira se e somente se houver sessão.</span></li></ul>
-<div class="inline-feedback" id="feedback_15"></div><div class="inline-comentario" id="comentario_15"><strong>Fundamentação (Gabarito C):</strong> Lei de De Morgan: ~(A e B) = ~A ou ~B.</div></div>
+<div class="inline-feedback" id="feedback_15"></div><div class="inline-comentario" id="comentario_15"><strong>Fundamentação Oficial (Gabarito C):</strong> Lei de De Morgan: ~(A e B) = ~A ou ~B.</div></div>
 <div class="question-box" data-gab="D" data-q="16">
 <div class="question-header">QUESTÃO 16 • Matemática &amp; RLM • Questão Oficial 16 • INBRASP/CETREDE</div>
 <div class="question-title">[16] Um lote com 360 pastas de arquivo deve ser dividido entre 3 servidores em partes proporcionais aos números 2, 3 e 4. A menor quantidade de pastas recebida por um servidor é:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 16, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">120 pastas.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 16, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">160 pastas.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 16, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">90 pastas.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 16, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">80 pastas.</span></li></ul>
-<div class="inline-feedback" id="feedback_16"></div><div class="inline-comentario" id="comentario_16"><strong>Fundamentação (Gabarito D):</strong> Soma das partes: 2 + 3 + 4 = 9 partes. Cada parte vale: 360 / 9 = 40 pastas. A menor cota é: 2 * 40 = 80 pastas.</div></div>
+<div class="inline-feedback" id="feedback_16"></div><div class="inline-comentario" id="comentario_16"><strong>Fundamentação Oficial (Gabarito D):</strong> Soma das partes: 2 + 3 + 4 = 9 partes. Cada parte vale: 360 / 9 = 40 pastas. A menor cota é: 2 * 40 = 80 pastas.</div></div>
 <div class="question-box" data-gab="A" data-q="17">
 <div class="question-header">QUESTÃO 17 • Matemática &amp; RLM • Questão Oficial 17 • INBRASP/CETREDE</div>
 <div class="question-title">[17] O preço de uma impressora para o gabinete sofreu um desconto de 15% na compra à vista, custando R$ 850,00. O valor original sem desconto era de:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 17, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">R$ 1.000,00</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 17, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">R$ 980,00</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 17, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">R$ 1.020,00</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 17, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">R$ 950,00</span></li></ul>
-<div class="inline-feedback" id="feedback_17"></div><div class="inline-comentario" id="comentario_17"><strong>Fundamentação (Gabarito A):</strong> Preço com desconto: 85% do valor original = R$ 850,00 -&gt; Valor original = 850 / 0,85 = R$ 1.000,00.</div></div>
+<div class="inline-feedback" id="feedback_17"></div><div class="inline-comentario" id="comentario_17"><strong>Fundamentação Oficial (Gabarito A):</strong> Preço com desconto: 85% do valor original = R$ 850,00 -&gt; Valor original = 850 / 0,85 = R$ 1.000,00.</div></div>
 <div class="question-box" data-gab="C" data-q="18">
 <div class="question-header">QUESTÃO 18 • Matemática &amp; RLM • Questão Oficial 18 • INBRASP/CETREDE</div>
 <div class="question-title">[18] Se todo servidor público é aprovado em concurso, e Marcos é servidor público, então necessariamente:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 18, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Marcos é chefe de setor.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 18, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Todo concursado é igual a Marcos.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 18, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Marcos foi aprovado em concurso público.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 18, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Marcos não é estável.</span></li></ul>
-<div class="inline-feedback" id="feedback_18"></div><div class="inline-comentario" id="comentario_18"><strong>Fundamentação (Gabarito C):</strong> Silogismo categórico dedutivo direto: premissa maior + premissa menor -&gt; conclusão necessária.</div></div>
+<div class="inline-feedback" id="feedback_18"></div><div class="inline-comentario" id="comentario_18"><strong>Fundamentação Oficial (Gabarito C):</strong> Silogismo categórico dedutivo direto: premissa maior + premissa menor -&gt; conclusão necessária.</div></div>
 <div class="question-box" data-gab="B" data-q="19">
 <div class="question-header">QUESTÃO 19 • Matemática &amp; RLM • Questão Oficial 19 • INBRASP/CETREDE</div>
 <div class="question-title">[19] Um veículo oficial da Câmara percorre 480 km consumindo 40 litros de combustível. Quantos litros consumirá para percorrer 360 km nas mesmas condições?</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 19, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">32 litros.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 19, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">30 litros.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 19, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">28 litros.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 19, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">35 litros.</span></li></ul>
-<div class="inline-feedback" id="feedback_19"></div><div class="inline-comentario" id="comentario_19"><strong>Fundamentação (Gabarito B):</strong> Rendimento: 480 / 40 = 12 km/l. Para 360 km: 360 / 12 = 30 litros.</div></div>
+<div class="inline-feedback" id="feedback_19"></div><div class="inline-comentario" id="comentario_19"><strong>Fundamentação Oficial (Gabarito B):</strong> Rendimento: 480 / 40 = 12 km/l. Para 360 km: 360 / 12 = 30 litros.</div></div>
 <div class="question-box" data-gab="D" data-q="20">
 <div class="question-header">QUESTÃO 20 • Matemática &amp; RLM • Questão Oficial 20 • INBRASP/CETREDE</div>
 <div class="question-title">[20] A negação de 'Hoje é segunda-feira e o plenário está em sessão' é:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 20, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Hoje não é segunda-feira E o plenário não está em sessão.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 20, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Se hoje não for segunda-feira, haverá sessão.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 20, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">Hoje é segunda-feira se e somente se houver sessão.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 20, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Hoje não é segunda-feira OU o plenário não está em sessão.</span></li></ul>
-<div class="inline-feedback" id="feedback_20"></div><div class="inline-comentario" id="comentario_20"><strong>Fundamentação (Gabarito D):</strong> Lei de De Morgan: ~(A e B) = ~A ou ~B.</div></div>
+<div class="inline-feedback" id="feedback_20"></div><div class="inline-comentario" id="comentario_20"><strong>Fundamentação Oficial (Gabarito D):</strong> Lei de De Morgan: ~(A e B) = ~A ou ~B.</div></div>
 <div class="question-box" data-gab="B" data-q="21">
 <div class="question-header">QUESTÃO 21 • Matemática &amp; RLM • Questão Oficial 21 • INBRASP/CETREDE</div>
 <div class="question-title">[21] Um lote com 360 pastas de arquivo deve ser dividido entre 3 servidores em partes proporcionais aos números 2, 3 e 4. A menor quantidade de pastas recebida por um servidor é:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 21, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">120 pastas.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 21, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">80 pastas.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 21, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">160 pastas.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 21, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">90 pastas.</span></li></ul>
-<div class="inline-feedback" id="feedback_21"></div><div class="inline-comentario" id="comentario_21"><strong>Fundamentação (Gabarito B):</strong> Soma das partes: 2 + 3 + 4 = 9 partes. Cada parte vale: 360 / 9 = 40 pastas. A menor cota é: 2 * 40 = 80 pastas.</div></div>
+<div class="inline-feedback" id="feedback_21"></div><div class="inline-comentario" id="comentario_21"><strong>Fundamentação Oficial (Gabarito B):</strong> Soma das partes: 2 + 3 + 4 = 9 partes. Cada parte vale: 360 / 9 = 40 pastas. A menor cota é: 2 * 40 = 80 pastas.</div></div>
 <div class="question-box" data-gab="D" data-q="22">
 <div class="question-header">QUESTÃO 22 • Matemática &amp; RLM • Questão Oficial 22 • INBRASP/CETREDE</div>
 <div class="question-title">[22] O preço de uma impressora para o gabinete sofreu um desconto de 15% na compra à vista, custando R$ 850,00. O valor original sem desconto era de:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 22, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">R$ 980,00</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 22, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">R$ 1.020,00</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 22, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">R$ 950,00</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 22, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">R$ 1.000,00</span></li></ul>
-<div class="inline-feedback" id="feedback_22"></div><div class="inline-comentario" id="comentario_22"><strong>Fundamentação (Gabarito D):</strong> Preço com desconto: 85% do valor original = R$ 850,00 -&gt; Valor original = 850 / 0,85 = R$ 1.000,00.</div></div>
+<div class="inline-feedback" id="feedback_22"></div><div class="inline-comentario" id="comentario_22"><strong>Fundamentação Oficial (Gabarito D):</strong> Preço com desconto: 85% do valor original = R$ 850,00 -&gt; Valor original = 850 / 0,85 = R$ 1.000,00.</div></div>
 <div class="question-box" data-gab="A" data-q="23">
 <div class="question-header">QUESTÃO 23 • Matemática &amp; RLM • Questão Oficial 23 • INBRASP/CETREDE</div>
 <div class="question-title">[23] Se todo servidor público é aprovado em concurso, e Marcos é servidor público, então necessariamente:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 23, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Marcos foi aprovado em concurso público.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 23, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Marcos é chefe de setor.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 23, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Todo concursado é igual a Marcos.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 23, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Marcos não é estável.</span></li></ul>
-<div class="inline-feedback" id="feedback_23"></div><div class="inline-comentario" id="comentario_23"><strong>Fundamentação (Gabarito A):</strong> Silogismo categórico dedutivo direto: premissa maior + premissa menor -&gt; conclusão necessária.</div></div>
+<div class="inline-feedback" id="feedback_23"></div><div class="inline-comentario" id="comentario_23"><strong>Fundamentação Oficial (Gabarito A):</strong> Silogismo categórico dedutivo direto: premissa maior + premissa menor -&gt; conclusão necessária.</div></div>
 <div class="question-box" data-gab="C" data-q="24">
 <div class="question-header">QUESTÃO 24 • Matemática &amp; RLM • Questão Oficial 24 • INBRASP/CETREDE</div>
 <div class="question-title">[24] Um veículo oficial da Câmara percorre 480 km consumindo 40 litros de combustível. Quantos litros consumirá para percorrer 360 km nas mesmas condições?</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 24, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">32 litros.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 24, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">28 litros.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 24, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">30 litros.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 24, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">35 litros.</span></li></ul>
-<div class="inline-feedback" id="feedback_24"></div><div class="inline-comentario" id="comentario_24"><strong>Fundamentação (Gabarito C):</strong> Rendimento: 480 / 40 = 12 km/l. Para 360 km: 360 / 12 = 30 litros.</div></div>
+<div class="inline-feedback" id="feedback_24"></div><div class="inline-comentario" id="comentario_24"><strong>Fundamentação Oficial (Gabarito C):</strong> Rendimento: 480 / 40 = 12 km/l. Para 360 km: 360 / 12 = 30 litros.</div></div>
 <div class="question-box" data-gab="D" data-q="25">
 <div class="question-header">QUESTÃO 25 • Matemática &amp; RLM • Questão Oficial 25 • INBRASP/CETREDE</div>
 <div class="question-title">[25] A negação de 'Hoje é segunda-feira e o plenário está em sessão' é:</div>
 <ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 25, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Hoje não é segunda-feira E o plenário não está em sessão.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 25, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Se hoje não for segunda-feira, haverá sessão.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 25, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">Hoje é segunda-feira se e somente se houver sessão.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 25, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Hoje não é segunda-feira OU o plenário não está em sessão.</span></li></ul>
-<div class="inline-feedback" id="feedback_25"></div><div class="inline-comentario" id="comentario_25"><strong>Fundamentação (Gabarito D):</strong> Lei de De Morgan: ~(A e B) = ~A ou ~B.</div></div>
+<div class="inline-feedback" id="feedback_25"></div><div class="inline-comentario" id="comentario_25"><strong>Fundamentação Oficial (Gabarito D):</strong> Lei de De Morgan: ~(A e B) = ~A ou ~B.</div></div>
 <div class="answer-card">
 <h3 style="margin: 0 0 8px 0; text-align: center; text-transform: uppercase;">Folha Óptica de Respostas (Treino de Simulação)</h3>
 <p style="text-align: center; font-size: 8.5pt; margin: 0 0 12px 0;">Preencha a bolha da alternativa correta conforme o cartão de respostas oficial:</p>
@@ -720,36 +717,26 @@
 </div>
 
 <script>
-    // ESTADO DO SIMULADO INTERATIVO
-    let userAnswers = {}; // { qNum: letter }
-    let instantMode = true;
-    let totalQuestions = 0;
-
-    document.addEventListener('DOMContentLoaded', () => {
-      totalQuestions = document.querySelectorAll('.question-box[data-q]').length;
-      updateStats();
-    });
+    // Estado do Quiz
+    let userAnswers = {}; // { qNum: 'A' }
+    let instantMode = true; // Ativo por padrão para saber na hora se acertou ou errou!
+    const totalQuestions = document.querySelectorAll('.question-box[data-q]').length;
 
     function toggleInstantMode(enabled) {
       instantMode = enabled;
-      const btnFinish = document.getElementById('btnFinish');
-      if (btnFinish) {
-        btnFinish.style.display = enabled ? 'none' : 'inline-flex';
-      }
     }
 
     function handleOptionClick(btn, qNum, selectedOpt, correctOpt) {
       const qBox = document.querySelector(`.question-box[data-q="${qNum}"]`);
       if (!qBox) return;
 
-      // Se já respondeu no modo instantâneo, permite trocar se quiser
+      // Salva resposta
       userAnswers[qNum] = selectedOpt;
 
-      // Limpar estados anteriores nas opções desta questão
+      // Atualiza visual selecionado
       qBox.querySelectorAll('.option-item').forEach(opt => {
         opt.classList.remove('selected', 'is-correct', 'is-wrong');
       });
-
       btn.classList.add('selected');
 
       if (instantMode) {

@@ -1,9 +1,7 @@
 import os, re, sys
 from bs4 import BeautifulSoup
 
-sys.stdout.reconfigure(encoding='utf-8')
-
-PROVAS_DIR = r"C:\Users\Ruan Gomes\Downloads\Meruoca\provas"
+PROVAS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'provas'))
 
 INTERACTIVE_CSS = """
     /* === ESTILOS INTERATIVOS DE MARCAÇÃO E GABARITO === */
@@ -272,36 +270,26 @@ INTERACTIVE_CSS = """
 
 INTERACTIVE_JS = """
   <script>
-    // ESTADO DO SIMULADO INTERATIVO
-    let userAnswers = {}; // { qNum: letter }
-    let instantMode = true;
-    let totalQuestions = 0;
-
-    document.addEventListener('DOMContentLoaded', () => {
-      totalQuestions = document.querySelectorAll('.question-box[data-q]').length;
-      updateStats();
-    });
+    // Estado do Quiz
+    let userAnswers = {}; // { qNum: 'A' }
+    let instantMode = true; // Ativo por padrão para saber na hora se acertou ou errou!
+    const totalQuestions = document.querySelectorAll('.question-box[data-q]').length;
 
     function toggleInstantMode(enabled) {
       instantMode = enabled;
-      const btnFinish = document.getElementById('btnFinish');
-      if (btnFinish) {
-        btnFinish.style.display = enabled ? 'none' : 'inline-flex';
-      }
     }
 
     function handleOptionClick(btn, qNum, selectedOpt, correctOpt) {
       const qBox = document.querySelector(`.question-box[data-q="${qNum}"]`);
       if (!qBox) return;
 
-      // Se já respondeu no modo instantâneo, permite trocar se quiser
+      // Salva resposta
       userAnswers[qNum] = selectedOpt;
 
-      // Limpar estados anteriores nas opções desta questão
+      // Atualiza visual selecionado
       qBox.querySelectorAll('.option-item').forEach(opt => {
         opt.classList.remove('selected', 'is-correct', 'is-wrong');
       });
-
       btn.classList.add('selected');
 
       if (instantMode) {
@@ -464,39 +452,44 @@ def make_interactive(filename):
 
     soup = BeautifulSoup(html, 'html.parser')
 
-    # Identificar questoes e gabaritos
-    q_boxes = []
-    for b in soup.find_all('div', class_='question-box'):
-        if b.find('ul', class_='options-list'):
-            q_boxes.append(b)
+    # Remove estilos e headers anteriores se houver
+    for s in soup.find_all('style'):
+      if 'ESTILOS INTERATIVOS' in str(s):
+        s.decompose()
+    old_hdr = soup.find('div', id='quizHeader')
+    if old_hdr: old_hdr.decompose()
+    for sc in soup.find_all('script'):
+      if 'evaluateQuestion' in str(sc):
+        sc.decompose()
 
+    # Identificar questoes
+    q_boxes = [b for b in soup.find_all('div', class_='question-box') if b.find('ul', class_='options-list')]
+    
     # Identificar gabaritos
     g_data = {} # q_num -> (gab_letter, comentario_html)
 
     if 'IPAPORANGA' in filename:
-        # Padrão Ipaporanga: <div class="comentario-box"><strong>XX. GABARITO: X</strong> — texto</div>
         for cbox in soup.find_all('div', class_='comentario-box'):
             text = cbox.decode_contents()
-            m = re.search(r'<strong>\s*(\d+)\.\s*GABARITO:\s*([ABCD])\s*</strong>\s*—?\s*(.*)', text, re.DOTALL | re.IGNORECASE)
+            m = re.search(r'<strong>\s*(\d+)\.\s*GABARITO:\s*([ABCD])\s*</strong>\s*.*?;\s*(.*)', text, re.DOTALL | re.IGNORECASE)
+            if not m:
+                m = re.search(r'<strong>\s*(\d+)\.\s*GABARITO:\s*([ABCD])\s*</strong>\s*(.*)', text, re.DOTALL | re.IGNORECASE)
             if m:
                 q_n = int(m.group(1))
                 g_l = m.group(2).upper()
                 c_t = m.group(3).strip()
                 g_data[q_n] = (g_l, c_t)
     else:
-        # Padrão geral: <div class="question-box"><div class="question-header">QUESTÃO XX • Gabarito Oficial: <strong>(X)</strong></div><div class="comentario-box">...</div></div>
         for b in soup.find_all('div', class_='question-box'):
             cbox = b.find('div', class_='comentario-box')
-            qhdr = b.find('div', class_='question-header')
-            if cbox and qhdr:
-                header_text = qhdr.get_text()
-                m_num = re.search(r'QUEST[ÃA]O\s+(\d+)', header_text, re.IGNORECASE)
-                m_gab = re.search(r'Gabarito Oficial:\s*<strong>\(([ABCD])\)</strong>', str(qhdr), re.IGNORECASE)
+            hdr = b.find('div', class_='question-header')
+            if cbox and hdr:
+                m_num = re.search(r'QUEST.*?(\d+)', hdr.get_text())
+                m_gab = re.search(r'Gabarito Oficial:\s*<strong>\(([ABCD])\)</strong>', str(hdr), re.I)
                 if m_num and m_gab:
                     q_n = int(m_num.group(1))
                     g_l = m_gab.group(1).upper()
                     c_t = cbox.decode_contents().strip()
-                    # Limpar "<strong>Resolução / Fundamentação:</strong>" do inicio se houver
                     c_t = re.sub(r'^\s*<strong>\s*Resoluç[ãa]o\s*/\s*Fundamentaç[ãa]o:\s*</strong>\s*', '', c_t, flags=re.IGNORECASE)
                     g_data[q_n] = (g_l, c_t)
 
@@ -506,6 +499,8 @@ def make_interactive(filename):
         print(f"[-] Nenhuma questão encontrada em {filename}. Pulando.")
         return False
 
+    letters_seq = ['A', 'B', 'C', 'D']
+
     # Modificar cada q_box
     for idx, q_box in enumerate(q_boxes, 1):
         q_num = idx
@@ -514,18 +509,28 @@ def make_interactive(filename):
         q_box['data-q'] = str(q_num)
         q_box['data-gab'] = gab_letter
 
-        # Converter <li> em .option-item interativos
+        # Limpar feedback/comentário antigos dentro do q_box se houver
+        for old in q_box.find_all('div', class_=['inline-feedback', 'inline-comentario']):
+            old.decompose()
+
+        # Converter <li> em .option-item interativos com letras seguras A, B, C, D
         ul = q_box.find('ul', class_='options-list')
         if ul:
             new_lis = []
-            for li in ul.find_all('li'):
+            lis = ul.find_all('li')
+            for opt_idx, li in enumerate(lis):
                 raw_text = li.get_text().strip()
-                m_opt = re.match(r'^\(([ABCD])\)\s*(.*)', raw_text, re.DOTALL)
+                # Extrai letra esperada da sequência ou do texto
+                default_letter = letters_seq[opt_idx] if opt_idx < len(letters_seq) else 'A'
+                m_opt = re.match(r'^\(([ABCD])\)\s*(.*)', raw_text, re.DOTALL | re.IGNORECASE)
+                if not m_opt:
+                    m_opt = re.match(r'^([ABCD])[\.\)\-\:]\s*(.*)', raw_text, re.DOTALL | re.IGNORECASE)
+
                 if m_opt:
                     opt_letter = m_opt.group(1).upper()
                     opt_content = m_opt.group(2).strip()
                 else:
-                    opt_letter = 'A'
+                    opt_letter = default_letter
                     opt_content = raw_text
 
                 new_li = soup.new_tag('li')
@@ -549,22 +554,18 @@ def make_interactive(filename):
             for nli in new_lis:
                 ul.append(nli)
 
-        # Injetar inline feedback e inline comentario se ainda não existirem
-        existing_fb = q_box.find('div', id=f"feedback_{q_num}")
-        if not existing_fb:
-            fb_tag = soup.new_tag('div')
-            fb_tag['class'] = 'inline-feedback'
-            fb_tag['id'] = f"feedback_{q_num}"
-            q_box.append(fb_tag)
+        # Injetar inline feedback e inline comentario
+        fb_tag = soup.new_tag('div')
+        fb_tag['class'] = 'inline-feedback'
+        fb_tag['id'] = f"feedback_{q_num}"
+        q_box.append(fb_tag)
 
-        existing_com = q_box.find('div', id=f"comentario_{q_num}")
-        if not existing_com:
-            com_tag = soup.new_tag('div')
-            com_tag['class'] = 'inline-comentario'
-            com_tag['id'] = f"comentario_{q_num}"
-            com_soup = BeautifulSoup(f"<strong>Fundamentação (Gabarito {gab_letter}):</strong> {com_text}", 'html.parser')
-            com_tag.append(com_soup)
-            q_box.append(com_tag)
+        com_tag = soup.new_tag('div')
+        com_tag['class'] = 'inline-comentario'
+        com_tag['id'] = f"comentario_{q_num}"
+        com_soup = BeautifulSoup(f"<strong>Fundamentação Oficial (Gabarito {gab_letter}):</strong> {com_text}", 'html.parser')
+        com_tag.append(com_soup)
+        q_box.append(com_tag)
 
     # Injetar Meta Viewport e Font Awesome no <head>
     head = soup.find('head')
@@ -573,12 +574,10 @@ def make_interactive(filename):
             vp = soup.new_tag('meta', attrs={'name': 'viewport', 'content': 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'})
             head.insert(0, vp)
         
-        # Link Font Awesome se não houver
         if 'font-awesome' not in str(head):
             fa = soup.new_tag('link', rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css')
             head.append(fa)
 
-        # Style tag interativa
         st = soup.new_tag('style')
         st.string = INTERACTIVE_CSS
         head.append(st)
@@ -586,67 +585,68 @@ def make_interactive(filename):
     # Injetar Header Interativo no início de <body>
     body = soup.find('body')
     if body:
-        existing_hdr = body.find('div', id='quizHeader')
-        if not existing_hdr:
-            total_count = len(q_boxes)
-            header_html = f"""
-            <div class="interactive-header no-print" id="quizHeader">
-              <div class="header-top-row">
-                <div style="display:flex; align-items:center; gap:8px;">
-                  <a href="../PROVAO_MOBILE_ESPECIFICAS.html" class="btn-back-nav" title="Voltar ao Provão Mobile">
-                    <i class="fas fa-mobile-alt"></i> Provão Mobile
-                  </a>
-                  <a href="CENTRAL_DE_PROVAS.html" class="btn-back-nav" title="Central de Provas">
-                    <i class="fas fa-folder-open"></i> Central de Provas
-                  </a>
-                </div>
-                <div class="score-stats">
-                  <span class="stat-pill total"><i class="fas fa-tasks"></i> <span id="answeredCount">0</span>/{total_count}</span>
-                  <span class="stat-pill correct"><i class="fas fa-check"></i> <span id="correctCount">0</span></span>
-                  <span class="stat-pill wrong"><i class="fas fa-times"></i> <span id="wrongCount">0</span></span>
-                  <span class="stat-pill percent" id="percentBadge">0%</span>
-                </div>
-              </div>
-              <div class="progress-track">
-                <div class="progress-bar-fill" id="progressBar"></div>
-              </div>
-              <div class="header-controls">
-                <label class="mode-toggle-label" title="Ao tocar em qualquer opção, já mostra na hora se acertou ou errou!">
-                  <input type="checkbox" id="chkInstant" checked onchange="toggleInstantMode(this.checked)">
-                  <span><i class="fas fa-bolt" style="color: #16a34a;"></i> Modo Estudo: Resposta ao Tocar</span>
-                </label>
-                <div style="display:flex; gap:6px;">
-                  <button class="btn-action-quiz retry" onclick="retryErrors()" id="btnRetryErrors" style="display:none;">
-                    <i class="fas fa-redo-alt" style="color:#dc2626;"></i> Refazer Erradas (<span id="wrongBtnCount">0</span>)
-                  </button>
-                  <button class="btn-action-quiz retry" onclick="resetQuiz()">
-                    <i class="fas fa-sync-alt"></i> Reiniciar
-                  </button>
-                  <button class="btn-action-quiz primary" id="btnFinish" onclick="finishExam()" style="display:none;">
-                    <i class="fas fa-check-double"></i> Finalizar Prova
-                  </button>
-                </div>
-              </div>
+        total_count = len(q_boxes)
+        header_html = f"""
+        <div class="interactive-header no-print" id="quizHeader">
+          <div class="header-top-row">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <a href="../PROVAO_MOBILE_ESPECIFICAS.html" class="btn-back-nav" title="Voltar ao Provão Mobile">
+                <i class="fas fa-mobile-alt"></i> Provão Mobile
+              </a>
+              <a href="CENTRAL_DE_PROVAS.html" class="btn-back-nav" title="Central de Provas">
+                <i class="fas fa-folder-open"></i> Central de Provas
+              </a>
             </div>
-            """
-            header_soup = BeautifulSoup(header_html, 'html.parser')
-            body.insert(0, header_soup)
+            <div class="score-stats">
+              <span class="stat-pill total"><i class="fas fa-tasks"></i> <span id="answeredCount">0</span>/{total_count}</span>
+              <span class="stat-pill correct"><i class="fas fa-check"></i> <span id="correctCount">0</span></span>
+              <span class="stat-pill wrong"><i class="fas fa-times"></i> <span id="wrongCount">0</span></span>
+              <span class="stat-pill percent" id="percentBadge">0%</span>
+            </div>
+          </div>
+          <div class="progress-track">
+            <div class="progress-bar-fill" id="progressBar"></div>
+          </div>
+          <div class="header-controls">
+            <label class="mode-toggle-label" title="Ao tocar em qualquer opção, já mostra na hora se acertou ou errou!">
+              <input type="checkbox" id="chkInstant" checked onchange="toggleInstantMode(this.checked)">
+              <span><i class="fas fa-bolt" style="color: #16a34a;"></i> Resposta ao Tocar (Certo/Errado)</span>
+            </label>
+            <div style="display:flex; gap:6px;">
+              <button class="btn-action-quiz retry" onclick="retryErrors()" id="btnRetryErrors" style="display:none;">
+                <i class="fas fa-redo-alt" style="color:#dc2626;"></i> Refazer Erradas (<span id="wrongBtnCount">0</span>)
+              </button>
+              <button class="btn-action-quiz retry" onclick="resetQuiz()">
+                <i class="fas fa-sync-alt"></i> Reiniciar
+              </button>
+            </div>
+          </div>
+        </div>
+        """
+        header_soup = BeautifulSoup(header_html, 'html.parser')
+        body.insert(0, header_soup)
 
-        # Injetar Script antes de </body>
         script_soup = BeautifulSoup(INTERACTIVE_JS, 'html.parser')
         body.append(script_soup)
 
-    # Salvar arquivo atualizado
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(str(soup))
     print(f"[OK] Atualizado com sucesso: {filename}")
     return True
 
 if __name__ == '__main__':
-    target = sys.argv[1] if len(sys.argv) > 1 else 'PROVA_REAL_10_INBRASP_INFORMATICA.html'
-    if target == 'all':
-        provas = [f for f in os.listdir(PROVAS_DIR) if f.startswith('PROVA_REAL_') and f.endswith('.html')]
-        for p in sorted(provas):
-            make_interactive(p)
-    else:
-        make_interactive(target)
+    provas = [
+        'PROVA_REAL_02_CONSULPAM_CAMARA_FORQUILHA_CE.html',
+        'PROVA_REAL_03_CETREDE_ADMINISTRATIVO_CE.html',
+        'PROVA_REAL_04_IDIB_CAMARA_LEGISLATIVO_CE.html',
+        'PROVA_REAL_05_CONSULPAM_CRATEUS_CE.html',
+        'PROVA_REAL_06_GRANDE_PROVA_LEGISLATIVO_CE.html',
+        'PROVA_REAL_07_INBRASP_DIREITO_ADMINISTRATIVO.html',
+        'PROVA_REAL_08_INBRASP_LINGUA_PORTUGUESA.html',
+        'PROVA_REAL_09_INBRASP_MATEMATICA_RLM.html',
+        'PROVA_REAL_10_INBRASP_INFORMATICA.html',
+        'PROVA_REAL_11_LEGISLACAO_MUNICIPAL_REGIMENTO.html',
+        'PROVA_REAL_INBRASP_2026_IPAPORANGA.html'
+    ]
+    for p in provas:
+        make_interactive(p)
