@@ -858,12 +858,12 @@ html_content = """<!DOCTYPE html>
           <span class="pill-day-tag">📅 13/10 (Ter)</span>
           <span class="pill-sub-tag">Redação & Técnica</span>
         </button>
-        <button class="pill-btn active today-highlight" onclick="switchFilter('dia_14_10', this)">
-          <span class="pill-day-tag">⭐ 14/10 (HOJE - Qua)</span>
+        <button class="pill-btn" onclick="switchFilter('dia_14_10', this)">
+          <span class="pill-day-tag">📅 14/10 (Qua)</span>
           <span class="pill-sub-tag">Constitucional & TCE</span>
         </button>
-        <button class="pill-btn" onclick="switchFilter('dia_15_10', this)">
-          <span class="pill-day-tag">📅 15/10 (Qui)</span>
+        <button class="pill-btn active today-highlight" onclick="switchFilter('dia_15_10', this)">
+          <span class="pill-day-tag">⭐ 15/10 (HOJE - Qui)</span>
           <span class="pill-sub-tag">Lei Orgânica Meruoca</span>
         </button>
         <button class="pill-btn" onclick="switchFilter('dia_16_10', this)">
@@ -912,10 +912,27 @@ html_content = """<!DOCTYPE html>
         </p>
         
         <div class="provas-pdf-grid">
-          <!-- Prova 09 - Meta de Hoje -->
+          <!-- Prova 10 - Meta de Hoje (Informática) -->
           <div class="pdf-card highlight-today">
             <div class="pdf-card-top">
-              <span class="pdf-badge today"><i class="fas fa-star"></i> META DE HOJE (QUA 14/10)</span>
+              <span class="pdf-badge today"><i class="fas fa-star"></i> META DE HOJE (QUI 15/10)</span>
+              <h4><i class="fas fa-desktop" style="color: #8b5cf6;"></i> Prova Real 10 — Noções de Informática</h4>
+              <p>25 Questões Reais da banca: Windows, Word, Excel, atalhos de teclado e segurança na internet.</p>
+            </div>
+            <div class="pdf-card-buttons">
+              <a data-rel-prova="PROVA_REAL_10_INBRASP_INFORMATICA.html" target="_blank" class="btn-pdf-action online">
+                <i class="fas fa-play"></i> Resolver Online
+              </a>
+              <a data-rel-prova="PROVA_REAL_10_INBRASP_INFORMATICA.pdf" target="_blank" class="btn-pdf-action pdf">
+                <i class="fas fa-file-pdf"></i> Baixar PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- Prova 09 - Matemática -->
+          <div class="pdf-card">
+            <div class="pdf-card-top">
+              <span class="pdf-badge"><i class="fas fa-calculator"></i> MATEMÁTICA & RLM</span>
               <h4><i class="fas fa-calculator" style="color: #10b981;"></i> Prova Real 09 — Matemática & RLM</h4>
               <p>25 Questões Reais INBRASP/CETREDE: Regra de três, porcentagem, frações e lógica proposicional.</p>
             </div>
@@ -941,23 +958,6 @@ html_content = """<!DOCTYPE html>
                 <i class="fas fa-play"></i> Resolver Online
               </a>
               <a data-rel-prova="PROVA_REAL_08_INBRASP_LINGUA_PORTUGUESA.pdf" target="_blank" class="btn-pdf-action pdf">
-                <i class="fas fa-file-pdf"></i> Baixar PDF
-              </a>
-            </div>
-          </div>
-
-          <!-- Prova 10 - Informática -->
-          <div class="pdf-card">
-            <div class="pdf-card-top">
-              <span class="pdf-badge"><i class="fas fa-laptop-code"></i> INFORMÁTICA</span>
-              <h4><i class="fas fa-desktop" style="color: #8b5cf6;"></i> Prova Real 10 — Noções de Informática</h4>
-              <p>25 Questões Reais da banca: Windows, Word, Excel, atalhos de teclado e segurança na internet.</p>
-            </div>
-            <div class="pdf-card-buttons">
-              <a data-rel-prova="PROVA_REAL_10_INBRASP_INFORMATICA.html" target="_blank" class="btn-pdf-action online">
-                <i class="fas fa-play"></i> Resolver Online
-              </a>
-              <a data-rel-prova="PROVA_REAL_10_INBRASP_INFORMATICA.pdf" target="_blank" class="btn-pdf-action pdf">
                 <i class="fas fa-file-pdf"></i> Baixar PDF
               </a>
             </div>
@@ -1064,11 +1064,35 @@ html_content = """<!DOCTYPE html>
     let timerSeconds = 0;
     let timerInterval = null;
 
+    // Identificar automaticamente o bloco de hoje
+    function getTodayFilter() {
+      const now = new Date();
+      const day = now.getDate();
+      const month = now.getMonth() + 1;
+      if (month === 10) {
+        if (day <= 12) return 'dia_12_10';
+        if (day === 13) return 'dia_13_10';
+        if (day === 14) return 'dia_14_10';
+        if (day === 15) return 'dia_15_10';
+        if (day === 16) return 'dia_16_10';
+        if (day >= 17) return 'dia_17_10';
+      }
+      return 'dia_15_10';
+    }
+
     // Inicialização
     document.addEventListener('DOMContentLoaded', () => {
       startTimer();
       fixLinksForCurrentDirectory();
-      loadFilter('dia_14_10');
+      const todayKey = getTodayFilter();
+      document.querySelectorAll('.pill-btn').forEach(btn => {
+        if (btn.getAttribute('onclick')?.includes(todayKey)) {
+          btn.classList.add('active', 'today-highlight');
+        } else {
+          btn.classList.remove('active', 'today-highlight');
+        }
+      });
+      loadFilter(todayKey);
     });
 
     function togglePdfDrawer() {
