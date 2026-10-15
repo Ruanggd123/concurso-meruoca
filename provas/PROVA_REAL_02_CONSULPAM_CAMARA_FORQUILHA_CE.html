@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="pt-BR">
-<head>
+<head><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
 <meta charset="utf-8"/>
 <title>PROVA REAL OFICIAL — BANCA CONSULPAM (CÂMARA DE FORQUILHA/CE)</title>
 <style>
@@ -113,8 +113,310 @@
     }
     .comentario-box strong { color: #1e3a8a; }
   </style>
-</head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/><style>
+    /* === ESTILOS INTERATIVOS DE MARCAÇÃO E GABARITO === */
+    @media print {
+      .no-print, .interactive-header, .btn-action-quiz, .inline-feedback { display: none !important; }
+      body { padding: 0 !important; }
+    }
+
+    body {
+      padding-top: 10px !important;
+    }
+
+    /* Barra Fixa Superior com Progresso e Placar */
+    .interactive-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+      padding: 10px 14px;
+      margin: 0 0 20px 0;
+    }
+
+    .header-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .btn-back-nav {
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 5px 10px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: background 0.18s;
+    }
+    .btn-back-nav:hover { background: #dbeafe; }
+
+    .score-stats {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .stat-pill {
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .stat-pill.total { background: #f1f5f9; color: #334155; }
+    .stat-pill.correct { background: #dcfce7; color: #15803d; }
+    .stat-pill.wrong { background: #fee2e2; color: #b91c1c; }
+    .stat-pill.percent { background: #1e3a8a; color: #ffffff; }
+
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #2563eb, #16a34a);
+      transition: width 0.3s ease;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed #e2e8f0;
+    }
+
+    .mode-toggle-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #166534;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      user-select: none;
+      background: #f0fdf4;
+      padding: 5px 10px;
+      border-radius: 6px;
+      border: 1px solid #bbf7d0;
+    }
+    .mode-toggle-label input { cursor: pointer; accent-color: #16a34a; }
+
+    .btn-action-quiz {
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.18s;
+    }
+    .btn-action-quiz.retry {
+      background: #f8fafc;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+    .btn-action-quiz.retry:hover { background: #e2e8f0; }
+    .btn-action-quiz.primary {
+      background: #2563eb;
+      color: white;
+    }
+    .btn-action-quiz.primary:hover { background: #1d4ed8; }
+
+    /* Alternativas Estilizadas e Clicáveis */
+    .options-list {
+      list-style: none !important;
+      padding-left: 0 !important;
+      margin: 10px 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+    }
+
+    .option-item {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.94rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      transition: all 0.18s ease;
+      user-select: none;
+      position: relative;
+    }
+    .option-item:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .option-bubble {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #334155;
+      font-weight: 800;
+      font-size: 0.82rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: all 0.18s;
+    }
+
+    .option-text {
+      flex: 1;
+      line-height: 1.42;
+      font-weight: 500;
+    }
+
+    /* Estado Marcado */
+    .option-item.selected {
+      background: #eff6ff;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 1px #2563eb;
+    }
+    .option-item.selected .option-bubble {
+      background: #2563eb;
+      color: white;
+    }
+
+    /* Estado Correto (Verde) */
+    .option-item.is-correct {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      box-shadow: 0 0 0 1.5px #16a34a !important;
+      color: #14532d !important;
+      font-weight: 600;
+    }
+    .option-item.is-correct .option-bubble {
+      background: #16a34a !important;
+      color: white !important;
+    }
+
+    /* Estado Errado (Vermelho) */
+    .option-item.is-wrong {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      box-shadow: 0 0 0 1.5px #dc2626 !important;
+      color: #7f1d1d !important;
+    }
+    .option-item.is-wrong .option-bubble {
+      background: #dc2626 !important;
+      color: white !important;
+    }
+
+    /* Feedback Inline Imediato */
+    .inline-feedback {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      animation: feedbackIn 0.25s ease;
+    }
+    .inline-feedback.correct {
+      display: block;
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      color: #14532d;
+    }
+    .inline-feedback.wrong {
+      display: block;
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      color: #991b1b;
+    }
+    .inline-feedback strong { font-weight: 800; }
+
+    .inline-comentario {
+      display: none;
+      margin-top: 8px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border-left: 4px solid #2563eb;
+      font-size: 0.86rem;
+      color: #334155;
+      line-height: 1.45;
+      animation: feedbackIn 0.25s ease;
+    }
+    .inline-comentario strong { color: #1e3a8a; }
+
+    @keyframes feedbackIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+</style></head>
 <body>
+<div class="interactive-header no-print" id="quizHeader">
+<div class="header-top-row">
+<div style="display:flex; align-items:center; gap:8px;">
+<a class="btn-back-nav" href="../PROVAO_MOBILE_ESPECIFICAS.html" title="Voltar ao Provão Mobile">
+<i class="fas fa-mobile-alt"></i> Provão Mobile
+                  </a>
+<a class="btn-back-nav" href="CENTRAL_DE_PROVAS.html" title="Central de Provas">
+<i class="fas fa-folder-open"></i> Central de Provas
+                  </a>
+</div>
+<div class="score-stats">
+<span class="stat-pill total"><i class="fas fa-tasks"></i> <span id="answeredCount">0</span>/40</span>
+<span class="stat-pill correct"><i class="fas fa-check"></i> <span id="correctCount">0</span></span>
+<span class="stat-pill wrong"><i class="fas fa-times"></i> <span id="wrongCount">0</span></span>
+<span class="stat-pill percent" id="percentBadge">0%</span>
+</div>
+</div>
+<div class="progress-track">
+<div class="progress-bar-fill" id="progressBar"></div>
+</div>
+<div class="header-controls">
+<label class="mode-toggle-label" title="Ao tocar em qualquer opção, já mostra na hora se acertou ou errou!">
+<input checked="" id="chkInstant" onchange="toggleInstantMode(this.checked)" type="checkbox"/>
+<span><i class="fas fa-bolt" style="color: #16a34a;"></i> Modo Estudo: Resposta ao Tocar</span>
+</label>
+<div style="display:flex; gap:6px;">
+<button class="btn-action-quiz retry" id="btnRetryErrors" onclick="retryErrors()" style="display:none;">
+<i class="fas fa-redo-alt" style="color:#dc2626;"></i> Refazer Erradas (<span id="wrongBtnCount">0</span>)
+                  </button>
+<button class="btn-action-quiz retry" onclick="resetQuiz()">
+<i class="fas fa-sync-alt"></i> Reiniciar
+                  </button>
+<button class="btn-action-quiz primary" id="btnFinish" onclick="finishExam()" style="display:none;">
+<i class="fas fa-check-double"></i> Finalizar Prova
+                  </button>
+</div>
+</div>
+</div>
+
 <div class="header-box">
 <span class="badge-real">PROVA REAL OFICIAL APLICADA NO CEARÁ</span>
 <h1>CÂMARA MUNICIPAL DE FORQUILHA — ESTADO DO CEARÁ</h1>
@@ -132,208 +434,208 @@
 </ul>
 </div>
 <div class="section-title">LÍNGUA PORTUGUESA (Questões Reais da Banca Cearense)</div>
-<div class="question-box">
+<div class="question-box" data-gab="B" data-q="1">
 <div class="question-header">QUESTÃO 01 • Língua Portuguesa • Interpretação &amp; Tipologia Textual • CONSULPAM</div>
 <div class="question-title">Em um texto de natureza instrucional e normativa, como um Regimento Interno ou uma Portaria administrativa, predomina a seguinte função da linguagem e característica discursiva:</div>
-<ul class="options-list"><li>(A) Função emotiva ou expressiva, com foco na subjetividade e nos sentimentos íntimos do redator oficial.</li><li>(B) Função conativa/apelativa, objetivando direcionar ou prescrever comportamentos dos agentes por meio de normas imperativas.</li><li>(C) Função poética, priorizando o uso de metáforas estilísticas e ambiguidades sonoras.</li><li>(D) Função fática, com a única intenção de testar o canal de comunicação sem veicular comando normativo.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 1, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Função emotiva ou expressiva, com foco na subjetividade e nos sentimentos íntimos do redator oficial.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 1, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Função conativa/apelativa, objetivando direcionar ou prescrever comportamentos dos agentes por meio de normas imperativas.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 1, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">Função poética, priorizando o uso de metáforas estilísticas e ambiguidades sonoras.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 1, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Função fática, com a única intenção de testar o canal de comunicação sem veicular comando normativo.</span></li></ul>
+<div class="inline-feedback" id="feedback_1"></div><div class="inline-comentario" id="comentario_1"><strong>Fundamentação (Gabarito B):</strong> Textos instrucionais e normativos possuem predomínio da função conativa (ou apelativa) e referencial, com o objetivo de prescrever normas e condutas aos servidores e destinatários.</div></div>
+<div class="question-box" data-gab="D" data-q="2">
 <div class="question-header">QUESTÃO 02 • Língua Portuguesa • Ortografia &amp; Acentuação Gráfica • CONSULPAM</div>
 <div class="question-title">Assinale a alternativa em que todos os vocábulos são acentuados graficamente pela mesma regra que justifica o acento na palavra 'CÂMARA':</div>
-<ul class="options-list"><li>(A) legislativo, caráter, saída.</li><li>(B) órgão, órfão, sótão.</li><li>(C) paráfrase, rubrica, interim.</li><li>(D) público, legítimo, trânsito.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 2, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">legislativo, caráter, saída.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 2, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">órgão, órfão, sótão.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 2, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">paráfrase, rubrica, interim.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 2, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">público, legítimo, trânsito.</span></li></ul>
+<div class="inline-feedback" id="feedback_2"></div><div class="inline-comentario" id="comentario_2"><strong>Fundamentação (Gabarito D):</strong> 'Câmara' é uma palavra proparoxítona. Da mesma forma, 'público', 'legítimo' e 'trânsito' são todas proparoxítonas e recebem acento pela mesma regra geral (todas as proparoxítonas são acentuadas).</div></div>
+<div class="question-box" data-gab="A" data-q="3">
 <div class="question-header">QUESTÃO 03 • Língua Portuguesa • Emprego do Sinal Indicativo de Crase • CONSULPAM</div>
 <div class="question-title">O uso do acento indicativo de crase está estritamente CORRETO em qual das alternativas a seguir?</div>
-<ul class="options-list"><li>(A) O projeto de lei foi encaminhado à Comissão de Justiça para emissão de parecer prévio.</li><li>(B) O vereador referiu-se à ela de forma respeitosa durante o debate em plenário.</li><li>(C) A sessão ordinária terá início à partir das dezenove horas.</li><li>(D) O servidor passou à responder pelo protocolo da secretaria municipal.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 3, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">O projeto de lei foi encaminhado à Comissão de Justiça para emissão de parecer prévio.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 3, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">O vereador referiu-se à ela de forma respeitosa durante o debate em plenário.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 3, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">A sessão ordinária terá início à partir das dezenove horas.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 3, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">O servidor passou à responder pelo protocolo da secretaria municipal.</span></li></ul>
+<div class="inline-feedback" id="feedback_3"></div><div class="inline-comentario" id="comentario_3"><strong>Fundamentação (Gabarito A):</strong> Em 'encaminhado à Comissão', há fusão da preposição 'a' (exigida pela regência de encaminhar) com o artigo definido feminino 'a' de Comissão. Antes de pronome pessoal ('ela'), antes de verbo ('partir', 'responder'), a crase é terminantemente proibida.</div></div>
+<div class="question-box" data-gab="C" data-q="4">
 <div class="question-header">QUESTÃO 04 • Língua Portuguesa • Concordância Verbal • CONSULPAM</div>
 <div class="question-title">De acordo com a norma-padrão da Língua Portuguesa, assinale a opção em que a concordância verbal está plenamente CORRETA:</div>
-<ul class="options-list"><li>(A) Haviam muitos requerimentos pendentes de apreciação pela Mesa Diretora.</li><li>(B) Fazem dois meses que o relatório final da CPI foi entregue ao Ministério Público.</li><li>(C) Trata-se de medidas urgentes aprovadas por maioria qualificada dos parlamentares.</li><li>(D) Mais de um vereador agrediram-se mutuamente durante a votação.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 4, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Haviam muitos requerimentos pendentes de apreciação pela Mesa Diretora.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 4, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Fazem dois meses que o relatório final da CPI foi entregue ao Ministério Público.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 4, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Trata-se de medidas urgentes aprovadas por maioria qualificada dos parlamentares.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 4, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Mais de um vereador agrediram-se mutuamente durante a votação.</span></li></ul>
+<div class="inline-feedback" id="feedback_4"></div><div class="inline-comentario" id="comentario_4"><strong>Fundamentação (Gabarito C):</strong> Em 'Trata-se de medidas...', o verbo tratar-se é transitivo indireto acompanhado do índice de indeterminação do sujeito 'se', permanecendo obrigatoriamente no singular. 'Haver' no sentido de existir e 'Fazer' indicando tempo decorrido são impessoais e não flexionam no plural ('Havia', 'Faz dois meses').</div></div>
+<div class="question-box" data-gab="D" data-q="5">
 <div class="question-header">QUESTÃO 05 • Língua Portuguesa • Regência Verbal • CONSULPAM</div>
 <div class="question-title">Assinale a alternativa que observa rigorosamente a regência preconizada pela gramática normativa:</div>
-<ul class="options-list"><li>(A) O assessor informou ao chefe sobre que haveria reunião extraordinária à tarde.</li><li>(B) O cidadão aspirava o cargo público de agente administrativo com afinco.</li><li>(C) A comissão preferiu mais adiar a votação do que aprovar sem discussão.</li><li>(D) O servidor público deve obedecer aos ditames da Lei Orgânica e ao Regimento Interno.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 5, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">O assessor informou ao chefe sobre que haveria reunião extraordinária à tarde.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 5, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">O cidadão aspirava o cargo público de agente administrativo com afinco.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 5, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">A comissão preferiu mais adiar a votação do que aprovar sem discussão.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 5, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">O servidor público deve obedecer aos ditames da Lei Orgânica e ao Regimento Interno.</span></li></ul>
+<div class="inline-feedback" id="feedback_5"></div><div class="inline-comentario" id="comentario_5"><strong>Fundamentação (Gabarito D):</strong> O verbo 'obedecer' é transitivo indireto e rege a preposição 'a' ('obedecer aos ditames... e ao Regimento'). 'Aspirar' no sentido de almejar/pretender também rege 'a' ('aspirava ao cargo'). 'Preferir' repele expressões como 'mais... do que'.</div></div>
+<div class="question-box" data-gab="B" data-q="6">
 <div class="question-header">QUESTÃO 06 • Língua Portuguesa • Sintaxe do Período Composto • CONSULPAM</div>
 <div class="question-title">Na oração: 'Embora o quórum regimental fosse apertado, a ata da sessão anterior foi homologada sem ressalvas', a conjunção subordinativa destacada expressa ideia de:</div>
-<ul class="options-list"><li>(A) Causa, indicando a motivação determinante da aprovação da ata.</li><li>(B) Concessão, estabelecendo uma oposição que não anula a oração principal.</li><li>(C) Condição, estabelecendo requisito indispensável à eficácia da homologação.</li><li>(D) Consequência, evidenciando o efeito produzido pela quantidade de presentes.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 6, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Causa, indicando a motivação determinante da aprovação da ata.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 6, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Concessão, estabelecendo uma oposição que não anula a oração principal.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 6, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">Condição, estabelecendo requisito indispensável à eficácia da homologação.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 6, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Consequência, evidenciando o efeito produzido pela quantidade de presentes.</span></li></ul>
+<div class="inline-feedback" id="feedback_6"></div><div class="inline-comentario" id="comentario_6"><strong>Fundamentação (Gabarito B):</strong> 'Embora' é a conjunção concessiva por excelência, introduzindo uma oração subordinada adverbial concessiva que expressa um fato contrário que não impede a realização da oração principal.</div></div>
+<div class="question-box" data-gab="A" data-q="7">
 <div class="question-header">QUESTÃO 07 • Língua Portuguesa • Colocação Pronominal • CONSULPAM</div>
 <div class="question-title">Assinale a opção em que a colocação do pronome oblíquo átono segue as normas gramaticais cultas:</div>
-<ul class="options-list"><li>(A) Não se admitirá a entrada de pessoas não cadastradas no recinto do plenário.</li><li>(B) Me disseram que a sessão seria transmitida ao vivo pelas redes sociais.</li><li>(C) O Presidente da Câmara levantou-se e dirigiu-se à tribuna, calando-se logo em seguida.</li><li>(D) Se cumprissem o regimento, não haveria tantas nulidades regimentais.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 7, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Não se admitirá a entrada de pessoas não cadastradas no recinto do plenário.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 7, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Me disseram que a sessão seria transmitida ao vivo pelas redes sociais.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 7, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">O Presidente da Câmara levantou-se e dirigiu-se à tribuna, calando-se logo em seguida.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 7, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Se cumprissem o regimento, não haveria tantas nulidades regimentais.</span></li></ul>
+<div class="inline-feedback" id="feedback_7"></div><div class="inline-comentario" id="comentario_7"><strong>Fundamentação (Gabarito A):</strong> O advérbio de negação 'Não' é palavra atrativa obrigatória que exige a próclise ('Não se admitirá'). Jamais se inicia frase com pronome oblíquo átono ('Me disseram' está incorreto na norma culta).</div></div>
+<div class="question-box" data-gab="C" data-q="8">
 <div class="question-header">QUESTÃO 08 • Língua Portuguesa • Pontuação • CONSULPAM</div>
 <div class="question-title">O uso da vírgula está plenamente correto na seguinte alternativa:</div>
-<ul class="options-list"><li>(A) O prefeito municipal encaminhou à Câmara, o projeto de lei de diretrizes orçamentárias.</li><li>(B) Todos os servidores que foram aprovados no concurso, compareceram à posse.</li><li>(C) Os vereadores, reunidos em sessão solene, prestaram homenagem aos fundadores do município.</li><li>(D) A secretaria da Casa Legislativa, recebeu os documentos dos cidadãos inscritos.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 8, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">O prefeito municipal encaminhou à Câmara, o projeto de lei de diretrizes orçamentárias.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 8, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Todos os servidores que foram aprovados no concurso, compareceram à posse.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 8, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Os vereadores, reunidos em sessão solene, prestaram homenagem aos fundadores do município.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 8, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">A secretaria da Casa Legislativa, recebeu os documentos dos cidadãos inscritos.</span></li></ul>
+<div class="inline-feedback" id="feedback_8"></div><div class="inline-comentario" id="comentario_8"><strong>Fundamentação (Gabarito C):</strong> A expressão 'reunidos em sessão solene' é uma oração reduzida explicativa/adjetiva intercalada, devendo estar isolada por dupla vírgula. Não se separa sujeito de predicado nem verbo de seu objeto direto por vírgula.</div></div>
+<div class="question-box" data-gab="C" data-q="9">
 <div class="question-header">QUESTÃO 09 • Língua Portuguesa • Semântica: Parônimos &amp; Homônimos • CONSULPAM</div>
 <div class="question-title">O Presidente da Mesa determinou a retificação do texto legal. No vocabulário administrativo, o vocábulo 'retificar' possui o sentido exato de:</div>
-<ul class="options-list"><li>(A) Confirmar, validar e reiterar a declaração anteriormente proferida.</li><li>(B) Suspender indefinidamente a eficácia executiva do provimento administrativo.</li><li>(C) Corrigir ou emendar um erro ou impropriedade no texto normativo.</li><li>(D) Promulgar solenemente o ato com eficácia vinculante externa.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 9, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Confirmar, validar e reiterar a declaração anteriormente proferida.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 9, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Suspender indefinidamente a eficácia executiva do provimento administrativo.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 9, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Corrigir ou emendar um erro ou impropriedade no texto normativo.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 9, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Promulgar solenemente o ato com eficácia vinculante externa.</span></li></ul>
+<div class="inline-feedback" id="feedback_9"></div><div class="inline-comentario" id="comentario_9"><strong>Fundamentação (Gabarito C):</strong> Retificar significa corrigir, emendar ou alinhar. Ratificar significa confirmar, corroborar ou validar. São parônimos clássicos muito explorados pelas bancas cearenses.</div></div>
+<div class="question-box" data-gab="A" data-q="10">
 <div class="question-header">QUESTÃO 10 • Língua Portuguesa • Significação das Palavras &amp; Coesão • CONSULPAM</div>
 <div class="question-title">No trecho 'O parecer foi indeferido haja vista a ausência de amparo orçamentário', a locução conjuntiva 'haja vista' equivale semanticamente a:</div>
-<ul class="options-list"><li>(A) Visto que / tendo em vista / por motivo de.</li><li>(B) Ainda que / conquanto / apesar de.</li><li>(C) Contanto que / desde que / a menos que.</li><li>(D) À proporção que / ao passo que.</li></ul>
-</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 10, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Visto que / tendo em vista / por motivo de.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 10, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Ainda que / conquanto / apesar de.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 10, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Contanto que / desde que / a menos que.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 10, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">À proporção que / ao passo que.</span></li></ul>
+<div class="inline-feedback" id="feedback_10"></div><div class="inline-comentario" id="comentario_10"><strong>Fundamentação (Gabarito A):</strong> 'Haja vista' possui sentido causal ('visto que', 'já que', 'tendo em consideração'), justificando o motivo do indeferimento do parecer.</div></div>
 <div class="section-title">INFORMÁTICA, MATEMÁTICA &amp; RLM (Questões Reais)</div>
-<div class="question-box">
+<div class="question-box" data-gab="D" data-q="11">
 <div class="question-header">QUESTÃO 11 • Noções de Informática • Microsoft Excel • CONSULPAM</div>
 <div class="question-title">No Microsoft Excel em português, a função utilizada para somar os valores contidos no intervalo de células A1 até A10 somente quando a condição correspondente na coluna B for 'Aprovado' é:</div>
-<ul class="options-list"><li>(A) =SOMA(A1:A10; B1:B10="Aprovado")</li><li>(B) =SE(B1:B10="Aprovado"; SOMA(A1:A10))</li><li>(C) =TOTALIZAR(A1:A10; CONDICAO="Aprovado")</li><li>(D) =SOMASE(B1:B10; "Aprovado"; A1:A10)</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 11, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">=SOMA(A1:A10; B1:B10="Aprovado")</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 11, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">=SE(B1:B10="Aprovado"; SOMA(A1:A10))</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 11, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">=TOTALIZAR(A1:A10; CONDICAO="Aprovado")</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 11, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">=SOMASE(B1:B10; "Aprovado"; A1:A10)</span></li></ul>
+<div class="inline-feedback" id="feedback_11"></div><div class="inline-comentario" id="comentario_11"><strong>Fundamentação (Gabarito D):</strong> A sintaxe padrão da função SOMASE é: =SOMASE(intervalo_criterio; criterio; [intervalo_soma]). Portanto, avalia-se a coluna B e somam-se os valores da coluna A.</div></div>
+<div class="question-box" data-gab="B" data-q="12">
 <div class="question-header">QUESTÃO 12 • Noções de Informática • Segurança da Informação &amp; Phishing • CONSULPAM</div>
 <div class="question-title">O golpe cibernético em que criminosos enviam mensagens fraudulentas fingindo ser uma instituição oficial legítima (como a Câmara ou o TCE) para roubar senhas e credenciais de servidores é denominado:</div>
-<ul class="options-list"><li>(A) Firewalling.</li><li>(B) Phishing.</li><li>(C) Backup incremental.</li><li>(D) Spooling de impressão.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 12, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Firewalling.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 12, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Phishing.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 12, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">Backup incremental.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 12, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Spooling de impressão.</span></li></ul>
+<div class="inline-feedback" id="feedback_12"></div><div class="inline-comentario" id="comentario_12"><strong>Fundamentação (Gabarito B):</strong> Phishing é a técnica de engenharia social que busca induzir o usuário a fornecer senhas, dados bancários ou credenciais corporativas por meio de e-mails, links ou sites fraudulentos.</div></div>
+<div class="question-box" data-gab="B" data-q="13">
 <div class="question-header">QUESTÃO 13 • Noções de Informática • Correio Eletrônico &amp; Protocolos • CONSULPAM</div>
 <div class="question-title">No gerenciamento de mensagens eletrônicas por softwares clientes como o Mozilla Thunderbird ou Outlook, o protocolo responsável pelo envio (saída) de e-mails para o servidor é o:</div>
-<ul class="options-list"><li>(A) IMAP (Internet Message Access Protocol).</li><li>(B) SMTP (Simple Mail Transfer Protocol).</li><li>(C) POP3 (Post Office Protocol).</li><li>(D) HTTP (Hypertext Transfer Protocol).</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 13, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">IMAP (Internet Message Access Protocol).</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 13, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">SMTP (Simple Mail Transfer Protocol).</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 13, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">POP3 (Post Office Protocol).</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 13, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">HTTP (Hypertext Transfer Protocol).</span></li></ul>
+<div class="inline-feedback" id="feedback_13"></div><div class="inline-comentario" id="comentario_13"><strong>Fundamentação (Gabarito B):</strong> SMTP é o protocolo responsável pelo envio/transporte de mensagens de e-mail. Para recebimento/leitura utilizam-se POP3 (baixa as mensagens) ou IMAP (sincroniza com o servidor).</div></div>
+<div class="question-box" data-gab="A" data-q="14">
 <div class="question-header">QUESTÃO 14 • Noções de Informática • Microsoft Word &amp; Redação Oficial • CONSULPAM</div>
 <div class="question-title">Ao redigir um ofício no Microsoft Word, o comando de atalho padrão do teclado para alinhar o texto de forma 'Justificada' (distribuindo uniformemente entre as margens) é:</div>
-<ul class="options-list"><li>(A) Ctrl + J</li><li>(B) Ctrl + E</li><li>(C) Ctrl + R</li><li>(D) Ctrl + G</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 14, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Ctrl + J</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 14, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Ctrl + E</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 14, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Ctrl + R</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 14, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Ctrl + G</span></li></ul>
+<div class="inline-feedback" id="feedback_14"></div><div class="inline-comentario" id="comentario_14"><strong>Fundamentação (Gabarito A):</strong> No MS Word em português: Ctrl + J (Justificar), Ctrl + E (Centralizar), Ctrl + R (Alinhar à Direita), Ctrl + Q (Alinhar à Esquerda).</div></div>
+<div class="question-box" data-gab="C" data-q="15">
 <div class="question-header">QUESTÃO 15 • Matemática Básica • Regra de Três Simples • CONSULPAM</div>
 <div class="question-title">Para digitalizar e catalogar 180 processos legislativos antigos, 3 servidores da secretaria da Câmara levam exatamente 6 dias úteis. Mantendo o mesmo ritmo de trabalho, quantos servidores seriam necessários para realizar a mesma tarefa em apenas 2 dias úteis?</div>
-<ul class="options-list"><li>(A) 6 servidores.</li><li>(B) 12 servidores.</li><li>(C) 9 servidores.</li><li>(D) 8 servidores.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 15, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">6 servidores.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 15, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">12 servidores.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 15, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">9 servidores.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 15, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">8 servidores.</span></li></ul>
+<div class="inline-feedback" id="feedback_15"></div><div class="inline-comentario" id="comentario_15"><strong>Fundamentação (Gabarito C):</strong> Trata-se de grandezas inversamente proporcionais: se o tempo cai de 6 dias para 2 dias (redução de 3x), a quantidade de servidores deve triplicar: 3 servidores * (6 / 2) = 9 servidores.</div></div>
+<div class="question-box" data-gab="D" data-q="16">
 <div class="question-header">QUESTÃO 16 • Matemática Básica • Porcentagem • CONSULPAM</div>
 <div class="question-title">O orçamento anual de uma Câmara Municipal para material de expediente era de R$ 40.000,00. No ano seguinte, houve uma economia e o gasto efetivo foi de R$ 32.000,00. O percentual de redução obtido foi de:</div>
-<ul class="options-list"><li>(A) 25%</li><li>(B) 15%</li><li>(C) 18%</li><li>(D) 20%</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 16, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">25%</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 16, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">15%</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 16, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">18%</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 16, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">20%</span></li></ul>
+<div class="inline-feedback" id="feedback_16"></div><div class="inline-comentario" id="comentario_16"><strong>Fundamentação (Gabarito D):</strong> Redução absoluta = R$ 40.000 - R$ 32.000 = R$ 8.000. Percentual de redução = 8.000 / 40.000 = 0,20 = 20%.</div></div>
+<div class="question-box" data-gab="A" data-q="17">
 <div class="question-header">QUESTÃO 17 • Raciocínio Lógico • Negação da Proposição Composta (De Morgan) • CONSULPAM</div>
 <div class="question-title">Considere a afirmação: 'O projeto foi votado e o vereador foi reeleito'. A negação lógica dessa proposição composta, segundo as Leis de De Morgan, é:</div>
-<ul class="options-list"><li>(A) O projeto não foi votado OU o vereador não foi reeleito.</li><li>(B) O projeto não foi votado E o vereador não foi reeleito.</li><li>(C) Se o projeto não foi votado, então o vereador foi reeleito.</li><li>(D) O projeto foi votado se e somente se o vereador não foi reeleito.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 17, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">O projeto não foi votado OU o vereador não foi reeleito.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 17, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">O projeto não foi votado E o vereador não foi reeleito.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 17, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Se o projeto não foi votado, então o vereador foi reeleito.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 17, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">O projeto foi votado se e somente se o vereador não foi reeleito.</span></li></ul>
+<div class="inline-feedback" id="feedback_17"></div><div class="inline-comentario" id="comentario_17"><strong>Fundamentação (Gabarito A):</strong> Pela Lei de De Morgan: ~(P e Q) = ~P ou ~Q. A negação de uma conjunção (e) resulta na disjunção (ou) das componentes negadas.</div></div>
+<div class="question-box" data-gab="C" data-q="18">
 <div class="question-header">QUESTÃO 18 • Raciocínio Lógico • Silogismo &amp; Quantificadores • CONSULPAM</div>
 <div class="question-title">Se é verdade que 'Todo servidor concursado é dedicado' e 'Algum servidor concursado é jovem', pode-se concluir logicamente com certeza que:</div>
-<ul class="options-list"><li>(A) Todo jovem é servidor concursado.</li><li>(B) Nenhum jovem é dedicado.</li><li>(C) Algum jovem é dedicado.</li><li>(D) Todo dedicado é jovem.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 18, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Todo jovem é servidor concursado.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 18, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Nenhum jovem é dedicado.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 18, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Algum jovem é dedicado.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 18, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Todo dedicado é jovem.</span></li></ul>
+<div class="inline-feedback" id="feedback_18"></div><div class="inline-comentario" id="comentario_18"><strong>Fundamentação (Gabarito C):</strong> Se há ao menos um servidor concursado que é jovem, e como todo concursado é dedicado, esse mesmo servidor jovem é necessariamente dedicado. Logo, com certeza 'Algum jovem é dedicado'.</div></div>
+<div class="question-box" data-gab="B" data-q="19">
 <div class="question-header">QUESTÃO 19 • Matemática Básica • Média Aritmética • CONSULPAM</div>
 <div class="question-title">Em quatro sessões plenárias consecutivas de uma Câmara, o número de matérias apreciadas foi 12, 18, 15 e 19. A média aritmética de matérias apreciadas por sessão foi de:</div>
-<ul class="options-list"><li>(A) 15 matérias.</li><li>(B) 16 matérias.</li><li>(C) 17 matérias.</li><li>(D) 14 matérias.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 19, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">15 matérias.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 19, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">16 matérias.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 19, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">17 matérias.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 19, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">14 matérias.</span></li></ul>
+<div class="inline-feedback" id="feedback_19"></div><div class="inline-comentario" id="comentario_19"><strong>Fundamentação (Gabarito B):</strong> Soma = 12 + 18 + 15 + 19 = 64 matérias. Média = 64 / 4 = 16 matérias por sessão.</div></div>
+<div class="question-box" data-gab="D" data-q="20">
 <div class="question-header">QUESTÃO 20 • Raciocínio Lógico • Equivalência da Condicional • CONSULPAM</div>
 <div class="question-title">Dizer que 'Se há quórum regimental, então a sessão é aberta' é logicamente equivalente a afirmar que:</div>
-<ul class="options-list"><li>(A) Se não há quórum regimental, então a sessão não é aberta.</li><li>(B) Há quórum regimental e a sessão não é aberta.</li><li>(C) A sessão é aberta se e somente se não há quórum.</li><li>(D) Se a sessão não é aberta, então não há quórum regimental.</li></ul>
-</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 20, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Se não há quórum regimental, então a sessão não é aberta.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 20, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Há quórum regimental e a sessão não é aberta.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 20, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">A sessão é aberta se e somente se não há quórum.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 20, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Se a sessão não é aberta, então não há quórum regimental.</span></li></ul>
+<div class="inline-feedback" id="feedback_20"></div><div class="inline-comentario" id="comentario_20"><strong>Fundamentação (Gabarito D):</strong> A equivalência contrapositiva da condicional (P -&gt; Q) é dada por (~Q -&gt; ~P). Negar a consequente implica negar o antecedente.</div></div>
 <div class="section-title">CONHECIMENTOS ESPECÍFICOS: DIREITO &amp; LEGISLAÇÃO MUNICIPAL</div>
-<div class="question-box">
+<div class="question-box" data-gab="B" data-q="21">
 <div class="question-header">QUESTÃO 21 • Direito Administrativo • Princípios Constitucionais (LIMPE) • CONSULPAM</div>
 <div class="question-title">O princípio constitucional previsto no art. 37 da CF/88 que impõe ao agente público a atuação com presteza, economicidade, rendimento funcional e otimização dos recursos públicos é a:</div>
-<ul class="options-list"><li>(A) Impessoalidade.</li><li>(B) Eficiência.</li><li>(C) Publicidade.</li><li>(D) Moralidade estrita.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 21, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Impessoalidade.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 21, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Eficiência.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 21, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">Publicidade.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 21, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Moralidade estrita.</span></li></ul>
+<div class="inline-feedback" id="feedback_21"></div><div class="inline-comentario" id="comentario_21"><strong>Fundamentação (Gabarito B):</strong> O princípio da eficiência, introduzido expressamente pela EC 19/1998, orienta a Administração Pública à obtenção de resultados práticos positivos, celeridade e melhor custo-benefício aos administrados.</div></div>
+<div class="question-box" data-gab="D" data-q="22">
 <div class="question-header">QUESTÃO 22 • Direito Administrativo • Atos Administrativos: Atributos • CONSULPAM</div>
 <div class="question-title">A prerrogativa da Administração Pública de compelir materialmente o administrado a cumprir uma determinação legal sem necessitar de autorização judicial prévia fundamenta-se no atributo da:</div>
-<ul class="options-list"><li>(A) Tipicidade.</li><li>(B) Presunção de legitimidade.</li><li>(C) Imperatividade exclusiva.</li><li>(D) Autoexecutoriedade.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 22, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Tipicidade.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 22, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Presunção de legitimidade.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 22, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">Imperatividade exclusiva.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 22, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Autoexecutoriedade.</span></li></ul>
+<div class="inline-feedback" id="feedback_22"></div><div class="inline-comentario" id="comentario_22"><strong>Fundamentação (Gabarito D):</strong> A autoexecutoriedade é o atributo pelo qual o poder público pode executar diretamente suas decisões e medidas materiais sem a prévia intervenção do Poder Judiciário, desde que prevista em lei ou em situação de urgência.</div></div>
+<div class="question-box" data-gab="A" data-q="23">
 <div class="question-header">QUESTÃO 23 • Direito Administrativo • Poderes Administrativos: Poder de Polícia • CONSULPAM</div>
 <div class="question-title">A atividade da administração pública que limita ou disciplina direito, interesse ou liberdade, regulando a prática de ato em razão do interesse público concernente à segurança, higiene e ordem, conceitua o:</div>
-<ul class="options-list"><li>(A) Poder de polícia administrativa.</li><li>(B) Poder disciplinar interno.</li><li>(C) Poder regulamentar ou normativo.</li><li>(D) Poder hierárquico irrestrito.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 23, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Poder de polícia administrativa.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 23, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Poder disciplinar interno.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 23, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Poder regulamentar ou normativo.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 23, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Poder hierárquico irrestrito.</span></li></ul>
+<div class="inline-feedback" id="feedback_23"></div><div class="inline-comentario" id="comentario_23"><strong>Fundamentação (Gabarito A):</strong> Trata-se da definição clássica de Poder de Polícia, positivada no art. 78 do Código Tributário Nacional (CTN) e pacificada na doutrina de Hely Lopes Meirelles.</div></div>
+<div class="question-box" data-gab="C" data-q="24">
 <div class="question-header">QUESTÃO 24 • Direito Administrativo • Licitações (Lei nº 14.133/2021) • Modalidades • CONSULPAM</div>
 <div class="question-title">Conforme a Nova Lei de Licitações e Contratos Administrativos (Lei nº 14.133/2021), assinale a alternativa que relaciona CORRETAMENTE uma modalidade de licitação expressamente prevista na lei:</div>
-<ul class="options-list"><li>(A) Convite, tomada de preços e pregão presencial.</li><li>(B) Consulta, pregão eletrônico e tomada de preços.</li><li>(C) Pregão, concorrência, concurso, leilão e diálogo competitivo.</li><li>(D) Regime diferenciado, concorrência e convite simplificado.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 24, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Convite, tomada de preços e pregão presencial.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 24, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Consulta, pregão eletrônico e tomada de preços.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 24, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Pregão, concorrência, concurso, leilão e diálogo competitivo.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 24, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Regime diferenciado, concorrência e convite simplificado.</span></li></ul>
+<div class="inline-feedback" id="feedback_24"></div><div class="inline-comentario" id="comentario_24"><strong>Fundamentação (Gabarito C):</strong> O art. 28 da Lei nº 14.133/2021 estabelece taxativamente como modalidades de licitação: I - pregão; II - concorrência; III - concurso; IV - leilão; V - diálogo competitivo. O convite e a tomada de preços foram extintos.</div></div>
+<div class="question-box" data-gab="D" data-q="25">
 <div class="question-header">QUESTÃO 25 • Direito Constitucional • Poder Legislativo Municipal • CF/88 Art. 29 &amp; 31 • CONSULPAM</div>
 <div class="question-title">A fiscalização contábil, financeira, orçamentária e patrimonial do Município será exercida pela Câmara Municipal mediante controle externo, com auxílio do:</div>
-<ul class="options-list"><li>(A) Tribunal de Justiça do Estado (TJ).</li><li>(B) Ministério Público Estadual (MPE).</li><li>(C) Conselho Municipal de Cidadania.</li><li>(D) Tribunal de Contas do Estado (TCE).</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 25, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Tribunal de Justiça do Estado (TJ).</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 25, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Ministério Público Estadual (MPE).</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 25, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">Conselho Municipal de Cidadania.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 25, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Tribunal de Contas do Estado (TCE).</span></li></ul>
+<div class="inline-feedback" id="feedback_25"></div><div class="inline-comentario" id="comentario_25"><strong>Fundamentação (Gabarito D):</strong> Conforme o art. 31, § 1º da CF/88, o controle externo da Câmara Municipal é exercido com o auxílio do Tribunal de Contas do Estado (no Ceará, o TCE/CE, após a extinção do TCM).</div></div>
+<div class="question-box" data-gab="B" data-q="26">
 <div class="question-header">QUESTÃO 26 • Direito Constitucional • Quórum do Parecer Prévio do TCE • CF/88 Art. 31 • CONSULPAM</div>
 <div class="question-title">O parecer prévio emitido pelo Tribunal de Contas sobre as contas prestadas anualmente pelo Prefeito Municipal só deixará de prevalecer por decisão de:</div>
-<ul class="options-list"><li>(A) Maioria absoluta dos membros da Câmara.</li><li>(B) Dois terços dos membros da Câmara Municipal.</li><li>(C) Maioria simples dos vereadores presentes.</li><li>(D) Três quintos da totalidade dos parlamentares.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 26, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Maioria absoluta dos membros da Câmara.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 26, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Dois terços dos membros da Câmara Municipal.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 26, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">Maioria simples dos vereadores presentes.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 26, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Três quintos da totalidade dos parlamentares.</span></li></ul>
+<div class="inline-feedback" id="feedback_26"></div><div class="inline-comentario" id="comentario_26"><strong>Fundamentação (Gabarito B):</strong> O art. 31, § 2º da CF/88 estabelece quórum qualificado rígido: o parecer prévio emitido pelo Tribunal de Contas só deixará de prevalecer por decisão de 2/3 (dois terços) dos membros da Câmara Municipal.</div></div>
+<div class="question-box" data-gab="A" data-q="27">
 <div class="question-header">QUESTÃO 27 • Administração Geral • Funções Administrativas • CONSULPAM</div>
 <div class="question-title">No âmbito da teoria geral da administração, a função administrativa que consiste em monitorar as atividades para certificar-se de que estão sendo executadas conforme os planos e corrigir desvios é o:</div>
-<ul class="options-list"><li>(A) Controle.</li><li>(B) Planejamento.</li><li>(C) Organização.</li><li>(D) Direção.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 27, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Controle.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 27, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Planejamento.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 27, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Organização.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 27, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Direção.</span></li></ul>
+<div class="inline-feedback" id="feedback_27"></div><div class="inline-comentario" id="comentario_27"><strong>Fundamentação (Gabarito A):</strong> Controle (PODC) é o processo de comparar o desempenho real com os padrões previamente estabelecidos e adotar ações corretivas para eliminar desvios.</div></div>
+<div class="question-box" data-gab="C" data-q="28">
 <div class="question-header">QUESTÃO 28 • Administração Geral • Arquivologia &amp; Gestão de Documentos • CONSULPAM</div>
 <div class="question-title">Segundo a teoria das três idades da Arquivologia, os documentos que estão em curso ou que são frequentemente consultados em razão de sua utilidade administrativa imediata pertencem à fase:</div>
-<ul class="options-list"><li>(A) Intermediária (ou de segunda idade).</li><li>(B) Permanente (ou de terceira idade / histórico).</li><li>(C) Corrente (ou de primeira idade).</li><li>(D) Morto ou residual.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 28, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Intermediária (ou de segunda idade).</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 28, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Permanente (ou de terceira idade / histórico).</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 28, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Corrente (ou de primeira idade).</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 28, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Morto ou residual.</span></li></ul>
+<div class="inline-feedback" id="feedback_28"></div><div class="inline-comentario" id="comentario_28"><strong>Fundamentação (Gabarito C):</strong> Arquivo corrente: documentos em tramitação e de consulta frequente pela administração. Arquivo intermediário: documentos aguardando destinação final. Arquivo permanente: valor probatório ou histórico inalienável.</div></div>
+<div class="question-box" data-gab="C" data-q="29">
 <div class="question-header">QUESTÃO 29 • Administração Geral • Rotinas de Protocolo &amp; Tramitação • CONSULPAM</div>
 <div class="question-title">O setor da Câmara Municipal responsável pelo recebimento, conferência, registro numérico, autuação, classificação e distribuição inicial das correspondências e requerimentos aos gabinetes é o:</div>
-<ul class="options-list"><li>(A) Almoxarifado Central.</li><li>(B) Arquivo Permanente.</li><li>(C) Protocolo Geral.</li><li>(D) Recursos Humanos.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 29, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Almoxarifado Central.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 29, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Arquivo Permanente.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 29, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Protocolo Geral.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 29, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Recursos Humanos.</span></li></ul>
+<div class="inline-feedback" id="feedback_29"></div><div class="inline-comentario" id="comentario_29"><strong>Fundamentação (Gabarito C):</strong> O Protocolo é o setor encarregado de recepcionar documentos, registrar a data e hora de entrada, conferir anexos, numerar e direcionar os processos aos setores competentes.</div></div>
+<div class="question-box" data-gab="A" data-q="30">
 <div class="question-header">QUESTÃO 30 • Direito Administrativo • Invalidação dos Atos: Anulação vs. Revogação • CONSULPAM</div>
 <div class="question-title">A extinção de um ato administrativo plenamente legal e válido, fundamentada exclusivamente em critérios de conveniência e oportunidade do poder público, opera efeitos retroativos ou prospectivos e denomina-se:</div>
-<ul class="options-list"><li>(A) Revogação, com efeitos 'ex nunc' (prospectivos, não retroativos).</li><li>(B) Anulação, com efeitos 'ex tunc' (retroativos à origem).</li><li>(C) Convalidação, com efeitos suspensivos provisórios.</li><li>(D) Cassação punitiva, com efeitos sancionatórios gerais.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 30, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Revogação, com efeitos 'ex nunc' (prospectivos, não retroativos).</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 30, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Anulação, com efeitos 'ex tunc' (retroativos à origem).</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 30, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Convalidação, com efeitos suspensivos provisórios.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 30, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Cassação punitiva, com efeitos sancionatórios gerais.</span></li></ul>
+<div class="inline-feedback" id="feedback_30"></div><div class="inline-comentario" id="comentario_30"><strong>Fundamentação (Gabarito A):</strong> A revogação recai sobre atos legais por motivos de conveniência e oportunidade (mérito administrativo) e gera efeitos 'ex nunc' (a partir de então, sem retroagir). A anulação é que decorre de ilegalidade com efeito 'ex tunc'.</div></div>
+<div class="question-box" data-gab="D" data-q="31">
 <div class="question-header">QUESTÃO 31 • Direito Administrativo • Lei de Responsabilidade Fiscal (LRF) • Limite de Pessoal • CONSULPAM</div>
 <div class="question-title">Nos termos da Lei Complementar nº 101/2000 (LRF), a despesa total com pessoal do Poder Legislativo Municipal, incluído o Tribunal de Contas do Município quando houver, não poderá exceder ao percentual da receita corrente líquida de:</div>
-<ul class="options-list"><li>(A) 54% (cinquenta e quatro por cento).</li><li>(B) 60% (sessenta por cento).</li><li>(C) 2% (dois por cento).</li><li>(D) 6% (seis por cento).</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 31, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">54% (cinquenta e quatro por cento).</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 31, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">60% (sessenta por cento).</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 31, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">2% (dois por cento).</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 31, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">6% (seis por cento).</span></li></ul>
+<div class="inline-feedback" id="feedback_31"></div><div class="inline-comentario" id="comentario_31"><strong>Fundamentação (Gabarito D):</strong> No Município, o limite global de despesa com pessoal é de 60% da RCL, repartido em: 54% para o Poder Executivo e 6% para o Poder Legislativo (art. 20, III, 'a' e 'b' da LRF).</div></div>
+<div class="question-box" data-gab="B" data-q="32">
 <div class="question-header">QUESTÃO 32 • Legislação Municipal • Lei Orgânica Municipal • Competências Legislativas • CONSULPAM</div>
 <div class="question-title">Compete ao Município, conforme preconizado expressamente pelo art. 30, inciso I da Constituição Federal de 1988:</div>
-<ul class="options-list"><li>(A) Legislar sobre direito processual civil e penal privativamente.</li><li>(B) Legislar sobre assuntos de interesse local.</li><li>(C) Instituir moeda própria e organizar correios federais.</li><li>(D) Declarar guerra e celebrar a paz em nome do Estado.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 32, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Legislar sobre direito processual civil e penal privativamente.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 32, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Legislar sobre assuntos de interesse local.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 32, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">Instituir moeda própria e organizar correios federais.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 32, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Declarar guerra e celebrar a paz em nome do Estado.</span></li></ul>
+<div class="inline-feedback" id="feedback_32"></div><div class="inline-comentario" id="comentario_32"><strong>Fundamentação (Gabarito B):</strong> O art. 30, I da CF/88 consagra como competência fundamental municipal: 'legislar sobre assuntos de interesse local'.</div></div>
+<div class="question-box" data-gab="B" data-q="33">
 <div class="question-header">QUESTÃO 33 • Legislação Municipal • Regimento Interno • Espécies de Sessões • CONSULPAM</div>
 <div class="question-title">A sessão da Câmara Municipal realizada em dias e horários predeterminados no Regimento Interno, com pauta deliberativa regular de projetos e requerimentos, é classificada como sessão:</div>
-<ul class="options-list"><li>(A) Extraordinária.</li><li>(B) Ordinária.</li><li>(C) Solene.</li><li>(D) Secreta preparatória.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 33, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Extraordinária.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 33, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Ordinária.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 33, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">Solene.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 33, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Secreta preparatória.</span></li></ul>
+<div class="inline-feedback" id="feedback_33"></div><div class="inline-comentario" id="comentario_33"><strong>Fundamentação (Gabarito B):</strong> Sessões ordinárias são as que se realizam nos dias e horas marcados pelo Regimento Interno, independentemente de convocação especial. Sessões extraordinárias exigem convocação formal prévia.</div></div>
+<div class="question-box" data-gab="A" data-q="34">
 <div class="question-header">QUESTÃO 34 • Direito Constitucional • Direitos Fundamentais: Direito de Petição • CONSULPAM</div>
 <div class="question-title">Nos termos do art. 5º, XXXIV, 'a' da CF/88, são a todos assegurados, independentemente do pagamento de taxas:</div>
-<ul class="options-list"><li>(A) O direito de petição aos Poderes Públicos em defesa de direitos ou contra ilegalidade ou abuso de poder.</li><li>(B) A expedição de certidões judiciais para fins exclusivamente comerciais privados.</li><li>(C) A tramitação prioritária de recursos fiscais sem preenchimento de requisitos legais.</li><li>(D) A obtenção de alvarás de funcionamento sem fiscalização sanitária.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 34, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">O direito de petição aos Poderes Públicos em defesa de direitos ou contra ilegalidade ou abuso de poder.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 34, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">A expedição de certidões judiciais para fins exclusivamente comerciais privados.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 34, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">A tramitação prioritária de recursos fiscais sem preenchimento de requisitos legais.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 34, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">A obtenção de alvarás de funcionamento sem fiscalização sanitária.</span></li></ul>
+<div class="inline-feedback" id="feedback_34"></div><div class="inline-comentario" id="comentario_34"><strong>Fundamentação (Gabarito A):</strong> O direito de petição e a obtenção de certidões para defesa de direitos e esclarecimento de situações de interesse pessoal são gratuitos e imunes à cobrança de taxas (art. 5º, XXXIV, 'a' e 'b' da CF/88).</div></div>
+<div class="question-box" data-gab="C" data-q="35">
 <div class="question-header">QUESTÃO 35 • Direito Administrativo • Serviços Públicos: Princípios • CONSULPAM</div>
 <div class="question-title">O princípio que estabelece que os serviços públicos essenciais não podem sofrer interrupções imotivadas ou abruptas, assegurando aos cidadãos a fruição contínua da utilidade pública, é o da:</div>
-<ul class="options-list"><li>(A) Modicidade tarifária irrestrita.</li><li>(B) Mutabilidade estatutária.</li><li>(C) Continuidade do serviço público.</li><li>(D) Generalidade do atendimento.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 35, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Modicidade tarifária irrestrita.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 35, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Mutabilidade estatutária.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 35, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Continuidade do serviço público.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 35, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Generalidade do atendimento.</span></li></ul>
+<div class="inline-feedback" id="feedback_35"></div><div class="inline-comentario" id="comentario_35"><strong>Fundamentação (Gabarito C):</strong> O princípio da continuidade impõe que a prestação dos serviços públicos não deve ser interrompida, por ser meio de satisfação de necessidades coletivas vitais e essenciais da população.</div></div>
+<div class="question-box" data-gab="D" data-q="36">
 <div class="question-header">QUESTÃO 36 • Legislação Municipal • Processo Legislativo • Sanção e Veto • CONSULPAM</div>
 <div class="question-title">Aprovado um Projeto de Lei pela Câmara Municipal, ele é enviado ao Prefeito. Se o Prefeito julgar o projeto inconstitucional ou contrário ao interesse público, no prazo legal de 15 dias úteis ele deverá:</div>
-<ul class="options-list"><li>(A) Arquivá-lo silenciosamente sem qualquer manifestação formal.</li><li>(B) Promulgá-lo de ofício com as alterações que julgar convenientes.</li><li>(C) Remeter o projeto ao Tribunal de Contas para anulação definitiva.</li><li>(D) Vetá-lo total ou parcialmente, comunicando os motivos ao Presidente da Câmara em 48 horas.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 36, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Arquivá-lo silenciosamente sem qualquer manifestação formal.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 36, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Promulgá-lo de ofício com as alterações que julgar convenientes.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 36, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">Remeter o projeto ao Tribunal de Contas para anulação definitiva.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 36, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Vetá-lo total ou parcialmente, comunicando os motivos ao Presidente da Câmara em 48 horas.</span></li></ul>
+<div class="inline-feedback" id="feedback_36"></div><div class="inline-comentario" id="comentario_36"><strong>Fundamentação (Gabarito D):</strong> O Prefeito tem o prazo de 15 dias úteis para sancionar ou vetar (por inconstitucionalidade - veto jurídico; ou por interesse público - veto político), devendo fundamentar o veto e comunicar o Legislativo em até 48 horas.</div></div>
+<div class="question-box" data-gab="A" data-q="37">
 <div class="question-header">QUESTÃO 37 • Direito Administrativo • Improbidade Administrativa (Lei nº 8.429/1992) • CONSULPAM</div>
 <div class="question-title">Com as alterações promovidas pela Lei nº 14.230/2021 na Lei de Improbidade Administrativa, para a configuração de qualquer ato de improbidade administrativa é estritamente indispensável a comprovação de:</div>
-<ul class="options-list"><li>(A) Dolo específico (vontade livre e consciente de alcançar o resultado ilícito).</li><li>(B) Culpa simples decorrente de imprudência ou negligência do servidor.</li><li>(C) Dano efetivo ao erário ainda que culposo e involuntário.</li><li>(D) Enriquecimento ilícito pessoal mesmo sem intenção comprovada.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 37, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Dolo específico (vontade livre e consciente de alcançar o resultado ilícito).</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 37, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Culpa simples decorrente de imprudência ou negligência do servidor.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 37, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Dano efetivo ao erário ainda que culposo e involuntário.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 37, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Enriquecimento ilícito pessoal mesmo sem intenção comprovada.</span></li></ul>
+<div class="inline-feedback" id="feedback_37"></div><div class="inline-comentario" id="comentario_37"><strong>Fundamentação (Gabarito A):</strong> A Lei nº 14.230/2021 revogou a modalidade culposa da improbidade administrativa, passando a exigir em todos os atos (arts. 9º, 10 e 11) o dolo específico.</div></div>
+<div class="question-box" data-gab="C" data-q="38">
 <div class="question-header">QUESTÃO 38 • Administração Geral • Atendimento ao Público &amp; Relações Humanas • CONSULPAM</div>
 <div class="question-title">No atendimento ao cidadão realizado na recepção ou ouvidoria da Câmara Municipal, a conduta ética e profissional que demonstra empatia e urbanidade consiste em:</div>
-<ul class="options-list"><li>(A) Priorizar o atendimento de pessoas conhecidas ou com vínculos partidários com a Mesa Diretora.</li><li>(B) Recusar orientações a munícipes que não apresentem petição redigida por advogado.</li><li>(C) Escutar ativamente a demanda do cidadão, prestando informações claras, impessoais e com respeito, independentemente da condição social do usuário.</li><li>(D) Emitir juízo de valor opinativo sobre as propostas dos vereadores durante a triagem.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 38, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Priorizar o atendimento de pessoas conhecidas ou com vínculos partidários com a Mesa Diretora.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 38, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Recusar orientações a munícipes que não apresentem petição redigida por advogado.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 38, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Escutar ativamente a demanda do cidadão, prestando informações claras, impessoais e com respeito, independentemente da condição social do usuário.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 38, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Emitir juízo de valor opinativo sobre as propostas dos vereadores durante a triagem.</span></li></ul>
+<div class="inline-feedback" id="feedback_38"></div><div class="inline-comentario" id="comentario_38"><strong>Fundamentação (Gabarito C):</strong> O atendimento ao público na administração direta deve observar urbanidade, presteza, escuta ativa e tratamento isonômico e impessoal a todos os usuários.</div></div>
+<div class="question-box" data-gab="B" data-q="39">
 <div class="question-header">QUESTÃO 39 • Redação Oficial • Correspondências Oficiais: O Ofício • CONSULPAM</div>
 <div class="question-title">Conforme o Manual de Redação da Presidência da República, o documento padrão utilizado pelas autoridades públicas para comunicação externa entre órgãos governamentais ou com o público é o:</div>
-<ul class="options-list"><li>(A) Aviso ministerial.</li><li>(B) Ofício.</li><li>(C) Memorando interno informal.</li><li>(D) Parecer preliminar simplificado.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 39, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Aviso ministerial.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 39, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Ofício.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 39, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">Memorando interno informal.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 39, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Parecer preliminar simplificado.</span></li></ul>
+<div class="inline-feedback" id="feedback_39"></div><div class="inline-comentario" id="comentario_39"><strong>Fundamentação (Gabarito B):</strong> Com a 3ª edição do Manual de Redação da Presidência da República, o padrão ofício uniformizou os antigos ofício, aviso e memorando em um único instrumento formal: o Ofício.</div></div>
+<div class="question-box" data-gab="D" data-q="40">
 <div class="question-header">QUESTÃO 40 • Legislação Municipal • Comissões Parlamentares de Inquérito (CPI) • CONSULPAM</div>
 <div class="question-title">A criação de uma Comissão Parlamentar de Inquérito (CPI) no âmbito da Câmara Municipal depende de requerimento subscrito por pelo menos:</div>
-<ul class="options-list"><li>(A) Maioria absoluta dos vereadores, sem necessidade de indicação de fato determinado.</li><li>(B) Dois terços dos parlamentares, com poderes jurisdicionais penais condenatórios.</li><li>(C) Apenas do Presidente da Mesa Diretora, de forma monocrática.</li><li>(D) Um terço dos membros da Casa Legislativa, para apuração de fato determinado e por prazo certo.</li></ul>
-</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 40, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Maioria absoluta dos vereadores, sem necessidade de indicação de fato determinado.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 40, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Dois terços dos parlamentares, com poderes jurisdicionais penais condenatórios.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 40, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">Apenas do Presidente da Mesa Diretora, de forma monocrática.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 40, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Um terço dos membros da Casa Legislativa, para apuração de fato determinado e por prazo certo.</span></li></ul>
+<div class="inline-feedback" id="feedback_40"></div><div class="inline-comentario" id="comentario_40"><strong>Fundamentação (Gabarito D):</strong> Conforme o art. 58, § 3º da CF/88 (aplicável aos municípios por simetria), a CPI é criada a requerimento de 1/3 (um terço) dos membros da Casa, para apuração de fato determinado e por prazo certo, tendo poderes de investigação próprios das autoridades judiciais.</div></div>
 <div class="answer-card">
 <h3 style="margin: 0 0 8px 0; text-align: center; text-transform: uppercase;">Folha Óptica de Respostas (Treino de Simulação)</h3>
 <p style="text-align: center; font-size: 8.5pt; margin: 0 0 12px 0;">Preencha a bolha da alternativa correta conforme o cartão de respostas oficial:</p>
@@ -583,5 +885,190 @@
 <strong>Resolução / Fundamentação:</strong> Conforme o art. 58, § 3º da CF/88 (aplicável aos municípios por simetria), a CPI é criada a requerimento de 1/3 (um terço) dos membros da Casa, para apuração de fato determinado e por prazo certo, tendo poderes de investigação próprios das autoridades judiciais.
           </div>
 </div>
+
+<script>
+    // ESTADO DO SIMULADO INTERATIVO
+    let userAnswers = {}; // { qNum: letter }
+    let instantMode = true;
+    let totalQuestions = 0;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      totalQuestions = document.querySelectorAll('.question-box[data-q]').length;
+      updateStats();
+    });
+
+    function toggleInstantMode(enabled) {
+      instantMode = enabled;
+      const btnFinish = document.getElementById('btnFinish');
+      if (btnFinish) {
+        btnFinish.style.display = enabled ? 'none' : 'inline-flex';
+      }
+    }
+
+    function handleOptionClick(btn, qNum, selectedOpt, correctOpt) {
+      const qBox = document.querySelector(`.question-box[data-q="${qNum}"]`);
+      if (!qBox) return;
+
+      // Se já respondeu no modo instantâneo, permite trocar se quiser
+      userAnswers[qNum] = selectedOpt;
+
+      // Limpar estados anteriores nas opções desta questão
+      qBox.querySelectorAll('.option-item').forEach(opt => {
+        opt.classList.remove('selected', 'is-correct', 'is-wrong');
+      });
+
+      btn.classList.add('selected');
+
+      if (instantMode) {
+        evaluateQuestion(qNum, selectedOpt, correctOpt);
+      }
+      updateStats();
+    }
+
+    function evaluateQuestion(qNum, selectedOpt, correctOpt) {
+      const qBox = document.querySelector(`.question-box[data-q="${qNum}"]`);
+      if (!qBox) return;
+
+      const fb = document.getElementById(`feedback_${qNum}`);
+      const com = document.getElementById(`comentario_${qNum}`);
+      const isCorrect = (selectedOpt.toUpperCase() === correctOpt.toUpperCase());
+
+      qBox.querySelectorAll('.option-item').forEach(opt => {
+        const optLetter = opt.getAttribute('data-opt');
+        if (optLetter === correctOpt) {
+          opt.classList.add('is-correct');
+        } else if (optLetter === selectedOpt && !isCorrect) {
+          opt.classList.add('is-wrong');
+        }
+      });
+
+      if (fb) {
+        if (isCorrect) {
+          fb.className = 'inline-feedback correct';
+          fb.innerHTML = '<i class="fas fa-check-circle"></i> <strong>Parabéns, você acertou!</strong> Alternativa correta: <strong>(' + correctOpt + ')</strong>';
+        } else {
+          fb.className = 'inline-feedback wrong';
+          fb.innerHTML = '<i class="fas fa-times-circle"></i> <strong>Você errou.</strong> Sua resposta foi <strong>(' + selectedOpt + ')</strong>, mas o gabarito oficial é <strong>(' + correctOpt + ')</strong>.';
+        }
+      }
+
+      if (com) {
+        com.style.display = 'block';
+      }
+    }
+
+    function finishExam() {
+      document.querySelectorAll('.question-box[data-q]').forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        const correctOpt = qBox.getAttribute('data-gab');
+        const selectedOpt = userAnswers[qNum];
+        if (selectedOpt) {
+          evaluateQuestion(qNum, selectedOpt, correctOpt);
+        } else {
+          // Revelar gabarito de não respondidas
+          const fb = document.getElementById(`feedback_${qNum}`);
+          const com = document.getElementById(`comentario_${qNum}`);
+          qBox.querySelectorAll('.option-item').forEach(opt => {
+            if (opt.getAttribute('data-opt') === correctOpt) {
+              opt.classList.add('is-correct');
+            }
+          });
+          if (fb) {
+            fb.className = 'inline-feedback wrong';
+            fb.innerHTML = '<i class="fas fa-minus-circle"></i> <strong>Não respondida.</strong> Gabarito oficial: <strong>(' + correctOpt + ')</strong>';
+          }
+          if (com) com.style.display = 'block';
+        }
+      });
+      updateStats();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateStats() {
+      let correct = 0;
+      let wrong = 0;
+      const qBoxes = document.querySelectorAll('.question-box[data-q]');
+      const total = qBoxes.length || totalQuestions;
+
+      qBoxes.forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        const correctOpt = qBox.getAttribute('data-gab');
+        const sel = userAnswers[qNum];
+        if (sel) {
+          if (sel.toUpperCase() === correctOpt.toUpperCase()) correct++;
+          else wrong++;
+        }
+      });
+
+      const answered = Object.keys(userAnswers).length;
+      const percent = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+
+      const elAnswered = document.getElementById('answeredCount');
+      const elCorrect = document.getElementById('correctCount');
+      const elWrong = document.getElementById('wrongCount');
+      const elPercent = document.getElementById('percentBadge');
+      const elBar = document.getElementById('progressBar');
+      const elBtnRetry = document.getElementById('btnRetryErrors');
+      const elWrongBtnCount = document.getElementById('wrongBtnCount');
+
+      if (elAnswered) elAnswered.innerText = answered;
+      if (elCorrect) elCorrect.innerText = correct;
+      if (elWrong) elWrong.innerText = wrong;
+      if (elPercent) elPercent.innerText = percent + '%';
+      if (elBar) elBar.style.width = (total > 0 ? (answered / total) * 100 : 0) + '%';
+
+      if (elBtnRetry && elWrongBtnCount) {
+        elWrongBtnCount.innerText = wrong;
+        elBtnRetry.style.display = wrong > 0 ? 'inline-flex' : 'none';
+      }
+    }
+
+    function retryErrors() {
+      const qBoxes = document.querySelectorAll('.question-box[data-q]');
+      let firstWrong = null;
+
+      qBoxes.forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        const correctOpt = qBox.getAttribute('data-gab');
+        const sel = userAnswers[qNum];
+
+        if (sel && sel.toUpperCase() !== correctOpt.toUpperCase()) {
+          // Limpa resposta errada
+          delete userAnswers[qNum];
+          qBox.querySelectorAll('.option-item').forEach(opt => {
+            opt.classList.remove('selected', 'is-correct', 'is-wrong');
+          });
+          const fb = document.getElementById(`feedback_${qNum}`);
+          const com = document.getElementById(`comentario_${qNum}`);
+          if (fb) fb.className = 'inline-feedback';
+          if (com) com.style.display = 'none';
+
+          if (!firstWrong) firstWrong = qBox;
+        }
+      });
+
+      updateStats();
+      if (firstWrong) {
+        firstWrong.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function resetQuiz() {
+      if (!confirm('Deseja reiniciar todas as respostas deste caderno?')) return;
+      userAnswers = {};
+      document.querySelectorAll('.question-box[data-q]').forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        qBox.querySelectorAll('.option-item').forEach(opt => {
+          opt.classList.remove('selected', 'is-correct', 'is-wrong');
+        });
+        const fb = document.getElementById(`feedback_${qNum}`);
+        const com = document.getElementById(`comentario_${qNum}`);
+        if (fb) fb.className = 'inline-feedback';
+        if (com) com.style.display = 'none';
+      });
+      updateStats();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>

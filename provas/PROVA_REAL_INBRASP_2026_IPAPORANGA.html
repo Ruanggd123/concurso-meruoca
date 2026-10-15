@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>PROVA REAL OFICIAL 2026 — BANCA INBRASP (CÂMARA DE IPAPORANGA/CE)</title>
-  <style>
+<head><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<meta charset="utf-8"/>
+<title>PROVA REAL OFICIAL 2026 — BANCA INBRASP (CÂMARA DE IPAPORANGA/CE)</title>
+<style>
     @media print {
       body { font-size: 10pt; }
       .no-print { display: none; }
@@ -121,510 +122,785 @@
       color: #334155;
     }
   </style>
-</head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/><style>
+    /* === ESTILOS INTERATIVOS DE MARCAÇÃO E GABARITO === */
+    @media print {
+      .no-print, .interactive-header, .btn-action-quiz, .inline-feedback { display: none !important; }
+      body { padding: 0 !important; }
+    }
+
+    body {
+      padding-top: 10px !important;
+    }
+
+    /* Barra Fixa Superior com Progresso e Placar */
+    .interactive-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+      padding: 10px 14px;
+      margin: 0 0 20px 0;
+    }
+
+    .header-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .btn-back-nav {
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 5px 10px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: background 0.18s;
+    }
+    .btn-back-nav:hover { background: #dbeafe; }
+
+    .score-stats {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .stat-pill {
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .stat-pill.total { background: #f1f5f9; color: #334155; }
+    .stat-pill.correct { background: #dcfce7; color: #15803d; }
+    .stat-pill.wrong { background: #fee2e2; color: #b91c1c; }
+    .stat-pill.percent { background: #1e3a8a; color: #ffffff; }
+
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #2563eb, #16a34a);
+      transition: width 0.3s ease;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed #e2e8f0;
+    }
+
+    .mode-toggle-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #166534;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      user-select: none;
+      background: #f0fdf4;
+      padding: 5px 10px;
+      border-radius: 6px;
+      border: 1px solid #bbf7d0;
+    }
+    .mode-toggle-label input { cursor: pointer; accent-color: #16a34a; }
+
+    .btn-action-quiz {
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.18s;
+    }
+    .btn-action-quiz.retry {
+      background: #f8fafc;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+    .btn-action-quiz.retry:hover { background: #e2e8f0; }
+    .btn-action-quiz.primary {
+      background: #2563eb;
+      color: white;
+    }
+    .btn-action-quiz.primary:hover { background: #1d4ed8; }
+
+    /* Alternativas Estilizadas e Clicáveis */
+    .options-list {
+      list-style: none !important;
+      padding-left: 0 !important;
+      margin: 10px 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+    }
+
+    .option-item {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.94rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      transition: all 0.18s ease;
+      user-select: none;
+      position: relative;
+    }
+    .option-item:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .option-bubble {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #334155;
+      font-weight: 800;
+      font-size: 0.82rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: all 0.18s;
+    }
+
+    .option-text {
+      flex: 1;
+      line-height: 1.42;
+      font-weight: 500;
+    }
+
+    /* Estado Marcado */
+    .option-item.selected {
+      background: #eff6ff;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 1px #2563eb;
+    }
+    .option-item.selected .option-bubble {
+      background: #2563eb;
+      color: white;
+    }
+
+    /* Estado Correto (Verde) */
+    .option-item.is-correct {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      box-shadow: 0 0 0 1.5px #16a34a !important;
+      color: #14532d !important;
+      font-weight: 600;
+    }
+    .option-item.is-correct .option-bubble {
+      background: #16a34a !important;
+      color: white !important;
+    }
+
+    /* Estado Errado (Vermelho) */
+    .option-item.is-wrong {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      box-shadow: 0 0 0 1.5px #dc2626 !important;
+      color: #7f1d1d !important;
+    }
+    .option-item.is-wrong .option-bubble {
+      background: #dc2626 !important;
+      color: white !important;
+    }
+
+    /* Feedback Inline Imediato */
+    .inline-feedback {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      animation: feedbackIn 0.25s ease;
+    }
+    .inline-feedback.correct {
+      display: block;
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      color: #14532d;
+    }
+    .inline-feedback.wrong {
+      display: block;
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      color: #991b1b;
+    }
+    .inline-feedback strong { font-weight: 800; }
+
+    .inline-comentario {
+      display: none;
+      margin-top: 8px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border-left: 4px solid #2563eb;
+      font-size: 0.86rem;
+      color: #334155;
+      line-height: 1.45;
+      animation: feedbackIn 0.25s ease;
+    }
+    .inline-comentario strong { color: #1e3a8a; }
+
+    @keyframes feedbackIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+</style></head>
 <body>
+<div class="interactive-header no-print" id="quizHeader">
+<div class="header-top-row">
+<div style="display:flex; align-items:center; gap:8px;">
+<a class="btn-back-nav" href="../PROVAO_MOBILE_ESPECIFICAS.html" title="Voltar ao Provão Mobile">
+<i class="fas fa-mobile-alt"></i> Provão Mobile
+                  </a>
+<a class="btn-back-nav" href="CENTRAL_DE_PROVAS.html" title="Central de Provas">
+<i class="fas fa-folder-open"></i> Central de Provas
+                  </a>
+</div>
+<div class="score-stats">
+<span class="stat-pill total"><i class="fas fa-tasks"></i> <span id="answeredCount">0</span>/29</span>
+<span class="stat-pill correct"><i class="fas fa-check"></i> <span id="correctCount">0</span></span>
+<span class="stat-pill wrong"><i class="fas fa-times"></i> <span id="wrongCount">0</span></span>
+<span class="stat-pill percent" id="percentBadge">0%</span>
+</div>
+</div>
+<div class="progress-track">
+<div class="progress-bar-fill" id="progressBar"></div>
+</div>
+<div class="header-controls">
+<label class="mode-toggle-label" title="Ao tocar em qualquer opção, já mostra na hora se acertou ou errou!">
+<input checked="" id="chkInstant" onchange="toggleInstantMode(this.checked)" type="checkbox"/>
+<span><i class="fas fa-bolt" style="color: #16a34a;"></i> Modo Estudo: Resposta ao Tocar</span>
+</label>
+<div style="display:flex; gap:6px;">
+<button class="btn-action-quiz retry" id="btnRetryErrors" onclick="retryErrors()" style="display:none;">
+<i class="fas fa-redo-alt" style="color:#dc2626;"></i> Refazer Erradas (<span id="wrongBtnCount">0</span>)
+                  </button>
+<button class="btn-action-quiz retry" onclick="resetQuiz()">
+<i class="fas fa-sync-alt"></i> Reiniciar
+                  </button>
+<button class="btn-action-quiz primary" id="btnFinish" onclick="finishExam()" style="display:none;">
+<i class="fas fa-check-double"></i> Finalizar Prova
+                  </button>
+</div>
+</div>
+</div>
 
-  <div class="no-print" style="text-align: right;">
-    <button class="btn-print" onclick="window.print()">🖨️ IMPRIMIR PROVA REAL 2026 (PDF)</button>
-  </div>
-
-  <div class="header-box">
-    <span class="badge-real">PROVA REAL APLICADA EM 2026</span>
-    <h1>CÂMARA MUNICIPAL DE IPAPORANGA — CEARÁ</h1>
-    <h2>CONCURSO PÚBLICO OFICIAL 2026 — BANCA INBRASP</h2>
-    <p><strong>CARGOS:</strong> AGENTE ADMINISTRATIVO / TÉCNICO LEGISLATIVO</p>
-    <p><strong>FONTE:</strong> CADERNO OFICIAL DE QUESTÕES REGISTRADAS NO QCONCURSOS (2026)</p>
-  </div>
-
-  <div class="instructions-box">
-    <strong>INFORMAÇÕES OFICIAIS DO CERTAME:</strong>
-    <ul>
-      <li>Este caderno reúne as <strong>questões reais de 2026 da Banca INBRASP</strong> aplicadas no concurso da Câmara Municipal do Ceará.</li>
-      <li>Formato de 4 alternativas (A, B, C e D) exatamente conforme o padrão do Edital de Meruoca nº 001/2026.</li>
-      <li>Gabarito oficial com resolução técnica e fundamentação jurídica detalhada ao final.</li>
-    </ul>
-  </div>
-
-  <!-- PARTE 1: DIREITO ADMINISTRATIVO & CONSTITUCIONAL (ESPECÍFICAS) -->
-  <div class="section-title">PARTE 1: CONHECIMENTOS ESPECÍFICOS & DIREITO (Questões Reais 2026)</div>
-
-  <!-- Q4155841 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 01 [Q4155841] • Direito Administrativo • Licitações (Lei nº 14.133/2021) • INBRASP 2026</div>
-    <div class="question-title">A Lei n.º 14.133/2021 estabelece normas gerais de licitações e contratos administrativos, introduzindo novos procedimentos e princípios que visam modernizar e tornar mais eficiente a contratação pública. Nesse contexto, assinale a alternativa CORRETA:</div>
-    <ul class="options-list">
-      <li>(A) A modalidade de contratação integrada impede o contratado elaborar projeto básico executivo.</li>
-      <li>(B) O critério de julgamento de maior desconto é aplicável exclusivamente concessões de serviço.</li>
-      <li>(C) A contratação semi-integrada autoriza alterações quantitativas ilimitadas do objeto contratado sem restrições.</li>
-      <li>(D) A inversão de fases permite julgamento das propostas antes habilitação dos licitantes.</li>
-    </ul>
-  </div>
-
-  <!-- Q4155840 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 02 [Q4155840] • Direito Administrativo • Atos Administrativos • INBRASP 2026</div>
-    <div class="question-title">Em relação ao Direito Administrativo, o Ato administrativo possui requisitos e atributos específicos que condicionam sua validade e eficácia e cuja compreensão é indispensável aos agentes públicos. Acerca do tema, é CORRETO afirmar que:</div>
-    <ul class="options-list">
-      <li>(A) Competência, objeto, forma, motivo e vontade compõem os requisitos do ato administrativo.</li>
-      <li>(B) Os atributos do ato administrativo incluem presunção de legitimidade, imperatividade e autoexecutoriedade.</li>
-      <li>(C) O ato administrativo é irrevogável e imutável independentemente do interesse público relevante.</li>
-      <li>(D) Um ato ilegal pode ser convalidado quando houver vício insanável de competência.</li>
-    </ul>
-  </div>
-
-  <!-- Q4155839 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 03 [Q4155839] • Direito Constitucional • Organização do Estado & Princípios (Art. 37 CF) • INBRASP 2026</div>
-    <div class="question-title">A Constituição regula a organização do Estado definindo competências e princípios administrativos que orientam o funcionamento da União, estados, Distrito Federal e municípios e estabelecem limites para a atuação do poder público. Conforme o enunciado, assinale a alternativa CORRETA:</div>
-    <ul class="options-list">
-      <li>(A) O Brasil organiza-se em departamentos, províncias, vilas e Distritos Federais federados autônomos.</li>
-      <li>(B) Compete exclusivamente aos estados legislar sobre direitos processuais penais e civis federais.</li>
-      <li>(C) A autonomia municipal abrange criação de leis estaduais tributos e organização administrativa nacional.</li>
-      <li>(D) O art. 37 consagra princípios, legalidade, impessoalidade, moralidade, publicidade e eficiência administrativa.</li>
-    </ul>
-  </div>
-
-  <!-- Q4155838 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 04 [Q4155838] • Direito Constitucional • Direitos Fundamentais (Art. 5º CF) • INBRASP 2026</div>
-    <div class="question-title">Os direitos e garantias fundamentais previstos na Constituição visam assegurar a proteção das liberdades individuais e de outros direitos essenciais ao cidadão, limitando o poder estatal e promovendo a dignidade da pessoa humana. Diante do exposto, assinale CORRETAMENTE:</div>
-    <ul class="options-list">
-      <li>(A) A liberdade de expressão é assegurada independentemente de censura e anonimato autorizado.</li>
-      <li>(B) A inviolabilidade do domicílio pode ser relativizada em casos de flagrante delito.</li>
-      <li>(C) A tortura é admitida quando necessária para investigação de crimes hediondos graves.</li>
-      <li>(D) A liberdade de reunião não precisa obedecer a requisitos previstos na lei.</li>
-    </ul>
-  </div>
-
-  <!-- Q4155837 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 05 [Q4155837] • Direito Constitucional • Princípios & Objetivos da República (Art. 3º CF) • INBRASP 2026</div>
-    <div class="question-title">De acordo com a Constituição Federal (CF) de 1988, os princípios fundamentais orientam a República Federativa do Brasil, estabelecendo valores e objetivos que norteiam a vida política e social do país. Nesse contexto, assinale a alternativa CORRETA:</div>
-    <ul class="options-list">
-      <li>(A) São fundamentos da República a soberania a submissão e a dignidade humana.</li>
-      <li>(B) A república tem como fundamento o pluralismo político e a monarquia hereditária.</li>
-      <li>(C) O artigo quarto orienta relações internacionais com base intervenção em outros povos.</li>
-      <li>(D) São objetivos fundamentais erradicar a pobreza promover justiça social e reduzir desigualdades.</li>
-    </ul>
-  </div>
-
-  <!-- Q4156058 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 06 [Q4156058] • Legislação Municipal • Lei Orgânica Municipal • INBRASP 2026</div>
-    <div class="question-title">A Lei Orgânica Municipal (LOM) funciona como a lei fundamental do ente federativo local. Com base no tema e à luz do Direito Administrativo e Constitucional brasileiro, a função precípua da Lei Orgânica é:</div>
-    <ul class="options-list">
-      <li>(A) Funcionar como norma soberana e autônoma, com prerrogativa para revogar dispositivos da Constituição Federal dentro do território municipal.</li>
-      <li>(B) Atuar como lei fundamental do município, incumbida de organizar os poderes locais (Executivo e Legislativo) e estruturar a administração pública, operando em estrita harmonia e subordinação às Constituições Federal e Estadual.</li>
-      <li>(C) Subordinar a gestão local às diretrizes emitidas exclusivamente pelo Poder Judiciário do Estado, mitigando a atuação da Câmara de Vereadores.</li>
-      <li>(D) Regulamentar de forma restrita e exclusiva a instituição e arrecadação dos tributos municipais, sem competência sobre os poderes ou servidores locais.</li>
-    </ul>
-  </div>
-
-  <!-- PARTE 2: ADMINISTRAÇÃO GERAL, ARQUIVOLOGIA & ATENDIMENTO -->
-  <div class="section-title">PARTE 2: ADMINISTRAÇÃO, ARQUIVOS & ROTINAS LEGISLATIVAS (Questões Reais 2026)</div>
-
-  <!-- Q4155830 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 07 [Q4155830] • Administração Geral • Rotinas Administrativas & Protocolo • INBRASP 2026</div>
-    <div class="question-title">As rotinas administrativas buscam racionalizar processos e assegurar eficiência na execução das atividades por meio de padrões e protocolos que reduzem retrabalho e evitam erros, garantindo fluidez ao serviço. Sobre o tema e, à luz dessa análise, assinale a alternativa CORRETA:</div>
-    <ul class="options-list">
-      <li>(A) A padronização de procedimentos complica fluxos e aumenta retrabalho e erros administrativos.</li>
-      <li>(B) A ausência de rotina aumenta produtividade e garante distribuição equitativa de tarefas.</li>
-      <li>(C) A racionalização pressupõe eliminar etapas essenciais para acelerar a execução dos serviços.</li>
-      <li>(D) O protocolo registra movimentação documental garantindo autenticidade e rastreabilidade das informações formais.</li>
-    </ul>
-  </div>
-
-  <!-- Q4155829 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 08 [Q4155829] • Administração Geral • Funções Administrativas (Planejar, Organizar, Dirigir, Controlar) • INBRASP 2026</div>
-    <div class="question-title">A administração é um processo voltado à consecução de objetivos organizacionais e envolve o exercício de funções específicas que estruturam e direcionam os esforços dos colaboradores para resultados planejados. Diante do exposto, é CORRETO afirmar que:</div>
-    <ul class="options-list">
-      <li>(A) Planejar é prever objetivos sem considerar estratégias e recursos para alcançar resultados.</li>
-      <li>(B) Organizar significa delegar autoridade e distribuir tarefas de forma aleatória pelos chefes.</li>
-      <li>(C) Dirigir envolve coordenar pessoas punindo-as na execução das metas previamente definidas sempre.</li>
-      <li>(D) Controlar é acompanhar resultados corrigindo desvios e comparando com padrões estabelecidos sempre.</li>
-    </ul>
-  </div>
-
-  <!-- Q4155826 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 09 [Q4155826] • Arquivologia • Gestão de Documentos & Protocolo • INBRASP 2026</div>
-    <div class="question-title">O recebimento e a transmissão de informações exigem procedimentos padronizados de modo a assegurar controle, rastreabilidade e segurança nos fluxos comunicacionais dentro da organização. Dessa forma, assinale CORRETAMENTE:</div>
-    <ul class="options-list">
-      <li>(A) Registrar data hora e origem é fundamental para controle e rastreabilidade documental.</li>
-      <li>(B) Ignorar o protocolo simplifica o fluxo e evita burocracia no setor administrativo.</li>
-      <li>(C) Transmitir informação confidencial sem verificação preserva a agilidade e eficiência total.</li>
-      <li>(D) Deixar de arquivar documentos recebidos reduz a transparência e a responsabilidade institucional.</li>
-    </ul>
-  </div>
-
-  <!-- Q4155824 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 10 [Q4155824] • Arquivologia • Métodos de Arquivamento & Classificação • INBRASP 2026</div>
-    <div class="question-title">O controle de materiais e a organização de arquivos são fundamentais para a eficiência institucional, pois garantem o acesso rápido e a disponibilidade de recursos, além de evitar perdas e desperdícios. Nesse contexto, assinale a alternativa CORRETA:</div>
-    <ul class="options-list">
-      <li>(A) O controle de materiais utiliza a técnica primeiro a entrar primeiro a sair.</li>
-      <li>(B) O arquivamento por ordem alfabética ignora critérios temáticos e prazos legais sempre.</li>
-      <li>(C) O método de arrumação por cor prioriza estética e subjetividade na gestão.</li>
-      <li>(D) A classificação por assunto facilita o acesso e preservação de documentos organizacionais.</li>
-    </ul>
-  </div>
-
-  <!-- Q4155828 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 11 [Q4155828] • Ética na Administração Pública • INBRASP 2026</div>
-    <div class="question-title">A Ética profissional e as relações interpessoais orientam os comportamentos dos servidores públicos, influenciando a confiança da sociedade e a credibilidade dos órgãos, pois valores éticos e convivência harmoniosa são essenciais ao bom serviço. Com base no enunciado, assinale CORRETAMENTE:</div>
-    <ul class="options-list">
-      <li>(A) A ética permite aceitar presentes de fornecedores como prova de gentileza empresarial.</li>
-      <li>(B) As relações interpessoais baseiam-se em competição rivalidade e desconfiança entre pares.</li>
-      <li>(C) É legítimo utilizar informações internas para obter vantagens pessoais no serviço público.</li>
-      <li>(D) O cumprimento das normas éticas fortalece a imagem e credibilidade da instituição.</li>
-    </ul>
-  </div>
-
-  <!-- Q4155822 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 12 [Q4155822] • Redação Oficial • Espécies Documentais (Ofício, Memorando) • INBRASP 2026</div>
-    <div class="question-title">No contexto da redação oficial, as diversas espécies documentais possuem características e finalidades distintas que determinam o seu uso apropriado na administração pública. Sobre o tema, é CORRETO afirmar que:</div>
-    <ul class="options-list">
-      <li>(A) O ofício é usado para comunicações externas com autoridades do mesmo nível ou de outros órgãos.</li>
-      <li>(B) O memorando destina-se a expedientes enviados a autoridades de outros poderes apenas.</li>
-      <li>(C) A carta pessoal oficial é utilizada para registrar acordos informais entre órgãos.</li>
-      <li>(D) A comunicação interna é instrumento para registros patrimoniais de documentos e materiais.</li>
-    </ul>
-  </div>
-
-  <!-- Q4155835 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 13 [Q4155835] • Atendimento ao Público • Princípios do Atendimento • INBRASP 2026</div>
-    <div class="question-title">A qualidade no atendimento ao público está associada a práticas que valorizam o cidadão e incluem atendimento humanizado, acessibilidade e resolução eficaz de demandas. Diante do exposto, assinale a alternativa CORRETA:</div>
-    <ul class="options-list">
-      <li>(A) Ouvir demandas com atenção, oferecer informações claras e resolver problemas com eficiência.</li>
-      <li>(B) Desconsiderar reclamações legitima sentimentos positivos e aprimora a confiança do público sempre.</li>
-      <li>(C) Garantir acessibilidade, promover a igualdade e respeitar a diversidade fortalecem o serviço prestado sempre.</li>
-      <li>(D) Informar inadequadamente gera satisfação e fideliza o usuário de forma contínua total.</li>
-    </ul>
-  </div>
-
-  <!-- Q4155833 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 14 [Q4155833] • Gestão de Pessoas • Comunicação Organizacional & Feedback • INBRASP 2026</div>
-    <div class="question-title">A comunicação eficaz é essencial para o sucesso das organizações, pois melhora o entendimento, reduz conflitos e promove a colaboração entre os membros da equipe por meio de feedbacks e escuta ativa. Nesse contexto, assinale a alternativa CORRETA.</div>
-    <ul class="options-list">
-      <li>(A) Ouvir passivamente facilita compreensão reduz conflitos e fortalece relacionamentos no trabalho sempre.</li>
-      <li>(B) Informações difusas e incompletas promovem confiança e melhoram o clima organizacional saudável.</li>
-      <li>(C) O excesso de ruído na comunicação promove entendimento e eficiência continuamente sempre.</li>
-      <li>(D) O feedback construtivo contribui para aprendizado contínuo e melhoria de processos organizacionais.</li>
-    </ul>
-  </div>
-
-  <!-- PARTE 3: INFORMÁTICA & MATEMÁTICA -->
-  <div class="section-title">PARTE 3: INFORMÁTICA & MATEMÁTICA (Questões Reais 2026)</div>
-
-  <!-- Q4155827 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 15 [Q4155827] • Noções de Informática • Microsoft Word & Excel • INBRASP 2026</div>
-    <div class="question-title">Considerando que ao trabalhar com programas de edição de texto e planilhas eletrônicas, é importante dominar funções básicas que permitam formatar documentos e realizar cálculos simples ou complexos de forma precisa e eficiente, assinale a alternativa CORRETA:</div>
-    <ul class="options-list">
-      <li>(A) No Word, é possível formatar texto alterar fontes cores e inserir tabelas.</li>
-      <li>(B) No Excel, a fórmula SOMA serve para calcular quantidades entre células selecionadas.</li>
-      <li>(C) No Word, as planilhas são criadas para cálculos complexos com fórmulas matemáticas.</li>
-      <li>(D) No Excel, a ferramenta de revisão aplica correção ortográfica em parágrafos escritos.</li>
-    </ul>
-  </div>
-
-  <!-- Q4156055 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 16 [Q4156055] • Matemática • Frações e Números Decimais em Ordem Crescente • INBRASP 2026</div>
-    <div class="question-title">Os valores foram obtidos em uma pesquisa estatística, observe: (4/5; 0,75; 1,2; 3/2; 0,8̅). Para facilitar a análise dos dados, é necessário organizá-los em ordem crescente. Assim, a ordem crescente dos números é, CORRETA e, respectivamente:</div>
-    <ul class="options-list">
-      <li>(A) 0,75; 0,8̅; 4/5; 1,2; 3/2.</li>
-      <li>(B) 0,75; 4/5; 0,8̅; 1,2; 3/2.</li>
-      <li>(C) 4/5; 0,75; 0,8̅; 1,2; 3/2.</li>
-      <li>(D) 3/2; 0,8̅; 4,5; 1,2; 0,75.</li>
-    </ul>
-  </div>
-
-  <!-- Q4156054 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 17 [Q4156054] • Matemática • Aritmética & Resto de Divisão • INBRASP 2026</div>
-    <div class="question-title">Sendo R o resto da divisão do número 1004505 por 6, então R é um número:</div>
-    <ul class="options-list">
-      <li>(A) Divisor de 20.</li>
-      <li>(B) Múltiplo de 9.</li>
-      <li>(C) Maior do que 5.</li>
-      <li>(D) Primo.</li>
-    </ul>
-  </div>
-
-  <!-- Q4156053 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 18 [Q4156053] • Matemática • Sistema de Medidas de Tempo • INBRASP 2026</div>
-    <div class="question-title">Considerando que um relógio adianta 3 minutos a cada dia, após 4 semanas, ele estará adiantado em:</div>
-    <ul class="options-list">
-      <li>(A) 1 hora e 12 minutos.</li>
-      <li>(B) 1 hora e 16 minutos.</li>
-      <li>(C) 1 hora e 20 minutos.</li>
-      <li>(D) 1 hora e 24 minutos.</li>
-    </ul>
-  </div>
-
-  <!-- Q4156052 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 19 [Q4156052] • Matemática • Operações com Frações • INBRASP 2026</div>
-    <div class="question-title">Pedro recebeu 3/4 das figurinhas que estavam em um álbum. Do total de figurinhas recebidas, ele deu 2/5 para um amigo. Dessa forma, a fração do total de figurinhas contidas no álbum que foi recebida pelo amigo de Pedro foi:</div>
-    <ul class="options-list">
-      <li>(A) 3/10.</li>
-      <li>(B) 1/20.</li>
-      <li>(C) 1/4.</li>
-      <li>(D) 1/3.</li>
-    </ul>
-  </div>
-
-  <!-- PARTE 4: LÍNGUA PORTUGUESA -->
-  <div class="section-title">PARTE 4: LÍNGUA PORTUGUESA (Questões Reais 2026)</div>
-
-  <!-- Q4156051 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 20 [Q4156051] • Português • Classes de Palavras: Adjetivo Caracterizador • INBRASP 2026</div>
-    <div class="question-title">Assinale a alternativa cujo termo destacado é um adjetivo caracterizador de um substantivo:</div>
-    <ul class="options-list">
-      <li>(A) As críticas mais recentes se baseiam nas exigências do Pacto Ecológico Europeu.</li>
-      <li>(B) A potência asiática oferece algo a mais que os europeus.</li>
-      <li>(C) Alguns interesses, por outro lado, podem se camuflar neste cenário.</li>
-      <li>(D) É um bloco, um continente estratégico, não podemos reduzir sua importância.</li>
-    </ul>
-  </div>
-
-  <!-- Q4156050 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 21 [Q4156050] • Português • Adjunto Adverbial de Tempo • INBRASP 2026</div>
-    <div class="question-title">Assinale a alternativa que apresenta CORRETAMENTE apenas expressões que indicam tempo:</div>
-    <ul class="options-list">
-      <li>(A) Historicamente, temos tido um problema de diálogo com a União Europeia. Eles decidem regras importantes do jogo não em negociação, mas por conta própria.</li>
-      <li>(B) Vale mencionar que há uma boa dose de protecionismo por parte do agronegócio europeu que também influencia a negociação com o Mercosul.</li>
-      <li>(C) As críticas mais recentes se baseiam nas exigências do Pacto Ecológico Europeu, o Green Deal.</li>
-      <li>(D) Ingo Plöger, empresário que acompanha há décadas a negociação do acordo e atualmente está na vice-presidência da Abag, ressalta que a UE é um importante provedor de conceitos mundiais.</li>
-    </ul>
-  </div>
-
-  <!-- Q4156049 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 22 [Q4156049] • Português • Regras de Acentuação Gráfica • INBRASP 2026</div>
-    <div class="question-title">A palavra ‘política’ está acentuada graficamente pelo mesmo motivo que em:</div>
-    <ul class="options-list">
-      <li>(A) Inflexível.</li>
-      <li>(B) Café.</li>
-      <li>(C) Cômputo.</li>
-      <li>(D) Fóruns.</li>
-    </ul>
-  </div>
-
-  <!-- Q4156048 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 23 [Q4156048] • Português • Orações Subordinadas Adverbiais: Condicional • INBRASP 2026</div>
-    <div class="question-title">No trecho “o acordo de livre comércio entre Mercosul e União Europeia corre o risco de não ser ratificado, caso a Europa permaneça inflexível”, a palavra destacada ('caso') introduz o significado de:</div>
-    <ul class="options-list">
-      <li>(A) Condição.</li>
-      <li>(B) Consequência.</li>
-      <li>(C) Causa.</li>
-      <li>(D) Oposição.</li>
-    </ul>
-  </div>
-
-  <!-- Q4156047 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 24 [Q4156047] • Português • Sintaxe do Verbo Haver Impessoal • INBRASP 2026</div>
-    <div class="question-title">Em “não houve nenhuma oportunidade de diálogo de demonstrar o que é viável”, é CORRETO afirmar, de acordo com os termos da oração, que:</div>
-    <ul class="options-list">
-      <li>(A) O termo ‘nenhuma oportunidade de diálogo’ exerce a função de sujeito do verbo ‘haver’.</li>
-      <li>(B) O verbo ‘haver’ é impessoal e transitivo direto.</li>
-      <li>(C) O termo ‘viável’ exerce a função de complemento nominal.</li>
-      <li>(D) O verbo ‘haver’ é pessoal e concorda com o sujeito da oração.</li>
-    </ul>
-  </div>
-
-  <!-- Q4156046 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 25 [Q4156046] • Português • Classes de Palavras: Preposição vs. Artigo • INBRASP 2026</div>
-    <div class="question-title">No trecho “os produtores reunidos na Abag estariam dispostos a contribuir com a meta de acabar com o desmatamento ilegal”, as palavras 'a' em destaque ("a contribuir" e "a meta") são classificadas, CORRETA e respectivamente, como:</div>
-    <ul class="options-list">
-      <li>(A) Conjunção e pronome.</li>
-      <li>(B) Preposição e pronome.</li>
-      <li>(C) Conjunção e artigo.</li>
-      <li>(D) Preposição e artigo.</li>
-    </ul>
-  </div>
-
-  <!-- Q4156045 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 26 [Q4156045] • Português • Significação de Palavras (Sinônimos) • INBRASP 2026</div>
-    <div class="question-title">Em “o acordo de livre comércio entre Mercosul e União Europeia corre o risco de não ser ratificado”, o termo destacado ('ratificado') significa:</div>
-    <ul class="options-list">
-      <li>(A) Validado.</li>
-      <li>(B) Cancelado.</li>
-      <li>(C) Proposto.</li>
-      <li>(D) Corrigido.</li>
-    </ul>
-  </div>
-
-  <!-- Q4156044 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 27 [Q4156044] • Português • Morfossintaxe de Conjunção Causal • INBRASP 2026</div>
-    <div class="question-title">Assinale a alternativa que apresenta CORRETAMENTE a classificação do termo destacado:</div>
-    <ul class="options-list">
-      <li>(A) O atual presidente brasileiro parece empenhado em reverter a situação. (Conjunção)</li>
-      <li>(B) O Brasil foi o principal vendedor de produtos do setor para UE. (Substantivo)</li>
-      <li>(C) Não dá pra prever todas as variáveis porque não se trata de um processo linear. (Conjunção)</li>
-      <li>(D) Isso pode estar sendo provocado em parte às posições ambíguas de Lula. (Adjetivo)</li>
-    </ul>
-  </div>
-
-  <!-- Q4156043 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 28 [Q4156043] • Português • Semântica Modalizadora • INBRASP 2026</div>
-    <div class="question-title">No trecho “Se houver mudança do governo, o acordo tem que assegurar que ele mesmo não sirva de incentivo para quem está desmatando”, a expressão destacada ('tem que') indica:</div>
-    <ul class="options-list">
-      <li>(A) Possibilidade.</li>
-      <li>(B) Obrigação.</li>
-      <li>(C) Proibição.</li>
-      <li>(D) Restrição.</li>
-    </ul>
-  </div>
-
-  <!-- Q4156042 -->
-  <div class="question-box">
-    <div class="question-header">QUESTÃO 29 [Q4156042] • Português • Vocabulário Contextual: Sinônimos • INBRASP 2026</div>
-    <div class="question-title">Em “é preciso ter cautela com as assimetrias do acordo e algumas previsões muito otimistas”, o termo destacado ('assimetrias') pode ser substituído CORRETAMENTE por:</div>
-    <ul class="options-list">
-      <li>(A) Tendências.</li>
-      <li>(B) Lacunas.</li>
-      <li>(C) Discrepâncias.</li>
-      <li>(D) Propostas.</li>
-    </ul>
-  </div>
-
-  <!-- GABARITO COMENTADO COMPLETO -->
-  <div class="answer-card">
-    <h2 style="text-align: center; margin-top: 0; color: #1e3a8a;">GABARITO OFICIAL COMENTADO & FUNDAMENTAÇÃO (INBRASP 2026)</h2>
-    
-    <div class="comentario-box">
-      <strong>01. GABARITO: D</strong> — Na Lei 14.133/2021 (Art. 17), a regra geral do rito procedimental é a inversão de fases (fase de julgamento de propostas antecede a fase de habilitação).
+<div class="no-print" style="text-align: right;">
+<button class="btn-print" onclick="window.print()">🖨️ IMPRIMIR PROVA REAL 2026 (PDF)</button>
+</div>
+<div class="header-box">
+<span class="badge-real">PROVA REAL APLICADA EM 2026</span>
+<h1>CÂMARA MUNICIPAL DE IPAPORANGA — CEARÁ</h1>
+<h2>CONCURSO PÚBLICO OFICIAL 2026 — BANCA INBRASP</h2>
+<p><strong>CARGOS:</strong> AGENTE ADMINISTRATIVO / TÉCNICO LEGISLATIVO</p>
+<p><strong>FONTE:</strong> CADERNO OFICIAL DE QUESTÕES REGISTRADAS NO QCONCURSOS (2026)</p>
+</div>
+<div class="instructions-box">
+<strong>INFORMAÇÕES OFICIAIS DO CERTAME:</strong>
+<ul>
+<li>Este caderno reúne as <strong>questões reais de 2026 da Banca INBRASP</strong> aplicadas no concurso da Câmara Municipal do Ceará.</li>
+<li>Formato de 4 alternativas (A, B, C e D) exatamente conforme o padrão do Edital de Meruoca nº 001/2026.</li>
+<li>Gabarito oficial com resolução técnica e fundamentação jurídica detalhada ao final.</li>
+</ul>
+</div>
+<!-- PARTE 1: DIREITO ADMINISTRATIVO & CONSTITUCIONAL (ESPECÍFICAS) -->
+<div class="section-title">PARTE 1: CONHECIMENTOS ESPECÍFICOS &amp; DIREITO (Questões Reais 2026)</div>
+<!-- Q4155841 -->
+<div class="question-box" data-gab="D" data-q="1">
+<div class="question-header">QUESTÃO 01 [Q4155841] • Direito Administrativo • Licitações (Lei nº 14.133/2021) • INBRASP 2026</div>
+<div class="question-title">A Lei n.º 14.133/2021 estabelece normas gerais de licitações e contratos administrativos, introduzindo novos procedimentos e princípios que visam modernizar e tornar mais eficiente a contratação pública. Nesse contexto, assinale a alternativa CORRETA:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 1, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">A modalidade de contratação integrada impede o contratado elaborar projeto básico executivo.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 1, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">O critério de julgamento de maior desconto é aplicável exclusivamente concessões de serviço.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 1, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">A contratação semi-integrada autoriza alterações quantitativas ilimitadas do objeto contratado sem restrições.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 1, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">A inversão de fases permite julgamento das propostas antes habilitação dos licitantes.</span></li></ul>
+<div class="inline-feedback" id="feedback_1"></div><div class="inline-comentario" id="comentario_1"><strong>Fundamentação (Gabarito D):</strong> Na Lei 14.133/2021 (Art. 17), a regra geral do rito procedimental é a inversão de fases (fase de julgamento de propostas antecede a fase de habilitação).</div></div>
+<!-- Q4155840 -->
+<div class="question-box" data-gab="B" data-q="2">
+<div class="question-header">QUESTÃO 02 [Q4155840] • Direito Administrativo • Atos Administrativos • INBRASP 2026</div>
+<div class="question-title">Em relação ao Direito Administrativo, o Ato administrativo possui requisitos e atributos específicos que condicionam sua validade e eficácia e cuja compreensão é indispensável aos agentes públicos. Acerca do tema, é CORRETO afirmar que:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 2, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Competência, objeto, forma, motivo e vontade compõem os requisitos do ato administrativo.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 2, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Os atributos do ato administrativo incluem presunção de legitimidade, imperatividade e autoexecutoriedade.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 2, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">O ato administrativo é irrevogável e imutável independentemente do interesse público relevante.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 2, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Um ato ilegal pode ser convalidado quando houver vício insanável de competência.</span></li></ul>
+<div class="inline-feedback" id="feedback_2"></div><div class="inline-comentario" id="comentario_2"><strong>Fundamentação (Gabarito B):</strong> Os atributos do ato administrativo são: Presunção de Legitimidade, Imperatividade, Autoexecutoriedade e Tipicidade (mnemônico PIAT).</div></div>
+<!-- Q4155839 -->
+<div class="question-box" data-gab="D" data-q="3">
+<div class="question-header">QUESTÃO 03 [Q4155839] • Direito Constitucional • Organização do Estado &amp; Princípios (Art. 37 CF) • INBRASP 2026</div>
+<div class="question-title">A Constituição regula a organização do Estado definindo competências e princípios administrativos que orientam o funcionamento da União, estados, Distrito Federal e municípios e estabelecem limites para a atuação do poder público. Conforme o enunciado, assinale a alternativa CORRETA:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 3, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">O Brasil organiza-se em departamentos, províncias, vilas e Distritos Federais federados autônomos.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 3, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Compete exclusivamente aos estados legislar sobre direitos processuais penais e civis federais.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 3, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">A autonomia municipal abrange criação de leis estaduais tributos e organização administrativa nacional.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 3, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">O art. 37 consagra princípios, legalidade, impessoalidade, moralidade, publicidade e eficiência administrativa.</span></li></ul>
+<div class="inline-feedback" id="feedback_3"></div><div class="inline-comentario" id="comentario_3"><strong>Fundamentação (Gabarito D):</strong> O caput do Art. 37 da Constituição Federal consagra expressamente os princípios fundamentais da Administração Pública (LIMPE: Legalidade, Impessoalidade, Moralidade, Publicidade e Eficiência).</div></div>
+<!-- Q4155838 -->
+<div class="question-box" data-gab="B" data-q="4">
+<div class="question-header">QUESTÃO 04 [Q4155838] • Direito Constitucional • Direitos Fundamentais (Art. 5º CF) • INBRASP 2026</div>
+<div class="question-title">Os direitos e garantias fundamentais previstos na Constituição visam assegurar a proteção das liberdades individuais e de outros direitos essenciais ao cidadão, limitando o poder estatal e promovendo a dignidade da pessoa humana. Diante do exposto, assinale CORRETAMENTE:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 4, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">A liberdade de expressão é assegurada independentemente de censura e anonimato autorizado.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 4, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">A inviolabilidade do domicílio pode ser relativizada em casos de flagrante delito.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 4, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">A tortura é admitida quando necessária para investigação de crimes hediondos graves.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 4, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">A liberdade de reunião não precisa obedecer a requisitos previstos na lei.</span></li></ul>
+<div class="inline-feedback" id="feedback_4"></div><div class="inline-comentario" id="comentario_4"><strong>Fundamentação (Gabarito B):</strong> Art. 5º, XI, CF/88: A casa é asilo inviolável do indivíduo, salvo em caso de flagrante delito, desastre, socorro ou, durante o dia, por determinação judicial.</div></div>
+<!-- Q4155837 -->
+<div class="question-box" data-gab="D" data-q="5">
+<div class="question-header">QUESTÃO 05 [Q4155837] • Direito Constitucional • Princípios &amp; Objetivos da República (Art. 3º CF) • INBRASP 2026</div>
+<div class="question-title">De acordo com a Constituição Federal (CF) de 1988, os princípios fundamentais orientam a República Federativa do Brasil, estabelecendo valores e objetivos que norteiam a vida política e social do país. Nesse contexto, assinale a alternativa CORRETA:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 5, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">São fundamentos da República a soberania a submissão e a dignidade humana.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 5, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">A república tem como fundamento o pluralismo político e a monarquia hereditária.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 5, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">O artigo quarto orienta relações internacionais com base intervenção em outros povos.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 5, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">São objetivos fundamentais erradicar a pobreza promover justiça social e reduzir desigualdades.</span></li></ul>
+<div class="inline-feedback" id="feedback_5"></div><div class="inline-comentario" id="comentario_5"><strong>Fundamentação (Gabarito D):</strong> Art. 3º, III, CF/88: Constitui objetivo fundamental da República Federativa do Brasil erradicar a pobreza e a marginalização e reduzir as desigualdades sociais e regionais.</div></div>
+<!-- Q4156058 -->
+<div class="question-box" data-gab="B" data-q="6">
+<div class="question-header">QUESTÃO 06 [Q4156058] • Legislação Municipal • Lei Orgânica Municipal • INBRASP 2026</div>
+<div class="question-title">A Lei Orgânica Municipal (LOM) funciona como a lei fundamental do ente federativo local. Com base no tema e à luz do Direito Administrativo e Constitucional brasileiro, a função precípua da Lei Orgânica é:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 6, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Funcionar como norma soberana e autônoma, com prerrogativa para revogar dispositivos da Constituição Federal dentro do território municipal.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 6, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Atuar como lei fundamental do município, incumbida de organizar os poderes locais (Executivo e Legislativo) e estruturar a administração pública, operando em estrita harmonia e subordinação às Constituições Federal e Estadual.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 6, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">Subordinar a gestão local às diretrizes emitidas exclusivamente pelo Poder Judiciário do Estado, mitigando a atuação da Câmara de Vereadores.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 6, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Regulamentar de forma restrita e exclusiva a instituição e arrecadação dos tributos municipais, sem competência sobre os poderes ou servidores locais.</span></li></ul>
+<div class="inline-feedback" id="feedback_6"></div><div class="inline-comentario" id="comentario_6"><strong>Fundamentação (Gabarito B):</strong> A Lei Orgânica é a lei fundamental municipal que estrutura e organiza os poderes locais (Executivo e Legislativo), subordinada às Constituições Federal e Estadual.</div></div>
+<!-- PARTE 2: ADMINISTRAÇÃO GERAL, ARQUIVOLOGIA & ATENDIMENTO -->
+<div class="section-title">PARTE 2: ADMINISTRAÇÃO, ARQUIVOS &amp; ROTINAS LEGISLATIVAS (Questões Reais 2026)</div>
+<!-- Q4155830 -->
+<div class="question-box" data-gab="D" data-q="7">
+<div class="question-header">QUESTÃO 07 [Q4155830] • Administração Geral • Rotinas Administrativas &amp; Protocolo • INBRASP 2026</div>
+<div class="question-title">As rotinas administrativas buscam racionalizar processos e assegurar eficiência na execução das atividades por meio de padrões e protocolos que reduzem retrabalho e evitam erros, garantindo fluidez ao serviço. Sobre o tema e, à luz dessa análise, assinale a alternativa CORRETA:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 7, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">A padronização de procedimentos complica fluxos e aumenta retrabalho e erros administrativos.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 7, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">A ausência de rotina aumenta produtividade e garante distribuição equitativa de tarefas.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 7, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">A racionalização pressupõe eliminar etapas essenciais para acelerar a execução dos serviços.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 7, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">O protocolo registra movimentação documental garantindo autenticidade e rastreabilidade das informações formais.</span></li></ul>
+<div class="inline-feedback" id="feedback_7"></div><div class="inline-comentario" id="comentario_7"><strong>Fundamentação (Gabarito D):</strong> O setor de protocolo é responsável pelo registro de entrada, movimentação e saída de documentos oficiais, garantindo autenticidade e rastreabilidade formal.</div></div>
+<!-- Q4155829 -->
+<div class="question-box" data-gab="D" data-q="8">
+<div class="question-header">QUESTÃO 08 [Q4155829] • Administração Geral • Funções Administrativas (Planejar, Organizar, Dirigir, Controlar) • INBRASP 2026</div>
+<div class="question-title">A administração é um processo voltado à consecução de objetivos organizacionais e envolve o exercício de funções específicas que estruturam e direcionam os esforços dos colaboradores para resultados planejados. Diante do exposto, é CORRETO afirmar que:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 8, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Planejar é prever objetivos sem considerar estratégias e recursos para alcançar resultados.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 8, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Organizar significa delegar autoridade e distribuir tarefas de forma aleatória pelos chefes.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 8, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">Dirigir envolve coordenar pessoas punindo-as na execução das metas previamente definidas sempre.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 8, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Controlar é acompanhar resultados corrigindo desvios e comparando com padrões estabelecidos sempre.</span></li></ul>
+<div class="inline-feedback" id="feedback_8"></div><div class="inline-comentario" id="comentario_8"><strong>Fundamentação (Gabarito D):</strong> Na Teoria Geral da Administração, a função 'Controlar' consiste em acompanhar a execução, comparar com os padrões planejados e corrigir eventuais desvios.</div></div>
+<!-- Q4155826 -->
+<div class="question-box" data-gab="A" data-q="9">
+<div class="question-header">QUESTÃO 09 [Q4155826] • Arquivologia • Gestão de Documentos &amp; Protocolo • INBRASP 2026</div>
+<div class="question-title">O recebimento e a transmissão de informações exigem procedimentos padronizados de modo a assegurar controle, rastreabilidade e segurança nos fluxos comunicacionais dentro da organização. Dessa forma, assinale CORRETAMENTE:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 9, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Registrar data hora e origem é fundamental para controle e rastreabilidade documental.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 9, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Ignorar o protocolo simplifica o fluxo e evita burocracia no setor administrativo.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 9, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Transmitir informação confidencial sem verificação preserva a agilidade e eficiência total.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 9, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Deixar de arquivar documentos recebidos reduz a transparência e a responsabilidade institucional.</span></li></ul>
+<div class="inline-feedback" id="feedback_9"></div><div class="inline-comentario" id="comentario_9"><strong>Fundamentação (Gabarito A):</strong> O registro criterioso de data, hora e procedência do documento é indispensável para o controle da cadeia de custódia e rastreabilidade no protocolo.</div></div>
+<!-- Q4155824 -->
+<div class="question-box" data-gab="D" data-q="10">
+<div class="question-header">QUESTÃO 10 [Q4155824] • Arquivologia • Métodos de Arquivamento &amp; Classificação • INBRASP 2026</div>
+<div class="question-title">O controle de materiais e a organização de arquivos são fundamentais para a eficiência institucional, pois garantem o acesso rápido e a disponibilidade de recursos, além de evitar perdas e desperdícios. Nesse contexto, assinale a alternativa CORRETA:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 10, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">O controle de materiais utiliza a técnica primeiro a entrar primeiro a sair.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 10, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">O arquivamento por ordem alfabética ignora critérios temáticos e prazos legais sempre.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 10, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">O método de arrumação por cor prioriza estética e subjetividade na gestão.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 10, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">A classificação por assunto facilita o acesso e preservação de documentos organizacionais.</span></li></ul>
+<div class="inline-feedback" id="feedback_10"></div><div class="inline-comentario" id="comentario_10"><strong>Fundamentação (Gabarito D):</strong> O método de arquivamento por assunto (ideográfico) organiza os documentos segundo o tema, facilitando sua recuperação célere e preservação institucional.</div></div>
+<!-- Q4155828 -->
+<div class="question-box" data-gab="D" data-q="11">
+<div class="question-header">QUESTÃO 11 [Q4155828] • Ética na Administração Pública • INBRASP 2026</div>
+<div class="question-title">A Ética profissional e as relações interpessoais orientam os comportamentos dos servidores públicos, influenciando a confiança da sociedade e a credibilidade dos órgãos, pois valores éticos e convivência harmoniosa são essenciais ao bom serviço. Com base no enunciado, assinale CORRETAMENTE:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 11, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">A ética permite aceitar presentes de fornecedores como prova de gentileza empresarial.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 11, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">As relações interpessoais baseiam-se em competição rivalidade e desconfiança entre pares.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 11, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">É legítimo utilizar informações internas para obter vantagens pessoais no serviço público.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 11, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">O cumprimento das normas éticas fortalece a imagem e credibilidade da instituição.</span></li></ul>
+<div class="inline-feedback" id="feedback_11"></div><div class="inline-comentario" id="comentario_11"><strong>Fundamentação (Gabarito D):</strong> O cumprimento rigoroso dos preceitos éticos e deontológicos pelo servidor público fortalece a credibilidade e a confiança da sociedade na instituição.</div></div>
+<!-- Q4155822 -->
+<div class="question-box" data-gab="A" data-q="12">
+<div class="question-header">QUESTÃO 12 [Q4155822] • Redação Oficial • Espécies Documentais (Ofício, Memorando) • INBRASP 2026</div>
+<div class="question-title">No contexto da redação oficial, as diversas espécies documentais possuem características e finalidades distintas que determinam o seu uso apropriado na administração pública. Sobre o tema, é CORRETO afirmar que:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 12, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">O ofício é usado para comunicações externas com autoridades do mesmo nível ou de outros órgãos.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 12, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">O memorando destina-se a expedientes enviados a autoridades de outros poderes apenas.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 12, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">A carta pessoal oficial é utilizada para registrar acordos informais entre órgãos.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 12, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">A comunicação interna é instrumento para registros patrimoniais de documentos e materiais.</span></li></ul>
+<div class="inline-feedback" id="feedback_12"></div><div class="inline-comentario" id="comentario_12"><strong>Fundamentação (Gabarito A):</strong> No Manual de Redação Oficial da Presidência da República, o Ofício é a comunicação formal destinada a autoridades de outros órgãos ou entidades externas.</div></div>
+<!-- Q4155835 -->
+<div class="question-box" data-gab="A" data-q="13">
+<div class="question-header">QUESTÃO 13 [Q4155835] • Atendimento ao Público • Princípios do Atendimento • INBRASP 2026</div>
+<div class="question-title">A qualidade no atendimento ao público está associada a práticas que valorizam o cidadão e incluem atendimento humanizado, acessibilidade e resolução eficaz de demandas. Diante do exposto, assinale a alternativa CORRETA:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 13, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Ouvir demandas com atenção, oferecer informações claras e resolver problemas com eficiência.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 13, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Desconsiderar reclamações legitima sentimentos positivos e aprimora a confiança do público sempre.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 13, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Garantir acessibilidade, promover a igualdade e respeitar a diversidade fortalecem o serviço prestado sempre.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 13, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Informar inadequadamente gera satisfação e fideliza o usuário de forma contínua total.</span></li></ul>
+<div class="inline-feedback" id="feedback_13"></div><div class="inline-comentario" id="comentario_13"><strong>Fundamentação (Gabarito A):</strong> O atendimento de excelência no serviço público fundamenta-se na escuta ativa, presteza, clareza nas orientações e resolutividade das demandas dos cidadãos.</div></div>
+<!-- Q4155833 -->
+<div class="question-box" data-gab="D" data-q="14">
+<div class="question-header">QUESTÃO 14 [Q4155833] • Gestão de Pessoas • Comunicação Organizacional &amp; Feedback • INBRASP 2026</div>
+<div class="question-title">A comunicação eficaz é essencial para o sucesso das organizações, pois melhora o entendimento, reduz conflitos e promove a colaboração entre os membros da equipe por meio de feedbacks e escuta ativa. Nesse contexto, assinale a alternativa CORRETA.</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 14, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Ouvir passivamente facilita compreensão reduz conflitos e fortalece relacionamentos no trabalho sempre.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 14, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Informações difusas e incompletas promovem confiança e melhoram o clima organizacional saudável.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 14, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">O excesso de ruído na comunicação promove entendimento e eficiência continuamente sempre.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 14, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">O feedback construtivo contribui para aprendizado contínuo e melhoria de processos organizacionais.</span></li></ul>
+<div class="inline-feedback" id="feedback_14"></div><div class="inline-comentario" id="comentario_14"><strong>Fundamentação (Gabarito D):</strong> O feedback construtivo e transparente orienta os servidores, estimula o aprimoramento contínuo das rotinas e aperfeiçoa o clima organizacional.</div></div>
+<!-- PARTE 3: INFORMÁTICA & MATEMÁTICA -->
+<div class="section-title">PARTE 3: INFORMÁTICA &amp; MATEMÁTICA (Questões Reais 2026)</div>
+<!-- Q4155827 -->
+<div class="question-box" data-gab="A" data-q="15">
+<div class="question-header">QUESTÃO 15 [Q4155827] • Noções de Informática • Microsoft Word &amp; Excel • INBRASP 2026</div>
+<div class="question-title">Considerando que ao trabalhar com programas de edição de texto e planilhas eletrônicas, é importante dominar funções básicas que permitam formatar documentos e realizar cálculos simples ou complexos de forma precisa e eficiente, assinale a alternativa CORRETA:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 15, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">No Word, é possível formatar texto alterar fontes cores e inserir tabelas.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 15, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">No Excel, a fórmula SOMA serve para calcular quantidades entre células selecionadas.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 15, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">No Word, as planilhas são criadas para cálculos complexos com fórmulas matemáticas.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 15, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">No Excel, a ferramenta de revisão aplica correção ortográfica em parágrafos escritos.</span></li></ul>
+<div class="inline-feedback" id="feedback_15"></div><div class="inline-comentario" id="comentario_15"><strong>Fundamentação (Gabarito A):</strong> O Microsoft Word permite a edição, formatação completa de fontes (tamanho, cor, família), parágrafos e inserção de tabelas e elementos gráficos.</div></div>
+<!-- Q4156055 -->
+<div class="question-box" data-gab="B" data-q="16">
+<div class="question-header">QUESTÃO 16 [Q4156055] • Matemática • Frações e Números Decimais em Ordem Crescente • INBRASP 2026</div>
+<div class="question-title">Os valores foram obtidos em uma pesquisa estatística, observe: (4/5; 0,75; 1,2; 3/2; 0,8̅). Para facilitar a análise dos dados, é necessário organizá-los em ordem crescente. Assim, a ordem crescente dos números é, CORRETA e, respectivamente:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 16, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">0,75; 0,8̅; 4/5; 1,2; 3/2.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 16, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">0,75; 4/5; 0,8̅; 1,2; 3/2.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 16, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">4/5; 0,75; 0,8̅; 1,2; 3/2.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 16, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">3/2; 0,8̅; 4,5; 1,2; 0,75.</span></li></ul>
+<div class="inline-feedback" id="feedback_16"></div><div class="inline-comentario" id="comentario_16"><strong>Fundamentação (Gabarito B):</strong> Convertendo para decimais: 4/5 = 0,80; 0,75 = 0,75; 1,2 = 1,20; 3/2 = 1,50; 0,8̅ = 0,888... Ordem crescente: 0,75 &lt; 4/5 (0,80) &lt; 0,8̅ (0,888) &lt; 1,2 &lt; 3/2 (1,50).</div></div>
+<!-- Q4156054 -->
+<div class="question-box" data-gab="D" data-q="17">
+<div class="question-header">QUESTÃO 17 [Q4156054] • Matemática • Aritmética &amp; Resto de Divisão • INBRASP 2026</div>
+<div class="question-title">Sendo R o resto da divisão do número 1004505 por 6, então R é um número:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 17, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Divisor de 20.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 17, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Múltiplo de 9.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 17, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">Maior do que 5.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 17, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Primo.</span></li></ul>
+<div class="inline-feedback" id="feedback_17"></div><div class="inline-comentario" id="comentario_17"><strong>Fundamentação (Gabarito D):</strong> Soma dos dígitos de 1004505 = 1+0+0+4+5+0+5 = 15 (múltiplo de 3). Como é ímpar, 1004505 mod 6 = 3. O número 3 é um número Primo.</div></div>
+<!-- Q4156053 -->
+<div class="question-box" data-gab="D" data-q="18">
+<div class="question-header">QUESTÃO 18 [Q4156053] • Matemática • Sistema de Medidas de Tempo • INBRASP 2026</div>
+<div class="question-title">Considerando que um relógio adianta 3 minutos a cada dia, após 4 semanas, ele estará adiantado em:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 18, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">1 hora e 12 minutos.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 18, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">1 hora e 16 minutos.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 18, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">1 hora e 20 minutos.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 18, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">1 hora e 24 minutos.</span></li></ul>
+<div class="inline-feedback" id="feedback_18"></div><div class="inline-comentario" id="comentario_18"><strong>Fundamentação (Gabarito D):</strong> 4 semanas = 28 dias. 28 dias × 3 min/dia = 84 minutos. 84 minutos = 60 min + 24 min = 1 hora e 24 minutos.</div></div>
+<!-- Q4156052 -->
+<div class="question-box" data-gab="A" data-q="19">
+<div class="question-header">QUESTÃO 19 [Q4156052] • Matemática • Operações com Frações • INBRASP 2026</div>
+<div class="question-title">Pedro recebeu 3/4 das figurinhas que estavam em um álbum. Do total de figurinhas recebidas, ele deu 2/5 para um amigo. Dessa forma, a fração do total de figurinhas contidas no álbum que foi recebida pelo amigo de Pedro foi:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 19, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">3/10.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 19, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">1/20.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 19, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">1/4.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 19, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">1/3.</span></li></ul>
+<div class="inline-feedback" id="feedback_19"></div><div class="inline-comentario" id="comentario_19"><strong>Fundamentação (Gabarito A):</strong> Pedro recebeu 3/4 e deu 2/5 dessa parte ao amigo: (3/4) × (2/5) = 6/20 = 3/10 do álbum total.</div></div>
+<!-- PARTE 4: LÍNGUA PORTUGUESA -->
+<div class="section-title">PARTE 4: LÍNGUA PORTUGUESA (Questões Reais 2026)</div>
+<!-- Q4156051 -->
+<div class="question-box" data-gab="D" data-q="20">
+<div class="question-header">QUESTÃO 20 [Q4156051] • Português • Classes de Palavras: Adjetivo Caracterizador • INBRASP 2026</div>
+<div class="question-title">Assinale a alternativa cujo termo destacado é um adjetivo caracterizador de um substantivo:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 20, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">As críticas mais recentes se baseiam nas exigências do Pacto Ecológico Europeu.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 20, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">A potência asiática oferece algo a mais que os europeus.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 20, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">Alguns interesses, por outro lado, podem se camuflar neste cenário.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 20, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">É um bloco, um continente estratégico, não podemos reduzir sua importância.</span></li></ul>
+<div class="inline-feedback" id="feedback_20"></div><div class="inline-comentario" id="comentario_20"><strong>Fundamentação (Gabarito D):</strong> Em "continente estratégico", a palavra "estratégico" qualifica e caracteriza o substantivo "continente".</div></div>
+<!-- Q4156050 -->
+<div class="question-box" data-gab="D" data-q="21">
+<div class="question-header">QUESTÃO 21 [Q4156050] • Português • Adjunto Adverbial de Tempo • INBRASP 2026</div>
+<div class="question-title">Assinale a alternativa que apresenta CORRETAMENTE apenas expressões que indicam tempo:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 21, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Historicamente, temos tido um problema de diálogo com a União Europeia. Eles decidem regras importantes do jogo não em negociação, mas por conta própria.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 21, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Vale mencionar que há uma boa dose de protecionismo por parte do agronegócio europeu que também influencia a negociação com o Mercosul.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 21, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">As críticas mais recentes se baseiam nas exigências do Pacto Ecológico Europeu, o Green Deal.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 21, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Ingo Plöger, empresário que acompanha há décadas a negociação do acordo e atualmente está na vice-presidência da Abag, ressalta que a UE é um importante provedor de conceitos mundiais.</span></li></ul>
+<div class="inline-feedback" id="feedback_21"></div><div class="inline-comentario" id="comentario_21"><strong>Fundamentação (Gabarito D):</strong> As locuções adverbiais e advérbios "há décadas" (tempo decorrido) e "atualmente" (tempo presente) expressam circunstância temporal estrita.</div></div>
+<!-- Q4156049 -->
+<div class="question-box" data-gab="C" data-q="22">
+<div class="question-header">QUESTÃO 22 [Q4156049] • Português • Regras de Acentuação Gráfica • INBRASP 2026</div>
+<div class="question-title">A palavra ‘política’ está acentuada graficamente pelo mesmo motivo que em:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 22, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Inflexível.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 22, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Café.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 22, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Cômputo.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 22, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Fóruns.</span></li></ul>
+<div class="inline-feedback" id="feedback_22"></div><div class="inline-comentario" id="comentario_22"><strong>Fundamentação (Gabarito C):</strong> A palavra "po-lí-ti-ca" é proparoxítona (sílaba tônica antepenúltima). Todas as proparoxítonas são acentuadas, assim como "Côm-pu-to".</div></div>
+<!-- Q4156048 -->
+<div class="question-box" data-gab="A" data-q="23">
+<div class="question-header">QUESTÃO 23 [Q4156048] • Português • Orações Subordinadas Adverbiais: Condicional • INBRASP 2026</div>
+<div class="question-title">No trecho “o acordo de livre comércio entre Mercosul e União Europeia corre o risco de não ser ratificado, caso a Europa permaneça inflexível”, a palavra destacada ('caso') introduz o significado de:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 23, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Condição.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 23, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Consequência.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 23, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Causa.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 23, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Oposição.</span></li></ul>
+<div class="inline-feedback" id="feedback_23"></div><div class="inline-comentario" id="comentario_23"><strong>Fundamentação (Gabarito A):</strong> A conjunção subordinativa "caso" expressa uma condição necessária para que a oração principal se realize.</div></div>
+<!-- Q4156047 -->
+<div class="question-box" data-gab="B" data-q="24">
+<div class="question-header">QUESTÃO 24 [Q4156047] • Português • Sintaxe do Verbo Haver Impessoal • INBRASP 2026</div>
+<div class="question-title">Em “não houve nenhuma oportunidade de diálogo de demonstrar o que é viável”, é CORRETO afirmar, de acordo com os termos da oração, que:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 24, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">O termo ‘nenhuma oportunidade de diálogo’ exerce a função de sujeito do verbo ‘haver’.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 24, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">O verbo ‘haver’ é impessoal e transitivo direto.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 24, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">O termo ‘viável’ exerce a função de complemento nominal.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 24, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">O verbo ‘haver’ é pessoal e concorda com o sujeito da oração.</span></li></ul>
+<div class="inline-feedback" id="feedback_24"></div><div class="inline-comentario" id="comentario_24"><strong>Fundamentação (Gabarito B):</strong> No sentido de existir/ocorrer, o verbo 'haver' é impessoal (não tem sujeito) e é transitivo direto, exigindo objeto direto ("nenhuma oportunidade de diálogo").</div></div>
+<!-- Q4156046 -->
+<div class="question-box" data-gab="D" data-q="25">
+<div class="question-header">QUESTÃO 25 [Q4156046] • Português • Classes de Palavras: Preposição vs. Artigo • INBRASP 2026</div>
+<div class="question-title">No trecho “os produtores reunidos na Abag estariam dispostos a contribuir com a meta de acabar com o desmatamento ilegal”, as palavras 'a' em destaque ("a contribuir" e "a meta") são classificadas, CORRETA e respectivamente, como:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 25, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Conjunção e pronome.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 25, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Preposição e pronome.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 25, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">Conjunção e artigo.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 25, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Preposição e artigo.</span></li></ul>
+<div class="inline-feedback" id="feedback_25"></div><div class="inline-comentario" id="comentario_25"><strong>Fundamentação (Gabarito D):</strong> Em "a contribuir", 'a' é preposição antes do verbo no infinitivo; em "a meta", 'a' é artigo definido feminino que determina o substantivo 'meta'.</div></div>
+<!-- Q4156045 -->
+<div class="question-box" data-gab="A" data-q="26">
+<div class="question-header">QUESTÃO 26 [Q4156045] • Português • Significação de Palavras (Sinônimos) • INBRASP 2026</div>
+<div class="question-title">Em “o acordo de livre comércio entre Mercosul e União Europeia corre o risco de não ser ratificado”, o termo destacado ('ratificado') significa:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 26, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Validado.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 26, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Cancelado.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 26, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Proposto.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 26, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Corrigido.</span></li></ul>
+<div class="inline-feedback" id="feedback_26"></div><div class="inline-comentario" id="comentario_26"><strong>Fundamentação (Gabarito A):</strong> O verbo "ratificar" significa confirmar, validar, comprovar juridicamente um ato ou tratado prévio.</div></div>
+<!-- Q4156044 -->
+<div class="question-box" data-gab="C" data-q="27">
+<div class="question-header">QUESTÃO 27 [Q4156044] • Português • Morfossintaxe de Conjunção Causal • INBRASP 2026</div>
+<div class="question-title">Assinale a alternativa que apresenta CORRETAMENTE a classificação do termo destacado:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 27, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">O atual presidente brasileiro parece empenhado em reverter a situação. (Conjunção)</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 27, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">O Brasil foi o principal vendedor de produtos do setor para UE. (Substantivo)</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 27, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Não dá pra prever todas as variáveis porque não se trata de um processo linear. (Conjunção)</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 27, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Isso pode estar sendo provocado em parte às posições ambíguas de Lula. (Adjetivo)</span></li></ul>
+<div class="inline-feedback" id="feedback_27"></div><div class="inline-comentario" id="comentario_27"><strong>Fundamentação (Gabarito C):</strong> No período "...porque não se trata...", a palavra "porque" atua como conjunção subordinativa explicativa/causal ligando as orações.</div></div>
+<!-- Q4156043 -->
+<div class="question-box" data-gab="B" data-q="28">
+<div class="question-header">QUESTÃO 28 [Q4156043] • Português • Semântica Modalizadora • INBRASP 2026</div>
+<div class="question-title">No trecho “Se houver mudança do governo, o acordo tem que assegurar que ele mesmo não sirva de incentivo para quem está desmatando”, a expressão destacada ('tem que') indica:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 28, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Possibilidade.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 28, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Obrigação.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 28, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">Proibição.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 28, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Restrição.</span></li></ul>
+<div class="inline-feedback" id="feedback_28"></div><div class="inline-comentario" id="comentario_28"><strong>Fundamentação (Gabarito B):</strong> A locução verbal modalizadora "tem que" veicula valor semântico de obrigatoriedade/dever imperativo.</div></div>
+<!-- Q4156042 -->
+<div class="question-box" data-gab="C" data-q="29">
+<div class="question-header">QUESTÃO 29 [Q4156042] • Português • Vocabulário Contextual: Sinônimos • INBRASP 2026</div>
+<div class="question-title">Em “é preciso ter cautela com as assimetrias do acordo e algumas previsões muito otimistas”, o termo destacado ('assimetrias') pode ser substituído CORRETAMENTE por:</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 29, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Tendências.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 29, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Lacunas.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 29, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Discrepâncias.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 29, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Propostas.</span></li></ul>
+<div class="inline-feedback" id="feedback_29"></div><div class="inline-comentario" id="comentario_29"><strong>Fundamentação (Gabarito C):</strong> O vocábulo "assimetrias" refere-se à ausência de igualdade, desníveis, descompassos ou discrepâncias entre as partes negociadoras.</div></div>
+<!-- GABARITO COMENTADO COMPLETO -->
+<div class="answer-card">
+<h2 style="text-align: center; margin-top: 0; color: #1e3a8a;">GABARITO OFICIAL COMENTADO &amp; FUNDAMENTAÇÃO (INBRASP 2026)</h2>
+<div class="comentario-box">
+<strong>01. GABARITO: D</strong> — Na Lei 14.133/2021 (Art. 17), a regra geral do rito procedimental é a inversão de fases (fase de julgamento de propostas antecede a fase de habilitação).
     </div>
-
-    <div class="comentario-box">
-      <strong>02. GABARITO: B</strong> — Os atributos do ato administrativo são: Presunção de Legitimidade, Imperatividade, Autoexecutoriedade e Tipicidade (mnemônico PIAT).
+<div class="comentario-box">
+<strong>02. GABARITO: B</strong> — Os atributos do ato administrativo são: Presunção de Legitimidade, Imperatividade, Autoexecutoriedade e Tipicidade (mnemônico PIAT).
     </div>
-
-    <div class="comentario-box">
-      <strong>03. GABARITO: D</strong> — O caput do Art. 37 da Constituição Federal consagra expressamente os princípios fundamentais da Administração Pública (LIMPE: Legalidade, Impessoalidade, Moralidade, Publicidade e Eficiência).
+<div class="comentario-box">
+<strong>03. GABARITO: D</strong> — O caput do Art. 37 da Constituição Federal consagra expressamente os princípios fundamentais da Administração Pública (LIMPE: Legalidade, Impessoalidade, Moralidade, Publicidade e Eficiência).
     </div>
-
-    <div class="comentario-box">
-      <strong>04. GABARITO: B</strong> — Art. 5º, XI, CF/88: A casa é asilo inviolável do indivíduo, salvo em caso de flagrante delito, desastre, socorro ou, durante o dia, por determinação judicial.
+<div class="comentario-box">
+<strong>04. GABARITO: B</strong> — Art. 5º, XI, CF/88: A casa é asilo inviolável do indivíduo, salvo em caso de flagrante delito, desastre, socorro ou, durante o dia, por determinação judicial.
     </div>
-
-    <div class="comentario-box">
-      <strong>05. GABARITO: D</strong> — Art. 3º, III, CF/88: Constitui objetivo fundamental da República Federativa do Brasil erradicar a pobreza e a marginalização e reduzir as desigualdades sociais e regionais.
+<div class="comentario-box">
+<strong>05. GABARITO: D</strong> — Art. 3º, III, CF/88: Constitui objetivo fundamental da República Federativa do Brasil erradicar a pobreza e a marginalização e reduzir as desigualdades sociais e regionais.
     </div>
-
-    <div class="comentario-box">
-      <strong>06. GABARITO: B</strong> — A Lei Orgânica é a lei fundamental municipal que estrutura e organiza os poderes locais (Executivo e Legislativo), subordinada às Constituições Federal e Estadual.
+<div class="comentario-box">
+<strong>06. GABARITO: B</strong> — A Lei Orgânica é a lei fundamental municipal que estrutura e organiza os poderes locais (Executivo e Legislativo), subordinada às Constituições Federal e Estadual.
     </div>
-
-    <div class="comentario-box">
-      <strong>07. GABARITO: D</strong> — O setor de protocolo é responsável pelo registro de entrada, movimentação e saída de documentos oficiais, garantindo autenticidade e rastreabilidade formal.
+<div class="comentario-box">
+<strong>07. GABARITO: D</strong> — O setor de protocolo é responsável pelo registro de entrada, movimentação e saída de documentos oficiais, garantindo autenticidade e rastreabilidade formal.
     </div>
-
-    <div class="comentario-box">
-      <strong>08. GABARITO: D</strong> — Na Teoria Geral da Administração, a função 'Controlar' consiste em acompanhar a execução, comparar com os padrões planejados e corrigir eventuais desvios.
+<div class="comentario-box">
+<strong>08. GABARITO: D</strong> — Na Teoria Geral da Administração, a função 'Controlar' consiste em acompanhar a execução, comparar com os padrões planejados e corrigir eventuais desvios.
     </div>
-
-    <div class="comentario-box">
-      <strong>09. GABARITO: A</strong> — O registro criterioso de data, hora e procedência do documento é indispensável para o controle da cadeia de custódia e rastreabilidade no protocolo.
+<div class="comentario-box">
+<strong>09. GABARITO: A</strong> — O registro criterioso de data, hora e procedência do documento é indispensável para o controle da cadeia de custódia e rastreabilidade no protocolo.
     </div>
-
-    <div class="comentario-box">
-      <strong>10. GABARITO: D</strong> — O método de arquivamento por assunto (ideográfico) organiza os documentos segundo o tema, facilitando sua recuperação célere e preservação institucional.
+<div class="comentario-box">
+<strong>10. GABARITO: D</strong> — O método de arquivamento por assunto (ideográfico) organiza os documentos segundo o tema, facilitando sua recuperação célere e preservação institucional.
     </div>
-
-    <div class="comentario-box">
-      <strong>11. GABARITO: D</strong> — O cumprimento rigoroso dos preceitos éticos e deontológicos pelo servidor público fortalece a credibilidade e a confiança da sociedade na instituição.
+<div class="comentario-box">
+<strong>11. GABARITO: D</strong> — O cumprimento rigoroso dos preceitos éticos e deontológicos pelo servidor público fortalece a credibilidade e a confiança da sociedade na instituição.
     </div>
-
-    <div class="comentario-box">
-      <strong>12. GABARITO: A</strong> — No Manual de Redação Oficial da Presidência da República, o Ofício é a comunicação formal destinada a autoridades de outros órgãos ou entidades externas.
+<div class="comentario-box">
+<strong>12. GABARITO: A</strong> — No Manual de Redação Oficial da Presidência da República, o Ofício é a comunicação formal destinada a autoridades de outros órgãos ou entidades externas.
     </div>
-
-    <div class="comentario-box">
-      <strong>13. GABARITO: A</strong> — O atendimento de excelência no serviço público fundamenta-se na escuta ativa, presteza, clareza nas orientações e resolutividade das demandas dos cidadãos.
+<div class="comentario-box">
+<strong>13. GABARITO: A</strong> — O atendimento de excelência no serviço público fundamenta-se na escuta ativa, presteza, clareza nas orientações e resolutividade das demandas dos cidadãos.
     </div>
-
-    <div class="comentario-box">
-      <strong>14. GABARITO: D</strong> — O feedback construtivo e transparente orienta os servidores, estimula o aprimoramento contínuo das rotinas e aperfeiçoa o clima organizacional.
+<div class="comentario-box">
+<strong>14. GABARITO: D</strong> — O feedback construtivo e transparente orienta os servidores, estimula o aprimoramento contínuo das rotinas e aperfeiçoa o clima organizacional.
     </div>
-
-    <div class="comentario-box">
-      <strong>15. GABARITO: A</strong> — O Microsoft Word permite a edição, formatação completa de fontes (tamanho, cor, família), parágrafos e inserção de tabelas e elementos gráficos.
+<div class="comentario-box">
+<strong>15. GABARITO: A</strong> — O Microsoft Word permite a edição, formatação completa de fontes (tamanho, cor, família), parágrafos e inserção de tabelas e elementos gráficos.
     </div>
-
-    <div class="comentario-box">
-      <strong>16. GABARITO: B</strong> — Convertendo para decimais: 4/5 = 0,80; 0,75 = 0,75; 1,2 = 1,20; 3/2 = 1,50; 0,8̅ = 0,888... Ordem crescente: 0,75 < 4/5 (0,80) < 0,8̅ (0,888) < 1,2 < 3/2 (1,50).
+<div class="comentario-box">
+<strong>16. GABARITO: B</strong> — Convertendo para decimais: 4/5 = 0,80; 0,75 = 0,75; 1,2 = 1,20; 3/2 = 1,50; 0,8̅ = 0,888... Ordem crescente: 0,75 &lt; 4/5 (0,80) &lt; 0,8̅ (0,888) &lt; 1,2 &lt; 3/2 (1,50).
     </div>
-
-    <div class="comentario-box">
-      <strong>17. GABARITO: D</strong> — Soma dos dígitos de 1004505 = 1+0+0+4+5+0+5 = 15 (múltiplo de 3). Como é ímpar, 1004505 mod 6 = 3. O número 3 é um número Primo.
+<div class="comentario-box">
+<strong>17. GABARITO: D</strong> — Soma dos dígitos de 1004505 = 1+0+0+4+5+0+5 = 15 (múltiplo de 3). Como é ímpar, 1004505 mod 6 = 3. O número 3 é um número Primo.
     </div>
-
-    <div class="comentario-box">
-      <strong>18. GABARITO: D</strong> — 4 semanas = 28 dias. 28 dias × 3 min/dia = 84 minutos. 84 minutos = 60 min + 24 min = 1 hora e 24 minutos.
+<div class="comentario-box">
+<strong>18. GABARITO: D</strong> — 4 semanas = 28 dias. 28 dias × 3 min/dia = 84 minutos. 84 minutos = 60 min + 24 min = 1 hora e 24 minutos.
     </div>
-
-    <div class="comentario-box">
-      <strong>19. GABARITO: A</strong> — Pedro recebeu 3/4 e deu 2/5 dessa parte ao amigo: (3/4) × (2/5) = 6/20 = 3/10 do álbum total.
+<div class="comentario-box">
+<strong>19. GABARITO: A</strong> — Pedro recebeu 3/4 e deu 2/5 dessa parte ao amigo: (3/4) × (2/5) = 6/20 = 3/10 do álbum total.
     </div>
-
-    <div class="comentario-box">
-      <strong>20. GABARITO: D</strong> — Em "continente estratégico", a palavra "estratégico" qualifica e caracteriza o substantivo "continente".
+<div class="comentario-box">
+<strong>20. GABARITO: D</strong> — Em "continente estratégico", a palavra "estratégico" qualifica e caracteriza o substantivo "continente".
     </div>
-
-    <div class="comentario-box">
-      <strong>21. GABARITO: D</strong> — As locuções adverbiais e advérbios "há décadas" (tempo decorrido) e "atualmente" (tempo presente) expressam circunstância temporal estrita.
+<div class="comentario-box">
+<strong>21. GABARITO: D</strong> — As locuções adverbiais e advérbios "há décadas" (tempo decorrido) e "atualmente" (tempo presente) expressam circunstância temporal estrita.
     </div>
-
-    <div class="comentario-box">
-      <strong>22. GABARITO: C</strong> — A palavra "po-lí-ti-ca" é proparoxítona (sílaba tônica antepenúltima). Todas as proparoxítonas são acentuadas, assim como "Côm-pu-to".
+<div class="comentario-box">
+<strong>22. GABARITO: C</strong> — A palavra "po-lí-ti-ca" é proparoxítona (sílaba tônica antepenúltima). Todas as proparoxítonas são acentuadas, assim como "Côm-pu-to".
     </div>
-
-    <div class="comentario-box">
-      <strong>23. GABARITO: A</strong> — A conjunção subordinativa "caso" expressa uma condição necessária para que a oração principal se realize.
+<div class="comentario-box">
+<strong>23. GABARITO: A</strong> — A conjunção subordinativa "caso" expressa uma condição necessária para que a oração principal se realize.
     </div>
-
-    <div class="comentario-box">
-      <strong>24. GABARITO: B</strong> — No sentido de existir/ocorrer, o verbo 'haver' é impessoal (não tem sujeito) e é transitivo direto, exigindo objeto direto ("nenhuma oportunidade de diálogo").
+<div class="comentario-box">
+<strong>24. GABARITO: B</strong> — No sentido de existir/ocorrer, o verbo 'haver' é impessoal (não tem sujeito) e é transitivo direto, exigindo objeto direto ("nenhuma oportunidade de diálogo").
     </div>
-
-    <div class="comentario-box">
-      <strong>25. GABARITO: D</strong> — Em "a contribuir", 'a' é preposição antes do verbo no infinitivo; em "a meta", 'a' é artigo definido feminino que determina o substantivo 'meta'.
+<div class="comentario-box">
+<strong>25. GABARITO: D</strong> — Em "a contribuir", 'a' é preposição antes do verbo no infinitivo; em "a meta", 'a' é artigo definido feminino que determina o substantivo 'meta'.
     </div>
-
-    <div class="comentario-box">
-      <strong>26. GABARITO: A</strong> — O verbo "ratificar" significa confirmar, validar, comprovar juridicamente um ato ou tratado prévio.
+<div class="comentario-box">
+<strong>26. GABARITO: A</strong> — O verbo "ratificar" significa confirmar, validar, comprovar juridicamente um ato ou tratado prévio.
     </div>
-
-    <div class="comentario-box">
-      <strong>27. GABARITO: C</strong> — No período "...porque não se trata...", a palavra "porque" atua como conjunção subordinativa explicativa/causal ligando as orações.
+<div class="comentario-box">
+<strong>27. GABARITO: C</strong> — No período "...porque não se trata...", a palavra "porque" atua como conjunção subordinativa explicativa/causal ligando as orações.
     </div>
-
-    <div class="comentario-box">
-      <strong>28. GABARITO: B</strong> — A locução verbal modalizadora "tem que" veicula valor semântico de obrigatoriedade/dever imperativo.
+<div class="comentario-box">
+<strong>28. GABARITO: B</strong> — A locução verbal modalizadora "tem que" veicula valor semântico de obrigatoriedade/dever imperativo.
     </div>
-
-    <div class="comentario-box">
-      <strong>29. GABARITO: C</strong> — O vocábulo "assimetrias" refere-se à ausência de igualdade, desníveis, descompassos ou discrepâncias entre as partes negociadoras.
+<div class="comentario-box">
+<strong>29. GABARITO: C</strong> — O vocábulo "assimetrias" refere-se à ausência de igualdade, desníveis, descompassos ou discrepâncias entre as partes negociadoras.
     </div>
-  </div>
+</div>
 
+<script>
+    // ESTADO DO SIMULADO INTERATIVO
+    let userAnswers = {}; // { qNum: letter }
+    let instantMode = true;
+    let totalQuestions = 0;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      totalQuestions = document.querySelectorAll('.question-box[data-q]').length;
+      updateStats();
+    });
+
+    function toggleInstantMode(enabled) {
+      instantMode = enabled;
+      const btnFinish = document.getElementById('btnFinish');
+      if (btnFinish) {
+        btnFinish.style.display = enabled ? 'none' : 'inline-flex';
+      }
+    }
+
+    function handleOptionClick(btn, qNum, selectedOpt, correctOpt) {
+      const qBox = document.querySelector(`.question-box[data-q="${qNum}"]`);
+      if (!qBox) return;
+
+      // Se já respondeu no modo instantâneo, permite trocar se quiser
+      userAnswers[qNum] = selectedOpt;
+
+      // Limpar estados anteriores nas opções desta questão
+      qBox.querySelectorAll('.option-item').forEach(opt => {
+        opt.classList.remove('selected', 'is-correct', 'is-wrong');
+      });
+
+      btn.classList.add('selected');
+
+      if (instantMode) {
+        evaluateQuestion(qNum, selectedOpt, correctOpt);
+      }
+      updateStats();
+    }
+
+    function evaluateQuestion(qNum, selectedOpt, correctOpt) {
+      const qBox = document.querySelector(`.question-box[data-q="${qNum}"]`);
+      if (!qBox) return;
+
+      const fb = document.getElementById(`feedback_${qNum}`);
+      const com = document.getElementById(`comentario_${qNum}`);
+      const isCorrect = (selectedOpt.toUpperCase() === correctOpt.toUpperCase());
+
+      qBox.querySelectorAll('.option-item').forEach(opt => {
+        const optLetter = opt.getAttribute('data-opt');
+        if (optLetter === correctOpt) {
+          opt.classList.add('is-correct');
+        } else if (optLetter === selectedOpt && !isCorrect) {
+          opt.classList.add('is-wrong');
+        }
+      });
+
+      if (fb) {
+        if (isCorrect) {
+          fb.className = 'inline-feedback correct';
+          fb.innerHTML = '<i class="fas fa-check-circle"></i> <strong>Parabéns, você acertou!</strong> Alternativa correta: <strong>(' + correctOpt + ')</strong>';
+        } else {
+          fb.className = 'inline-feedback wrong';
+          fb.innerHTML = '<i class="fas fa-times-circle"></i> <strong>Você errou.</strong> Sua resposta foi <strong>(' + selectedOpt + ')</strong>, mas o gabarito oficial é <strong>(' + correctOpt + ')</strong>.';
+        }
+      }
+
+      if (com) {
+        com.style.display = 'block';
+      }
+    }
+
+    function finishExam() {
+      document.querySelectorAll('.question-box[data-q]').forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        const correctOpt = qBox.getAttribute('data-gab');
+        const selectedOpt = userAnswers[qNum];
+        if (selectedOpt) {
+          evaluateQuestion(qNum, selectedOpt, correctOpt);
+        } else {
+          // Revelar gabarito de não respondidas
+          const fb = document.getElementById(`feedback_${qNum}`);
+          const com = document.getElementById(`comentario_${qNum}`);
+          qBox.querySelectorAll('.option-item').forEach(opt => {
+            if (opt.getAttribute('data-opt') === correctOpt) {
+              opt.classList.add('is-correct');
+            }
+          });
+          if (fb) {
+            fb.className = 'inline-feedback wrong';
+            fb.innerHTML = '<i class="fas fa-minus-circle"></i> <strong>Não respondida.</strong> Gabarito oficial: <strong>(' + correctOpt + ')</strong>';
+          }
+          if (com) com.style.display = 'block';
+        }
+      });
+      updateStats();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateStats() {
+      let correct = 0;
+      let wrong = 0;
+      const qBoxes = document.querySelectorAll('.question-box[data-q]');
+      const total = qBoxes.length || totalQuestions;
+
+      qBoxes.forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        const correctOpt = qBox.getAttribute('data-gab');
+        const sel = userAnswers[qNum];
+        if (sel) {
+          if (sel.toUpperCase() === correctOpt.toUpperCase()) correct++;
+          else wrong++;
+        }
+      });
+
+      const answered = Object.keys(userAnswers).length;
+      const percent = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+
+      const elAnswered = document.getElementById('answeredCount');
+      const elCorrect = document.getElementById('correctCount');
+      const elWrong = document.getElementById('wrongCount');
+      const elPercent = document.getElementById('percentBadge');
+      const elBar = document.getElementById('progressBar');
+      const elBtnRetry = document.getElementById('btnRetryErrors');
+      const elWrongBtnCount = document.getElementById('wrongBtnCount');
+
+      if (elAnswered) elAnswered.innerText = answered;
+      if (elCorrect) elCorrect.innerText = correct;
+      if (elWrong) elWrong.innerText = wrong;
+      if (elPercent) elPercent.innerText = percent + '%';
+      if (elBar) elBar.style.width = (total > 0 ? (answered / total) * 100 : 0) + '%';
+
+      if (elBtnRetry && elWrongBtnCount) {
+        elWrongBtnCount.innerText = wrong;
+        elBtnRetry.style.display = wrong > 0 ? 'inline-flex' : 'none';
+      }
+    }
+
+    function retryErrors() {
+      const qBoxes = document.querySelectorAll('.question-box[data-q]');
+      let firstWrong = null;
+
+      qBoxes.forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        const correctOpt = qBox.getAttribute('data-gab');
+        const sel = userAnswers[qNum];
+
+        if (sel && sel.toUpperCase() !== correctOpt.toUpperCase()) {
+          // Limpa resposta errada
+          delete userAnswers[qNum];
+          qBox.querySelectorAll('.option-item').forEach(opt => {
+            opt.classList.remove('selected', 'is-correct', 'is-wrong');
+          });
+          const fb = document.getElementById(`feedback_${qNum}`);
+          const com = document.getElementById(`comentario_${qNum}`);
+          if (fb) fb.className = 'inline-feedback';
+          if (com) com.style.display = 'none';
+
+          if (!firstWrong) firstWrong = qBox;
+        }
+      });
+
+      updateStats();
+      if (firstWrong) {
+        firstWrong.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function resetQuiz() {
+      if (!confirm('Deseja reiniciar todas as respostas deste caderno?')) return;
+      userAnswers = {};
+      document.querySelectorAll('.question-box[data-q]').forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        qBox.querySelectorAll('.option-item').forEach(opt => {
+          opt.classList.remove('selected', 'is-correct', 'is-wrong');
+        });
+        const fb = document.getElementById(`feedback_${qNum}`);
+        const com = document.getElementById(`comentario_${qNum}`);
+        if (fb) fb.className = 'inline-feedback';
+        if (com) com.style.display = 'none';
+      });
+      updateStats();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>

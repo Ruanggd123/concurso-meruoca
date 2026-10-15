@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="pt-BR">
-<head>
+<head><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
 <meta charset="utf-8"/>
 <title>PROVA REAL OFICIAL — DIREITO ADMINISTRATIVO &amp; CF/88 (BANCA INBRASP)</title>
 <style>
@@ -113,8 +113,310 @@
     }
     .comentario-box strong { color: #1e3a8a; }
   </style>
-</head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/><style>
+    /* === ESTILOS INTERATIVOS DE MARCAÇÃO E GABARITO === */
+    @media print {
+      .no-print, .interactive-header, .btn-action-quiz, .inline-feedback { display: none !important; }
+      body { padding: 0 !important; }
+    }
+
+    body {
+      padding-top: 10px !important;
+    }
+
+    /* Barra Fixa Superior com Progresso e Placar */
+    .interactive-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+      padding: 10px 14px;
+      margin: 0 0 20px 0;
+    }
+
+    .header-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .btn-back-nav {
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 5px 10px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: background 0.18s;
+    }
+    .btn-back-nav:hover { background: #dbeafe; }
+
+    .score-stats {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .stat-pill {
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .stat-pill.total { background: #f1f5f9; color: #334155; }
+    .stat-pill.correct { background: #dcfce7; color: #15803d; }
+    .stat-pill.wrong { background: #fee2e2; color: #b91c1c; }
+    .stat-pill.percent { background: #1e3a8a; color: #ffffff; }
+
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #2563eb, #16a34a);
+      transition: width 0.3s ease;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed #e2e8f0;
+    }
+
+    .mode-toggle-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #166534;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      user-select: none;
+      background: #f0fdf4;
+      padding: 5px 10px;
+      border-radius: 6px;
+      border: 1px solid #bbf7d0;
+    }
+    .mode-toggle-label input { cursor: pointer; accent-color: #16a34a; }
+
+    .btn-action-quiz {
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.18s;
+    }
+    .btn-action-quiz.retry {
+      background: #f8fafc;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+    .btn-action-quiz.retry:hover { background: #e2e8f0; }
+    .btn-action-quiz.primary {
+      background: #2563eb;
+      color: white;
+    }
+    .btn-action-quiz.primary:hover { background: #1d4ed8; }
+
+    /* Alternativas Estilizadas e Clicáveis */
+    .options-list {
+      list-style: none !important;
+      padding-left: 0 !important;
+      margin: 10px 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+    }
+
+    .option-item {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.94rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      transition: all 0.18s ease;
+      user-select: none;
+      position: relative;
+    }
+    .option-item:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .option-bubble {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #334155;
+      font-weight: 800;
+      font-size: 0.82rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: all 0.18s;
+    }
+
+    .option-text {
+      flex: 1;
+      line-height: 1.42;
+      font-weight: 500;
+    }
+
+    /* Estado Marcado */
+    .option-item.selected {
+      background: #eff6ff;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 1px #2563eb;
+    }
+    .option-item.selected .option-bubble {
+      background: #2563eb;
+      color: white;
+    }
+
+    /* Estado Correto (Verde) */
+    .option-item.is-correct {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      box-shadow: 0 0 0 1.5px #16a34a !important;
+      color: #14532d !important;
+      font-weight: 600;
+    }
+    .option-item.is-correct .option-bubble {
+      background: #16a34a !important;
+      color: white !important;
+    }
+
+    /* Estado Errado (Vermelho) */
+    .option-item.is-wrong {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      box-shadow: 0 0 0 1.5px #dc2626 !important;
+      color: #7f1d1d !important;
+    }
+    .option-item.is-wrong .option-bubble {
+      background: #dc2626 !important;
+      color: white !important;
+    }
+
+    /* Feedback Inline Imediato */
+    .inline-feedback {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      animation: feedbackIn 0.25s ease;
+    }
+    .inline-feedback.correct {
+      display: block;
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      color: #14532d;
+    }
+    .inline-feedback.wrong {
+      display: block;
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      color: #991b1b;
+    }
+    .inline-feedback strong { font-weight: 800; }
+
+    .inline-comentario {
+      display: none;
+      margin-top: 8px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border-left: 4px solid #2563eb;
+      font-size: 0.86rem;
+      color: #334155;
+      line-height: 1.45;
+      animation: feedbackIn 0.25s ease;
+    }
+    .inline-comentario strong { color: #1e3a8a; }
+
+    @keyframes feedbackIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+</style></head>
 <body>
+<div class="interactive-header no-print" id="quizHeader">
+<div class="header-top-row">
+<div style="display:flex; align-items:center; gap:8px;">
+<a class="btn-back-nav" href="../PROVAO_MOBILE_ESPECIFICAS.html" title="Voltar ao Provão Mobile">
+<i class="fas fa-mobile-alt"></i> Provão Mobile
+                  </a>
+<a class="btn-back-nav" href="CENTRAL_DE_PROVAS.html" title="Central de Provas">
+<i class="fas fa-folder-open"></i> Central de Provas
+                  </a>
+</div>
+<div class="score-stats">
+<span class="stat-pill total"><i class="fas fa-tasks"></i> <span id="answeredCount">0</span>/30</span>
+<span class="stat-pill correct"><i class="fas fa-check"></i> <span id="correctCount">0</span></span>
+<span class="stat-pill wrong"><i class="fas fa-times"></i> <span id="wrongCount">0</span></span>
+<span class="stat-pill percent" id="percentBadge">0%</span>
+</div>
+</div>
+<div class="progress-track">
+<div class="progress-bar-fill" id="progressBar"></div>
+</div>
+<div class="header-controls">
+<label class="mode-toggle-label" title="Ao tocar em qualquer opção, já mostra na hora se acertou ou errou!">
+<input checked="" id="chkInstant" onchange="toggleInstantMode(this.checked)" type="checkbox"/>
+<span><i class="fas fa-bolt" style="color: #16a34a;"></i> Modo Estudo: Resposta ao Tocar</span>
+</label>
+<div style="display:flex; gap:6px;">
+<button class="btn-action-quiz retry" id="btnRetryErrors" onclick="retryErrors()" style="display:none;">
+<i class="fas fa-redo-alt" style="color:#dc2626;"></i> Refazer Erradas (<span id="wrongBtnCount">0</span>)
+                  </button>
+<button class="btn-action-quiz retry" onclick="resetQuiz()">
+<i class="fas fa-sync-alt"></i> Reiniciar
+                  </button>
+<button class="btn-action-quiz primary" id="btnFinish" onclick="finishExam()" style="display:none;">
+<i class="fas fa-check-double"></i> Finalizar Prova
+                  </button>
+</div>
+</div>
+</div>
+
 <div class="header-box">
 <span class="badge-real">CADERNO DE QUESTÕES REAIS DA BANCA</span>
 <h1>CONCURSOS MUNICIPAIS DA BANCA INBRASP / IBRASP</h1>
@@ -132,156 +434,156 @@
 </ul>
 </div>
 <div class="section-title">DIREITO ADMINISTRATIVO &amp; CONSTITUCIONAL (INBRASP/IBRASP)</div>
-<div class="question-box">
+<div class="question-box" data-gab="B" data-q="1">
 <div class="question-header">QUESTÃO 01 • Direito Administrativo • Questão Oficial 01 • INBRASP</div>
 <div class="question-title">[01] A Lei nº 14.133/2021 estabelece como princípio da licitação pública expressamente enumerado:</div>
-<ul class="options-list"><li>(A) Sigilo irrestrito dos atos processuais licitatórios.</li><li>(B) Planejamento, transparência, eficácia, segregação de funções e motivação.</li><li>(C) Discricionariedade ilimitada na escolha da proposta mais cara.</li><li>(D) Prevalência da contratação verbal para obras públicas.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 1, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Sigilo irrestrito dos atos processuais licitatórios.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 1, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Planejamento, transparência, eficácia, segregação de funções e motivação.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 1, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">Discricionariedade ilimitada na escolha da proposta mais cara.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 1, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Prevalência da contratação verbal para obras públicas.</span></li></ul>
+<div class="inline-feedback" id="feedback_1"></div><div class="inline-comentario" id="comentario_1"><strong>Fundamentação (Gabarito B):</strong> Art. 5º da Lei 14.133/21: princípios da legalidade, impessoalidade, moralidade, publicidade, eficiência, planejamento, transparência, eficácia, segregação de funções, etc.</div></div>
+<div class="question-box" data-gab="D" data-q="2">
 <div class="question-header">QUESTÃO 02 • Direito Administrativo • Questão Oficial 02 • INBRASP</div>
 <div class="question-title">[02] O agente que atua no âmbito da Administração Pública sem remuneração e sem vínculo formal, prestando serviços relevantes como jurado ou mesário eleitoral, classifica-se como:</div>
-<ul class="options-list"><li>(A) Servidor público estatutário.</li><li>(B) Empregado público celetista.</li><li>(C) Agente delegado por concessão.</li><li>(D) Agente honorífico.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 2, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Servidor público estatutário.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 2, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Empregado público celetista.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 2, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">Agente delegado por concessão.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 2, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Agente honorífico.</span></li></ul>
+<div class="inline-feedback" id="feedback_2"></div><div class="inline-comentario" id="comentario_2"><strong>Fundamentação (Gabarito D):</strong> Agentes honoríficos são cidadãos convocados ou nomeados para prestar serviços específicos ao Estado sem remuneração (mesários, jurados).</div></div>
+<div class="question-box" data-gab="A" data-q="3">
 <div class="question-header">QUESTÃO 03 • Direito Administrativo • Questão Oficial 03 • INBRASP</div>
 <div class="question-title">[03] A concessão de serviço público é a delegação de sua prestação, feita pelo poder concedente, mediante licitação, na modalidade:</div>
-<ul class="options-list"><li>(A) Concorrência ou diálogo competitivo.</li><li>(B) Leilão.</li><li>(C) Concurso artístico.</li><li>(D) Dispensa por emergência.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 3, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Concorrência ou diálogo competitivo.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 3, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Leilão.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 3, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Concurso artístico.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 3, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Dispensa por emergência.</span></li></ul>
+<div class="inline-feedback" id="feedback_3"></div><div class="inline-comentario" id="comentario_3"><strong>Fundamentação (Gabarito A):</strong> Lei 8.987/95 e Lei 14.133/21: Concessão de serviços públicos é formalizada mediante licitação na modalidade concorrência.</div></div>
+<div class="question-box" data-gab="C" data-q="4">
 <div class="question-header">QUESTÃO 04 • Direito Administrativo • Questão Oficial 04 • INBRASP</div>
 <div class="question-title">[04] Conforme o art. 37, § 5º da CF/88, as ações de ressarcimento ao erário por atos de improbidade administrativa dolosos tipificados em lei são:</div>
-<ul class="options-list"><li>(A) Prescritíveis em 1 ano da ocorrência do dano.</li><li>(B) Prescritíveis em 2 anos do término do mandato.</li><li>(C) Imprescritíveis (Tema 897 do STF).</li><li>(D) Extintas automaticamente com a prestação de contas.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 4, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Prescritíveis em 1 ano da ocorrência do dano.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 4, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Prescritíveis em 2 anos do término do mandato.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 4, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Imprescritíveis (Tema 897 do STF).</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 4, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Extintas automaticamente com a prestação de contas.</span></li></ul>
+<div class="inline-feedback" id="feedback_4"></div><div class="inline-comentario" id="comentario_4"><strong>Fundamentação (Gabarito C):</strong> STF (Tema 897): São imprescritíveis as ações de ressarcimento ao erário fundadas na prática de ato doloso tipificado na Lei de Improbidade Administrativa.</div></div>
+<div class="question-box" data-gab="D" data-q="5">
 <div class="question-header">QUESTÃO 05 • Direito Administrativo • Questão Oficial 05 • INBRASP</div>
 <div class="question-title">[05] Em relação aos atos administrativos, a imperatividade significa que:</div>
-<ul class="options-list"><li>(A) Todos os atos administrativos geram obrigações voluntárias aos cidadãos.</li><li>(B) O ato administrativo não pode ser revogado pela autoridade que o expediu.</li><li>(C) A Administração depende de concordância expressa do particular para agir.</li><li>(D) Os atos administrativos se impõem a terceiros independentemente de sua concordância.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 5, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Todos os atos administrativos geram obrigações voluntárias aos cidadãos.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 5, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">O ato administrativo não pode ser revogado pela autoridade que o expediu.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 5, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">A Administração depende de concordância expressa do particular para agir.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 5, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Os atos administrativos se impõem a terceiros independentemente de sua concordância.</span></li></ul>
+<div class="inline-feedback" id="feedback_5"></div><div class="inline-comentario" id="comentario_5"><strong>Fundamentação (Gabarito D):</strong> Imperatividade é o atributo pelo qual os atos administrativos impõem obrigações e restrições a terceiros, independentemente de sua prévia concordância.</div></div>
+<div class="question-box" data-gab="B" data-q="6">
 <div class="question-header">QUESTÃO 06 • Direito Administrativo • Questão Oficial 06 • INBRASP</div>
 <div class="question-title">[06] O teto remuneratório constitucional aplicável no âmbito dos Municípios para os servidores municipais corresponde ao subsídio do:</div>
-<ul class="options-list"><li>(A) Governador do Estado.</li><li>(B) Prefeito Municipal (Art. 37, XI da CF/88).</li><li>(C) Presidente da Câmara Municipal.</li><li>(D) Desembargador do Tribunal de Justiça.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 6, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Governador do Estado.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 6, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Prefeito Municipal (Art. 37, XI da CF/88).</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 6, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">Presidente da Câmara Municipal.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 6, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Desembargador do Tribunal de Justiça.</span></li></ul>
+<div class="inline-feedback" id="feedback_6"></div><div class="inline-comentario" id="comentario_6"><strong>Fundamentação (Gabarito B):</strong> Art. 37, XI da CF: nos Municípios, o limite máximo remuneratório geral é o subsídio do Prefeito Municipal.</div></div>
+<div class="question-box" data-gab="A" data-q="7">
 <div class="question-header">QUESTÃO 07 • Direito Administrativo • Questão Oficial 07 • INBRASP</div>
 <div class="question-title">[07] O poder de revogar atos administrativos por motivos de conveniência e oportunidade é conferido:</div>
-<ul class="options-list"><li>(A) Exclusivamente à própria Administração Pública (Poder Judiciário não pode revogar atos administrativos no exercício de sua função típica jurisdicional).</li><li>(B) Ao Poder Judiciário em qualquer ação ordinária.</li><li>(C) Ao Tribunal de Contas de ofício sem recurso.</li><li>(D) Ao Ministério Público monocraticamente.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 7, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Exclusivamente à própria Administração Pública (Poder Judiciário não pode revogar atos administrativos no exercício de sua função típica jurisdicional).</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 7, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Ao Poder Judiciário em qualquer ação ordinária.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 7, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Ao Tribunal de Contas de ofício sem recurso.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 7, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Ao Ministério Público monocraticamente.</span></li></ul>
+<div class="inline-feedback" id="feedback_7"></div><div class="inline-comentario" id="comentario_7"><strong>Fundamentação (Gabarito A):</strong> Súmula 473 STF: Revogação é privativa da Administração Pública por juízo de conveniência e oportunidade. O Judiciário só pode anular atos ilegais.</div></div>
+<div class="question-box" data-gab="C" data-q="8">
 <div class="question-header">QUESTÃO 08 • Direito Administrativo • Questão Oficial 08 • INBRASP</div>
 <div class="question-title">[08] A alienação de bens imóveis da Administração Pública da Câmara ou Prefeitura depende de autorização legislativa, avaliação prévia e licitação na modalidade:</div>
-<ul class="options-list"><li>(A) Tomada de preços simplificada.</li><li>(B) Concurso de projetos.</li><li>(C) Leilão (conforme Lei 14.133/2021).</li><li>(D) Carta-convite presencial.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 8, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Tomada de preços simplificada.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 8, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Concurso de projetos.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 8, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Leilão (conforme Lei 14.133/2021).</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 8, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Carta-convite presencial.</span></li></ul>
+<div class="inline-feedback" id="feedback_8"></div><div class="inline-comentario" id="comentario_8"><strong>Fundamentação (Gabarito C):</strong> Art. 76 da Lei 14.133/21: a alienação de bens da Administração depende de avaliação prévia e leilão.</div></div>
+<div class="question-box" data-gab="C" data-q="9">
 <div class="question-header">QUESTÃO 09 • Direito Administrativo • Questão Oficial 09 • INBRASP</div>
 <div class="question-title">[09] É garantido ao servidor público civil, conforme o art. 37, VI e VII da CF/88:</div>
-<ul class="options-list"><li>(A) O direito de greve irrestrito sem manutenção de serviços essenciais.</li><li>(B) O porte livre de armas de fogo em todas as repartições.</li><li>(C) O direito à livre associação sindical e o direito de greve nos termos de lei específica.</li><li>(D) A imunidade tributária sobre vencimentos e gratificações.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 9, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">O direito de greve irrestrito sem manutenção de serviços essenciais.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 9, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">O porte livre de armas de fogo em todas as repartições.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 9, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">O direito à livre associação sindical e o direito de greve nos termos de lei específica.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 9, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">A imunidade tributária sobre vencimentos e gratificações.</span></li></ul>
+<div class="inline-feedback" id="feedback_9"></div><div class="inline-comentario" id="comentario_9"><strong>Fundamentação (Gabarito C):</strong> Art. 37, VI e VII da CF/88: assegura a livre associação sindical e o direito de greve nos termos e limites definidos em lei.</div></div>
+<div class="question-box" data-gab="A" data-q="10">
 <div class="question-header">QUESTÃO 10 • Direito Administrativo • Questão Oficial 10 • INBRASP</div>
 <div class="question-title">[10] A forma como requisito do ato administrativo exige que a manifestação da vontade estatal seja:</div>
-<ul class="options-list"><li>(A) Escrita e motivada, salvo exceções legais expressas como sinais de trânsito ou ordens verbais urgentes.</li><li>(B) Sempre tácita sem necessidade de registro físico.</li><li>(C) Sigilosa para garantir a segurança da autoridade.</li><li>(D) Apenas verbal em todas as esferas de governo.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 10, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Escrita e motivada, salvo exceções legais expressas como sinais de trânsito ou ordens verbais urgentes.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 10, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Sempre tácita sem necessidade de registro físico.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 10, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Sigilosa para garantir a segurança da autoridade.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 10, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Apenas verbal em todas as esferas de governo.</span></li></ul>
+<div class="inline-feedback" id="feedback_10"></div><div class="inline-comentario" id="comentario_10"><strong>Fundamentação (Gabarito A):</strong> A forma é a exteriorização material do ato administrativo, sendo regra geral o princípio da solenidade e forma escrita motivada.</div></div>
+<div class="question-box" data-gab="D" data-q="11">
 <div class="question-header">QUESTÃO 11 • Direito Administrativo • Questão Oficial 11 • INBRASP</div>
 <div class="question-title">[11] A Lei nº 14.133/2021 estabelece como princípio da licitação pública expressamente enumerado:</div>
-<ul class="options-list"><li>(A) Sigilo irrestrito dos atos processuais licitatórios.</li><li>(B) Discricionariedade ilimitada na escolha da proposta mais cara.</li><li>(C) Prevalência da contratação verbal para obras públicas.</li><li>(D) Planejamento, transparência, eficácia, segregação de funções e motivação.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 11, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Sigilo irrestrito dos atos processuais licitatórios.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 11, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Discricionariedade ilimitada na escolha da proposta mais cara.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 11, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">Prevalência da contratação verbal para obras públicas.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 11, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Planejamento, transparência, eficácia, segregação de funções e motivação.</span></li></ul>
+<div class="inline-feedback" id="feedback_11"></div><div class="inline-comentario" id="comentario_11"><strong>Fundamentação (Gabarito D):</strong> Art. 5º da Lei 14.133/21: princípios da legalidade, impessoalidade, moralidade, publicidade, eficiência, planejamento, transparência, eficácia, segregação de funções, etc.</div></div>
+<div class="question-box" data-gab="B" data-q="12">
 <div class="question-header">QUESTÃO 12 • Direito Administrativo • Questão Oficial 12 • INBRASP</div>
 <div class="question-title">[12] O agente que atua no âmbito da Administração Pública sem remuneração e sem vínculo formal, prestando serviços relevantes como jurado ou mesário eleitoral, classifica-se como:</div>
-<ul class="options-list"><li>(A) Servidor público estatutário.</li><li>(B) Agente honorífico.</li><li>(C) Empregado público celetista.</li><li>(D) Agente delegado por concessão.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 12, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Servidor público estatutário.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 12, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Agente honorífico.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 12, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">Empregado público celetista.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 12, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Agente delegado por concessão.</span></li></ul>
+<div class="inline-feedback" id="feedback_12"></div><div class="inline-comentario" id="comentario_12"><strong>Fundamentação (Gabarito B):</strong> Agentes honoríficos são cidadãos convocados ou nomeados para prestar serviços específicos ao Estado sem remuneração (mesários, jurados).</div></div>
+<div class="question-box" data-gab="B" data-q="13">
 <div class="question-header">QUESTÃO 13 • Direito Administrativo • Questão Oficial 13 • INBRASP</div>
 <div class="question-title">[13] A concessão de serviço público é a delegação de sua prestação, feita pelo poder concedente, mediante licitação, na modalidade:</div>
-<ul class="options-list"><li>(A) Leilão.</li><li>(B) Concorrência ou diálogo competitivo.</li><li>(C) Concurso artístico.</li><li>(D) Dispensa por emergência.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 13, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Leilão.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 13, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Concorrência ou diálogo competitivo.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 13, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">Concurso artístico.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 13, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Dispensa por emergência.</span></li></ul>
+<div class="inline-feedback" id="feedback_13"></div><div class="inline-comentario" id="comentario_13"><strong>Fundamentação (Gabarito B):</strong> Lei 8.987/95 e Lei 14.133/21: Concessão de serviços públicos é formalizada mediante licitação na modalidade concorrência.</div></div>
+<div class="question-box" data-gab="A" data-q="14">
 <div class="question-header">QUESTÃO 14 • Direito Administrativo • Questão Oficial 14 • INBRASP</div>
 <div class="question-title">[14] Conforme o art. 37, § 5º da CF/88, as ações de ressarcimento ao erário por atos de improbidade administrativa dolosos tipificados em lei são:</div>
-<ul class="options-list"><li>(A) Imprescritíveis (Tema 897 do STF).</li><li>(B) Prescritíveis em 1 ano da ocorrência do dano.</li><li>(C) Prescritíveis em 2 anos do término do mandato.</li><li>(D) Extintas automaticamente com a prestação de contas.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 14, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Imprescritíveis (Tema 897 do STF).</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 14, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Prescritíveis em 1 ano da ocorrência do dano.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 14, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Prescritíveis em 2 anos do término do mandato.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 14, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Extintas automaticamente com a prestação de contas.</span></li></ul>
+<div class="inline-feedback" id="feedback_14"></div><div class="inline-comentario" id="comentario_14"><strong>Fundamentação (Gabarito A):</strong> STF (Tema 897): São imprescritíveis as ações de ressarcimento ao erário fundadas na prática de ato doloso tipificado na Lei de Improbidade Administrativa.</div></div>
+<div class="question-box" data-gab="C" data-q="15">
 <div class="question-header">QUESTÃO 15 • Direito Administrativo • Questão Oficial 15 • INBRASP</div>
 <div class="question-title">[15] Em relação aos atos administrativos, a imperatividade significa que:</div>
-<ul class="options-list"><li>(A) Todos os atos administrativos geram obrigações voluntárias aos cidadãos.</li><li>(B) O ato administrativo não pode ser revogado pela autoridade que o expediu.</li><li>(C) Os atos administrativos se impõem a terceiros independentemente de sua concordância.</li><li>(D) A Administração depende de concordância expressa do particular para agir.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 15, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Todos os atos administrativos geram obrigações voluntárias aos cidadãos.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 15, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">O ato administrativo não pode ser revogado pela autoridade que o expediu.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 15, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Os atos administrativos se impõem a terceiros independentemente de sua concordância.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 15, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">A Administração depende de concordância expressa do particular para agir.</span></li></ul>
+<div class="inline-feedback" id="feedback_15"></div><div class="inline-comentario" id="comentario_15"><strong>Fundamentação (Gabarito C):</strong> Imperatividade é o atributo pelo qual os atos administrativos impõem obrigações e restrições a terceiros, independentemente de sua prévia concordância.</div></div>
+<div class="question-box" data-gab="D" data-q="16">
 <div class="question-header">QUESTÃO 16 • Direito Administrativo • Questão Oficial 16 • INBRASP</div>
 <div class="question-title">[16] O teto remuneratório constitucional aplicável no âmbito dos Municípios para os servidores municipais corresponde ao subsídio do:</div>
-<ul class="options-list"><li>(A) Governador do Estado.</li><li>(B) Presidente da Câmara Municipal.</li><li>(C) Desembargador do Tribunal de Justiça.</li><li>(D) Prefeito Municipal (Art. 37, XI da CF/88).</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 16, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Governador do Estado.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 16, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Presidente da Câmara Municipal.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 16, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">Desembargador do Tribunal de Justiça.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 16, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Prefeito Municipal (Art. 37, XI da CF/88).</span></li></ul>
+<div class="inline-feedback" id="feedback_16"></div><div class="inline-comentario" id="comentario_16"><strong>Fundamentação (Gabarito D):</strong> Art. 37, XI da CF: nos Municípios, o limite máximo remuneratório geral é o subsídio do Prefeito Municipal.</div></div>
+<div class="question-box" data-gab="A" data-q="17">
 <div class="question-header">QUESTÃO 17 • Direito Administrativo • Questão Oficial 17 • INBRASP</div>
 <div class="question-title">[17] O poder de revogar atos administrativos por motivos de conveniência e oportunidade é conferido:</div>
-<ul class="options-list"><li>(A) Exclusivamente à própria Administração Pública (Poder Judiciário não pode revogar atos administrativos no exercício de sua função típica jurisdicional).</li><li>(B) Ao Poder Judiciário em qualquer ação ordinária.</li><li>(C) Ao Tribunal de Contas de ofício sem recurso.</li><li>(D) Ao Ministério Público monocraticamente.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 17, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Exclusivamente à própria Administração Pública (Poder Judiciário não pode revogar atos administrativos no exercício de sua função típica jurisdicional).</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 17, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Ao Poder Judiciário em qualquer ação ordinária.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 17, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Ao Tribunal de Contas de ofício sem recurso.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 17, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Ao Ministério Público monocraticamente.</span></li></ul>
+<div class="inline-feedback" id="feedback_17"></div><div class="inline-comentario" id="comentario_17"><strong>Fundamentação (Gabarito A):</strong> Súmula 473 STF: Revogação é privativa da Administração Pública por juízo de conveniência e oportunidade. O Judiciário só pode anular atos ilegais.</div></div>
+<div class="question-box" data-gab="C" data-q="18">
 <div class="question-header">QUESTÃO 18 • Direito Administrativo • Questão Oficial 18 • INBRASP</div>
 <div class="question-title">[18] A alienação de bens imóveis da Administração Pública da Câmara ou Prefeitura depende de autorização legislativa, avaliação prévia e licitação na modalidade:</div>
-<ul class="options-list"><li>(A) Tomada de preços simplificada.</li><li>(B) Concurso de projetos.</li><li>(C) Leilão (conforme Lei 14.133/2021).</li><li>(D) Carta-convite presencial.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 18, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Tomada de preços simplificada.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 18, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Concurso de projetos.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 18, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Leilão (conforme Lei 14.133/2021).</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 18, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Carta-convite presencial.</span></li></ul>
+<div class="inline-feedback" id="feedback_18"></div><div class="inline-comentario" id="comentario_18"><strong>Fundamentação (Gabarito C):</strong> Art. 76 da Lei 14.133/21: a alienação de bens da Administração depende de avaliação prévia e leilão.</div></div>
+<div class="question-box" data-gab="B" data-q="19">
 <div class="question-header">QUESTÃO 19 • Direito Administrativo • Questão Oficial 19 • INBRASP</div>
 <div class="question-title">[19] É garantido ao servidor público civil, conforme o art. 37, VI e VII da CF/88:</div>
-<ul class="options-list"><li>(A) O direito de greve irrestrito sem manutenção de serviços essenciais.</li><li>(B) O direito à livre associação sindical e o direito de greve nos termos de lei específica.</li><li>(C) O porte livre de armas de fogo em todas as repartições.</li><li>(D) A imunidade tributária sobre vencimentos e gratificações.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 19, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">O direito de greve irrestrito sem manutenção de serviços essenciais.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 19, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">O direito à livre associação sindical e o direito de greve nos termos de lei específica.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 19, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">O porte livre de armas de fogo em todas as repartições.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 19, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">A imunidade tributária sobre vencimentos e gratificações.</span></li></ul>
+<div class="inline-feedback" id="feedback_19"></div><div class="inline-comentario" id="comentario_19"><strong>Fundamentação (Gabarito B):</strong> Art. 37, VI e VII da CF/88: assegura a livre associação sindical e o direito de greve nos termos e limites definidos em lei.</div></div>
+<div class="question-box" data-gab="D" data-q="20">
 <div class="question-header">QUESTÃO 20 • Direito Administrativo • Questão Oficial 20 • INBRASP</div>
 <div class="question-title">[20] A forma como requisito do ato administrativo exige que a manifestação da vontade estatal seja:</div>
-<ul class="options-list"><li>(A) Sempre tácita sem necessidade de registro físico.</li><li>(B) Sigilosa para garantir a segurança da autoridade.</li><li>(C) Apenas verbal em todas as esferas de governo.</li><li>(D) Escrita e motivada, salvo exceções legais expressas como sinais de trânsito ou ordens verbais urgentes.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 20, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Sempre tácita sem necessidade de registro físico.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 20, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Sigilosa para garantir a segurança da autoridade.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 20, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">Apenas verbal em todas as esferas de governo.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 20, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Escrita e motivada, salvo exceções legais expressas como sinais de trânsito ou ordens verbais urgentes.</span></li></ul>
+<div class="inline-feedback" id="feedback_20"></div><div class="inline-comentario" id="comentario_20"><strong>Fundamentação (Gabarito D):</strong> A forma é a exteriorização material do ato administrativo, sendo regra geral o princípio da solenidade e forma escrita motivada.</div></div>
+<div class="question-box" data-gab="B" data-q="21">
 <div class="question-header">QUESTÃO 21 • Direito Administrativo • Questão Oficial 21 • INBRASP</div>
 <div class="question-title">[21] A Lei nº 14.133/2021 estabelece como princípio da licitação pública expressamente enumerado:</div>
-<ul class="options-list"><li>(A) Sigilo irrestrito dos atos processuais licitatórios.</li><li>(B) Planejamento, transparência, eficácia, segregação de funções e motivação.</li><li>(C) Discricionariedade ilimitada na escolha da proposta mais cara.</li><li>(D) Prevalência da contratação verbal para obras públicas.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 21, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Sigilo irrestrito dos atos processuais licitatórios.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 21, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Planejamento, transparência, eficácia, segregação de funções e motivação.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 21, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">Discricionariedade ilimitada na escolha da proposta mais cara.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 21, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Prevalência da contratação verbal para obras públicas.</span></li></ul>
+<div class="inline-feedback" id="feedback_21"></div><div class="inline-comentario" id="comentario_21"><strong>Fundamentação (Gabarito B):</strong> Art. 5º da Lei 14.133/21: princípios da legalidade, impessoalidade, moralidade, publicidade, eficiência, planejamento, transparência, eficácia, segregação de funções, etc.</div></div>
+<div class="question-box" data-gab="D" data-q="22">
 <div class="question-header">QUESTÃO 22 • Direito Administrativo • Questão Oficial 22 • INBRASP</div>
 <div class="question-title">[22] O agente que atua no âmbito da Administração Pública sem remuneração e sem vínculo formal, prestando serviços relevantes como jurado ou mesário eleitoral, classifica-se como:</div>
-<ul class="options-list"><li>(A) Servidor público estatutário.</li><li>(B) Empregado público celetista.</li><li>(C) Agente delegado por concessão.</li><li>(D) Agente honorífico.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 22, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Servidor público estatutário.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 22, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">Empregado público celetista.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 22, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">Agente delegado por concessão.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 22, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Agente honorífico.</span></li></ul>
+<div class="inline-feedback" id="feedback_22"></div><div class="inline-comentario" id="comentario_22"><strong>Fundamentação (Gabarito D):</strong> Agentes honoríficos são cidadãos convocados ou nomeados para prestar serviços específicos ao Estado sem remuneração (mesários, jurados).</div></div>
+<div class="question-box" data-gab="A" data-q="23">
 <div class="question-header">QUESTÃO 23 • Direito Administrativo • Questão Oficial 23 • INBRASP</div>
 <div class="question-title">[23] A concessão de serviço público é a delegação de sua prestação, feita pelo poder concedente, mediante licitação, na modalidade:</div>
-<ul class="options-list"><li>(A) Concorrência ou diálogo competitivo.</li><li>(B) Leilão.</li><li>(C) Concurso artístico.</li><li>(D) Dispensa por emergência.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 23, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Concorrência ou diálogo competitivo.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 23, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Leilão.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 23, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Concurso artístico.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 23, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Dispensa por emergência.</span></li></ul>
+<div class="inline-feedback" id="feedback_23"></div><div class="inline-comentario" id="comentario_23"><strong>Fundamentação (Gabarito A):</strong> Lei 8.987/95 e Lei 14.133/21: Concessão de serviços públicos é formalizada mediante licitação na modalidade concorrência.</div></div>
+<div class="question-box" data-gab="C" data-q="24">
 <div class="question-header">QUESTÃO 24 • Direito Administrativo • Questão Oficial 24 • INBRASP</div>
 <div class="question-title">[24] Conforme o art. 37, § 5º da CF/88, as ações de ressarcimento ao erário por atos de improbidade administrativa dolosos tipificados em lei são:</div>
-<ul class="options-list"><li>(A) Prescritíveis em 1 ano da ocorrência do dano.</li><li>(B) Prescritíveis em 2 anos do término do mandato.</li><li>(C) Imprescritíveis (Tema 897 do STF).</li><li>(D) Extintas automaticamente com a prestação de contas.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 24, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Prescritíveis em 1 ano da ocorrência do dano.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 24, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Prescritíveis em 2 anos do término do mandato.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 24, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Imprescritíveis (Tema 897 do STF).</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 24, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Extintas automaticamente com a prestação de contas.</span></li></ul>
+<div class="inline-feedback" id="feedback_24"></div><div class="inline-comentario" id="comentario_24"><strong>Fundamentação (Gabarito C):</strong> STF (Tema 897): São imprescritíveis as ações de ressarcimento ao erário fundadas na prática de ato doloso tipificado na Lei de Improbidade Administrativa.</div></div>
+<div class="question-box" data-gab="D" data-q="25">
 <div class="question-header">QUESTÃO 25 • Direito Administrativo • Questão Oficial 25 • INBRASP</div>
 <div class="question-title">[25] Em relação aos atos administrativos, a imperatividade significa que:</div>
-<ul class="options-list"><li>(A) Todos os atos administrativos geram obrigações voluntárias aos cidadãos.</li><li>(B) O ato administrativo não pode ser revogado pela autoridade que o expediu.</li><li>(C) A Administração depende de concordância expressa do particular para agir.</li><li>(D) Os atos administrativos se impõem a terceiros independentemente de sua concordância.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 25, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">Todos os atos administrativos geram obrigações voluntárias aos cidadãos.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 25, 'B', 'D')"><span class="option-bubble">B</span><span class="option-text">O ato administrativo não pode ser revogado pela autoridade que o expediu.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 25, 'C', 'D')"><span class="option-bubble">C</span><span class="option-text">A Administração depende de concordância expressa do particular para agir.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 25, 'D', 'D')"><span class="option-bubble">D</span><span class="option-text">Os atos administrativos se impõem a terceiros independentemente de sua concordância.</span></li></ul>
+<div class="inline-feedback" id="feedback_25"></div><div class="inline-comentario" id="comentario_25"><strong>Fundamentação (Gabarito D):</strong> Imperatividade é o atributo pelo qual os atos administrativos impõem obrigações e restrições a terceiros, independentemente de sua prévia concordância.</div></div>
+<div class="question-box" data-gab="B" data-q="26">
 <div class="question-header">QUESTÃO 26 • Direito Administrativo • Questão Oficial 26 • INBRASP</div>
 <div class="question-title">[26] O teto remuneratório constitucional aplicável no âmbito dos Municípios para os servidores municipais corresponde ao subsídio do:</div>
-<ul class="options-list"><li>(A) Governador do Estado.</li><li>(B) Prefeito Municipal (Art. 37, XI da CF/88).</li><li>(C) Presidente da Câmara Municipal.</li><li>(D) Desembargador do Tribunal de Justiça.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 26, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">Governador do Estado.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 26, 'B', 'B')"><span class="option-bubble">B</span><span class="option-text">Prefeito Municipal (Art. 37, XI da CF/88).</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 26, 'C', 'B')"><span class="option-bubble">C</span><span class="option-text">Presidente da Câmara Municipal.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 26, 'D', 'B')"><span class="option-bubble">D</span><span class="option-text">Desembargador do Tribunal de Justiça.</span></li></ul>
+<div class="inline-feedback" id="feedback_26"></div><div class="inline-comentario" id="comentario_26"><strong>Fundamentação (Gabarito B):</strong> Art. 37, XI da CF: nos Municípios, o limite máximo remuneratório geral é o subsídio do Prefeito Municipal.</div></div>
+<div class="question-box" data-gab="A" data-q="27">
 <div class="question-header">QUESTÃO 27 • Direito Administrativo • Questão Oficial 27 • INBRASP</div>
 <div class="question-title">[27] O poder de revogar atos administrativos por motivos de conveniência e oportunidade é conferido:</div>
-<ul class="options-list"><li>(A) Exclusivamente à própria Administração Pública (Poder Judiciário não pode revogar atos administrativos no exercício de sua função típica jurisdicional).</li><li>(B) Ao Poder Judiciário em qualquer ação ordinária.</li><li>(C) Ao Tribunal de Contas de ofício sem recurso.</li><li>(D) Ao Ministério Público monocraticamente.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 27, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Exclusivamente à própria Administração Pública (Poder Judiciário não pode revogar atos administrativos no exercício de sua função típica jurisdicional).</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 27, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Ao Poder Judiciário em qualquer ação ordinária.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 27, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Ao Tribunal de Contas de ofício sem recurso.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 27, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Ao Ministério Público monocraticamente.</span></li></ul>
+<div class="inline-feedback" id="feedback_27"></div><div class="inline-comentario" id="comentario_27"><strong>Fundamentação (Gabarito A):</strong> Súmula 473 STF: Revogação é privativa da Administração Pública por juízo de conveniência e oportunidade. O Judiciário só pode anular atos ilegais.</div></div>
+<div class="question-box" data-gab="C" data-q="28">
 <div class="question-header">QUESTÃO 28 • Direito Administrativo • Questão Oficial 28 • INBRASP</div>
 <div class="question-title">[28] A alienação de bens imóveis da Administração Pública da Câmara ou Prefeitura depende de autorização legislativa, avaliação prévia e licitação na modalidade:</div>
-<ul class="options-list"><li>(A) Tomada de preços simplificada.</li><li>(B) Concurso de projetos.</li><li>(C) Leilão (conforme Lei 14.133/2021).</li><li>(D) Carta-convite presencial.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 28, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">Tomada de preços simplificada.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 28, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">Concurso de projetos.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 28, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">Leilão (conforme Lei 14.133/2021).</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 28, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">Carta-convite presencial.</span></li></ul>
+<div class="inline-feedback" id="feedback_28"></div><div class="inline-comentario" id="comentario_28"><strong>Fundamentação (Gabarito C):</strong> Art. 76 da Lei 14.133/21: a alienação de bens da Administração depende de avaliação prévia e leilão.</div></div>
+<div class="question-box" data-gab="C" data-q="29">
 <div class="question-header">QUESTÃO 29 • Direito Administrativo • Questão Oficial 29 • INBRASP</div>
 <div class="question-title">[29] É garantido ao servidor público civil, conforme o art. 37, VI e VII da CF/88:</div>
-<ul class="options-list"><li>(A) O direito de greve irrestrito sem manutenção de serviços essenciais.</li><li>(B) O porte livre de armas de fogo em todas as repartições.</li><li>(C) O direito à livre associação sindical e o direito de greve nos termos de lei específica.</li><li>(D) A imunidade tributária sobre vencimentos e gratificações.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 29, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">O direito de greve irrestrito sem manutenção de serviços essenciais.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 29, 'B', 'C')"><span class="option-bubble">B</span><span class="option-text">O porte livre de armas de fogo em todas as repartições.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 29, 'C', 'C')"><span class="option-bubble">C</span><span class="option-text">O direito à livre associação sindical e o direito de greve nos termos de lei específica.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 29, 'D', 'C')"><span class="option-bubble">D</span><span class="option-text">A imunidade tributária sobre vencimentos e gratificações.</span></li></ul>
+<div class="inline-feedback" id="feedback_29"></div><div class="inline-comentario" id="comentario_29"><strong>Fundamentação (Gabarito C):</strong> Art. 37, VI e VII da CF/88: assegura a livre associação sindical e o direito de greve nos termos e limites definidos em lei.</div></div>
+<div class="question-box" data-gab="A" data-q="30">
 <div class="question-header">QUESTÃO 30 • Direito Administrativo • Questão Oficial 30 • INBRASP</div>
 <div class="question-title">[30] A forma como requisito do ato administrativo exige que a manifestação da vontade estatal seja:</div>
-<ul class="options-list"><li>(A) Escrita e motivada, salvo exceções legais expressas como sinais de trânsito ou ordens verbais urgentes.</li><li>(B) Sempre tácita sem necessidade de registro físico.</li><li>(C) Sigilosa para garantir a segurança da autoridade.</li><li>(D) Apenas verbal em todas as esferas de governo.</li></ul>
-</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 30, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">Escrita e motivada, salvo exceções legais expressas como sinais de trânsito ou ordens verbais urgentes.</span></li><li class="option-item" data-opt="B" onclick="handleOptionClick(this, 30, 'B', 'A')"><span class="option-bubble">B</span><span class="option-text">Sempre tácita sem necessidade de registro físico.</span></li><li class="option-item" data-opt="C" onclick="handleOptionClick(this, 30, 'C', 'A')"><span class="option-bubble">C</span><span class="option-text">Sigilosa para garantir a segurança da autoridade.</span></li><li class="option-item" data-opt="D" onclick="handleOptionClick(this, 30, 'D', 'A')"><span class="option-bubble">D</span><span class="option-text">Apenas verbal em todas as esferas de governo.</span></li></ul>
+<div class="inline-feedback" id="feedback_30"></div><div class="inline-comentario" id="comentario_30"><strong>Fundamentação (Gabarito A):</strong> A forma é a exteriorização material do ato administrativo, sendo regra geral o princípio da solenidade e forma escrita motivada.</div></div>
 <div class="answer-card">
 <h3 style="margin: 0 0 8px 0; text-align: center; text-transform: uppercase;">Folha Óptica de Respostas (Treino de Simulação)</h3>
 <p style="text-align: center; font-size: 8.5pt; margin: 0 0 12px 0;">Preencha a bolha da alternativa correta conforme o cartão de respostas oficial:</p>
@@ -471,5 +773,190 @@
 <strong>Resolução / Fundamentação:</strong> A forma é a exteriorização material do ato administrativo, sendo regra geral o princípio da solenidade e forma escrita motivada.
           </div>
 </div>
+
+<script>
+    // ESTADO DO SIMULADO INTERATIVO
+    let userAnswers = {}; // { qNum: letter }
+    let instantMode = true;
+    let totalQuestions = 0;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      totalQuestions = document.querySelectorAll('.question-box[data-q]').length;
+      updateStats();
+    });
+
+    function toggleInstantMode(enabled) {
+      instantMode = enabled;
+      const btnFinish = document.getElementById('btnFinish');
+      if (btnFinish) {
+        btnFinish.style.display = enabled ? 'none' : 'inline-flex';
+      }
+    }
+
+    function handleOptionClick(btn, qNum, selectedOpt, correctOpt) {
+      const qBox = document.querySelector(`.question-box[data-q="${qNum}"]`);
+      if (!qBox) return;
+
+      // Se já respondeu no modo instantâneo, permite trocar se quiser
+      userAnswers[qNum] = selectedOpt;
+
+      // Limpar estados anteriores nas opções desta questão
+      qBox.querySelectorAll('.option-item').forEach(opt => {
+        opt.classList.remove('selected', 'is-correct', 'is-wrong');
+      });
+
+      btn.classList.add('selected');
+
+      if (instantMode) {
+        evaluateQuestion(qNum, selectedOpt, correctOpt);
+      }
+      updateStats();
+    }
+
+    function evaluateQuestion(qNum, selectedOpt, correctOpt) {
+      const qBox = document.querySelector(`.question-box[data-q="${qNum}"]`);
+      if (!qBox) return;
+
+      const fb = document.getElementById(`feedback_${qNum}`);
+      const com = document.getElementById(`comentario_${qNum}`);
+      const isCorrect = (selectedOpt.toUpperCase() === correctOpt.toUpperCase());
+
+      qBox.querySelectorAll('.option-item').forEach(opt => {
+        const optLetter = opt.getAttribute('data-opt');
+        if (optLetter === correctOpt) {
+          opt.classList.add('is-correct');
+        } else if (optLetter === selectedOpt && !isCorrect) {
+          opt.classList.add('is-wrong');
+        }
+      });
+
+      if (fb) {
+        if (isCorrect) {
+          fb.className = 'inline-feedback correct';
+          fb.innerHTML = '<i class="fas fa-check-circle"></i> <strong>Parabéns, você acertou!</strong> Alternativa correta: <strong>(' + correctOpt + ')</strong>';
+        } else {
+          fb.className = 'inline-feedback wrong';
+          fb.innerHTML = '<i class="fas fa-times-circle"></i> <strong>Você errou.</strong> Sua resposta foi <strong>(' + selectedOpt + ')</strong>, mas o gabarito oficial é <strong>(' + correctOpt + ')</strong>.';
+        }
+      }
+
+      if (com) {
+        com.style.display = 'block';
+      }
+    }
+
+    function finishExam() {
+      document.querySelectorAll('.question-box[data-q]').forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        const correctOpt = qBox.getAttribute('data-gab');
+        const selectedOpt = userAnswers[qNum];
+        if (selectedOpt) {
+          evaluateQuestion(qNum, selectedOpt, correctOpt);
+        } else {
+          // Revelar gabarito de não respondidas
+          const fb = document.getElementById(`feedback_${qNum}`);
+          const com = document.getElementById(`comentario_${qNum}`);
+          qBox.querySelectorAll('.option-item').forEach(opt => {
+            if (opt.getAttribute('data-opt') === correctOpt) {
+              opt.classList.add('is-correct');
+            }
+          });
+          if (fb) {
+            fb.className = 'inline-feedback wrong';
+            fb.innerHTML = '<i class="fas fa-minus-circle"></i> <strong>Não respondida.</strong> Gabarito oficial: <strong>(' + correctOpt + ')</strong>';
+          }
+          if (com) com.style.display = 'block';
+        }
+      });
+      updateStats();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateStats() {
+      let correct = 0;
+      let wrong = 0;
+      const qBoxes = document.querySelectorAll('.question-box[data-q]');
+      const total = qBoxes.length || totalQuestions;
+
+      qBoxes.forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        const correctOpt = qBox.getAttribute('data-gab');
+        const sel = userAnswers[qNum];
+        if (sel) {
+          if (sel.toUpperCase() === correctOpt.toUpperCase()) correct++;
+          else wrong++;
+        }
+      });
+
+      const answered = Object.keys(userAnswers).length;
+      const percent = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+
+      const elAnswered = document.getElementById('answeredCount');
+      const elCorrect = document.getElementById('correctCount');
+      const elWrong = document.getElementById('wrongCount');
+      const elPercent = document.getElementById('percentBadge');
+      const elBar = document.getElementById('progressBar');
+      const elBtnRetry = document.getElementById('btnRetryErrors');
+      const elWrongBtnCount = document.getElementById('wrongBtnCount');
+
+      if (elAnswered) elAnswered.innerText = answered;
+      if (elCorrect) elCorrect.innerText = correct;
+      if (elWrong) elWrong.innerText = wrong;
+      if (elPercent) elPercent.innerText = percent + '%';
+      if (elBar) elBar.style.width = (total > 0 ? (answered / total) * 100 : 0) + '%';
+
+      if (elBtnRetry && elWrongBtnCount) {
+        elWrongBtnCount.innerText = wrong;
+        elBtnRetry.style.display = wrong > 0 ? 'inline-flex' : 'none';
+      }
+    }
+
+    function retryErrors() {
+      const qBoxes = document.querySelectorAll('.question-box[data-q]');
+      let firstWrong = null;
+
+      qBoxes.forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        const correctOpt = qBox.getAttribute('data-gab');
+        const sel = userAnswers[qNum];
+
+        if (sel && sel.toUpperCase() !== correctOpt.toUpperCase()) {
+          // Limpa resposta errada
+          delete userAnswers[qNum];
+          qBox.querySelectorAll('.option-item').forEach(opt => {
+            opt.classList.remove('selected', 'is-correct', 'is-wrong');
+          });
+          const fb = document.getElementById(`feedback_${qNum}`);
+          const com = document.getElementById(`comentario_${qNum}`);
+          if (fb) fb.className = 'inline-feedback';
+          if (com) com.style.display = 'none';
+
+          if (!firstWrong) firstWrong = qBox;
+        }
+      });
+
+      updateStats();
+      if (firstWrong) {
+        firstWrong.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function resetQuiz() {
+      if (!confirm('Deseja reiniciar todas as respostas deste caderno?')) return;
+      userAnswers = {};
+      document.querySelectorAll('.question-box[data-q]').forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        qBox.querySelectorAll('.option-item').forEach(opt => {
+          opt.classList.remove('selected', 'is-correct', 'is-wrong');
+        });
+        const fb = document.getElementById(`feedback_${qNum}`);
+        const com = document.getElementById(`comentario_${qNum}`);
+        if (fb) fb.className = 'inline-feedback';
+        if (com) com.style.display = 'none';
+      });
+      updateStats();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>

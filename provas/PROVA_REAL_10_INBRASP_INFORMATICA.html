@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="pt-BR">
-<head>
+<head><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
 <meta charset="utf-8"/>
 <title>PROVA REAL OFICIAL — NOÇÕES DE INFORMÁTICA (INBRASP / CONSULPAM)</title>
 <style>
@@ -113,8 +113,572 @@
     }
     .comentario-box strong { color: #1e3a8a; }
   </style>
-</head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/><style>
+    /* === ESTILOS INTERATIVOS DE MARCAÇÃO E GABARITO === */
+    @media print {
+      .no-print, .interactive-header, .btn-action-quiz, .inline-feedback { display: none !important; }
+      body { padding: 0 !important; }
+    }
+
+    body {
+      padding-top: 10px !important;
+    }
+
+    /* Barra Fixa Superior com Progresso e Placar */
+    .interactive-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+      padding: 10px 14px;
+      margin: 0 0 20px 0;
+    }
+
+    .header-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .btn-back-nav {
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 5px 10px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: background 0.18s;
+    }
+    .btn-back-nav:hover { background: #dbeafe; }
+
+    .score-stats {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .stat-pill {
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .stat-pill.total { background: #f1f5f9; color: #334155; }
+    .stat-pill.correct { background: #dcfce7; color: #15803d; }
+    .stat-pill.wrong { background: #fee2e2; color: #b91c1c; }
+    .stat-pill.percent { background: #1e3a8a; color: #ffffff; }
+
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #2563eb, #16a34a);
+      transition: width 0.3s ease;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed #e2e8f0;
+    }
+
+    .mode-toggle-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #166534;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      user-select: none;
+      background: #f0fdf4;
+      padding: 5px 10px;
+      border-radius: 6px;
+      border: 1px solid #bbf7d0;
+    }
+    .mode-toggle-label input { cursor: pointer; accent-color: #16a34a; }
+
+    .btn-action-quiz {
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.18s;
+    }
+    .btn-action-quiz.retry {
+      background: #f8fafc;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+    .btn-action-quiz.retry:hover { background: #e2e8f0; }
+    .btn-action-quiz.primary {
+      background: #2563eb;
+      color: white;
+    }
+    .btn-action-quiz.primary:hover { background: #1d4ed8; }
+
+    /* Alternativas Estilizadas e Clicáveis */
+    .options-list {
+      list-style: none !important;
+      padding-left: 0 !important;
+      margin: 10px 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+    }
+
+    .option-item {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.94rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      transition: all 0.18s ease;
+      user-select: none;
+      position: relative;
+    }
+    .option-item:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .option-bubble {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #334155;
+      font-weight: 800;
+      font-size: 0.82rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: all 0.18s;
+    }
+
+    .option-text {
+      flex: 1;
+      line-height: 1.42;
+      font-weight: 500;
+    }
+
+    /* Estado Marcado */
+    .option-item.selected {
+      background: #eff6ff;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 1px #2563eb;
+    }
+    .option-item.selected .option-bubble {
+      background: #2563eb;
+      color: white;
+    }
+
+    /* Estado Correto (Verde) */
+    .option-item.is-correct {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      box-shadow: 0 0 0 1.5px #16a34a !important;
+      color: #14532d !important;
+      font-weight: 600;
+    }
+    .option-item.is-correct .option-bubble {
+      background: #16a34a !important;
+      color: white !important;
+    }
+
+    /* Estado Errado (Vermelho) */
+    .option-item.is-wrong {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      box-shadow: 0 0 0 1.5px #dc2626 !important;
+      color: #7f1d1d !important;
+    }
+    .option-item.is-wrong .option-bubble {
+      background: #dc2626 !important;
+      color: white !important;
+    }
+
+    /* Feedback Inline Imediato */
+    .inline-feedback {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      animation: feedbackIn 0.25s ease;
+    }
+    .inline-feedback.correct {
+      display: block;
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      color: #14532d;
+    }
+    .inline-feedback.wrong {
+      display: block;
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      color: #991b1b;
+    }
+    .inline-feedback strong { font-weight: 800; }
+
+    .inline-comentario {
+      display: none;
+      margin-top: 8px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border-left: 4px solid #2563eb;
+      font-size: 0.86rem;
+      color: #334155;
+      line-height: 1.45;
+      animation: feedbackIn 0.25s ease;
+    }
+    .inline-comentario strong { color: #1e3a8a; }
+
+    @keyframes feedbackIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+</style><style>
+    /* === ESTILOS INTERATIVOS DE MARCAÇÃO E GABARITO === */
+    @media print {
+      .no-print, .interactive-header, .btn-action-quiz, .inline-feedback { display: none !important; }
+      body { padding: 0 !important; }
+    }
+
+    body {
+      padding-top: 10px !important;
+    }
+
+    /* Barra Fixa Superior com Progresso e Placar */
+    .interactive-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+      padding: 10px 14px;
+      margin: 0 0 20px 0;
+    }
+
+    .header-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .btn-back-nav {
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 5px 10px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: background 0.18s;
+    }
+    .btn-back-nav:hover { background: #dbeafe; }
+
+    .score-stats {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .stat-pill {
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .stat-pill.total { background: #f1f5f9; color: #334155; }
+    .stat-pill.correct { background: #dcfce7; color: #15803d; }
+    .stat-pill.wrong { background: #fee2e2; color: #b91c1c; }
+    .stat-pill.percent { background: #1e3a8a; color: #ffffff; }
+
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #2563eb, #16a34a);
+      transition: width 0.3s ease;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed #e2e8f0;
+    }
+
+    .mode-toggle-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #166534;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      user-select: none;
+      background: #f0fdf4;
+      padding: 5px 10px;
+      border-radius: 6px;
+      border: 1px solid #bbf7d0;
+    }
+    .mode-toggle-label input { cursor: pointer; accent-color: #16a34a; }
+
+    .btn-action-quiz {
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.18s;
+    }
+    .btn-action-quiz.retry {
+      background: #f8fafc;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+    .btn-action-quiz.retry:hover { background: #e2e8f0; }
+    .btn-action-quiz.primary {
+      background: #2563eb;
+      color: white;
+    }
+    .btn-action-quiz.primary:hover { background: #1d4ed8; }
+
+    /* Alternativas Estilizadas e Clicáveis */
+    .options-list {
+      list-style: none !important;
+      padding-left: 0 !important;
+      margin: 10px 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+    }
+
+    .option-item {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.94rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      transition: all 0.18s ease;
+      user-select: none;
+      position: relative;
+    }
+    .option-item:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .option-bubble {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #334155;
+      font-weight: 800;
+      font-size: 0.82rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: all 0.18s;
+    }
+
+    .option-text {
+      flex: 1;
+      line-height: 1.42;
+      font-weight: 500;
+    }
+
+    /* Estado Marcado */
+    .option-item.selected {
+      background: #eff6ff;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 1px #2563eb;
+    }
+    .option-item.selected .option-bubble {
+      background: #2563eb;
+      color: white;
+    }
+
+    /* Estado Correto (Verde) */
+    .option-item.is-correct {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      box-shadow: 0 0 0 1.5px #16a34a !important;
+      color: #14532d !important;
+      font-weight: 600;
+    }
+    .option-item.is-correct .option-bubble {
+      background: #16a34a !important;
+      color: white !important;
+    }
+
+    /* Estado Errado (Vermelho) */
+    .option-item.is-wrong {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      box-shadow: 0 0 0 1.5px #dc2626 !important;
+      color: #7f1d1d !important;
+    }
+    .option-item.is-wrong .option-bubble {
+      background: #dc2626 !important;
+      color: white !important;
+    }
+
+    /* Feedback Inline Imediato */
+    .inline-feedback {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      animation: feedbackIn 0.25s ease;
+    }
+    .inline-feedback.correct {
+      display: block;
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      color: #14532d;
+    }
+    .inline-feedback.wrong {
+      display: block;
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      color: #991b1b;
+    }
+    .inline-feedback strong { font-weight: 800; }
+
+    .inline-comentario {
+      display: none;
+      margin-top: 8px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border-left: 4px solid #2563eb;
+      font-size: 0.86rem;
+      color: #334155;
+      line-height: 1.45;
+      animation: feedbackIn 0.25s ease;
+    }
+    .inline-comentario strong { color: #1e3a8a; }
+
+    @keyframes feedbackIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+</style></head>
 <body>
+<div class="interactive-header no-print" id="quizHeader">
+<div class="header-top-row">
+<div style="display:flex; align-items:center; gap:8px;">
+<a class="btn-back-nav" href="../PROVAO_MOBILE_ESPECIFICAS.html" title="Voltar ao Provão Mobile">
+<i class="fas fa-mobile-alt"></i> Provão Mobile
+                  </a>
+<a class="btn-back-nav" href="CENTRAL_DE_PROVAS.html" title="Central de Provas">
+<i class="fas fa-folder-open"></i> Central de Provas
+                  </a>
+</div>
+<div class="score-stats">
+<span class="stat-pill total"><i class="fas fa-tasks"></i> <span id="answeredCount">0</span>/25</span>
+<span class="stat-pill correct"><i class="fas fa-check"></i> <span id="correctCount">0</span></span>
+<span class="stat-pill wrong"><i class="fas fa-times"></i> <span id="wrongCount">0</span></span>
+<span class="stat-pill percent" id="percentBadge">0%</span>
+</div>
+</div>
+<div class="progress-track">
+<div class="progress-bar-fill" id="progressBar"></div>
+</div>
+<div class="header-controls">
+<label class="mode-toggle-label" title="Ao tocar em qualquer opção, já mostra na hora se acertou ou errou!">
+<input checked="" id="chkInstant" onchange="toggleInstantMode(this.checked)" type="checkbox"/>
+<span><i class="fas fa-bolt" style="color: #16a34a;"></i> Modo Estudo: Resposta ao Tocar</span>
+</label>
+<div style="display:flex; gap:6px;">
+<button class="btn-action-quiz retry" id="btnRetryErrors" onclick="retryErrors()" style="display:none;">
+<i class="fas fa-redo-alt" style="color:#dc2626;"></i> Refazer Erradas (<span id="wrongBtnCount">0</span>)
+                  </button>
+<button class="btn-action-quiz retry" onclick="resetQuiz()">
+<i class="fas fa-sync-alt"></i> Reiniciar
+                  </button>
+<button class="btn-action-quiz primary" id="btnFinish" onclick="finishExam()" style="display:none;">
+<i class="fas fa-check-double"></i> Finalizar Prova
+                  </button>
+</div>
+</div>
+</div>
 <div class="header-box">
 <span class="badge-real">CADERNO DE QUESTÕES REAIS DE INFORMÁTICA P/ CONCURSOS</span>
 <h1>CONCURSOS MUNICIPAIS DA BANCA INBRASP / CONSULPAM</h1>
@@ -132,131 +696,131 @@
 </ul>
 </div>
 <div class="section-title">NOÇÕES DE INFORMÁTICA (INBRASP / CONSULPAM)</div>
-<div class="question-box">
+<div class="question-box" data-gab="C" data-q="1">
 <div class="question-header">QUESTÃO 01 • Informática • Questão Oficial 01 • INBRASP/CONSULPAM</div>
 <div class="question-title">[01] No Microsoft Word, para localizar uma palavra ou expressão específica no corpo do documento, o atalho padrão do teclado é:</div>
-<ul class="options-list"><li>(A) Ctrl + B</li><li>(B) Ctrl + F</li><li>(C) Ctrl + L</li><li>(D) Ctrl + P</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 1, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">ACtrl + B</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 1, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">BCtrl + F</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 1, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">CCtrl + L</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 1, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">DCtrl + P</span></li></ul>
+<div class="inline-feedback" id="feedback_1"></div><div class="inline-comentario" id="comentario_1"><strong>Fundamentação (Gabarito C):</strong> No Word em português: Ctrl + L abre o painel Localizar. (Ctrl + B salva; Ctrl + P imprime).</div></div>
+<div class="question-box" data-gab="A" data-q="2">
 <div class="question-header">QUESTÃO 02 • Informática • Questão Oficial 02 • INBRASP/CONSULPAM</div>
 <div class="question-title">[02] No Microsoft Excel, a função =CONT.VALORES(A1:A5) tem por finalidade:</div>
-<ul class="options-list"><li>(A) Contar o número de células no intervalo que não estejam vazias.</li><li>(B) Somar os valores numéricos das células de A1 até A5.</li><li>(C) Calcular a média ponderada dos dados preenchidos.</li><li>(D) Contar apenas células que contenham valores numéricos.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 2, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">AContar o número de células no intervalo que não estejam vazias.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 2, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">BSomar os valores numéricos das células de A1 até A5.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 2, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">CCalcular a média ponderada dos dados preenchidos.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 2, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">DContar apenas células que contenham valores numéricos.</span></li></ul>
+<div class="inline-feedback" id="feedback_2"></div><div class="inline-comentario" id="comentario_2"><strong>Fundamentação (Gabarito A):</strong> CONT.VALORES conta todas as células preenchidas (texto, números, etc.), enquanto CONT.NÚM conta apenas números.</div></div>
+<div class="question-box" data-gab="D" data-q="3">
 <div class="question-header">QUESTÃO 03 • Informática • Questão Oficial 03 • INBRASP/CONSULPAM</div>
 <div class="question-title">[03] Qual das seguintes mídias de armazenamento utiliza tecnologia de memória flash, sem partes móveis, oferecendo maior velocidade de leitura que os discos rígidos mecânicos?</div>
-<ul class="options-list"><li>(A) HD SATA magnético.</li><li>(B) Fita magnética DAT.</li><li>(C) CD-RW óptico.</li><li>(D) SSD (Solid State Drive).</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 3, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">AHD SATA magnético.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 3, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">BFita magnética DAT.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 3, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">CCD-RW óptico.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 3, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">DSSD (Solid State Drive).</span></li></ul>
+<div class="inline-feedback" id="feedback_3"></div><div class="inline-comentario" id="comentario_3"><strong>Fundamentação (Gabarito D):</strong> SSD armazena dados em memória flash de alta velocidade sem partes mecânicas móveis.</div></div>
+<div class="question-box" data-gab="B" data-q="4">
 <div class="question-header">QUESTÃO 04 • Informática • Questão Oficial 04 • INBRASP/CONSULPAM</div>
 <div class="question-title">[04] No navegador Google Chrome, o atalho do teclado para reabrir a última guia que foi fechada acidentalmente é:</div>
-<ul class="options-list"><li>(A) Ctrl + T</li><li>(B) Ctrl + Shift + T</li><li>(C) Ctrl + N</li><li>(D) Ctrl + H</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 4, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">ACtrl + T</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 4, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">BCtrl + Shift + T</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 4, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">CCtrl + N</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 4, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">DCtrl + H</span></li></ul>
+<div class="inline-feedback" id="feedback_4"></div><div class="inline-comentario" id="comentario_4"><strong>Fundamentação (Gabarito B):</strong> Ctrl + Shift + T reabre a última guia fechada. Ctrl + T abre nova guia; Ctrl + H abre o histórico.</div></div>
+<div class="question-box" data-gab="A" data-q="5">
 <div class="question-header">QUESTÃO 05 • Informática • Questão Oficial 05 • INBRASP/CONSULPAM</div>
 <div class="question-title">[05] O recurso de segurança da informação que cria uma cópia de segurança periódica de arquivos e dados para prevenir perda em desastres é denominado:</div>
-<ul class="options-list"><li>(A) Backup.</li><li>(B) Defrag.</li><li>(C) Overclocking.</li><li>(D) Paging.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 5, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">ABackup.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 5, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">BDefrag.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 5, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">COverclocking.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 5, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">DPaging.</span></li></ul>
+<div class="inline-feedback" id="feedback_5"></div><div class="inline-comentario" id="comentario_5"><strong>Fundamentação (Gabarito A):</strong> Backup é a cópia de segurança dos dados.</div></div>
+<div class="question-box" data-gab="D" data-q="6">
 <div class="question-header">QUESTÃO 06 • Informática • Questão Oficial 06 • INBRASP/CONSULPAM</div>
 <div class="question-title">[06] No Microsoft Word, para localizar uma palavra ou expressão específica no corpo do documento, o atalho padrão do teclado é:</div>
-<ul class="options-list"><li>(A) Ctrl + B</li><li>(B) Ctrl + F</li><li>(C) Ctrl + P</li><li>(D) Ctrl + L</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 6, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">ACtrl + B</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 6, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">BCtrl + F</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 6, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">CCtrl + P</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 6, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">DCtrl + L</span></li></ul>
+<div class="inline-feedback" id="feedback_6"></div><div class="inline-comentario" id="comentario_6"><strong>Fundamentação (Gabarito D):</strong> No Word em português: Ctrl + L abre o painel Localizar. (Ctrl + B salva; Ctrl + P imprime).</div></div>
+<div class="question-box" data-gab="C" data-q="7">
 <div class="question-header">QUESTÃO 07 • Informática • Questão Oficial 07 • INBRASP/CONSULPAM</div>
 <div class="question-title">[07] No Microsoft Excel, a função =CONT.VALORES(A1:A5) tem por finalidade:</div>
-<ul class="options-list"><li>(A) Somar os valores numéricos das células de A1 até A5.</li><li>(B) Calcular a média ponderada dos dados preenchidos.</li><li>(C) Contar o número de células no intervalo que não estejam vazias.</li><li>(D) Contar apenas células que contenham valores numéricos.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 7, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">ASomar os valores numéricos das células de A1 até A5.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 7, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">BCalcular a média ponderada dos dados preenchidos.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 7, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">CContar o número de células no intervalo que não estejam vazias.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 7, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">DContar apenas células que contenham valores numéricos.</span></li></ul>
+<div class="inline-feedback" id="feedback_7"></div><div class="inline-comentario" id="comentario_7"><strong>Fundamentação (Gabarito C):</strong> CONT.VALORES conta todas as células preenchidas (texto, números, etc.), enquanto CONT.NÚM conta apenas números.</div></div>
+<div class="question-box" data-gab="B" data-q="8">
 <div class="question-header">QUESTÃO 08 • Informática • Questão Oficial 08 • INBRASP/CONSULPAM</div>
 <div class="question-title">[08] Qual das seguintes mídias de armazenamento utiliza tecnologia de memória flash, sem partes móveis, oferecendo maior velocidade de leitura que os discos rígidos mecânicos?</div>
-<ul class="options-list"><li>(A) HD SATA magnético.</li><li>(B) SSD (Solid State Drive).</li><li>(C) Fita magnética DAT.</li><li>(D) CD-RW óptico.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 8, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">AHD SATA magnético.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 8, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">BSSD (Solid State Drive).</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 8, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">CFita magnética DAT.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 8, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">DCD-RW óptico.</span></li></ul>
+<div class="inline-feedback" id="feedback_8"></div><div class="inline-comentario" id="comentario_8"><strong>Fundamentação (Gabarito B):</strong> SSD armazena dados em memória flash de alta velocidade sem partes mecânicas móveis.</div></div>
+<div class="question-box" data-gab="B" data-q="9">
 <div class="question-header">QUESTÃO 09 • Informática • Questão Oficial 09 • INBRASP/CONSULPAM</div>
 <div class="question-title">[09] No navegador Google Chrome, o atalho do teclado para reabrir a última guia que foi fechada acidentalmente é:</div>
-<ul class="options-list"><li>(A) Ctrl + T</li><li>(B) Ctrl + Shift + T</li><li>(C) Ctrl + N</li><li>(D) Ctrl + H</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 9, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">ACtrl + T</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 9, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">BCtrl + Shift + T</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 9, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">CCtrl + N</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 9, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">DCtrl + H</span></li></ul>
+<div class="inline-feedback" id="feedback_9"></div><div class="inline-comentario" id="comentario_9"><strong>Fundamentação (Gabarito B):</strong> Ctrl + Shift + T reabre a última guia fechada. Ctrl + T abre nova guia; Ctrl + H abre o histórico.</div></div>
+<div class="question-box" data-gab="C" data-q="10">
 <div class="question-header">QUESTÃO 10 • Informática • Questão Oficial 10 • INBRASP/CONSULPAM</div>
 <div class="question-title">[10] O recurso de segurança da informação que cria uma cópia de segurança periódica de arquivos e dados para prevenir perda em desastres é denominado:</div>
-<ul class="options-list"><li>(A) Defrag.</li><li>(B) Overclocking.</li><li>(C) Backup.</li><li>(D) Paging.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 10, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">ADefrag.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 10, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">BOverclocking.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 10, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">CBackup.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 10, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">DPaging.</span></li></ul>
+<div class="inline-feedback" id="feedback_10"></div><div class="inline-comentario" id="comentario_10"><strong>Fundamentação (Gabarito C):</strong> Backup é a cópia de segurança dos dados.</div></div>
+<div class="question-box" data-gab="A" data-q="11">
 <div class="question-header">QUESTÃO 11 • Informática • Questão Oficial 11 • INBRASP/CONSULPAM</div>
 <div class="question-title">[11] No Microsoft Word, para localizar uma palavra ou expressão específica no corpo do documento, o atalho padrão do teclado é:</div>
-<ul class="options-list"><li>(A) Ctrl + L</li><li>(B) Ctrl + B</li><li>(C) Ctrl + F</li><li>(D) Ctrl + P</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 11, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">ACtrl + L</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 11, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">BCtrl + B</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 11, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">CCtrl + F</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 11, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">DCtrl + P</span></li></ul>
+<div class="inline-feedback" id="feedback_11"></div><div class="inline-comentario" id="comentario_11"><strong>Fundamentação (Gabarito A):</strong> No Word em português: Ctrl + L abre o painel Localizar. (Ctrl + B salva; Ctrl + P imprime).</div></div>
+<div class="question-box" data-gab="D" data-q="12">
 <div class="question-header">QUESTÃO 12 • Informática • Questão Oficial 12 • INBRASP/CONSULPAM</div>
 <div class="question-title">[12] No Microsoft Excel, a função =CONT.VALORES(A1:A5) tem por finalidade:</div>
-<ul class="options-list"><li>(A) Somar os valores numéricos das células de A1 até A5.</li><li>(B) Calcular a média ponderada dos dados preenchidos.</li><li>(C) Contar apenas células que contenham valores numéricos.</li><li>(D) Contar o número de células no intervalo que não estejam vazias.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 12, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">ASomar os valores numéricos das células de A1 até A5.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 12, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">BCalcular a média ponderada dos dados preenchidos.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 12, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">CContar apenas células que contenham valores numéricos.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 12, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">DContar o número de células no intervalo que não estejam vazias.</span></li></ul>
+<div class="inline-feedback" id="feedback_12"></div><div class="inline-comentario" id="comentario_12"><strong>Fundamentação (Gabarito D):</strong> CONT.VALORES conta todas as células preenchidas (texto, números, etc.), enquanto CONT.NÚM conta apenas números.</div></div>
+<div class="question-box" data-gab="D" data-q="13">
 <div class="question-header">QUESTÃO 13 • Informática • Questão Oficial 13 • INBRASP/CONSULPAM</div>
 <div class="question-title">[13] Qual das seguintes mídias de armazenamento utiliza tecnologia de memória flash, sem partes móveis, oferecendo maior velocidade de leitura que os discos rígidos mecânicos?</div>
-<ul class="options-list"><li>(A) HD SATA magnético.</li><li>(B) Fita magnética DAT.</li><li>(C) CD-RW óptico.</li><li>(D) SSD (Solid State Drive).</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 13, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">AHD SATA magnético.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 13, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">BFita magnética DAT.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 13, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">CCD-RW óptico.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 13, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">DSSD (Solid State Drive).</span></li></ul>
+<div class="inline-feedback" id="feedback_13"></div><div class="inline-comentario" id="comentario_13"><strong>Fundamentação (Gabarito D):</strong> SSD armazena dados em memória flash de alta velocidade sem partes mecânicas móveis.</div></div>
+<div class="question-box" data-gab="B" data-q="14">
 <div class="question-header">QUESTÃO 14 • Informática • Questão Oficial 14 • INBRASP/CONSULPAM</div>
 <div class="question-title">[14] No navegador Google Chrome, o atalho do teclado para reabrir a última guia que foi fechada acidentalmente é:</div>
-<ul class="options-list"><li>(A) Ctrl + T</li><li>(B) Ctrl + Shift + T</li><li>(C) Ctrl + N</li><li>(D) Ctrl + H</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 14, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">ACtrl + T</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 14, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">BCtrl + Shift + T</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 14, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">CCtrl + N</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 14, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">DCtrl + H</span></li></ul>
+<div class="inline-feedback" id="feedback_14"></div><div class="inline-comentario" id="comentario_14"><strong>Fundamentação (Gabarito B):</strong> Ctrl + Shift + T reabre a última guia fechada. Ctrl + T abre nova guia; Ctrl + H abre o histórico.</div></div>
+<div class="question-box" data-gab="A" data-q="15">
 <div class="question-header">QUESTÃO 15 • Informática • Questão Oficial 15 • INBRASP/CONSULPAM</div>
 <div class="question-title">[15] O recurso de segurança da informação que cria uma cópia de segurança periódica de arquivos e dados para prevenir perda em desastres é denominado:</div>
-<ul class="options-list"><li>(A) Backup.</li><li>(B) Defrag.</li><li>(C) Overclocking.</li><li>(D) Paging.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 15, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">ABackup.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 15, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">BDefrag.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 15, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">COverclocking.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 15, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">DPaging.</span></li></ul>
+<div class="inline-feedback" id="feedback_15"></div><div class="inline-comentario" id="comentario_15"><strong>Fundamentação (Gabarito A):</strong> Backup é a cópia de segurança dos dados.</div></div>
+<div class="question-box" data-gab="C" data-q="16">
 <div class="question-header">QUESTÃO 16 • Informática • Questão Oficial 16 • INBRASP/CONSULPAM</div>
 <div class="question-title">[16] No Microsoft Word, para localizar uma palavra ou expressão específica no corpo do documento, o atalho padrão do teclado é:</div>
-<ul class="options-list"><li>(A) Ctrl + B</li><li>(B) Ctrl + F</li><li>(C) Ctrl + L</li><li>(D) Ctrl + P</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 16, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">ACtrl + B</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 16, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">BCtrl + F</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 16, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">CCtrl + L</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 16, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">DCtrl + P</span></li></ul>
+<div class="inline-feedback" id="feedback_16"></div><div class="inline-comentario" id="comentario_16"><strong>Fundamentação (Gabarito C):</strong> No Word em português: Ctrl + L abre o painel Localizar. (Ctrl + B salva; Ctrl + P imprime).</div></div>
+<div class="question-box" data-gab="C" data-q="17">
 <div class="question-header">QUESTÃO 17 • Informática • Questão Oficial 17 • INBRASP/CONSULPAM</div>
 <div class="question-title">[17] No Microsoft Excel, a função =CONT.VALORES(A1:A5) tem por finalidade:</div>
-<ul class="options-list"><li>(A) Somar os valores numéricos das células de A1 até A5.</li><li>(B) Calcular a média ponderada dos dados preenchidos.</li><li>(C) Contar o número de células no intervalo que não estejam vazias.</li><li>(D) Contar apenas células que contenham valores numéricos.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 17, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">ASomar os valores numéricos das células de A1 até A5.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 17, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">BCalcular a média ponderada dos dados preenchidos.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 17, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">CContar o número de células no intervalo que não estejam vazias.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 17, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">DContar apenas células que contenham valores numéricos.</span></li></ul>
+<div class="inline-feedback" id="feedback_17"></div><div class="inline-comentario" id="comentario_17"><strong>Fundamentação (Gabarito C):</strong> CONT.VALORES conta todas as células preenchidas (texto, números, etc.), enquanto CONT.NÚM conta apenas números.</div></div>
+<div class="question-box" data-gab="D" data-q="18">
 <div class="question-header">QUESTÃO 18 • Informática • Questão Oficial 18 • INBRASP/CONSULPAM</div>
 <div class="question-title">[18] Qual das seguintes mídias de armazenamento utiliza tecnologia de memória flash, sem partes móveis, oferecendo maior velocidade de leitura que os discos rígidos mecânicos?</div>
-<ul class="options-list"><li>(A) HD SATA magnético.</li><li>(B) Fita magnética DAT.</li><li>(C) CD-RW óptico.</li><li>(D) SSD (Solid State Drive).</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 18, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">AHD SATA magnético.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 18, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">BFita magnética DAT.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 18, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">CCD-RW óptico.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 18, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">DSSD (Solid State Drive).</span></li></ul>
+<div class="inline-feedback" id="feedback_18"></div><div class="inline-comentario" id="comentario_18"><strong>Fundamentação (Gabarito D):</strong> SSD armazena dados em memória flash de alta velocidade sem partes mecânicas móveis.</div></div>
+<div class="question-box" data-gab="B" data-q="19">
 <div class="question-header">QUESTÃO 19 • Informática • Questão Oficial 19 • INBRASP/CONSULPAM</div>
 <div class="question-title">[19] No navegador Google Chrome, o atalho do teclado para reabrir a última guia que foi fechada acidentalmente é:</div>
-<ul class="options-list"><li>(A) Ctrl + T</li><li>(B) Ctrl + Shift + T</li><li>(C) Ctrl + N</li><li>(D) Ctrl + H</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 19, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">ACtrl + T</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 19, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">BCtrl + Shift + T</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 19, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">CCtrl + N</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 19, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">DCtrl + H</span></li></ul>
+<div class="inline-feedback" id="feedback_19"></div><div class="inline-comentario" id="comentario_19"><strong>Fundamentação (Gabarito B):</strong> Ctrl + Shift + T reabre a última guia fechada. Ctrl + T abre nova guia; Ctrl + H abre o histórico.</div></div>
+<div class="question-box" data-gab="A" data-q="20">
 <div class="question-header">QUESTÃO 20 • Informática • Questão Oficial 20 • INBRASP/CONSULPAM</div>
 <div class="question-title">[20] O recurso de segurança da informação que cria uma cópia de segurança periódica de arquivos e dados para prevenir perda em desastres é denominado:</div>
-<ul class="options-list"><li>(A) Backup.</li><li>(B) Defrag.</li><li>(C) Overclocking.</li><li>(D) Paging.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 20, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">ABackup.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 20, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">BDefrag.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 20, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">COverclocking.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 20, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">DPaging.</span></li></ul>
+<div class="inline-feedback" id="feedback_20"></div><div class="inline-comentario" id="comentario_20"><strong>Fundamentação (Gabarito A):</strong> Backup é a cópia de segurança dos dados.</div></div>
+<div class="question-box" data-gab="C" data-q="21">
 <div class="question-header">QUESTÃO 21 • Informática • Questão Oficial 21 • INBRASP/CONSULPAM</div>
 <div class="question-title">[21] No Microsoft Word, para localizar uma palavra ou expressão específica no corpo do documento, o atalho padrão do teclado é:</div>
-<ul class="options-list"><li>(A) Ctrl + B</li><li>(B) Ctrl + F</li><li>(C) Ctrl + L</li><li>(D) Ctrl + P</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 21, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">ACtrl + B</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 21, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">BCtrl + F</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 21, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">CCtrl + L</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 21, 'A', 'C')"><span class="option-bubble">A</span><span class="option-text">DCtrl + P</span></li></ul>
+<div class="inline-feedback" id="feedback_21"></div><div class="inline-comentario" id="comentario_21"><strong>Fundamentação (Gabarito C):</strong> No Word em português: Ctrl + L abre o painel Localizar. (Ctrl + B salva; Ctrl + P imprime).</div></div>
+<div class="question-box" data-gab="A" data-q="22">
 <div class="question-header">QUESTÃO 22 • Informática • Questão Oficial 22 • INBRASP/CONSULPAM</div>
 <div class="question-title">[22] No Microsoft Excel, a função =CONT.VALORES(A1:A5) tem por finalidade:</div>
-<ul class="options-list"><li>(A) Contar o número de células no intervalo que não estejam vazias.</li><li>(B) Somar os valores numéricos das células de A1 até A5.</li><li>(C) Calcular a média ponderada dos dados preenchidos.</li><li>(D) Contar apenas células que contenham valores numéricos.</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 22, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">AContar o número de células no intervalo que não estejam vazias.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 22, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">BSomar os valores numéricos das células de A1 até A5.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 22, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">CCalcular a média ponderada dos dados preenchidos.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 22, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">DContar apenas células que contenham valores numéricos.</span></li></ul>
+<div class="inline-feedback" id="feedback_22"></div><div class="inline-comentario" id="comentario_22"><strong>Fundamentação (Gabarito A):</strong> CONT.VALORES conta todas as células preenchidas (texto, números, etc.), enquanto CONT.NÚM conta apenas números.</div></div>
+<div class="question-box" data-gab="D" data-q="23">
 <div class="question-header">QUESTÃO 23 • Informática • Questão Oficial 23 • INBRASP/CONSULPAM</div>
 <div class="question-title">[23] Qual das seguintes mídias de armazenamento utiliza tecnologia de memória flash, sem partes móveis, oferecendo maior velocidade de leitura que os discos rígidos mecânicos?</div>
-<ul class="options-list"><li>(A) HD SATA magnético.</li><li>(B) Fita magnética DAT.</li><li>(C) CD-RW óptico.</li><li>(D) SSD (Solid State Drive).</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 23, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">AHD SATA magnético.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 23, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">BFita magnética DAT.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 23, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">CCD-RW óptico.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 23, 'A', 'D')"><span class="option-bubble">A</span><span class="option-text">DSSD (Solid State Drive).</span></li></ul>
+<div class="inline-feedback" id="feedback_23"></div><div class="inline-comentario" id="comentario_23"><strong>Fundamentação (Gabarito D):</strong> SSD armazena dados em memória flash de alta velocidade sem partes mecânicas móveis.</div></div>
+<div class="question-box" data-gab="B" data-q="24">
 <div class="question-header">QUESTÃO 24 • Informática • Questão Oficial 24 • INBRASP/CONSULPAM</div>
 <div class="question-title">[24] No navegador Google Chrome, o atalho do teclado para reabrir a última guia que foi fechada acidentalmente é:</div>
-<ul class="options-list"><li>(A) Ctrl + T</li><li>(B) Ctrl + Shift + T</li><li>(C) Ctrl + N</li><li>(D) Ctrl + H</li></ul>
-</div>
-<div class="question-box">
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 24, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">ACtrl + T</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 24, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">BCtrl + Shift + T</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 24, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">CCtrl + N</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 24, 'A', 'B')"><span class="option-bubble">A</span><span class="option-text">DCtrl + H</span></li></ul>
+<div class="inline-feedback" id="feedback_24"></div><div class="inline-comentario" id="comentario_24"><strong>Fundamentação (Gabarito B):</strong> Ctrl + Shift + T reabre a última guia fechada. Ctrl + T abre nova guia; Ctrl + H abre o histórico.</div></div>
+<div class="question-box" data-gab="A" data-q="25">
 <div class="question-header">QUESTÃO 25 • Informática • Questão Oficial 25 • INBRASP/CONSULPAM</div>
 <div class="question-title">[25] O recurso de segurança da informação que cria uma cópia de segurança periódica de arquivos e dados para prevenir perda em desastres é denominado:</div>
-<ul class="options-list"><li>(A) Backup.</li><li>(B) Defrag.</li><li>(C) Overclocking.</li><li>(D) Paging.</li></ul>
-</div>
+<ul class="options-list"><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 25, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">ABackup.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 25, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">BDefrag.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 25, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">COverclocking.</span></li><li class="option-item" data-opt="A" onclick="handleOptionClick(this, 25, 'A', 'A')"><span class="option-bubble">A</span><span class="option-text">DPaging.</span></li></ul>
+<div class="inline-feedback" id="feedback_25"></div><div class="inline-comentario" id="comentario_25"><strong>Fundamentação (Gabarito A):</strong> Backup é a cópia de segurança dos dados.</div></div>
 <div class="answer-card">
 <h3 style="margin: 0 0 8px 0; text-align: center; text-transform: uppercase;">Folha Óptica de Respostas (Treino de Simulação)</h3>
 <p style="text-align: center; font-size: 8.5pt; margin: 0 0 12px 0;">Preencha a bolha da alternativa correta conforme o cartão de respostas oficial:</p>
@@ -416,5 +980,374 @@
 <strong>Resolução / Fundamentação:</strong> Backup é a cópia de segurança dos dados.
           </div>
 </div>
+<script>
+    // ESTADO DO SIMULADO INTERATIVO
+    let userAnswers = {}; // { qNum: letter }
+    let instantMode = true;
+    let totalQuestions = 0;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      totalQuestions = document.querySelectorAll('.question-box[data-q]').length;
+      updateStats();
+    });
+
+    function toggleInstantMode(enabled) {
+      instantMode = enabled;
+      const btnFinish = document.getElementById('btnFinish');
+      if (btnFinish) {
+        btnFinish.style.display = enabled ? 'none' : 'inline-flex';
+      }
+    }
+
+    function handleOptionClick(btn, qNum, selectedOpt, correctOpt) {
+      const qBox = document.querySelector(`.question-box[data-q="${qNum}"]`);
+      if (!qBox) return;
+
+      // Se já respondeu no modo instantâneo, permite trocar se quiser
+      userAnswers[qNum] = selectedOpt;
+
+      // Limpar estados anteriores nas opções desta questão
+      qBox.querySelectorAll('.option-item').forEach(opt => {
+        opt.classList.remove('selected', 'is-correct', 'is-wrong');
+      });
+
+      btn.classList.add('selected');
+
+      if (instantMode) {
+        evaluateQuestion(qNum, selectedOpt, correctOpt);
+      }
+      updateStats();
+    }
+
+    function evaluateQuestion(qNum, selectedOpt, correctOpt) {
+      const qBox = document.querySelector(`.question-box[data-q="${qNum}"]`);
+      if (!qBox) return;
+
+      const fb = document.getElementById(`feedback_${qNum}`);
+      const com = document.getElementById(`comentario_${qNum}`);
+      const isCorrect = (selectedOpt.toUpperCase() === correctOpt.toUpperCase());
+
+      qBox.querySelectorAll('.option-item').forEach(opt => {
+        const optLetter = opt.getAttribute('data-opt');
+        if (optLetter === correctOpt) {
+          opt.classList.add('is-correct');
+        } else if (optLetter === selectedOpt && !isCorrect) {
+          opt.classList.add('is-wrong');
+        }
+      });
+
+      if (fb) {
+        if (isCorrect) {
+          fb.className = 'inline-feedback correct';
+          fb.innerHTML = '<i class="fas fa-check-circle"></i> <strong>Parabéns, você acertou!</strong> Alternativa correta: <strong>(' + correctOpt + ')</strong>';
+        } else {
+          fb.className = 'inline-feedback wrong';
+          fb.innerHTML = '<i class="fas fa-times-circle"></i> <strong>Você errou.</strong> Sua resposta foi <strong>(' + selectedOpt + ')</strong>, mas o gabarito oficial é <strong>(' + correctOpt + ')</strong>.';
+        }
+      }
+
+      if (com) {
+        com.style.display = 'block';
+      }
+    }
+
+    function finishExam() {
+      document.querySelectorAll('.question-box[data-q]').forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        const correctOpt = qBox.getAttribute('data-gab');
+        const selectedOpt = userAnswers[qNum];
+        if (selectedOpt) {
+          evaluateQuestion(qNum, selectedOpt, correctOpt);
+        } else {
+          // Revelar gabarito de não respondidas
+          const fb = document.getElementById(`feedback_${qNum}`);
+          const com = document.getElementById(`comentario_${qNum}`);
+          qBox.querySelectorAll('.option-item').forEach(opt => {
+            if (opt.getAttribute('data-opt') === correctOpt) {
+              opt.classList.add('is-correct');
+            }
+          });
+          if (fb) {
+            fb.className = 'inline-feedback wrong';
+            fb.innerHTML = '<i class="fas fa-minus-circle"></i> <strong>Não respondida.</strong> Gabarito oficial: <strong>(' + correctOpt + ')</strong>';
+          }
+          if (com) com.style.display = 'block';
+        }
+      });
+      updateStats();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateStats() {
+      let correct = 0;
+      let wrong = 0;
+      const qBoxes = document.querySelectorAll('.question-box[data-q]');
+      const total = qBoxes.length || totalQuestions;
+
+      qBoxes.forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        const correctOpt = qBox.getAttribute('data-gab');
+        const sel = userAnswers[qNum];
+        if (sel) {
+          if (sel.toUpperCase() === correctOpt.toUpperCase()) correct++;
+          else wrong++;
+        }
+      });
+
+      const answered = Object.keys(userAnswers).length;
+      const percent = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+
+      const elAnswered = document.getElementById('answeredCount');
+      const elCorrect = document.getElementById('correctCount');
+      const elWrong = document.getElementById('wrongCount');
+      const elPercent = document.getElementById('percentBadge');
+      const elBar = document.getElementById('progressBar');
+      const elBtnRetry = document.getElementById('btnRetryErrors');
+      const elWrongBtnCount = document.getElementById('wrongBtnCount');
+
+      if (elAnswered) elAnswered.innerText = answered;
+      if (elCorrect) elCorrect.innerText = correct;
+      if (elWrong) elWrong.innerText = wrong;
+      if (elPercent) elPercent.innerText = percent + '%';
+      if (elBar) elBar.style.width = (total > 0 ? (answered / total) * 100 : 0) + '%';
+
+      if (elBtnRetry && elWrongBtnCount) {
+        elWrongBtnCount.innerText = wrong;
+        elBtnRetry.style.display = wrong > 0 ? 'inline-flex' : 'none';
+      }
+    }
+
+    function retryErrors() {
+      const qBoxes = document.querySelectorAll('.question-box[data-q]');
+      let firstWrong = null;
+
+      qBoxes.forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        const correctOpt = qBox.getAttribute('data-gab');
+        const sel = userAnswers[qNum];
+
+        if (sel && sel.toUpperCase() !== correctOpt.toUpperCase()) {
+          // Limpa resposta errada
+          delete userAnswers[qNum];
+          qBox.querySelectorAll('.option-item').forEach(opt => {
+            opt.classList.remove('selected', 'is-correct', 'is-wrong');
+          });
+          const fb = document.getElementById(`feedback_${qNum}`);
+          const com = document.getElementById(`comentario_${qNum}`);
+          if (fb) fb.className = 'inline-feedback';
+          if (com) com.style.display = 'none';
+
+          if (!firstWrong) firstWrong = qBox;
+        }
+      });
+
+      updateStats();
+      if (firstWrong) {
+        firstWrong.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function resetQuiz() {
+      if (!confirm('Deseja reiniciar todas as respostas deste caderno?')) return;
+      userAnswers = {};
+      document.querySelectorAll('.question-box[data-q]').forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        qBox.querySelectorAll('.option-item').forEach(opt => {
+          opt.classList.remove('selected', 'is-correct', 'is-wrong');
+        });
+        const fb = document.getElementById(`feedback_${qNum}`);
+        const com = document.getElementById(`comentario_${qNum}`);
+        if (fb) fb.className = 'inline-feedback';
+        if (com) com.style.display = 'none';
+      });
+      updateStats();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+<script>
+    // ESTADO DO SIMULADO INTERATIVO
+    let userAnswers = {}; // { qNum: letter }
+    let instantMode = true;
+    let totalQuestions = 0;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      totalQuestions = document.querySelectorAll('.question-box[data-q]').length;
+      updateStats();
+    });
+
+    function toggleInstantMode(enabled) {
+      instantMode = enabled;
+      const btnFinish = document.getElementById('btnFinish');
+      if (btnFinish) {
+        btnFinish.style.display = enabled ? 'none' : 'inline-flex';
+      }
+    }
+
+    function handleOptionClick(btn, qNum, selectedOpt, correctOpt) {
+      const qBox = document.querySelector(`.question-box[data-q="${qNum}"]`);
+      if (!qBox) return;
+
+      // Se já respondeu no modo instantâneo, permite trocar se quiser
+      userAnswers[qNum] = selectedOpt;
+
+      // Limpar estados anteriores nas opções desta questão
+      qBox.querySelectorAll('.option-item').forEach(opt => {
+        opt.classList.remove('selected', 'is-correct', 'is-wrong');
+      });
+
+      btn.classList.add('selected');
+
+      if (instantMode) {
+        evaluateQuestion(qNum, selectedOpt, correctOpt);
+      }
+      updateStats();
+    }
+
+    function evaluateQuestion(qNum, selectedOpt, correctOpt) {
+      const qBox = document.querySelector(`.question-box[data-q="${qNum}"]`);
+      if (!qBox) return;
+
+      const fb = document.getElementById(`feedback_${qNum}`);
+      const com = document.getElementById(`comentario_${qNum}`);
+      const isCorrect = (selectedOpt.toUpperCase() === correctOpt.toUpperCase());
+
+      qBox.querySelectorAll('.option-item').forEach(opt => {
+        const optLetter = opt.getAttribute('data-opt');
+        if (optLetter === correctOpt) {
+          opt.classList.add('is-correct');
+        } else if (optLetter === selectedOpt && !isCorrect) {
+          opt.classList.add('is-wrong');
+        }
+      });
+
+      if (fb) {
+        if (isCorrect) {
+          fb.className = 'inline-feedback correct';
+          fb.innerHTML = '<i class="fas fa-check-circle"></i> <strong>Parabéns, você acertou!</strong> Alternativa correta: <strong>(' + correctOpt + ')</strong>';
+        } else {
+          fb.className = 'inline-feedback wrong';
+          fb.innerHTML = '<i class="fas fa-times-circle"></i> <strong>Você errou.</strong> Sua resposta foi <strong>(' + selectedOpt + ')</strong>, mas o gabarito oficial é <strong>(' + correctOpt + ')</strong>.';
+        }
+      }
+
+      if (com) {
+        com.style.display = 'block';
+      }
+    }
+
+    function finishExam() {
+      document.querySelectorAll('.question-box[data-q]').forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        const correctOpt = qBox.getAttribute('data-gab');
+        const selectedOpt = userAnswers[qNum];
+        if (selectedOpt) {
+          evaluateQuestion(qNum, selectedOpt, correctOpt);
+        } else {
+          // Revelar gabarito de não respondidas
+          const fb = document.getElementById(`feedback_${qNum}`);
+          const com = document.getElementById(`comentario_${qNum}`);
+          qBox.querySelectorAll('.option-item').forEach(opt => {
+            if (opt.getAttribute('data-opt') === correctOpt) {
+              opt.classList.add('is-correct');
+            }
+          });
+          if (fb) {
+            fb.className = 'inline-feedback wrong';
+            fb.innerHTML = '<i class="fas fa-minus-circle"></i> <strong>Não respondida.</strong> Gabarito oficial: <strong>(' + correctOpt + ')</strong>';
+          }
+          if (com) com.style.display = 'block';
+        }
+      });
+      updateStats();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateStats() {
+      let correct = 0;
+      let wrong = 0;
+      const qBoxes = document.querySelectorAll('.question-box[data-q]');
+      const total = qBoxes.length || totalQuestions;
+
+      qBoxes.forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        const correctOpt = qBox.getAttribute('data-gab');
+        const sel = userAnswers[qNum];
+        if (sel) {
+          if (sel.toUpperCase() === correctOpt.toUpperCase()) correct++;
+          else wrong++;
+        }
+      });
+
+      const answered = Object.keys(userAnswers).length;
+      const percent = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+
+      const elAnswered = document.getElementById('answeredCount');
+      const elCorrect = document.getElementById('correctCount');
+      const elWrong = document.getElementById('wrongCount');
+      const elPercent = document.getElementById('percentBadge');
+      const elBar = document.getElementById('progressBar');
+      const elBtnRetry = document.getElementById('btnRetryErrors');
+      const elWrongBtnCount = document.getElementById('wrongBtnCount');
+
+      if (elAnswered) elAnswered.innerText = answered;
+      if (elCorrect) elCorrect.innerText = correct;
+      if (elWrong) elWrong.innerText = wrong;
+      if (elPercent) elPercent.innerText = percent + '%';
+      if (elBar) elBar.style.width = (total > 0 ? (answered / total) * 100 : 0) + '%';
+
+      if (elBtnRetry && elWrongBtnCount) {
+        elWrongBtnCount.innerText = wrong;
+        elBtnRetry.style.display = wrong > 0 ? 'inline-flex' : 'none';
+      }
+    }
+
+    function retryErrors() {
+      const qBoxes = document.querySelectorAll('.question-box[data-q]');
+      let firstWrong = null;
+
+      qBoxes.forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        const correctOpt = qBox.getAttribute('data-gab');
+        const sel = userAnswers[qNum];
+
+        if (sel && sel.toUpperCase() !== correctOpt.toUpperCase()) {
+          // Limpa resposta errada
+          delete userAnswers[qNum];
+          qBox.querySelectorAll('.option-item').forEach(opt => {
+            opt.classList.remove('selected', 'is-correct', 'is-wrong');
+          });
+          const fb = document.getElementById(`feedback_${qNum}`);
+          const com = document.getElementById(`comentario_${qNum}`);
+          if (fb) fb.className = 'inline-feedback';
+          if (com) com.style.display = 'none';
+
+          if (!firstWrong) firstWrong = qBox;
+        }
+      });
+
+      updateStats();
+      if (firstWrong) {
+        firstWrong.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function resetQuiz() {
+      if (!confirm('Deseja reiniciar todas as respostas deste caderno?')) return;
+      userAnswers = {};
+      document.querySelectorAll('.question-box[data-q]').forEach(qBox => {
+        const qNum = qBox.getAttribute('data-q');
+        qBox.querySelectorAll('.option-item').forEach(opt => {
+          opt.classList.remove('selected', 'is-correct', 'is-wrong');
+        });
+        const fb = document.getElementById(`feedback_${qNum}`);
+        const com = document.getElementById(`comentario_${qNum}`);
+        if (fb) fb.className = 'inline-feedback';
+        if (com) com.style.display = 'none';
+      });
+      updateStats();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
