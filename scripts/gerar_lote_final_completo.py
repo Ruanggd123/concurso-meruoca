@@ -1,10 +1,53 @@
-import os, sys
+import os, sys, json, re
 sys.stdout.reconfigure(encoding='utf-8')
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from construir_cadernos_reais import render_html, compilar_para_pdf
 
 PROVAS_DIR = r"C:\Users\Ruan Gomes\Downloads\Meruoca\provas"
+JSON_PATH = os.path.join(PROVAS_DIR, "all_657_questions.json")
+
+with open(JSON_PATH, "r", encoding="utf-8") as f:
+    ALL_QS = json.load(f)
+
+LETTERS = ['A', 'B', 'C', 'D']
+
+def norm(text):
+    t = re.sub(r'^\[\d+\]\s*', '', text.strip().lower())
+    t = re.sub(r'^\d+[\.\)\-]\s*', '', t)
+    t = re.sub(r'\s+', ' ', t)
+    return t
+
+def clean_opt(opt):
+    return re.sub(r'^\([ABCD]\)\s*', '', opt.strip())
+
+def clean_comment(com):
+    c = re.sub(r'^Gabarito:\s*[ABCD][\.\s\-]*', '', com.strip(), flags=re.IGNORECASE)
+    return c.strip()
+
+def expand_unique(base_itens, categories, target_count):
+    seen = set()
+    result = []
+    for head, enun, opts, gab, com in base_itens:
+        key = norm(enun)
+        if key not in seen:
+            seen.add(key)
+            result.append((head, enun, [clean_opt(o) for o in opts], gab, clean_comment(com)))
+    
+    for q in ALL_QS:
+        if len(result) >= target_count:
+            break
+        if q.get("category") in categories:
+            enun = re.sub(r'^\d+[\.\)\-]\s*', '', q["question"].strip())
+            key = norm(enun)
+            if key not in seen and len(q.get("options", [])) == 4:
+                seen.add(key)
+                gab = LETTERS[q["correctAnswer"]]
+                opts = [clean_opt(o) for o in q["options"]]
+                com = clean_comment(q.get("commentary", ""))
+                head = q.get("discipline", "Questão Oficial")
+                result.append((head, enun, opts, gab, com))
+    return result[:target_count]
 
 def compilar(nome_base, titulo, badge, orgao, certame, cargo, fonte, questoes):
     html = render_html(titulo, badge, orgao, certame, cargo, fonte, questoes)
@@ -19,7 +62,7 @@ def compilar(nome_base, titulo, badge, orgao, certame, cargo, fonte, questoes):
 # =============================================================
 def build_prova_07():
     questoes = []
-    itens = [
+    itens_base = [
         ("Direito Administrativo", "A Lei nº 14.133/2021 estabelece como princípio da licitação pública expressamente enumerado:",
          ["Planejamento, transparência, eficácia, segregação de funções e motivação.", "Sigilo irrestrito dos atos processuais licitatórios.", "Discricionariedade ilimitada na escolha da proposta mais cara.", "Prevalência da contratação verbal para obras públicas."], "A",
          "Art. 5º da Lei 14.133/21: princípios da legalidade, impessoalidade, moralidade, publicidade, eficiência, planejamento, transparência, eficácia, segregação de funções, etc."),
@@ -51,10 +94,8 @@ def build_prova_07():
          ["Escrita e motivada, salvo exceções legais expressas como sinais de trânsito ou ordens verbais urgentes.", "Sempre tácita sem necessidade de registro físico.", "Sigilosa para garantir a segurança da autoridade.", "Apenas verbal em todas as esferas de governo."], "A",
          "A forma é a exteriorização material do ato administrativo, sendo regra geral o princípio da solenidade e forma escrita motivada.")
     ]
-    # Expandir para 30 questões
-    for i in range(1, 31):
-        idx = (i - 1) % len(itens)
-        head, enun, opts, gab, com = itens[idx]
+    itens = expand_unique(itens_base, ["administrativo", "constitucional"], 30)
+    for i, (head, enun, opts, gab, com) in enumerate(itens, 1):
         questoes.append({
             "numero": i,
             "secao": "DIREITO ADMINISTRATIVO & CONSTITUCIONAL (INBRASP/IBRASP)" if i == 1 else "",
@@ -80,7 +121,7 @@ def build_prova_07():
 # =============================================================
 def build_prova_08():
     questoes = []
-    itens = [
+    itens_base = [
         ("Língua Portuguesa", "Assinale a opção em que a concordância do particípio com o sujeito paciente está correta:",
          ["Foram deferidas todas as inscrições para o concurso da Câmara.", "Foi deferido todas as inscrições para o certame.", "Houveram inscrições deferidas pela comissão.", "Haviam sido deferido os pedidos de isenção."], "A",
          "Voz passiva analítica: verbo auxiliar concorda com o sujeito paciente ('Foram deferidas todas as inscrições')."),
@@ -112,9 +153,8 @@ def build_prova_08():
          ["O vereador cujo requerimento foi aprovado discursou ontem.", "O vereador cujo o requerimento foi aprovado discursou.", "O vereador que cujo requerimento foi arquivado protestou.", "O requerimento cujo de quem é conhecido tramitou rápido."], "A",
          "'Cujo' concorda com o substantivo seguinte ('cujo requerimento') e JAMAIS admite artigo após si ('cujo o' é erro grave).")
     ]
-    for i in range(1, 31):
-        idx = (i - 1) % len(itens)
-        head, enun, opts, gab, com = itens[idx]
+    itens = expand_unique(itens_base, ["portugues"], 30)
+    for i, (head, enun, opts, gab, com) in enumerate(itens, 1):
         questoes.append({
             "numero": i,
             "secao": "LÍNGUA PORTUGUESA & INTERPRETAÇÃO (INBRASP/IBRASP)" if i == 1 else "",
@@ -140,7 +180,7 @@ def build_prova_08():
 # =============================================================
 def build_prova_09():
     questoes = []
-    itens = [
+    itens_base = [
         ("Matemática", "Um lote com 360 pastas de arquivo deve ser dividido entre 3 servidores em partes proporcionais aos números 2, 3 e 4. A menor quantidade de pastas recebida por um servidor é:",
          ["80 pastas.", "120 pastas.", "160 pastas.", "90 pastas."], "A",
          "Soma das partes: 2 + 3 + 4 = 9 partes. Cada parte vale: 360 / 9 = 40 pastas. A menor cota é: 2 * 40 = 80 pastas."),
@@ -157,9 +197,8 @@ def build_prova_09():
          ["Hoje não é segunda-feira OU o plenário não está em sessão.", "Hoje não é segunda-feira E o plenário não está em sessão.", "Se hoje não for segunda-feira, haverá sessão.", "Hoje é segunda-feira se e somente se houver sessão."], "A",
          "Lei de De Morgan: ~(A e B) = ~A ou ~B.")
     ]
-    for i in range(1, 26):
-        idx = (i - 1) % len(itens)
-        head, enun, opts, gab, com = itens[idx]
+    itens = expand_unique(itens_base, ["matematica"], 25)
+    for i, (head, enun, opts, gab, com) in enumerate(itens, 1):
         questoes.append({
             "numero": i,
             "secao": "MATEMÁTICA BÁSICA & RACIOCÍNIO LÓGICO (INBRASP / CETREDE)" if i == 1 else "",
@@ -185,7 +224,7 @@ def build_prova_09():
 # =============================================================
 def build_prova_10():
     questoes = []
-    itens = [
+    itens_base = [
         ("Informática", "No Microsoft Word, para localizar uma palavra ou expressão específica no corpo do documento, o atalho padrão do teclado é:",
          ["Ctrl + L", "Ctrl + B", "Ctrl + F", "Ctrl + P"], "A",
          "No Word em português: Ctrl + L abre o painel Localizar. (Ctrl + B salva; Ctrl + P imprime)."),
@@ -202,9 +241,8 @@ def build_prova_10():
          ["Backup.", "Defrag.", "Overclocking.", "Paging."], "A",
          "Backup é a cópia de segurança dos dados.")
     ]
-    for i in range(1, 26):
-        idx = (i - 1) % len(itens)
-        head, enun, opts, gab, com = itens[idx]
+    itens = expand_unique(itens_base, ["informatica"], 25)
+    for i, (head, enun, opts, gab, com) in enumerate(itens, 1):
         questoes.append({
             "numero": i,
             "secao": "NOÇÕES DE INFORMÁTICA (INBRASP / CONSULPAM)" if i == 1 else "",
@@ -230,7 +268,7 @@ def build_prova_10():
 # =============================================================
 def build_prova_11():
     questoes = []
-    itens = [
+    itens_base = [
         ("Legislação Municipal", "A tramitação de projetos de lei de iniciativa popular na Câmara Municipal exige a subscrição de pelo menos:",
          ["5% (cinco por cento) do eleitorado do Município.", "10% dos eleitores registrados no cartório eleitoral.", "1% da população total do município.", "15% dos votantes da última eleição."], "A",
          "Art. 29, XIII da CF/88: iniciativa popular de projetos de lei de interesse específico do Município exige a manifestação de pelo menos 5% do eleitorado."),
@@ -247,9 +285,8 @@ def build_prova_11():
          ["Artigo 31, § 3º da Constituição Federal de 1988.", "Código Penal Brasileiro no capítulo de peculato.", "Estatuto dos Servidores Civis da União.", "Código de Trânsito Brasileiro."], "A",
          "Art. 31, § 3º da CF/88: As contas dos Municípios ficarão, durante 60 dias, anualmente, à disposição de qualquer contribuinte, para exame e apreciação, o qual poderá questionar a legitimidade.")
     ]
-    for i in range(1, 31):
-        idx = (i - 1) % len(itens)
-        head, enun, opts, gab, com = itens[idx]
+    itens = expand_unique(itens_base, ["legislacao", "especificos"], 30)
+    for i, (head, enun, opts, gab, com) in enumerate(itens, 1):
         questoes.append({
             "numero": i,
             "secao": "PROCESSO LEGISLATIVO, REGIMENTO & LEI ORGÂNICA" if i == 1 else "",
@@ -279,7 +316,6 @@ def build_guia_vespera():
     orgao = "CÂMARA MUNICIPAL DE MERUOCA — CEARÁ"
     certame = "CONCURSO PÚBLICO OFICIAL 2026 — BANCA INBRASP"
     cargo = "AGENTE ADMINISTRATIVO / NÍVEL MÉDIO"
-    fonte = "ARTIGOS-CHAVE DA LEI ORGÂNICA DE MERUOCA & REGIMENTO INTERNO"
     
     html = f"""<!DOCTYPE html>
 <html lang="pt-BR">
@@ -416,7 +452,7 @@ def build_guia_vespera():
         f.write(html)
     compilar_para_pdf(html_path, pdf_path)
 
-print("[*] Compilando lote final de provas reais...")
+print("[*] Compilando lote final de provas reais 100% unicas...")
 build_prova_07()
 build_prova_08()
 build_prova_09()
