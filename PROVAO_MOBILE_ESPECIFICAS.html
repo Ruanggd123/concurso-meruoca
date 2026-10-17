@@ -855,12 +855,12 @@
           <span class="pill-day-tag">📅 15/10 (Qui)</span>
           <span class="pill-sub-tag">Lei Orgânica Meruoca</span>
         </button>
-        <button class="pill-btn active today-highlight" onclick="switchFilter('dia_16_10', this)">
-          <span class="pill-day-tag">⭐ 16/10 (HOJE - Sex)</span>
+        <button class="pill-btn" onclick="switchFilter('dia_16_10', this)">
+          <span class="pill-day-tag">📅 16/10 (Sex)</span>
           <span class="pill-sub-tag">Regimento Interno</span>
         </button>
-        <button class="pill-btn" onclick="switchFilter('dia_17_10', this)">
-          <span class="pill-day-tag">📅 17/10 (Sáb)</span>
+        <button class="pill-btn active today-highlight" onclick="switchFilter('dia_17_10', this)">
+          <span class="pill-day-tag">⭐ 17/10 (HOJE - Sáb)</span>
           <span class="pill-sub-tag">Simulado Véspera</span>
         </button>
         <button class="pill-btn" onclick="switchFilter('foco50', this)">
@@ -891,22 +891,56 @@
       <div class="provas-pdf-header" onclick="togglePdfDrawer()">
         <div class="provas-pdf-title">
           <i class="fas fa-folder-open" style="color: #ef4444; font-size: 1.1rem;"></i>
-          <span>📚 Outras Provas Reais da Banca (Português, Matemática, Informática)</span>
+          <span>📚 Guia de Véspera & Outras Provas Reais (Português, Matemática, Informática)</span>
         </div>
         <span class="provas-pdf-toggle" id="pdfToggleIcon"><i class="fas fa-chevron-up"></i></span>
       </div>
       <div class="provas-pdf-content" id="provasPdfDrawer">
         <p class="provas-pdf-desc">
-          Além deste Provão Mobile de Específicas, a banca cobra <strong>Português, Matemática/RLM e Informática</strong>. Acesse as provas reais aplicadas pela INBRASP:
+          Hoje é <strong>Sábado (17/10 — Véspera da Prova)</strong>! Além do Simulado de Véspera abaixo, leia o <strong>Guia Rápido de Véspera</strong> e revise qualquer prova real:
         </p>
         
         <div class="provas-pdf-grid">
-          <!-- Prova 11 - Meta de Hoje (Legislação Municipal & Regimento) -->
+          <!-- Guia de Revisão de Véspera - Meta de Hoje (Sábado 17/10) -->
           <div class="pdf-card highlight-today">
             <div class="pdf-card-top">
-              <span class="pdf-badge today"><i class="fas fa-star"></i> META DE HOJE (SEX 16/10)</span>
+              <span class="pdf-badge today"><i class="fas fa-star"></i> META DE HOJE (SÁB 17/10 — VÉSPERA)</span>
+              <h4><i class="fas fa-bolt" style="color: #16a34a;"></i> Guia de Revisão de Véspera (Leitura Seca)</h4>
+              <p>Resumo direto dos 7 blocos mais cobrados: Quóruns (2/3 e Maioria Absoluta), LRF (6%), Lei 14.133/21, LIMPE e Crase.</p>
+            </div>
+            <div class="pdf-card-buttons">
+              <a data-rel-prova="GUIA_REVISAO_VESPERA_MERUOCA.html" target="_blank" class="btn-pdf-action online">
+                <i class="fas fa-book-open"></i> Ler Online
+              </a>
+              <a data-rel-prova="GUIA_REVISAO_VESPERA_MERUOCA.pdf" target="_blank" class="btn-pdf-action pdf">
+                <i class="fas fa-file-pdf"></i> Baixar PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- Prova 06 - Grande Prova do Legislativo -->
+          <div class="pdf-card highlight-today">
+            <div class="pdf-card-top">
+              <span class="pdf-badge today"><i class="fas fa-trophy"></i> SIMULADO COMPLETO (40Q)</span>
+              <h4><i class="fas fa-award" style="color: #16a34a;"></i> Prova Real 06 — Grande Prova do Legislativo</h4>
+              <p>Simulado completo de 40 questões reais de Câmaras Municipais do Ceará (Português, RLM, Info e Específicas).</p>
+            </div>
+            <div class="pdf-card-buttons">
+              <a data-rel-prova="PROVA_REAL_06_GRANDE_PROVA_LEGISLATIVO_CE.html" target="_blank" class="btn-pdf-action online">
+                <i class="fas fa-play"></i> Resolver Online
+              </a>
+              <a data-rel-prova="PROVA_REAL_06_GRANDE_PROVA_LEGISLATIVO_CE.pdf" target="_blank" class="btn-pdf-action pdf">
+                <i class="fas fa-file-pdf"></i> Baixar PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- Prova 11 - Legislação Municipal & Regimento -->
+          <div class="pdf-card">
+            <div class="pdf-card-top">
+              <span class="pdf-badge"><i class="fas fa-gavel"></i> LEGISLAÇÃO & REGIMENTO</span>
               <h4><i class="fas fa-gavel" style="color: #16a34a;"></i> Prova Real 11 — Legislação & Regimento</h4>
-              <p>30 Questões Reais de Câmaras Cearenses: Processo Legislativo, Comissões, Sessões e Mesa Diretora.</p>
+              <p>30 Questões Reais 100% únicas: Lei Orgânica de Meruoca, Regimento Interno, Comissões e Mesa Diretora.</p>
             </div>
             <div class="pdf-card-buttons">
               <a data-rel-prova="PROVA_REAL_11_LEGISLACAO_MUNICIPAL_REGIMENTO.html" target="_blank" class="btn-pdf-action online">
