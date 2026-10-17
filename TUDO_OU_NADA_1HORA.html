@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>🔥 TUDO OU NADA (1 HORA) — Câmara de Meruoca 2026</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-dark: #0f172a;
+      --accent: #dc2626;
+      --gold: #eab308;
+      --success: #16a34a;
+      --bg: #f1f5f9;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #cbd5e1;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      margin: 0;
+      padding: 0 0 80px 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* BARRA FIXA DE 1 HORA NO TOPO */
+    .sticky-top {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: white;
+      padding: 10px 14px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .sticky-row {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .brand-title {
+      font-size: 1rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #fef08a;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .timer-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .countdown-pill {
+      background: #dc2626;
+      color: white;
+      font-weight: 900;
+      font-size: 0.95rem;
+      padding: 5px 12px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 0 12px rgba(220, 38, 38, 0.6);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .score-pill {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 5px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    /* NAVEGAÇÃO RÁPIDA DE MODO */
+    .nav-tabs {
+      max-width: 960px;
+      margin: 8px auto 0 auto;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .tab-jump {
+      flex: 1;
+      text-align: center;
+      background: rgba(255,255,255,0.12);
+      color: #e2e8f0;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .tab-jump.active, .tab-jump:hover {
+      background: var(--gold);
+      color: #0f172a;
+      border-color: var(--gold);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 16px auto;
+      padding: 0 12px;
+    }
+
+    /* HERO BANNER */
+    .hero-card {
+      background: linear-gradient(135deg, #7f1d1d 0%, #b91c1c 100%);
+      color: white;
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 25px rgba(185, 28, 28, 0.25);
+      border: 2px solid #fca5a5;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: #713f12;
+      font-weight: 900;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .hero-card h1 {
+      margin: 0 0 6px 0;
+      font-size: 1.45rem;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    .hero-card p {
+      margin: 0 0 14px 0;
+      font-size: 0.92rem;
+      color: #fee2e2;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-hero {
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: transform 0.15s;
+    }
+    .btn-hero:active { transform: scale(0.98); }
+    .btn-hero.gold { background: var(--gold); color: #0f172a; }
+    .btn-hero.white { background: white; color: #7f1d1d; }
+    .btn-hero.dark { background: rgba(0,0,0,0.35); color: white; border: 1px solid rgba(255,255,255,0.3); }
+
+    /* SEÇÃO DE RESUMO DIRETO (25 MIN) */
+    .section-banner {
+      background: var(--primary-dark);
+      color: white;
+      padding: 14px 18px;
+      border-radius: 12px;
+      margin: 24px 0 14px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      border-left: 6px solid var(--gold);
+    }
+
+    .section-banner h2 {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-banner span {
+      background: var(--gold);
+      color: #0f172a;
+      font-size: 0.78rem;
+      font-weight: 900;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* CARDS DE TEXTO / RESUMO FLASH */
+    .resumo-card {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .resumo-card.checked-card {
+      border-color: var(--success);
+      background: #f0fdf4;
+    }
+
+    .resumo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+
+    .resumo-title {
+      font-size: 1.08rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .check-read-lbl {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #dcfce7;
+      color: #166534;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+      user-select: none;
+      border: 1px solid #86efac;
+    }
+    .check-read-lbl input {
+      width: 16px;
+      height: 16px;
+      accent-color: #16a34a;
+      cursor: pointer;
+    }
+
+    .mini-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+      font-size: 0.88rem;
+    }
+    .mini-table th {
+      background: #eff6ff;
+      color: #1e3a8a;
+      text-align: left;
+      padding: 8px 10px;
+      border: 1px solid #bfdbfe;
+      font-weight: 800;
+    }
+    .mini-table td {
+      padding: 8px 10px;
+      border: 1px solid #e2e8f0;
+      vertical-align: top;
+    }
+    .mini-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .bullet-list {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 0.92rem;
+    }
+    .bullet-list li {
+      margin-bottom: 8px;
+    }
+
+    .tag-hot {
+      background: #fee2e2;
+      color: #991b1b;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+    }
+    .tag-ok {
+      background: #dcfce7;
+      color: #166534;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+    }
+    .tag-num {
+      background: #fef08a;
+      color: #713f12;
+      font-weight: 900;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    /* FILTROS DO SIMULADO DE 40 QUESTÕES */
+    .quiz-controls {
+      background: white;
+      border: 2px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 14px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .f-pill {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .f-pill.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .btn-apostila {
+      background: #16a34a;
+      color: white;
+      border: none;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-apostila:hover { background: #15803d; }
+
+    /* QUESTÕES INTERATIVAS */
+    .q-card {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .q-card.correct-card {
+      border: 2px solid #16a34a;
+      background: #f0fdf4;
+    }
+    .q-card.wrong-card {
+      border: 2px solid #dc2626;
+      background: #fff1f2;
+    }
+
+    .q-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .q-badge {
+      background: var(--primary);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .q-mat {
+      background: #e0e7ff;
+      color: #1e40af;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .q-enun {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 12px;
+      line-height: 1.45;
+    }
+
+    .q-opts {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .opt-btn {
+      width: 100%;
+      text-align: left;
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 11px 13px;
+      font-size: 0.92rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      transition: all 0.15s;
+    }
+    .opt-btn:hover {
+      background: #eff6ff;
+      border-color: #93c5fd;
+    }
+
+    .opt-let {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #334155;
+      font-weight: 900;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .opt-btn.is-correct {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #14532d !important;
+      font-weight: 700;
+    }
+    .opt-btn.is-correct .opt-let {
+      background: #16a34a !important;
+      color: white !important;
+    }
+
+    .opt-btn.is-wrong {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      color: #7f1d1d !important;
+    }
+    .opt-btn.is-wrong .opt-let {
+      background: #dc2626 !important;
+      color: white !important;
+    }
+
+    .q-exp {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: #ffffff;
+      border-left: 4px solid var(--primary);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: #334155;
+    }
+    .q-exp.visible {
+      display: block;
+    }
+
+    @media print {
+      .sticky-top, .hero-actions, .quiz-controls { display: none !important; }
+      .q-exp { display: block !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA FIXA DE 1 HORA -->
+  <header class="sticky-top">
+    <div class="sticky-row">
+      <div class="brand-title">
+        <i class="fas fa-fire"></i> TUDO OU NADA • MERUOCA (1H)
+      </div>
+      <div class="timer-box">
+        <div class="score-pill" id="liveScorePill">
+          Acertos: <strong id="hitsCount">0</strong>/<span id="ansCount">0</span> (<span id="pctCount">0%</span>)
+        </div>
+        <div class="countdown-pill" onclick="resetOneHourTimer()" title="Clique para reiniciar o cronômetro de 60 minutos">
+          <i class="fas fa-stopwatch"></i> <span id="timerDisplay">60:00</span>
+        </div>
+      </div>
+    </div>
+    <div class="nav-tabs">
+      <button class="tab-jump active" onclick="scrollToSection('sec-resumo', this)">
+        📖 1. Resumo Direto (25 min)
+      </button>
+      <button class="tab-jump" onclick="scrollToSection('sec-questoes', this)">
+        🎯 2. As 40 Questões da Prova (35 min)
+      </button>
+      <button class="tab-jump" onclick="revealAll40()">
+        ⚡ Ver Todas as 40 Respostas
+      </button>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <div class="hero-card">
+      <span class="hero-badge"><i class="fas fa-bolt"></i> OPERAÇÃO TUDO OU NADA • REVISÃO COMPLETA EM 60 MINUTOS</span>
+      <h1>Tudo o que Você Precisa em 1 Única Página (Texto + 40 Questões)</h1>
+      <p>
+        Sem enrolação e sem precisar abrir mais nada: primeiro leia os <strong>6 Blocos de Ouro (25 minutos)</strong> com todos os números, prazos, quóruns e macetes que a INBRASP cobra. Depois, marque as <strong>40 Questões Finais (35 minutos)</strong> na divisão exata da sua prova de amanhã!
+      </p>
+      <div class="hero-actions">
+        <button class="btn-hero gold" onclick="scrollToSection('sec-resumo')">
+          <i class="fas fa-book-reader"></i> Começar Leitura de 25 Min
+        </button>
+        <button class="btn-hero white" onclick="scrollToSection('sec-questoes')">
+          <i class="fas fa-check-circle"></i> Ir Direto p/ as 40 Questões
+        </button>
+        <button class="btn-hero dark" onclick="revealAll40()">
+          <i class="fas fa-eye"></i> Modo Apostila (Marcar Todas as Certas)
+        </button>
+      </div>
+    </div>
+
+    <!-- =========================================================
+         PARTE 1: O RESUMO TUDO OU NADA (25 MINUTOS)
+         ========================================================= -->
+    <div id="sec-resumo" class="section-banner">
+      <h2><i class="fas fa-bolt"></i> PARTE 1 — LEITURA DE OURO (OS 6 BLOCOS QUE CAEM NA PROVA)</h2>
+      <span>TEMPO: 25 MINUTOS</span>
+    </div>
+
+    <!-- BLOCO 1: LEI ORGÂNICA DE MERUOCA & REGIMENTO INTERNO -->
+    <div class="resumo-card" id="rc1">
+      <div class="resumo-header">
+        <h3 class="resumo-title"><i class="fas fa-landmark"></i> BLOCO 1: Lei Orgânica de Meruoca & Regimento da Câmara (8 a 10 questões da prova!)</h3>
+        <label class="check-read-lbl">
+          <input type="checkbox" onchange="toggleCardRead('rc1', this.checked)"> Já li e gravei!
+        </label>
+      </div>
+
+      <ul class="bullet-list">
+        <li><strong>Autonomia do Município (Art. 18 e 29 CF / LOM):</strong> <span class="tag-ok">Política, Administrativa e Financeira</span>. O Município <strong>NÃO tem soberania</strong> (só a República Federativa do Brasil tem soberania) e <strong>NÃO tem Poder Judiciário nem Ministério Público próprio</strong> (os únicos Poderes do Município são o <strong>Legislativo</strong> e o <strong>Executivo</strong>).</li>
+        <li><strong>Símbolos Oficiais de Meruoca:</strong> <span class="tag-num">Bandeira, Brasão e Hino</span>.</li>
+        <li><strong>Soberania Popular Direta:</strong> Plebiscito (consulta <em>antes</em> da lei), Referendo (consulta <em>depois</em> da lei) e <strong>Iniciativa Popular de Lei</strong> (exige assinatura de no mínimo <span class="tag-num">5% do eleitorado</span> do Município — Art. 29, XIII CF).</li>
+      </ul>
+
+      <table class="mini-table">
+        <thead>
+          <tr>
+            <th style="width: 28%;">Quórum de Votação</th>
+            <th>Quando a Câmara Municipal exige? (DECORE!)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag-hot">DOIS TERÇOS (2/3)</span><br><small>Quórum mais difícil</small></td>
+            <td>
+              • <strong>Rejeitar o Parecer Prévio do Tribunal de Contas (TCE)</strong> sobre as contas do Prefeito (Art. 31, § 2º CF).<br>
+              • <strong>Aprovar ou Emendar a Lei Orgânica (LOM)</strong> (votada em <strong>2 turnos</strong> com intervalo mínimo de <strong>10 dias</strong>).<br>
+              • <strong>Cassar mandato</strong> do Prefeito ou de Vereador (infração político-administrativa) e <strong>destituir membro da Mesa</strong>.
+            </td>
+          </tr>
+          <tr>
+            <td><span class="tag-num">MAIORIA ABSOLUTA</span><br><small>Mais da metade do TOTAL de membros da Câmara</small></td>
+            <td>
+              • Aprovar <strong>Lei Complementar</strong> (ex: Código Tributário, Estatuto dos Servidores, Plano Diretor).<br>
+              • Aprovar ou alterar o <strong>Regimento Interno</strong> e criar/extinguir cargos da Câmara.<br>
+              • <strong>Rejeitar (derrubar) o Veto do Prefeito</strong> (prazo de 30 dias para apreciar).<br>
+              • <strong>Renovar projeto de lei rejeitado</strong> na mesma sessão legislativa (Princípio da Irrepetibilidade — Art. 67 CF).
+            </td>
+          </tr>
+          <tr>
+            <td><span class="tag-ok">MAIORIA SIMPLES</span><br><small>Maioria dos PRESENTES na sessão</small></td>
+            <td>
+              • Regra geral: aprovar <strong>Lei Ordinária</strong>, requerimentos comuns e matérias que não exijam quórum qualificado (desde que esteja presente a maioria absoluta dos vereadores para abrir a votação).
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ul class="bullet-list" style="margin-top: 10px;">
+        <li><strong>Números Críticos da Câmara Municipal:</strong>
+          <ul>
+            <li><span class="tag-num">60 dias por ano</span>: Prazo em que as contas do Município ficam à disposição de qualquer contribuinte para exame (Art. 31, § 3º CF).</li>
+            <li><span class="tag-num">70% da receita da Câmara</span>: Máximo que a Câmara pode gastar com folha de pagamento, incluindo o subsídio dos vereadores (Art. 29-A, § 1º CF).</li>
+            <li><span class="tag-num">6% da Receita Corrente Líquida (RCL)</span>: Limite de gasto total com pessoal do Legislativo Municipal pela LRF (sendo <strong>54%</strong> para o Executivo = <strong>60%</strong> total do Município).</li>
+            <li><span class="tag-num">1/3 dos Vereadores</span>: Assinaturas necessárias para criar uma <strong>CPI</strong> (Comissão Parlamentar de Inquérito) + fato determinado + prazo certo.</li>
+            <li><span class="tag-num">15 dias úteis</span>: Prazo para o Prefeito sancionar ou vetar projeto aprovado pela Câmara. Se ficar em silêncio = <strong>Sanção Tácita</strong>! Se o Prefeito não promulgar em <strong>48 horas</strong>, o <strong>Presidente da Câmara</strong> promulga (e se este não o fizer em 48h, o Vice-Presidente promulga).</li>
+          </ul>
+        </li>
+        <li><strong>Resolução vs. Decreto Legislativo (NÃO têm sanção do Prefeito! São promulgados pelo Presidente da Câmara):</strong>
+          <br>• <strong>Resolução:</strong> Assuntos de economia <em>interna</em> da Câmara (Regimento Interno, organização dos serviços da Casa, concessão de licença a vereador).
+          <br>• <strong>Decreto Legislativo:</strong> Assuntos de efeito <em>externo</em> de competência exclusiva da Câmara (julgamento das contas do Prefeito, concessão de título de cidadão honorário, licença ao Prefeito para se ausentar do Município por mais de 15 dias).</li>
+      </ul>
+    </div>
+
+    <!-- BLOCO 2: NOVA LEI DE LICITAÇÕES 14.133/2021 -->
+    <div class="resumo-card" id="rc2">
+      <div class="resumo-header">
+        <h3 class="resumo-title"><i class="fas fa-file-signature"></i> BLOCO 2: Nova Lei de Licitações — Lei nº 14.133/2021 (4 a 6 questões da prova!)</h3>
+        <label class="check-read-lbl">
+          <input type="checkbox" onchange="toggleCardRead('rc2', this.checked)"> Já li e gravei!
+        </label>
+      </div>
+
+      <ul class="bullet-list">
+        <li><strong>As 5 Modalidades Existentes:</strong> <span class="tag-ok">Pregão, Concorrência, Concurso, Leilão e Diálogo Competitivo</span>. <br><span class="tag-hot">PEGADINHA:</span> <strong>Foram EXTINTAS Tomada de Preços, Convite e RDC!</strong> Se aparecer "Tomada de Preços" ou "Convite" como modalidade da Lei 14.133, marque como ERRADA na hora!</li>
+        <li><strong>Quando usar cada modalidade:</strong>
+          <ul>
+            <li><strong>Pregão:</strong> Obrigatório para bens e serviços <strong>COMUNS</strong> (cujo padrão de desempenho e qualidade pode ser objetivamente definido no edital). Critérios: <em>Menor Preço</em> ou <em>Maior Desconto</em>.</li>
+            <li><strong>Concorrência:</strong> Bens e serviços <strong>ESPECIAIS</strong> e obras/serviços de engenharia.</li>
+            <li><strong>Leilão:</strong> Alienação (venda) de bens imóveis ou bens móveis inservíveis/apreendidos a quem oferecer o <strong>Maior Lance</strong>. <span class="tag-hot">Atenção:</span> Na Lei 14.133, venda de imóvel público agora é por <strong>LEILÃO</strong>!</li>
+            <li><strong>Concurso:</strong> Trabalho técnico, científico ou artístico (critério: <em>Melhor Técnica ou Conteúdo Artístico</em>), com pagamento de prêmio ou remuneração.</li>
+            <li><strong>Diálogo Competitivo:</strong> Contratações que envolvam <strong>inovação tecnológica ou técnica</strong> em que a Administração não consegue definir sozinha a solução sem dialogar antes com o mercado.</li>
+          </ul>
+        </li>
+        <li><strong>Ordem Padrão das Fases (Art. 17):</strong> Preparatória $\rightarrow$ Divulgação do Edital $\rightarrow$ Apresentação de Propostas e Lances $\rightarrow$ <span class="tag-num">JULGAMENTO</span> $\rightarrow$ <span class="tag-num">HABILITAÇÃO</span> $\rightarrow$ Recursal (fase única!) $\rightarrow$ Homologação. <em>(Regra geral: primeiro julga a proposta, depois olha os documentos de habilitação só do vencedor!).</em></li>
+        <li><strong>Inexigibilidade (Art. 74 — Competição Inviável, rol exemplificativo) vs. Dispensa (Art. 75 — Competição Viável, mas a lei dispensa, rol taxativo):</strong>
+          <ul>
+            <li><strong>É Inexigível (Art. 74):</strong> 1) Fornecedor exclusivo (vedada preferência de marca); 2) Artista consagrado pela crítica ou opinião pública; 3) Serviços técnicos especializados de natureza predominantemente intelectual com profissionais de notória especialização (<span class="tag-hot">VEDADA inexigibilidade para serviços de publicidade e divulgação!</span>); 4) Credenciamento; 5) Aquisição ou locação de imóvel cujas características de instalação e localização tornem necessária sua escolha.</li>
+            <li><strong>É Dispensável (Art. 75):</strong> Baixo valor (obras/engenharia ou manutenção de veículos até R$ 100 mil; compras e outros serviços até R$ 50 mil — valores base da lei), emergência/calamidade pública (prazo máximo de conclusão de <strong>1 ano</strong>, vedada prorrogação do contrato), licitação deserta ou fracassada (mantidas as condições do edital há menos de 1 ano).</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- BLOCO 3: DIREITO ADMINISTRATIVO & CONSTITUCIONAL -->
+    <div class="resumo-card" id="rc3">
+      <div class="resumo-header">
+        <h3 class="resumo-title"><i class="fas fa-balance-scale"></i> BLOCO 3: Direito Administrativo & Constitucional (Art. 5º e Art. 37 CF/88)</h3>
+        <label class="check-read-lbl">
+          <input type="checkbox" onchange="toggleCardRead('rc3', this.checked)"> Já li e gravei!
+        </label>
+      </div>
+
+      <table class="mini-table">
+        <thead>
+          <tr>
+            <th>Tema Clássico da INBRASP</th>
+            <th>Regra Exata para Marcar na Prova</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Princípios Expressos (LIMPE)</strong><br>Art. 37, caput CF</td>
+            <td><strong>L</strong>egalidade, <strong>I</strong>mpessoalidade, <strong>M</strong>oralidade, <strong>P</strong>ublicidade e <strong>E</strong>ficiência.<br>
+            • Proibição de foto/nome/símbolo de Prefeito ou Vereador em placa de obra = <strong>Impessoalidade</strong> (Art. 37, § 1º).<br>
+            • Proibição de Nepotismo até o <strong>3º grau</strong> (Súmula Vinculante 13) = <strong>Moralidade e Impessoalidade</strong>.</td>
+          </tr>
+          <tr>
+            <td><strong>Desconcentração x Descentralização</strong></td>
+            <td>• Des<strong>CO</strong>ncentração (<strong>O</strong> de <strong>Órgão</strong>): Distribuição interna dentro da mesma pessoa jurídica (ex: criar Secretaria ou Departamento). <strong>Há hierarquia/subordinação</strong> e o órgão NÃO tem personalidade jurídica.<br>
+            • Des<strong>CE</strong>ntralização (<strong>E</strong> de <strong>Entidade</strong>): Cria nova pessoa jurídica da Adm. Indireta (Autarquia, Fundação, Empresa Pública, Soc. Economia Mista). <strong>NÃO há subordinação</strong>, apenas controle finalístico (tutela/supervisão).</td>
+          </tr>
+          <tr>
+            <td><strong>Autarquia vs. EP vs. SEM</strong></td>
+            <td>• <strong>Autarquia:</strong> Criada diretamente por lei específica, direito público, bens impenhoráveis.<br>
+            • <strong>Empresa Pública (EP):</strong> Autorizada por lei, direito privado, capital <strong>100% público</strong>, qualquer forma societária.<br>
+            • <strong>Sociedade de Economia Mista (SEM):</strong> Autorizada por lei, direito privado, capital misto, obrigatoriamente <strong>Sociedade Anônima (S/A)</strong>.</td>
+          </tr>
+          <tr>
+            <td><strong>Atos Administrativos:<br>Anulação x Revogação</strong><br>(Súmula 473 STF)</td>
+            <td>• <strong>ANULAÇÃO:</strong> Recai sobre ato <strong>ILEGAL</strong> $\rightarrow$ Efeito <strong>EX TUNC</strong> (retroage à origem). Pode ser feita pela Administração (Autotutela) ou pelo Poder Judiciário.<br>
+            • <strong>REVOGAÇÃO:</strong> Recai sobre ato <strong>LEGAL/VÁLIDO</strong> que se tornou inconveniente ou inoportuno $\rightarrow$ Efeito <strong>EX NUNC</strong> (não retroage). <strong>Exclusiva da Administração</strong> (Judiciário NUNCA revoga ato administrativo!).</td>
+          </tr>
+          <tr>
+            <td><strong>Art. 5º CF — Crimes e Remédios</strong></td>
+            <td>• <strong>Inafiançáveis e IMPRESCRITÍVEIS (RAÇÃO):</strong> <strong>Ra</strong>cismo e <strong>Ação</strong> de grupos armados contra a ordem constitucional.<br>
+            • <strong>Inafiançáveis e Insuscetíveis de Graça/Anistia (3TH):</strong> Tortura, Tráfico, Terrorismo e Hediondos.<br>
+            • <strong>Habeas Corpus:</strong> Liberdade de locomoção (ir e vir) — gratuito.<br>
+            • <strong>Habeas Data:</strong> Acessar/retificar dados <em>do próprio impetrante</em> — gratuito.<br>
+            • <strong>Mandado de Segurança:</strong> Direito líquido e certo não amparado por HC/HD (prazo decadencial: <strong>120 dias</strong>).<br>
+            • <strong>Ação Popular:</strong> Qualquer <strong>cidadão</strong> (com título de eleitor) contra ato lesivo ao patrimônio público/moralidade/meio ambiente.</td>
+          </tr>
+          <tr>
+            <td><strong>Servidores Públicos (Art. 37 a 41)</strong></td>
+            <td>• Concurso válido por até <strong>2 anos</strong>, prorrogável uma vez por igual período.<br>
+            • Estabilidade após <strong>3 anos</strong> de efetivo exercício em cargo efetivo + avaliação especial.<br>
+            • Teto remuneratório geral no Município: subsídio do <strong>Prefeito</strong> (Art. 37, XI).<br>
+            • Acumulação permitida (se houver compatibilidade de horários): 2 cargos de professor; 1 de professor + 1 técnico ou científico; 2 privativos de profissionais de saúde regulamentados.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- BLOCO 4: LÍNGUA PORTUGUESA (10 QUESTÕES NA PROVA) -->
+    <div class="resumo-card" id="rc4">
+      <div class="resumo-header">
+        <h3 class="resumo-title"><i class="fas fa-spell-check"></i> BLOCO 4: Língua Portuguesa — Os 6 Macetes que Resolvem as 10 Questões da INBRASP</h3>
+        <label class="check-read-lbl">
+          <input type="checkbox" onchange="toggleCardRead('rc4', this.checked)"> Já li e gravei!
+        </label>
+      </div>
+
+      <ul class="bullet-list">
+        <li><strong>1. Verbo HAVER e FAZER (Sempre cai 1 questão!):</strong>
+          <br>• <strong>Haver</strong> no sentido de <em>existir/acontecer</em> é impessoal $\rightarrow$ <strong>FICA SEMPRE NO SINGULAR</strong>: <span class="tag-ok">"Houve muitas sessões"</span>, <span class="tag-ok">"Deve haver soluções"</span> (NUNCA marque "Houveram" ou "Devem haver"!). Já o verbo <strong>Existir</strong> tem plural normal: <em>"Existiram muitas sessões"</em>.
+          <br>• <strong>Fazer</strong> indicando <em>tempo decorrido</em> ou clima $\rightarrow$ <strong>SEMPRE NO SINGULAR</strong>: <span class="tag-ok">"Faz dez anos que trabalho na Câmara"</span> (NUNCA "Fazem dez anos").</li>
+        <li><strong>2. CRASE — Onde NUNCA vai crase (Elimine 3 alternativas na hora):</strong>
+          <br>• <span class="tag-hot">PROIBIDO CRASE:</span> Antes de <strong>verbo</strong> (<em>a partir de, a começar</em>), antes de palavra <strong>masculina</strong> (<em>a prazo, a pé, a favor</em>), antes de <strong>pronomes</strong> em geral (<em>a ela, a você, a todos, a esta, a Vossa Excelência</em>), depois de preposição (<em>após as 14h, perante a comissão</em>) e entre palavras repetidas (<em>cara a cara, dia a dia</em>).
+          <br>• <span class="tag-ok">CRASE OBRIGATÓRIA:</span> Locuções adverbiais/prepositivas/conjuntivas femininas: <strong>às pressas, às vezes, à noite, à tarde, à vista, à medida que, à procura de, à disposição</strong>, e horas exatas (<em>às 14 horas</em>).</li>
+        <li><strong>3. Conjunções (Decore este quadro, cai de 1 a 2 questões!):</strong>
+          <br>• <strong>Concessivas</strong> (oposição que não impede a ação = <em>mesmo que</em>): <span class="tag-num">Embora, conquanto, ainda que, mesmo que, posto que, se bem que, apesar de que</span>.
+          <br>• <strong>Adversativas</strong> (oposição direta = <em>mas</em>): <span class="tag-num">Mas, porém, contudo, todavia, entretanto, no entanto</span>.
+          <br>• <strong>Causais / Explicativas:</strong> <em>Porque, já que, visto que, uma vez que, porquanto, como (no início da frase), na medida em que</em>.
+          <br>• <strong>Proporcionais:</strong> <span class="tag-ok">À medida que, à proporção que</span>.
+          <br>• <strong>Condicionais:</strong> <em>Se, caso, desde que, contanto que, a menos que</em>.</li>
+        <li><strong>4. Pronomes Relativos (CUJO / ONDE / QUE):</strong>
+          <br>• <strong>CUJO:</strong> Indica posse entre dois substantivos e <strong>JAMAIS aceita artigo depois dele</strong> (<span class="tag-ok">cujo projeto</span> = CERTO; <span class="tag-hot">cujo o projeto</span> = ERRADO!).
+          <br>• <strong>Conjunção Integrante x Pronome Relativo (Palavra "QUE"):</strong> Se você trocar toda a oração do "QUE" por <strong>ISSO</strong> (<em>"O presidente afirmou <u>que a pauta será votada</u>"</em> = afirmou <strong>ISSO</strong>), o "QUE" é <strong>Conjunção Integrante</strong> (introduz oração subordinada substantiva). Se o "QUE" retoma o substantivo anterior (= <em>o qual/a qual</em>), é <strong>Pronome Relativo</strong> (introduz oração adjetiva).</li>
+        <li><strong>5. Partícula Apassivadora x Índice de Indeterminação do Sujeito:</strong>
+          <br>• Sem preposição (VTD + SE) = Voz passiva pronominal $\rightarrow$ <strong>verbo concorda com o plural</strong>: <span class="tag-ok">"Revogaram-se os decretos"</span> (= Os decretos foram revogados).
+          <br>• Com preposição (VTI + SE) = Sujeito indeterminado $\rightarrow$ <strong>verbo fica obrigatoriamente no SINGULAR</strong>: <span class="tag-ok">"Precisa-se de novos servidores"</span>, <span class="tag-ok">"Trata-se de projetos urgentes"</span>.</li>
+        <li><strong>6. Parônimos Jurídicos da Câmara:</strong>
+          <br>• <strong>Retificar</strong> = Corrigir erro | <strong>Ratificar</strong> = Confirmar/Validar.
+          <br>• <strong>Deferir</strong> = Aprovar/Conceder | <strong>Diferir</strong> = Adiar ou divergir.
+          <br>• <strong>Flagrante</strong> = Evidente/No ato | <strong>Fragrante</strong> = Perfumado.</li>
+      </ul>
+    </div>
+
+    <!-- BLOCO 5: MATEMÁTICA & RACIOCÍNIO LÓGICO (5 QUESTÕES NA PROVA) -->
+    <div class="resumo-card" id="rc5">
+      <div class="resumo-header">
+        <h3 class="resumo-title"><i class="fas fa-calculator"></i> BLOCO 5: Matemática Básica & Raciocínio Lógico (5 Questões Garantidas)</h3>
+        <label class="check-read-lbl">
+          <input type="checkbox" onchange="toggleCardRead('rc5', this.checked)"> Já li e gravei!
+        </label>
+      </div>
+
+      <table class="mini-table">
+        <thead>
+          <tr>
+            <th>Assunto de RLM / Matemática</th>
+            <th>Fórmula Rápida de Resolução</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Negação do "E" ($P \land Q$)</strong><br>Lei de De Morgan</td>
+            <td>Troca o <strong>E</strong> por <strong>OU</strong> e nega as duas partes!<br>
+            Ex: Negação de <em>"Hoje é segunda <strong>E</strong> há sessão"</em> $\rightarrow$ <span class="tag-ok">"Hoje NÃO é segunda <strong>OU</strong> NÃO há sessão"</span>.</td>
+          </tr>
+          <tr>
+            <td><strong>Negação do "OU" ($P \lor Q$)</strong><br>Lei de De Morgan</td>
+            <td>Troca o <strong>OU</strong> por <strong>E</strong> e nega as duas partes!</td>
+          </tr>
+          <tr>
+            <td><strong>Negação do "SE... ENTÃO" ($P \rightarrow Q$)</strong><br>Regra do <strong>MANÉ</strong></td>
+            <td><strong>MA</strong>ntém a primeira <strong>E</strong> <strong>NE</strong>ga a segunda (tira o "Se"!).<br>
+            Ex: Negação de <em>"Se o servidor estuda, então passa"</em> $\rightarrow$ <span class="tag-ok">"O servidor estuda <strong>E</strong> NÃO passa"</span>.</td>
+          </tr>
+          <tr>
+            <td><strong>Negação de "TODO"</strong></td>
+            <td>Negação de <em>"Todo servidor é pontual"</em> $\rightarrow$ <span class="tag-ok">"Algum servidor NÃO é pontual"</span> (ou <em>"Pelo menos um não é"</em>). <span class="tag-hot">NUNCA negue "Todo" com "Nenhum"!</span></td>
+          </tr>
+          <tr>
+            <td><strong>Divisão Diretamente Proporcional</strong></td>
+            <td>Para dividir $360$ pastas em partes proporcionais a $2, 3$ e $4$:<br>
+            1º Soma os pesos: $2 + 3 + 4 = 9$ partes.<br>
+            2º Divide o total pela soma: $360 \div 9 = 40$ (valor de 1 parte).<br>
+            3º Multiplica: menor recebe $2 \times 40 = \mathbf{80}$; médio $3 \times 40 = \mathbf{120}$; maior $4 \times 40 = \mathbf{160}$.</td>
+          </tr>
+          <tr>
+            <td><strong>Porcentagem e Desconto</strong></td>
+            <td>• Para calcular $15\%$ de $800$: corta dois zeros e multiplica ($15 \times 8 = 120$).<br>
+            • Se um produto teve $15\%$ de desconto e custou $\text{R\$ } 850$, ele representa $85\%$ ($0,85$) do valor original $\rightarrow 850 \div 0,85 = \mathbf{\text{R\$ } 1.000,00}$.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- BLOCO 6: NOÇÕES DE INFORMÁTICA (5 QUESTÕES NA PROVA) -->
+    <div class="resumo-card" id="rc6">
+      <div class="resumo-header">
+        <h3 class="resumo-title"><i class="fas fa-laptop-code"></i> BLOCO 6: Noções de Informática — Atalhos, Excel e Segurança (5 Questões)</h3>
+        <label class="check-read-lbl">
+          <input type="checkbox" onchange="toggleCardRead('rc6', this.checked)"> Já li e gravei!
+        </label>
+      </div>
+
+      <ul class="bullet-list">
+        <li><strong>Atalhos do Microsoft Word em Português (Cuidado com o Inglês!):</strong>
+          <br>• <span class="tag-num">Ctrl + B</span> = <strong>Salvar</strong> documento | <span class="tag-num">Ctrl + L</span> = <strong>Localizar</strong> texto | <span class="tag-num">Ctrl + U</span> = <strong>Substituir</strong>
+          <br>• <span class="tag-num">Ctrl + T</span> = <strong>Selecionar Tudo</strong> (no Word!) | <span class="tag-num">Ctrl + N</span> = Negrito | <span class="tag-num">Ctrl + I</span> = Itálico | <span class="tag-num">Ctrl + S</span> = Sublinhado
+          <br>• <span class="tag-num">Ctrl + Z</span> = Desfazer | <span class="tag-num">Ctrl + R</span> = Refazer | <span class="tag-num">Ctrl + P</span> = Imprimir.</li>
+        <li><strong>Microsoft Excel (O que mais cai):</strong>
+          <br>• Dois-pontos <span class="tag-num">:</span> significa <strong>ATÉ</strong> (intervalo contínuo: <code>=SOMA(A1:A5)</code> soma A1, A2, A3, A4 e A5).
+          <br>• Ponto e vírgula <span class="tag-num">;</span> significa <strong>E</strong> (células isoladas: <code>=SOMA(A1;A5)</code> soma apenas A1 e A5).
+          <br>• <code>=CONT.VALORES(A1:A10)</code>: Conta todas as células <strong>preenchidas (não vazias)</strong> (números + letras).
+          <br>• <code>=CONT.NÚM(A1:A10)</code>: Conta apenas células que contêm <strong>números</strong>.
+          <br>• <code>=CONT.SE(A1:A10; ">50")</code>: Conta células que atendem a uma condição.</li>
+        <li><strong>Navegadores, Windows e Segurança da Informação:</strong>
+          <br>• <strong>Google Chrome / Edge:</strong> <span class="tag-num">Ctrl + Shift + T</span> reabre a última aba fechada; <span class="tag-num">Ctrl + Shift + N</span> abre Guia Anônima no Chrome; <span class="tag-num">Ctrl + H</span> abre o Histórico; <span class="tag-num">Ctrl + J</span> abre Downloads.
+          <br>• <strong>Windows:</strong> <span class="tag-num">Shift + Delete</span> apaga arquivo permanentemente sem ir para a Lixeira; <span class="tag-num">Win + L</span> bloqueia o computador; <span class="tag-num">Win + E</span> abre o Explorador de Arquivos.
+          <br>• <strong>Princípios da Segurança (CID):</strong> <strong>C</strong>onfidencialidade (só pessoas autorizadas acessam), <strong>I</strong>ntegridade (informação não foi alterada/corrompida), <strong>D</strong>isponibilidade (sistema acessível quando necessário).
+          <br>• <strong>Pragas Virtuais:</strong> <strong>Ransomware</strong> (criptografa arquivos e exige resgate financeiro), <strong>Phishing</strong> (página/mensagem falsa para roubar senhas), <strong>Backup</strong> (cópia de segurança periódica contra perda de dados), <strong>SSD</strong> (armazenamento em memória Flash super-rápido e silencioso, sem partes móveis mecânicas).</li>
+      </ul>
+    </div>
+
+
+    <!-- =========================================================
+         PARTE 2: AS 40 QUESTÕES TUDO OU NADA (35 MINUTOS)
+         ========================================================= -->
+    <div id="sec-questoes" class="section-banner">
+      <h2><i class="fas fa-crosshairs"></i> PARTE 2 — AS 40 QUESTÕES "TUDO OU NADA" (SIMULADO FINAL COMPLETO)</h2>
+      <span>10 PT • 5 MAT/RLM • 5 INFO • 20 ESPECÍFICAS</span>
+    </div>
+
+    <div class="quiz-controls">
+      <div class="filter-pills">
+        <button class="f-pill active" onclick="filterQuestions('all', this)">Todas (40Q)</button>
+        <button class="f-pill" onclick="filterQuestions('pt', this)">Português (10Q)</button>
+        <button class="f-pill" onclick="filterQuestions('mat', this)">Mat & RLM (5Q)</button>
+        <button class="f-pill" onclick="filterQuestions('info', this)">Informática (5Q)</button>
+        <button class="f-pill" onclick="filterQuestions('esp', this)">Específicas & LOM (20Q)</button>
+        <button class="f-pill" onclick="filterQuestions('wrong', this)" style="color:#dc2626; border-color:#fca5a5;">Apenas Erradas</button>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn-apostila" onclick="revealAll40()">
+          <i class="fas fa-check-double"></i> Marcar Todas as 40 Certas
+        </button>
+        <button class="f-pill" onclick="resetQuiz40()">
+          <i class="fas fa-redo"></i> Limpar Marcações
+        </button>
+      </div>
+    </div>
+
+    <div id="questionsContainer"></div>
+
+  </div>
+
+  <script>
+    // CRONÔMETRO DE 60 MINUTOS
+    let remainingSecs = 60 * 60;
+    setInterval(() => {
+      if (remainingSecs > 0) {
+        remainingSecs--;
+        const m = String(Math.floor(remainingSecs / 60)).padStart(2, '0');
+        const s = String(remainingSecs % 60).padStart(2, '0');
+        document.getElementById('timerDisplay').innerText = `${m}:${s}`;
+      }
+    }, 1000);
+
+    function resetOneHourTimer() {
+      remainingSecs = 60 * 60;
+      document.getElementById('timerDisplay').innerText = '60:00';
+    }
+
+    function scrollToSection(id, btn) {
+      if (btn) {
+        document.querySelectorAll('.tab-jump').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+      const el = document.getElementById(id);
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.pageYOffset - 95;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
+
+    function toggleCardRead(cardId, checked) {
+      const c = document.getElementById(cardId);
+      if (c) c.classList.toggle('checked-card', checked);
+    }
+
+    // BANCO DAS 40 QUESTÕES MAIS COBRADAS (DISTRIBUIÇÃO EXATA DA PROVA)
+    const QUESTIONS_40 = [
+      // ================= 1 A 10: LÍNGUA PORTUGUESA =================
+      {
+        num: 1, cat: 'pt', mat: 'Língua Portuguesa • Verbos Impessoais',
+        q: 'Assinale a alternativa em que a concordância verbal está em total conformidade com a norma-padrão da Língua Portuguesa:',
+        opts: [
+          'Houveram diversas manifestações favoráveis ao projeto na Câmara.',
+          'Fazem três anos que o novo Regimento Interno foi promulgado.',
+          'Devem haver soluções imediatas para o atendimento ao público.',
+          'Houve intensos debates durante a sessão extraordinária de ontem.'
+        ],
+        ans: 3,
+        exp: 'Gabarito D. O verbo HAVER no sentido de existir/ocorrer é impessoal e fica SEMPRE na 3ª pessoa do singular ("Houve intensos debates", "Deve haver soluções"). O verbo FAZER indicando tempo decorrido também é impessoal ("Faz três anos").'
+      },
+      {
+        num: 2, cat: 'pt', mat: 'Língua Portuguesa • Emprego da Crase',
+        q: 'Assinale a alternativa em que o acento grave indicativo de crase foi empregado CORRETAMENTE:',
+        opts: [
+          'A comissão reuniu-se às pressas para emitir o parecer antes da votação.',
+          'O requerimento foi encaminhado à Vossa Excelência na manhã de hoje.',
+          'A secretaria da Câmara funcionará em regime especial à partir de segunda-feira.',
+          'Os vereadores ficaram cara à cara com os representantes do bairro.'
+        ],
+        ans: 0,
+        exp: 'Gabarito A. Usa-se crase obrigatoriamente nas locuções adverbiais femininas ("às pressas", "às vezes", "à noite"). Não há crase antes de pronomes de tratamento ("a Vossa Excelência"), antes de verbo ("a partir") nem entre palavras repetidas ("cara a cara").'
+      },
+      {
+        num: 3, cat: 'pt', mat: 'Língua Portuguesa • Conjunções Subordinativas',
+        q: 'No período "EMBORAS as emendas tenham sido apresentadas no prazo, o plenário decidiu pelo arquivamento", a conjunção destacada estabelece relação de:',
+        opts: [
+          'Causa, podendo ser substituída por "já que".',
+          'Concessão, podendo ser substituída por "conquanto" ou "ainda que" sem alteração de sentido.',
+          'Condição, podendo ser substituída por "caso".',
+          'Proporcionalidade, equivalendo a "à medida que".'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. "Embora" é a principal conjunção concessiva (indica um fato contrário que não impede a ação principal) e equivale a "conquanto", "ainda que", "mesmo que", "posto que".'
+      },
+      {
+        num: 4, cat: 'pt', mat: 'Língua Portuguesa • Pronome Relativo CUJO',
+        q: 'De acordo com a gramática normativa, assinale a frase em que o pronome relativo foi empregado CORRETAMENTE:',
+        opts: [
+          'O vereador cujo o projeto foi aprovado agradeceu aos colegas.',
+          'A lei municipal a cuja leitura procedemos ontem entrou em vigor.',
+          'O parecer cujo teor foi discutido na comissão recebeu aprovação unânime.',
+          'A sessão que o presidente encerrou ela mais cedo será retomada.'
+        ],
+        ans: 2,
+        exp: 'Gabarito C. O pronome "cujo" indica posse, concorda com o substantivo seguinte ("cujo teor") e JAMAIS admite artigo posposto ("cujo o" é sempre incorreto).'
+      },
+      {
+        num: 5, cat: 'pt', mat: 'Língua Portuguesa • Voz Passiva & Partícula SE',
+        q: 'Assinale a alternativa em que a partícula "SE" atua como pronome apassivador (voz passiva pronominal):',
+        opts: [
+          'Precisa-se de novos servidores efetivos na Câmara Municipal.',
+          'Trata-se de matérias urgentes de interesse do Município.',
+          'Aprovaram-se os projetos de lei complementar na sessão de ontem.',
+          'Trabalha-se com dedicação no setor legislativo.'
+        ],
+        ans: 2,
+        exp: 'Gabarito C. "Aprovaram-se os projetos" = "Os projetos foram aprovados" (Verbo Transitivo Direto sem preposição + SE apassivador, concordando no plural com o sujeito paciente). Nas demais, há índice de indeterminação do sujeito.'
+      },
+      {
+        num: 6, cat: 'pt', mat: 'Língua Portuguesa • Conjunção Integrante x Pronome Relativo',
+        q: 'Assinale a opção em que o vocábulo destacado "QUE" classifica-se morfologicamente como CONJUNÇÃO INTEGRANTE:',
+        opts: [
+          'O presidente da Mesa comunicou QUE a ordem do dia seria prorrogada.',
+          'O decreto legislativo QUE foi publicado hoje aprova as contas.',
+          'A pauta a QUE fizemos referência já está disponível.',
+          'Os documentos QUE chegaram da Prefeitura foram protocolados.'
+        ],
+        ans: 0,
+        exp: 'Gabarito A. Em "comunicou QUE a ordem do dia seria prorrogada" (comunicou ISSO), a palavra "que" introduz oração subordinada substantiva objetiva direta, sendo conjunção integrante. Nas demais, retoma substantivo anterior (pronome relativo).'
+      },
+      {
+        num: 7, cat: 'pt', mat: 'Língua Portuguesa • Ortografia & Parônimos',
+        q: 'Para preencher corretamente as lacunas da frase: "A Mesa Diretora resolveu ________ (corrigir) o erro material da ata e ________ (confirmar) a votação anterior", utilizam-se, respectivamente:',
+        opts: [
+          'ratificar — retificar',
+          'retificar — ratificar',
+          'deferir — infringir',
+          'infligir — diferir'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. RETIFICAR = corrigir, consertar (pense em deixar "reto"). RATIFICAR = confirmar, validar.'
+      },
+      {
+        num: 8, cat: 'pt', mat: 'Língua Portuguesa • Regras de Acentuação',
+        q: 'As palavras "público", "caráter" e "também" são acentuadas graficamente, respectivamente, por serem:',
+        opts: [
+          'Proparoxítona, paroxítona terminada em -r e oxítona terminada em -em.',
+          'Paroxítona, proparoxítona e oxítona terminada em -m.',
+          'Proparoxítona, oxítona terminada em -r e paroxítona.',
+          'Oxítona, paroxítona e proparoxítona.'
+        ],
+        ans: 0,
+        exp: 'Gabarito A. Pú-bli-co (proparoxítona: todas são acentuadas); ca-rá-ter (paroxítona terminada em -r); tam-bém (oxítona terminada em -em).'
+      },
+      {
+        num: 9, cat: 'pt', mat: 'Língua Portuguesa • Pontuação',
+        q: 'Assinale a alternativa em que o emprego da(s) vírgula(s) está INCORRETO por violar regra básica de sintaxe:',
+        opts: [
+          'Meruoca, 18 de outubro de 2026.',
+          'Os cidadãos, que acompanharam a sessão, aplaudiram a iniciativa.',
+          'O Presidente da Câmara Municipal, convocou todos os vereadores para a sessão.',
+          'Senhor Presidente, solicito a palavra pela ordem.'
+        ],
+        ans: 2,
+        exp: 'Gabarito C. Jamais se separa o sujeito ("O Presidente da Câmara Municipal") do seu verbo ("convocou") por uma única vírgula!'
+      },
+      {
+        num: 10, cat: 'pt', mat: 'Língua Portuguesa • Regência Verbal',
+        q: 'Segundo a norma-padrão, o verbo "assistir" no sentido de "ver / presenciar" é transitivo indireto. Assinale a frase correta:',
+        opts: [
+          'Os moradores assistiram a sessão solene pela internet sem preposição.',
+          'Os moradores assistiram à sessão solene de posse dos vereadores.',
+          'A população assistiu o debate político na praça.',
+          'Todos assistiram no julgamento das contas.'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. "Assistir" no sentido de ver/presenciar exige a preposição "a" (quem assiste, assiste A alguma coisa). Como "sessão" é palavra feminina que pede artigo "a", ocorre crase: "assistiram à sessão".'
+      },
+
+      // ================= 11 A 15: MATEMÁTICA & RLM =================
+      {
+        num: 11, cat: 'mat', mat: 'Raciocínio Lógico • Lei de De Morgan (Negação do E)',
+        q: 'A negação lógica correta da proposição composta "O projeto foi votado E a sessão foi encerrada" é:',
+        opts: [
+          'O projeto não foi votado E a sessão não foi encerrada.',
+          'Se o projeto não foi votado, então a sessão não foi encerrada.',
+          'O projeto não foi votado OU a sessão não foi encerrada.',
+          'O projeto foi votado OU a sessão não foi encerrada.'
+        ],
+        ans: 2,
+        exp: 'Gabarito C. Pela 1ª Lei de De Morgan, para negar uma conjunção ("P e Q"), negam-se ambas as proposições e troca-se o conectivo "E" por "OU": (~P ou ~Q).'
+      },
+      {
+        num: 12, cat: 'mat', mat: 'Raciocínio Lógico • Negação da Condicional (MANÉ)',
+        q: 'Qual é a negação lógica da proposição condicional "Se o candidato estuda a Lei Orgânica, então acerta a questão"?',
+        opts: [
+          'Se o candidato não estuda a Lei Orgânica, então não acerta a questão.',
+          'O candidato estuda a Lei Orgânica E não acerta a questão.',
+          'O candidato não estuda a Lei Orgânica OU acerta a questão.',
+          'O candidato não estuda a Lei Orgânica E não acerta a questão.'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. Regra do MANÉ para negar o "Se P, então Q": MAntém a primeira (O candidato estuda a Lei Orgânica) E NEga a segunda (E não acerta a questão).'
+      },
+      {
+        num: 13, cat: 'mat', mat: 'Matemática • Divisão Diretamente Proporcional',
+        q: 'Um lote com 360 processos administrativos será distribuído entre 3 técnicos legislativos em partes diretamente proporcionais a 2, 3 e 4. Quantos processos receberá o técnico que ficará com a MENOR parte?',
+        opts: [
+          '60 processos.',
+          '80 processos.',
+          '120 processos.',
+          '160 processos.'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. Soma das partes = 2 + 3 + 4 = 9. Valor de cada parte = 360 ÷ 9 = 40 processos. A menor parte corresponde a 2 × 40 = 80 processos.'
+      },
+      {
+        num: 14, cat: 'mat', mat: 'Matemática • Porcentagem e Desconto',
+        q: 'Na aquisição de equipamentos para a Câmara, uma impressora teve desconto de 15% no pagamento à vista, saindo por R$ 850,00. Qual era o preço original dessa impressora sem o desconto?',
+        opts: [
+          'R$ 950,00.',
+          'R$ 977,50.',
+          'R$ 1.000,00.',
+          'R$ 1.050,00.'
+        ],
+        ans: 2,
+        exp: 'Gabarito C. Com 15% de desconto, o valor pago corresponde a 85% (0,85) do preço original. Logo: Preço Original = 850 ÷ 0,85 = R$ 1.000,00.'
+      },
+      {
+        num: 15, cat: 'mat', mat: 'Raciocínio Lógico • Negação de Quantificadores',
+        q: 'A negação correta da afirmação "Todos os servidores da Câmara assinaram o ponto eletrônico" é:',
+        opts: [
+          'Nenhum servidor da Câmara assinou o ponto eletrônico.',
+          'Todos os servidores da Câmara deixaram de assinar o ponto.',
+          'Pelo menos um servidor da Câmara não assinou o ponto eletrônico.',
+          'Apenas metade dos servidores assinou o ponto eletrônico.'
+        ],
+        ans: 2,
+        exp: 'Gabarito C. A negação do quantificador universal "Todo A é B" é sempre um quantificador existencial: "Algum A não é B" / "Pelo menos um A não é B". Jamais se nega "Todo" com "Nenhum"!'
+      },
+
+      // ================= 16 A 20: NOÇÕES DE INFORMÁTICA =================
+      {
+        num: 16, cat: 'info', mat: 'Informática • Atalhos do Microsoft Word (Português)',
+        q: 'No Microsoft Word (versão em português), os atalhos de teclado utilizados para SALVAR o documento atual e para LOCALIZAR uma palavra no texto são, respectivamente:',
+        opts: [
+          'Ctrl + S e Ctrl + F',
+          'Ctrl + B e Ctrl + L',
+          'Ctrl + G e Ctrl + P',
+          'Ctrl + T e Ctrl + U'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. No Word em português: Ctrl + B salva o documento; Ctrl + L abre a ferramenta Localizar; Ctrl + U abre Substituir; Ctrl + T seleciona todo o texto.'
+      },
+      {
+        num: 17, cat: 'info', mat: 'Informática • Fórmulas do Microsoft Excel',
+        q: 'Considere uma planilha do Microsoft Excel em que as células de A1 até A5 possuem 4 números e 1 palavra (texto). Qual função retorna o total de células NÃO VAZIAS desse intervalo (resultando em 5)?',
+        opts: [
+          '=CONT.NÚM(A1:A5)',
+          '=SOMA(A1;A5)',
+          '=CONT.VALORES(A1:A5)',
+          '=MÉDIA(A1:A5)'
+        ],
+        ans: 2,
+        exp: 'Gabarito C. A função =CONT.VALORES(A1:A5) conta todas as células preenchidas (não vazias), sejam números ou textos. Já =CONT.NÚM conta apenas células com números.'
+      },
+      {
+        num: 18, cat: 'info', mat: 'Informática • Navegadores Web',
+        q: 'Durante o uso do navegador Google Chrome ou Microsoft Edge no Windows, caso o usuário feche acidentalmente uma guia (aba) importante, qual atalho permite REABRIR imediatamente a última guia fechada?',
+        opts: [
+          'Ctrl + Shift + T',
+          'Ctrl + T',
+          'Ctrl + Shift + N',
+          'Ctrl + W'
+        ],
+        ans: 0,
+        exp: 'Gabarito A. Ctrl + Shift + T restaura a última guia fechada. (Ctrl + T abre nova guia em branco; Ctrl + W fecha a guia atual; Ctrl + Shift + N abre janela anônima).'
+      },
+      {
+        num: 19, cat: 'info', mat: 'Informática • Segurança da Informação (Malwares)',
+        q: 'O tipo de código malicioso (malware) que sequestra os dados do computador por meio de criptografia e exige o pagamento de um resgate financeiro (geralmente em criptomoedas) para devolver o acesso aos arquivos é chamado de:',
+        opts: [
+          'Spyware.',
+          'Adware.',
+          'Ransomware.',
+          'Firewall.'
+        ],
+        ans: 2,
+        exp: 'Gabarito C. Ransomware ("ransom" = resgate) criptografa os arquivos da vítima e cobra resgate para liberar a chave descriptográfica. A principal prevenção é manter Backup atualizado fora da rede.'
+      },
+      {
+        num: 20, cat: 'info', mat: 'Informática • Windows & Armazenamento',
+        q: 'No sistema operacional Windows 10/11, ao selecionar um arquivo no Explorador de Arquivos e pressionar a combinação de teclas "Shift + Delete", o sistema irá:',
+        opts: [
+          'Enviar o arquivo para a Lixeira com proteção contra exclusão.',
+          'Excluir o arquivo permanentemente (após confirmação), sem enviá-lo para a Lixeira.',
+          'Criar uma cópia de backup automática na pasta Documentos.',
+          'Compactar o arquivo no formato .ZIP.'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. O atalho Shift + Delete exclui o item de forma permanente, ignorando a passagem pela Lixeira do Windows.'
+      },
+
+      // ================= 21 A 40: CONHECIMENTOS ESPECÍFICOS & LEGISLAÇÃO =================
+      {
+        num: 21, cat: 'esp', mat: 'Lei Orgânica de Meruoca • Autonomia e Poderes',
+        q: 'Nos termos da Constituição Federal e da Lei Orgânica do Município de Meruoca/CE, o Município goza de autonomia política, administrativa e financeira, sendo seus Poderes independentes e harmônicos entre si:',
+        opts: [
+          'O Legislativo, o Executivo e o Judiciário Municipal.',
+          'Apenas o Poder Legislativo e o Poder Executivo.',
+          'O Prefeito, o Juiz de Direito da Comarca e o Promotor de Justiça.',
+          'A Câmara Municipal, a Prefeitura e o Tribunal de Contas Municipal.'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. Na esfera municipal existem APENAS dois Poderes: o Legislativo (exercido pela Câmara Municipal) e o Executivo (exercido pelo Prefeito). Não há Poder Judiciário nem Ministério Público municipais.'
+      },
+      {
+        num: 22, cat: 'esp', mat: 'Lei Orgânica & CF/88 • Controle Externo e Parecer do TCE',
+        q: 'A fiscalização do Município é exercida pelo Poder Legislativo Municipal, mediante controle externo, com o auxílio do Tribunal de Contas do Estado. O parecer prévio emitido pelo Tribunal de Contas sobre as contas anuais do Prefeito:',
+        opts: [
+          'É meramente opinativo e pode ser derrubado por maioria simples dos vereadores presentes.',
+          'Só deixará de prevalecer por decisão de 2/3 (dois terços) dos membros da Câmara Municipal.',
+          'Vincula absolutamente os vereadores, que não podem votar contra o parecer do TCE.',
+          'Deixa de prevalecer pelo voto da maioria absoluta da Mesa Diretora.'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. Art. 31, § 2º da CF/88 e Lei Orgânica: O parecer prévio do Tribunal de Contas sobre as contas que o Prefeito deve anualmente prestar SÓ deixará de prevalecer por decisão de 2/3 (dois terços) dos membros da Câmara.'
+      },
+      {
+        num: 23, cat: 'esp', mat: 'Lei Orgânica & CF/88 • Exame das Contas pelos Contribuintes',
+        q: 'As contas do Município de Meruoca ficarão, anualmente, à disposição de qualquer contribuinte, para exame e apreciação, o qual poderá questionar-lhes a legitimidade nos termos da lei, durante o prazo de:',
+        opts: [
+          '30 (trinta) dias.',
+          '45 (quarenta e cinco) dias.',
+          '60 (sessenta) dias.',
+          '90 (noventa) dias.'
+        ],
+        ans: 2,
+        exp: 'Gabarito C. Art. 31, § 3º da CF/88 e LOM: As contas dos Municípios ficarão, durante 60 (sessenta) dias, anualmente, à disposição de qualquer contribuinte.'
+      },
+      {
+        num: 24, cat: 'esp', mat: 'Lei Orgânica & CF/88 • Iniciativa Popular de Lei',
+        q: 'A iniciativa popular de projetos de lei de interesse específico do Município, da cidade ou de bairros, perante a Câmara Municipal, exige a manifestação de, pelo menos:',
+        opts: [
+          '1% (um por cento) da população total do Estado.',
+          '5% (cinco por cento) do eleitorado do Município.',
+          '10% (dez por cento) dos servidores públicos municipais.',
+          '2/3 (dois terços) das associações comunitárias locais.'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. Art. 29, XIII da CF/88 e LOM: A iniciativa popular no âmbito municipal exige a subscrição de, no mínimo, 5% do eleitorado do Município.'
+      },
+      {
+        num: 25, cat: 'esp', mat: 'Processo Legislativo • Aprovação e Emenda à Lei Orgânica',
+        q: 'Para que a Lei Orgânica Municipal seja emendada ou alterada pela Câmara Municipal, exige-se votação em:',
+        opts: [
+          'Turno único, aprovada por maioria simples dos presentes.',
+          'Dois turnos, com interstício mínimo de 10 (dez) dias, e aprovação por 2/3 (dois terços) dos membros da Câmara.',
+          'Dois turnos no mesmo dia, aprovada por maioria absoluta.',
+          'Três turnos, com sanção obrigatória do Prefeito Municipal.'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. Art. 29, caput da CF/88 e LOM: A Lei Orgânica e suas emendas são votadas em 2 turnos, com interstício mínimo de 10 dias, e aprovadas por 2/3 dos membros da Câmara Municipal (promulgada pela própria Câmara, sem sanção do Prefeito).'
+      },
+      {
+        num: 26, cat: 'esp', mat: 'Processo Legislativo • Princípio da Irrepetibilidade',
+        q: 'A matéria constante de projeto de lei rejeitado pelo Plenário da Câmara Municipal somente poderá constituir objeto de novo projeto, na mesma sessão legislativa, mediante proposta da:',
+        opts: [
+          'Maioria simples dos vereadores presentes na sessão seguinte.',
+          'Maioria absoluta dos membros da Câmara Municipal.',
+          'Presidência da Câmara de forma monocrática.',
+          'Comissão de Constituição e Justiça por unanimidade.'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. Art. 67 da CF/88 e LOM: Projeto de lei rejeitado só pode ser renovado na mesma sessão legislativa (mesmo ano) mediante proposta da MAIORIA ABSOLUTA dos membros da Câmara.'
+      },
+      {
+        num: 27, cat: 'esp', mat: 'Processo Legislativo • Sanção, Veto e Promulgação',
+        q: 'Aprovado o projeto de lei pela Câmara Municipal, ele é enviado ao Prefeito, que, aquiescendo, o sancionará. Caso o Prefeito permaneça em silêncio após decorrido o prazo de 15 (quinze) dias úteis:',
+        opts: [
+          'O silêncio importará em veto total automático.',
+          'O silêncio do Prefeito importará em sanção tácita.',
+          'O projeto será automaticamente arquivado até o ano seguinte.',
+          'Caberá ao Tribunal de Justiça sancionar a lei municipal.'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. Art. 66, § 3º da CF/88 e LOM: Decorrido o prazo de 15 dias úteis, o silêncio do Chefe do Poder Executivo importa em SANÇÃO TÁCITA. E para derrubar um veto expresso na Câmara, exige-se o voto da MAIORIA ABSOLUTA.'
+      },
+      {
+        num: 28, cat: 'esp', mat: 'Regimento Interno • Resolução vs. Decreto Legislativo',
+        q: 'No processo legislativo da Câmara Municipal, o ato normativo destinado a regular matérias de competência privativa da Casa de caráter político-administrativo com efeitos INTERNOS (como alterações do Regimento Interno e organização de sua Secretaria), promulgado pela Mesa e que NÃO depende de sanção do Prefeito, denomina-se:',
+        opts: [
+          'Lei Delegada.',
+          'Medida Provisória Municipal.',
+          'Resolução.',
+          'Portaria Executiva.'
+        ],
+        ans: 2,
+        exp: 'Gabarito C. RESOLUÇÃO regula matérias de efeito INTERNO da Câmara (ex: Regimento Interno). Já o DECRETO LEGISLATIVO regula matérias exclusivas da Câmara com efeito EXTERNO (ex: julgar contas do Prefeito, conceder título de cidadão). Nenhum dos dois vai à sanção do Prefeito!'
+      },
+      {
+        num: 29, cat: 'esp', mat: 'Regimento Interno & CF/88 • CPI e Limites Financeiros da Câmara',
+        q: 'Sobre o funcionamento da Câmara Municipal e seus limites constitucionais e fiscais, assinale a alternativa CORRETA:',
+        opts: [
+          'A Câmara Municipal pode gastar até 95% de sua receita exclusivamente com a folha de pagamento de seus servidores.',
+          'A Câmara não gastará mais de 70% de sua receita com folha de pagamento, incluído o gasto com o subsídio de seus Vereadores (Art. 29-A, § 1º da CF/88), e seu limite total de despesa com pessoal na LRF é de 6% da Receita Corrente Líquida do Município.',
+          'Para a criação de uma Comissão Parlamentar de Inquérito (CPI) na Câmara, exige-se a aprovação de 2/3 do plenário e autorização do Prefeito.',
+          'Os Vereadores gozam de inviolabilidade por suas opiniões, palavras e votos em todo o território nacional.'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. Dois números que despencam em provas de Câmara: 1) Art. 29-A, § 1º CF: a Câmara não pode gastar mais de 70% de sua receita (duodécimo) com folha de pagamento; 2) Art. 20, III, "a" da LRF: o limite de despesa total com pessoal do Legislativo Municipal é de 6% da RCL. (Nota: inviolabilidade do vereador é restrita à circunscrição do Município, e CPI exige apenas 1/3 dos membros).'
+      },
+      {
+        num: 30, cat: 'esp', mat: 'Nova Lei de Licitações (Lei 14.133/2021) • Modalidades',
+        q: 'De acordo com o Art. 28 da Lei nº 14.133/2021 (Nova Lei de Licitações e Contratos Administrativos), são modalidades de licitação expressamente previstas na nova legislação:',
+        opts: [
+          'Pregão, Concorrência, Tomada de Preços, Convite e Leilão.',
+          'Pregão, Concorrência, Concurso, Leilão e Diálogo Competitivo.',
+          'Concorrência, Tomada de Preços, RDC, Pregão e Concurso.',
+          'Convite, Pregão Presencial, Leilão e Consulta Pública.'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. As 5 únicas modalidades da Lei 14.133/2021 são: Pregão, Concorrência, Concurso, Leilão e Diálogo Competitivo. Tomada de preços, Convite e RDC foram extintos!'
+      },
+      {
+        num: 31, cat: 'esp', mat: 'Nova Lei de Licitações (Lei 14.133/2021) • Alienação de Imóveis e Fases',
+        q: 'Nos termos da Lei nº 14.133/2021, a alienação de bens imóveis da Administração Pública (subordinada à existência de interesse público justificado, avaliação prévia e autorização legislativa) dependerá de licitação na modalidade:',
+        opts: [
+          'Leilão.',
+          'Pregão.',
+          'Concurso.',
+          'Diálogo Competitivo.'
+        ],
+        ans: 0,
+        exp: 'Gabarito A. Grande novidade do Art. 76 da Lei 14.133/2021: a alienação (venda) de bens móveis OU imóveis da Administração agora é feita na modalidade LEILÃO!'
+      },
+      {
+        num: 32, cat: 'esp', mat: 'Nova Lei de Licitações (Lei 14.133/2021) • Inexigibilidade',
+        q: 'Segundo o Art. 74 da Lei nº 14.133/2021, é INEXIGÍVEL a licitação quando inviável a competição, em especial nos casos de contratação de serviços técnicos especializados de natureza predominantemente intelectual com profissionais de notória especialização, sendo expressamente VEDADA a inexigibilidade para:',
+        opts: [
+          'Treinamento e aperfeiçoamento de pessoal.',
+          'Pareceres, perícias e avaliações em geral.',
+          'Serviços de publicidade e divulgação.',
+          'Patrocínio ou defesa de causas judiciais ou administrativas.'
+        ],
+        ans: 2,
+        exp: 'Gabarito C. O Art. 74, III da Lei 14.133/2021 proíbe expressamente a contratação por inexigibilidade para serviços de PUBLICIDADE E DIVULGAÇÃO.'
+      },
+      {
+        num: 33, cat: 'esp', mat: 'Direito Administrativo • Princípios (Art. 37 CF/88)',
+        q: 'Quando o Presidente da Câmara ou o Prefeito inclui seu nome, símbolo de campanha ou fotografia pessoal em placas de inauguração de obras ou em cartilhas institucionais custeadas pelo erário, há violação direta do Art. 37, § 1º da CF/88 e do princípio da:',
+        opts: [
+          'Impessoalidade.',
+          'Autotutela.',
+          'Continuidade.',
+          'Hierarquia.'
+        ],
+        ans: 0,
+        exp: 'Gabarito A. A vedação de promoção pessoal de autoridades ou servidores em publicidade oficial (Art. 37, § 1º da CF/88) decorre diretamente do princípio da IMPESSOALIDADE (e também fere a Moralidade).'
+      },
+      {
+        num: 34, cat: 'esp', mat: 'Direito Administrativo • Desconcentração vs. Descentralização',
+        q: 'Quando a Câmara Municipal de Meruoca cria internamente um novo Departamento de Arquivo e Protocolo subordinado à Diretoria Administrativa, sem criação de nova pessoa jurídica, ocorre o fenômeno administrativo denominado:',
+        opts: [
+          'Descentralização por outorga.',
+          'Desconcentração administrativa.',
+          'Concessão de serviço público.',
+          'Privatização funcional.'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. DesCOncentração (com "O" de Órgão) é a divisão interna de competências dentro da mesma pessoa jurídica, mantendo relação de hierarquia e subordinação. Já DesCEntralização (com "E" de Entidade) cria nova pessoa jurídica.'
+      },
+      {
+        num: 35, cat: 'esp', mat: 'Direito Administrativo • Administração Indireta',
+        q: 'Assinale a alternativa que indica a entidade da Administração Pública Indireta que possui personalidade jurídica de DIREITO PÚBLICO e é criada DIRETAMENTE por lei específica (Art. 37, XIX da CF/88):',
+        opts: [
+          'Sociedade de Economia Mista.',
+          'Empresa Pública.',
+          'Autarquia.',
+          'Organização da Sociedade Civil (OSC).'
+        ],
+        ans: 2,
+        exp: 'Gabarito C. Conforme o Art. 37, XIX da CF/88, somente por lei específica poderá ser CRIADA autarquia (direito público) e AUTORIZADA a instituição de empresa pública, de sociedade de economia mista e de fundação.'
+      },
+      {
+        num: 36, cat: 'esp', mat: 'Direito Administrativo • Anulação vs. Revogação (Súmula 473 STF)',
+        q: 'A respeito da extinção dos atos administrativos pela própria Administração Pública (Princípio da Autotutela), é CORRETO afirmar que:',
+        opts: [
+          'A revogação recai sobre atos ilegais e produz efeitos retroativos (ex tunc).',
+          'A anulação recai sobre atos eivados de vício de ilegalidade e produz efeitos retroativos (ex tunc), enquanto a revogação recai sobre atos válidos por motivo de conveniência e oportunidade, com efeitos prospectivos (ex nunc).',
+          'O Poder Judiciário pode revogar atos discricionários da Câmara Municipal quando discordar da conveniência política.',
+          'Atos vinculados podem ser livremente revogados a qualquer tempo.'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. Regra de ouro (Súmula 473 do STF): ILEGALIDADE = ANULAÇÃO (efeito ex tunc, retroage; fazem Administração e Judiciário). CONVENIÊNCIA/OPORTUNIDADE em ato legal = REVOGAÇÃO (efeito ex nunc, não retroage; exclusiva da Administração).'
+      },
+      {
+        num: 37, cat: 'esp', mat: 'Direito Administrativo • Atributos do Ato Administrativo',
+        q: 'O atributo do ato administrativo pelo qual os atos emanados do Poder Público presumem-se verdadeiros e conformes ao Direito até prova em contrário (presunção relativa ou juris tantum) denomina-se:',
+        opts: [
+          'Autoexecutoriedade absoluta.',
+          'Tipicidade.',
+          'Presunção de legitimidade e veracidade.',
+          'Imperatividade.'
+        ],
+        ans: 2,
+        exp: 'Gabarito C. A presunção de legitimidade e veracidade está presente em TODOS os atos administrativos e é relativa (juris tantum), transferindo ao particular o ônus de provar eventual ilegalidade.'
+      },
+      {
+        num: 38, cat: 'esp', mat: 'Direito Constitucional • Art. 5º (Crimes e Remédios)',
+        q: 'Segundo o Art. 5º, XLII e XLIV da Constituição Federal de 1988, constituem crimes INAFIANÇÁVEIS e IMPRESCRITÍVEIS:',
+        opts: [
+          'A prática da tortura e o tráfico ilícito de entorpecentes.',
+          'A prática do racismo e a ação de grupos armados, civis ou militares, contra a ordem constitucional e o Estado Democrático.',
+          'O terrorismo e os crimes hediondos.',
+          'O peculato e a improbidade administrativa.'
+        ],
+        ans: 1,
+        exp: 'Gabarito B. Mnemônico RAÇÃO: RAcismo (Art. 5º, XLII) e AÇÃO de grupos armados contra a ordem constitucional e o Estado Democrático (Art. 5º, XLIV) são os únicos crimes inafiançáveis e IMPRESCRITÍVEIS da CF/88.'
+      },
+      {
+        num: 39, cat: 'esp', mat: 'Direito Constitucional • Servidores Públicos (Art. 37 a 41)',
+        q: 'De acordo com o Art. 37, XVI e Art. 41 da Constituição Federal de 1988, sobre os servidores públicos é CORRETO afirmar que:',
+        opts: [
+          'O servidor nomeado para cargo de provimento efetivo em virtude de concurso público adquire estabilidade após 3 (três) anos de efetivo exercício, mediante avaliação especial de desempenho.',
+          'A estabilidade é adquirida automaticamente após 2 (dois) anos de posse, inclusive em cargos em comissão.',
+          'É permitida a acumulação remunerada de três cargos públicos de qualquer natureza.',
+          'O prazo de validade do concurso público é de até 5 (cinco) anos.'
+        ],
+        ans: 0,
+        exp: 'Gabarito A. Art. 41 da CF/88: São estáveis após 3 (três) anos de efetivo exercício os servidores nomeados para cargo de provimento efetivo em virtude de concurso público, sendo obrigatória a avaliação especial de desempenho.'
+      },
+      {
+        num: 40, cat: 'esp', mat: 'Redação Oficial • Padrão Ofício (Manual da Presidência)',
+        q: 'De acordo com o Manual de Redação da Presidência da República (3ª edição atualizada), sobre as comunicações oficiais e o Padrão Ofício utilizados pelas Câmaras e Prefeituras, é CORRETO afirmar:',
+        opts: [
+          'Os antigos modelos distintos de Aviso, Ofício e Memorando foram unificados sob o "Padrão Ofício", e o fecho padrão para autoridades de mesmo nível ou inferiores é "Atenciosamente," (e "Respeitosamente," apenas para autoridades superiores).',
+          'Deve-se utilizar o tratamento "Vossa Senhoria" para se dirigir ao Presidente da República.',
+          'O fecho "Saudações cordiais e fraternas" é obrigatório em todos os ofícios da Câmara.',
+          'O Memorando continua sendo o único documento permitido para comunicações externas com cidadãos.'
+        ],
+        ans: 0,
+        exp: 'Gabarito A. Na 3ª edição do Manual de Redação Oficial: 1) Aviso, Ofício e Memorando foram unificados no "Padrão Ofício"; 2) Existem APENAS DOIS fechos oficiais: "Respeitosamente," (para autoridades superiores) e "Atenciosamente," (para autoridades de mesma hierarquia, inferiores ou particulares).'
+      }
+    ];
+
+    let userChoices = {};
+    let currentFilterCat = 'all';
+
+    function render40Questions() {
+      const container = document.getElementById('questionsContainer');
+      container.innerHTML = '';
+      const letters = ['A', 'B', 'C', 'D'];
+
+      const filtered = QUESTIONS_40.filter(item => {
+        if (currentFilterCat === 'all') return true;
+        if (currentFilterCat === 'wrong') {
+          return userChoices[item.num] !== undefined && userChoices[item.num] !== item.ans;
+        }
+        return item.cat === currentFilterCat;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div style="background:white; padding:24px; border-radius:12px; text-align:center; font-weight:700; color:#166534;">🎉 Nenhuma questão pendente neste filtro!</div>`;
+        return;
+      }
+
+      filtered.forEach(item => {
+        const chosen = userChoices[item.num];
+        const isAnswered = chosen !== undefined;
+        const isCorrect = isAnswered && chosen === item.ans;
+
+        const card = document.createElement('div');
+        card.className = 'q-card' + (isAnswered ? (isCorrect ? ' correct-card' : ' wrong-card') : '');
+        card.id = `q40_${item.num}`;
+
+        let optsHtml = '';
+        item.opts.forEach((optTxt, idx) => {
+          let cls = 'opt-btn';
+          if (isAnswered) {
+            if (idx === item.ans) cls += ' is-correct';
+            else if (idx === chosen && chosen !== item.ans) cls += ' is-wrong';
+          }
+          optsHtml += `
+            <button type="button" class="${cls}" id="btn40_${item.num}_${idx}" onclick="choose40(${item.num}, ${idx})">
+              <span class="opt-let">${letters[idx]}</span>
+              <span>${optTxt}</span>
+            </button>
+          `;
+        });
+
+        card.innerHTML = `
+          <div class="q-top">
+            <span class="q-badge">QUESTÃO ${String(item.num).padStart(2, '0')} / 40</span>
+            <span class="q-mat">${item.mat}</span>
+          </div>
+          <div class="q-enun">${item.q}</div>
+          <div class="q-opts">${optsHtml}</div>
+          <div class="q-exp ${isAnswered ? 'visible' : ''}" id="exp40_${item.num}">
+            <strong><i class="fas fa-check-circle" style="color:#16a34a;"></i> Fundamentação Direta:</strong> ${item.exp}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function choose40(qNum, optIdx) {
+      userChoices[qNum] = optIdx;
+      updateLiveScore();
+      render40Questions();
+    }
+
+    function revealAll40() {
+      QUESTIONS_40.forEach(item => {
+        if (userChoices[item.num] === undefined) {
+          userChoices[item.num] = item.ans;
+        }
+      });
+      updateLiveScore();
+      render40Questions();
+      scrollToSection('sec-questoes');
+    }
+
+    function resetQuiz40() {
+      userChoices = {};
+      updateLiveScore();
+      render40Questions();
+    }
+
+    function filterQuestions(cat, btn) {
+      currentFilterCat = cat;
+      document.querySelectorAll('.f-pill').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      render40Questions();
+    }
+
+    function updateLiveScore() {
+      const answeredNums = Object.keys(userChoices);
+      let hits = 0;
+      answeredNums.forEach(numStr => {
+        const q = QUESTIONS_40.find(i => i.num === Number(numStr));
+        if (q && userChoices[q.num] === q.ans) hits++;
+      });
+      const totalAns = answeredNums.length;
+      const pct = totalAns > 0 ? Math.round((hits / totalAns) * 100) : 0;
+      document.getElementById('hitsCount').innerText = hits;
+      document.getElementById('ansCount').innerText = totalAns;
+      document.getElementById('pctCount').innerText = `${pct}%`;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      render40Questions();
+    });
+  </script>
+</body>
+</html>
